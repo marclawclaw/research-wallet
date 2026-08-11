@@ -1,0 +1,814 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" />
+  <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Frequently Asked Questions" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.electrum.org/en/latest/faq.html" />
+<meta property="og:site_name" content="Electrum Documentation" />
+<meta property="og:description" content="How does Electrum work?: Electrum’s focus is speed, with low resource usage and simplifying Bitcoin. Startup times are instant because it operates in conjunction with high-performance servers that ..." />
+<meta property="og:image" content="https://docs.electrum.org/en/latest/_static/og-image.png" />
+<meta property="og:image:alt" content="Electrum Documentation" />
+<meta name="description" content="How does Electrum work?: Electrum’s focus is speed, with low resource usage and simplifying Bitcoin. Startup times are instant because it operates in conjunction with high-performance servers that ..." />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frequently Asked Questions &mdash; Electrum 4 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/electrum.css?v=c7ab9e5e" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://docs.electrum.org/en/latest/faq.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=71af5d5d"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/dark_mode_js/default_light.js?v=c2e647ce"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/versions.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Invoices" href="invoices.html" />
+    <link rel="prev" title="Welcome to the Electrum Documentation!" href="index.html" /> 
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="electrum" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/faq.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/electrum.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="switch-menus">
+                <div class="version-switch"></div>
+                <div class="language-switch"></div>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">GUI and beginners</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-does-electrum-work">How does Electrum work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#does-electrum-trust-servers">Does Electrum trust servers?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-the-seed">What is the seed?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-secure-is-the-seed">How secure is the seed?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#i-have-forgotten-my-password-what-can-i-do">I have forgotten my password. What can I do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-does-electrum-get-the-bitcoin-price-it-uses">How does Electrum get the Bitcoin price it uses?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#my-transaction-has-been-unconfirmed-for-a-long-time-what-can-i-do">My transaction has been unconfirmed for a long time. What can I do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-does-it-mean-to-freeze-an-address-in-electrum">What does it mean to “freeze” an address in Electrum?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-is-the-wallet-encrypted">How is the wallet encrypted?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#does-electrum-support-cold-wallets">Does Electrum support cold wallets?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-i-import-private-keys-from-other-bitcoin-clients">Can I import private keys from other Bitcoin clients?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-i-sweep-private-keys-from-other-bitcoin-clients">Can I sweep private keys from other Bitcoin clients?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where-is-the-electrum-datadir-located">Where is the Electrum datadir located?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where-is-my-wallet-file-located">Where is my wallet file located?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-enable-debug-logging">How to enable debug logging?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-i-do-bulk-payments-with-electrum-batching">Can I do bulk payments with Electrum? (batching)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-electrum-create-and-sign-raw-transactions">Can Electrum create and sign raw transactions?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#electrum-freezes-when-i-try-to-send-bitcoins">Electrum freezes when I try to send bitcoins.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-the-gap-limit">What is the gap limit?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-pre-generate-new-addresses">How can I pre-generate new addresses?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-upgrade-electrum">How do I upgrade Electrum?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#my-anti-virus-has-flagged-electrum-as-malware-what-now">My anti-virus has flagged Electrum as malware! What now?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#electrum-requires-recent-python-my-linux-distribution-does-not-yet-have-it-what-now">Electrum requires recent Python. My Linux distribution does not yet have it. What now?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#i-might-run-my-own-server-are-client-server-connections-authenticated">I might run my own server. Are client-server connections authenticated?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#does-electrum-support-altcoins-cryptocurrencies">Does Electrum support altcoins (“cryptocurrencies”)?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#my-electrum-window-is-black-why-can-t-i-see-anything">My Electrum window is black. Why can’t I see anything?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="invoices.html">Invoices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2fa.html">Two Factor Authentication</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2fa.html#creating-a-wallet">Creating a Wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2fa.html#restoring-from-seed">Restoring from seed</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multisig.html">Multisig Wallets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multisig.html#create-a-pair-of-2-of-2-wallets">Create a pair of 2-of-2 wallets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig.html#receiving">Receiving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig.html#spending">Spending</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multisig.html#transfer-a-file">Transfer a file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multisig.html#use-qr-code">Use QR-Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multisig.html#use-the-cosigner-pool-plugin">Use the Cosigner Pool Plugin</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coldstorage.html">Cold Storage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage.html#create-an-offline-wallet">Create an offline wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage.html#create-a-watching-only-version-of-your-wallet">Create a watching-only version of your wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage.html#create-an-unsigned-transaction">Create an unsigned transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage.html#get-your-transaction-signed">Get your transaction signed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage.html#broadcast-your-transaction">Broadcast your transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware-linux.html">Hardware wallets on Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware-linux.html#dependencies">1. Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware-linux.html#python-libraries">2. Python libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#trezor">Trezor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#ledger">Ledger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#keepkey">KeepKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#digital-bitbox">Digital Bitbox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#bitbox02">BitBox02</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#archos-safe-t">Archos Safe-T</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#coldcard">Coldcard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#jade">Jade</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hardware-linux.html#udev-rules">3. udev rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware-linux.html#done">4. Done</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tails.html">Using the most current Electrum on Tails</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tails.html#steps-to-use-appimage">Steps to use AppImage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#internal-plugins">Internal Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#external-plugins">External Plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#setting-up-the-plugin-password">Setting up the plugin password</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#on-linux">On Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#on-windows">On Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#plugin-development">Plugin Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="malware.html">Malware (and other avenues of losing money)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="malware.html#attack-scenarios">Attack scenarios</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="malware.html#malicious-clone">Malicious clone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="malware.html#clipboard-hijacker">Clipboard hijacker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="malware.html#compromised-pc">Compromised PC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="malware.html#posing-as-support">Posing as support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="malware.html#backup-accessed-by-flatmate-etc">Backup accessed by flatmate/etc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="malware.html#planted-wallet-file">Planted wallet file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="malware.html#defense-best-practices">Defense, best practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="malware.html#help-my-coins-have-been-stolen">Help! My coins have been stolen!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="malware.html#can-i-keep-using-the-wallet">Can I keep using the wallet?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="malware.html#my-anti-virus-has-flagged-electrum-as-malware">My anti-virus has flagged Electrum as malware!</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced users</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="coldstorage_cmdline.html">Using cold storage with the command line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage_cmdline.html#create-an-unsigned-transaction">Create an unsigned transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage_cmdline.html#sign-the-transaction">Sign the transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage_cmdline.html#broadcast-the-transaction">Broadcast the transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardfork.html">How to split your coins using Electrum in case of a fork</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardfork.html#note">Note:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardfork.html#what-is-a-fork">What is a fork?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardfork.html#what-does-it-mean-to-split-your-coins">What does it mean to ‘split your coins’?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardfork.html#fork-detection">Fork detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardfork.html#procedure">Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tor.html">Using Electrum Through Tor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tor.html#list-of-active-onion-servers">List of Active .onion servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tor.html#linux">LINUX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tor.html#option-1-single-server">Option 1: Single Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tor.html#option-2-multiple-servers-but-tor-main">Option 2: Multiple servers but Tor Main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tor.html#windows">WINDOWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tor.html#option-1-connecting-to-a-single-server">Option 1: Connecting to a single Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tor.html#option-2">Option 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gpg-check.html">Verifying GPG signature of Electrum using Linux command line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpg-check.html#obtain-public-gpg-key-for-thomasv">Obtain public GPG key for ThomasV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpg-check.html#download-electrum-and-signature-file-asc">Download Electrum and signature file (asc)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpg-check.html#verify-gpg-signature">Verify GPG signature</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Daemon and Command Line</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cmdline.html">Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html#using-the-inline-help">Using the inline help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html#how-to-use-the-daemon">How to use the daemon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html#magic-words">Magic words</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html#aliases">Aliases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html#formatting-outputs-using-jq">Formatting outputs using jq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#sign-and-verify-message">Sign and verify message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#show-the-values-of-your-unspents">Show the values of your unspents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#select-only-incoming-transactions-from-history">Select only incoming transactions from history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#filter-transactions-by-date">Filter transactions by date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#encrypt-and-decrypt-messages">Encrypt and decrypt messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#export-private-keys-and-sweep-coins">Export private keys and sweep coins</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ssl.html">How to configure SSL with Electrum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ssl.html#add-your-ssl-private-key">Add your SSL private key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssl.html#add-your-ssl-certificate-bundle">Add your SSL certificate bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssl.html#check-that-your-certificate-was-accepted-by-electrum">Check that your certificate was accepted by Electrum</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="merchant.html">How to accept Bitcoin on a website using Electrum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="merchant.html#add-your-ssl-certificate-to-electrum">Add your SSL certificate to Electrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merchant.html#create-and-use-your-merchant-wallet">Create and use your merchant wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merchant.html#start-the-electrum-daemon">Start the Electrum daemon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merchant.html#create-a-signed-payment-request">Create a signed payment request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merchant.html#open-the-payment-request-page-in-your-browser">Open the payment request page in your browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merchant.html#lightning-payments">Lightning payments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="watchtower.html">How to setup a watchtower</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="watchtower.html#how-to-configure-a-watchtower">How to configure a watchtower</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watchtower.html#configure-the-watchtower-in-your-client">Configure the watchtower in your client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="swapserver.html">How to offer Submarine Swaps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="swapserver.html#swap-server-setup">Swap server setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swapserver.html#operation">Operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swapserver.html#shutting-down">Shutting down</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jsonrpc.html">JSONRPC interface</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">For developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="console.html">The Python Console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spv.html">Simple Payment Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seedphrase.html">Electrum Seed Version System</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="seedphrase.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seedphrase.html#motivation">Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seedphrase.html#version-number">Version number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seedphrase.html#list-of-reserved-numbers">List of reserved numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seedphrase.html#seed-generation">Seed generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seedphrase.html#security-implications">Security implications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="protocol.html">Electrum protocol specification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="protocol.html#format">Format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#response">Response</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="protocol.html#methods">Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#server-version">server.version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#server-banner">server.banner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#server-donation-address">server.donation_address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#server-peers-subscribe">server.peers.subscribe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-numblocks-subscribe">blockchain.numblocks.subscribe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-headers-subscribe">blockchain.headers.subscribe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-address-subscribe">blockchain.address.subscribe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-address-get-history">blockchain.address.get_history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-address-get-mempool">blockchain.address.get_mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-address-get-balance">blockchain.address.get_balance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-address-get-proof">blockchain.address.get_proof</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-address-listunspent">blockchain.address.listunspent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-utxo-get-address">blockchain.utxo.get_address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-block-get-header">blockchain.block.get_header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-block-get-chunk">blockchain.block.get_chunk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-transaction-broadcast">blockchain.transaction.broadcast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-transaction-get-merkle">blockchain.transaction.get_merkle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-transaction-get">blockchain.transaction.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-estimatefee">blockchain.estimatefee</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="protocol.html#external-links">External links</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transactions.html">Serialization of unsigned or partially signed transactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transactions.html#extended-public-keys">Extended public keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transactions.html#public-key">Public key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transactions.html#bip32-derivation">BIP32 derivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transactions.html#legacy-electrum-derivation">Legacy Electrum Derivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transactions.html#bitcoin-address">Bitcoin address</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugin_dev.html">Electrum Plugin development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugin_dev.html#plugin-hooks">Plugin Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin_dev.html#directory-structure">Directory structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin_dev.html#the-manifest-json-file">The manifest.json file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin_dev.html#the-plugin-module">The plugin module:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin_dev.html#creating-a-zip-file">Creating a zip file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin_dev.html#hardware-wallet-plugins">Hardware wallet plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugin_rules.html">Plugin rules</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Electrum</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Frequently Asked Questions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/faq.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="frequently-asked-questions">
+<h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Link to this heading"></a></h1>
+<section id="how-does-electrum-work">
+<h2>How does Electrum work?<a class="headerlink" href="#how-does-electrum-work" title="Link to this heading"></a></h2>
+<p>Electrum’s focus is speed, with low resource usage and
+simplifying Bitcoin. Startup times are instant because it
+operates in conjunction with high-performance servers that
+handle the most complicated parts of the Bitcoin system.</p>
+</section>
+<section id="does-electrum-trust-servers">
+<h2>Does Electrum trust servers?<a class="headerlink" href="#does-electrum-trust-servers" title="Link to this heading"></a></h2>
+<p>In short, not really. The Electrum client never sends private keys
+to the servers. In addition, it verifies the information
+reported by servers, using a technique called <a class="reference internal" href="spv.html#spv"><span class="std std-ref">Simple Payment Verification</span></a></p>
+<p>By default, Electrum tries to maintain connections to ~10 servers.
+The client subscribes to block header notifications to all of these,
+and also periodically polls each for dynamic fee estimates.
+For all connected servers except one, that is all they are used for.
+Getting block headers from multiple sources is useful to detect lagging
+servers, chain splits, and forks.</p>
+<p>One of the servers, arbitrarily, is selected as the “main” server.</p>
+<ul class="simple">
+<li><p>The client subscribes to its own addresses (nit: sha256 hashes
+of scriptPubKeys) so that it would be notified of new transactions touching them.
+It also synchronizes the existing history of its addresses.
+This means the client sacrifices some privacy to the server, as the server
+can now reasonably guess that all these addresses belong to the same entity.</p></li>
+<li><p>As above, confirmed transactions are verified via SPV.</p></li>
+<li><p>The server is trusted about unconfirmed transactions.</p></li>
+<li><p>The server can lie by omission. That is, it can “forget” to mention
+(both confirmed and unconfirmed) transactions that are relevant to the client.</p></li>
+<li><p>All connected servers are polled for fee estimates, but whether those values
+are used depends on the “auto-connect” setting of the client.
+With “auto-connect” disabled, only the fee estimates sent by the main server are used.
+With “auto-connect” enabled, the client uses the median of all received fee estimates.
+In either case, low-high sanity limits are applied in the client.</p></li>
+<li><p>The main server is also used to broadcast the transactions the client makes.</p></li>
+<li><p>A list of server peers is also requested by the client, to learn about
+other servers it can use. (There is a list of hardcoded servers in the
+client to bootstrap)</p></li>
+</ul>
+<p>Further, all of the connected servers will see the client’s IP address
+(which might be that of a proxy/VPN/Tor, if used).</p>
+<p>The fast startup times and low resource usage is achieved at the cost of
+the above detailed privacy loss. The protocol and the client is designed
+in a way that minimises trust in the server.</p>
+<p>Anyone can run a server. If you feel strongly about privacy,
+or if SPV-security guarantees are not enough for you, you should
+consider running your own Electrum server.</p>
+</section>
+<section id="what-is-the-seed">
+<h2>What is the seed?<a class="headerlink" href="#what-is-the-seed" title="Link to this heading"></a></h2>
+<p>The seed is a random phrase that is used to generate your private
+keys.</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>slim sugar lizard predict state cute awkward asset inform blood civil sugar
+</pre></div>
+</div>
+<p>Your wallet can be entirely recovered from its seed. For this, select
+the “I already have a seed” option in the wizard.</p>
+</section>
+<section id="how-secure-is-the-seed">
+<h2>How secure is the seed?<a class="headerlink" href="#how-secure-is-the-seed" title="Link to this heading"></a></h2>
+<p>The seed phrase created by Electrum has 132 bits of entropy. This
+means that it provides the same level of security as a Bitcoin private
+key (of length 256 bits). Indeed, an elliptic curve key of length n
+provides n/2 bits of security.</p>
+</section>
+<section id="i-have-forgotten-my-password-what-can-i-do">
+<h2>I have forgotten my password. What can I do?<a class="headerlink" href="#i-have-forgotten-my-password-what-can-i-do" title="Link to this heading"></a></h2>
+<p>It is not possible to recover your password. However, you can restore
+your wallet from its seed phrase and choose a new password.
+If you lose both your password and your seed, there is no way
+to recover your money. This is why we ask you to save your seed
+phrase on paper.</p>
+<p>To restore your wallet from its seed phrase, create a new wallet, select
+the type, choose “I already have a seed” and proceed to input your seed
+phrase.</p>
+</section>
+<section id="how-does-electrum-get-the-bitcoin-price-it-uses">
+<h2>How does Electrum get the Bitcoin price it uses?<a class="headerlink" href="#how-does-electrum-get-the-bitcoin-price-it-uses" title="Link to this heading"></a></h2>
+<p>Electrum gets the Bitcoin price from a third party, but provides
+various options.  Please see menubar &gt; <cite>Tools</cite> &gt; <cite>Preferences</cite> &gt; <cite>Fiat</cite>
+to view the current setting or choose a new one.</p>
+</section>
+<section id="my-transaction-has-been-unconfirmed-for-a-long-time-what-can-i-do">
+<h2>My transaction has been unconfirmed for a long time. What can I do?<a class="headerlink" href="#my-transaction-has-been-unconfirmed-for-a-long-time-what-can-i-do" title="Link to this heading"></a></h2>
+<p>Bitcoin transactions become “confirmed” when miners accept to write
+them in the Bitcoin blockchain. In general, the speed of confirmation
+depends on the fee you attach to your transaction; miners prioritize
+transactions that pay the highest fees.</p>
+<p>Recent versions of Electrum use “dynamic fees” in order to make sure
+that the fee you pay with your transaction is adequate. This feature
+is enabled by default in recent versions of Electrum.</p>
+<p>If you have made a transaction that is unconfirmed, you can:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Wait for a long time. Eventually, your transaction will either be
+confirmed or cancelled. This might take several days.</p></li>
+<li><p>Increase the transaction fee. This is only possible for
+“replaceable” transactions. Electrum creates replaceable transactions
+by default, except for lightning channel open/close transactions.
+Transactions that are replaceable have “Replace by fee: True” in the
+transaction details screen. To increase the fee of a replaceable
+transaction right click on its entry on the history tab and choose
+“Increase Fee”. Set an appropriate fee and click on “OK”. A window will
+popup with the unsigned transaction. Click on “Sign” and then “Broadcast”.</p></li>
+<li><p>Create a “Child Pays for Parent” transaction. A CPFP is a new
+transaction that pays a high fee in order to compensate for the
+small fee of its parent transaction. It can be done by the
+recipient of the funds, or by the sender, if the transaction has a
+change output. To create a CPFP transaction right click on the
+unconfirmed transaction on the history tab and choose
+“Child pays for parent”. Set an appropriate fee and click on “OK”.
+A window will popup with the unsigned transaction. Click on “Sign”
+and then “Broadcast”.</p></li>
+<li><p>Cancel the transaction. This is only possible for “replaceable”
+transactions. Electrum creates replaceable transactions
+by default, except for lightning channel open/close transactions.
+Transactions that are replaceable have “Replace by fee: True” in the
+transaction details screen. To cancel a replaceable transaction
+right click on its entry on the history tab and choose
+“Cancel (double-spend)”. Set an appropriate fee and click on “OK”. A window
+will popup with the unsigned transaction. Click on “Sign” and then
+“Broadcast”.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="what-does-it-mean-to-freeze-an-address-in-electrum">
+<h2>What does it mean to “freeze” an address in Electrum?<a class="headerlink" href="#what-does-it-mean-to-freeze-an-address-in-electrum" title="Link to this heading"></a></h2>
+<p>When you freeze an address, the funds in that address will not be used
+for sending bitcoins. You cannot send bitcoins if you don’t have
+enough funds in the non-frozen addresses.</p>
+</section>
+<section id="how-is-the-wallet-encrypted">
+<h2>How is the wallet encrypted?<a class="headerlink" href="#how-is-the-wallet-encrypted" title="Link to this heading"></a></h2>
+<p>Electrum uses two separate levels of encryption:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Your seed and private keys are encrypted using AES-256-CBC. The
+private keys are decrypted only briefly, when you need to sign a
+transaction; for this you need to enter your password. This is done
+in order to minimize the amount of time during which sensitive
+information is unencrypted in your computer’s memory.</p></li>
+<li><p>In addition, your wallet file may be encrypted on disk. Note that
+the wallet information will remain unencrypted in the memory of
+your computer for the duration of your session. If a wallet is
+encrypted, then its password will be required in order to open
+it. Note that the password will not be kept in memory; Electrum
+does not need it in order to save the wallet on disk, because it
+uses asymmetric encryption (ECIES).</p></li>
+</ul>
+</div></blockquote>
+<p>Wallet file encryption is activated by default since version 2.8. It
+is intended to protect your privacy, but also to prevent you from
+requesting bitcoins on a wallet that you do not control.</p>
+</section>
+<section id="does-electrum-support-cold-wallets">
+<h2>Does Electrum support cold wallets?<a class="headerlink" href="#does-electrum-support-cold-wallets" title="Link to this heading"></a></h2>
+<p>Yes, see <a class="reference internal" href="coldstorage.html#coldstorage"><span class="std std-ref">Cold Storage</span></a>.</p>
+</section>
+<section id="can-i-import-private-keys-from-other-bitcoin-clients">
+<h2>Can I import private keys from other Bitcoin clients?<a class="headerlink" href="#can-i-import-private-keys-from-other-bitcoin-clients" title="Link to this heading"></a></h2>
+<p>In Electrum 2.0, you cannot import private keys in a wallet that has a
+seed. You should sweep them instead.</p>
+<p>If you want to import private keys and not sweep them, you need to
+create a special wallet that does not have a seed.  For this, create a
+new wallet, select “restore”, and instead of typing your seed, type a
+list of private keys, or a list of addresses if you want to create a
+watching-only wallet.</p>
+<img alt="_images/import_addresses.png" src="_images/import_addresses.png" />
+<p>You will need to back up this wallet, because it cannot be
+recovered from a seed.</p>
+</section>
+<section id="can-i-sweep-private-keys-from-other-bitcoin-clients">
+<h2>Can I sweep private keys from other Bitcoin clients?<a class="headerlink" href="#can-i-sweep-private-keys-from-other-bitcoin-clients" title="Link to this heading"></a></h2>
+<p>Sweeping private keys means to send all the bitcoins they control to
+an existing address in your wallet. The private keys you sweep do not
+become a part of your wallet.  Instead, all the bitcoins they control
+are sent to an address that has been deterministically generated from
+your wallet seed.</p>
+<p>To sweep private keys, go to the Wallet menu -&gt; Private Keys -&gt;
+Sweep. Enter the private keys in the appropriate field. Leave the
+“Address” field unchanged. That is the destination address, and it will
+be from your existing electrum wallet. Click on “Sweep”. It’ll now take
+you to the send tab where you can set an appropriate fee and then click
+on “Send” to send the coins to your wallet.</p>
+</section>
+<section id="where-is-the-electrum-datadir-located">
+<span id="datadir"></span><h2>Where is the Electrum datadir located?<a class="headerlink" href="#where-is-the-electrum-datadir-located" title="Link to this heading"></a></h2>
+<p>The data directory of Electrum is where wallet files, config settings,
+logs, blockchain headers, etc are stored.</p>
+<p>On Windows:</p>
+<ul class="simple">
+<li><p>Show hidden files</p></li>
+<li><p>Go to \Users\YourUserName\AppData\Roaming\Electrum (or %APPDATA%\Electrum)</p></li>
+</ul>
+<p>On Mac:</p>
+<ul class="simple">
+<li><p>Open Finder</p></li>
+<li><p>Go to folder (shift+cmd+G) and type ~/.electrum</p></li>
+</ul>
+<p>On Linux:</p>
+<ul class="simple">
+<li><p>Home Folder</p></li>
+<li><p>Go -&gt; Location and type ~/.electrum</p></li>
+</ul>
+</section>
+<section id="where-is-my-wallet-file-located">
+<h2>Where is my wallet file located?<a class="headerlink" href="#where-is-my-wallet-file-located" title="Link to this heading"></a></h2>
+<p>The default wallet file is called default_wallet, which is created when
+you first run the application and is located in the /wallets folder,
+inside the <a class="reference internal" href="#datadir"><span class="std std-ref">datadir</span></a>.</p>
+</section>
+<section id="how-to-enable-debug-logging">
+<h2>How to enable debug logging?<a class="headerlink" href="#how-to-enable-debug-logging" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Logging to file</p>
+<p>On Linux/Windows/macOS, you can enable logging to disk.
+Using the (Qt) GUI, go to menubar&gt;Tools&gt;Preferences&gt;Misc,
+and tick “Write logs to file”. After restarting Electrum,
+debug logs will be written to the <code class="code docutils literal notranslate"><span class="pre">logs/</span></code> folder inside the
+<a class="reference internal" href="#datadir"><span class="std std-ref">datadir</span></a>.</p>
+<p>If you encounter an error while opening a wallet and hence cannot
+get to “Preferences” to enable logging, as a workaround you can
+create a temporary throwaway wallet and access the settings there.</p>
+<p>Using CLI/RPC, you can enable file logging via e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ electrum setconfig log_to_file true
+</pre></div>
+</div>
+</li>
+<li><p>Logging to terminal (standard error)</p>
+<p>On Linux/macOS, if you start Electrum from terminal, you can specify
+the <code class="code docutils literal notranslate"><span class="pre">-v</span></code> flag, to enable debug logs in the terminal (to stderr).
+This option does not work on Windows (when using the binaries).</p>
+<p>On macOS, when using the official binary, try e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ /Applications/Electrum.app/Contents/MacOS/run_electrum -v
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="can-i-do-bulk-payments-with-electrum-batching">
+<h2>Can I do bulk payments with Electrum? (batching)<a class="headerlink" href="#can-i-do-bulk-payments-with-electrum-batching" title="Link to this heading"></a></h2>
+<p>You can create a transaction with several outputs. In the GUI, type
+each address and amount on a line, separated by a comma.</p>
+<img alt="_images/paytomany.png" src="_images/paytomany.png" />
+<p>Amounts are in the current unit set in the client. The
+total is shown in the GUI.</p>
+<p>You can also import a CSV file in the “Pay to” field, by clicking on
+the folder icon.</p>
+</section>
+<section id="can-electrum-create-and-sign-raw-transactions">
+<h2>Can Electrum create and sign raw transactions?<a class="headerlink" href="#can-electrum-create-and-sign-raw-transactions" title="Link to this heading"></a></h2>
+<p>Electrum lets you create and sign raw transactions right from the user
+interface using a form.</p>
+</section>
+<section id="electrum-freezes-when-i-try-to-send-bitcoins">
+<h2>Electrum freezes when I try to send bitcoins.<a class="headerlink" href="#electrum-freezes-when-i-try-to-send-bitcoins" title="Link to this heading"></a></h2>
+<p>This might happen if you are trying to spend a large number of
+transaction outputs (for example, if you have collected hundreds of
+donations from a Bitcoin faucet). When you send Bitcoins, Electrum
+looks for unspent coins that are in your wallet in order to create a
+new transaction. Unspent coins can have different values, much like
+physical coins and bills.</p>
+<p>If this happens, you should consolidate your transaction inputs by
+sending smaller amounts of bitcoins to one of your wallet addresses;
+this would be the equivalent of exchanging a stack of nickels for a
+dollar bill.</p>
+</section>
+<section id="what-is-the-gap-limit">
+<span id="gap-limit"></span><h2>What is the gap limit?<a class="headerlink" href="#what-is-the-gap-limit" title="Link to this heading"></a></h2>
+<p>The gap limit is the maximum number of consecutive unused addresses in
+your deterministic sequence of addresses. Electrum uses it in order
+to stop looking for addresses. In Electrum 2.0, it is set to 20 by
+default, so the client will get all addresses until 20 unused
+addresses are found.</p>
+</section>
+<section id="how-can-i-pre-generate-new-addresses">
+<h2>How can I pre-generate new addresses?<a class="headerlink" href="#how-can-i-pre-generate-new-addresses" title="Link to this heading"></a></h2>
+<p>Electrum will generate new addresses as you use them,
+until it hits the <a class="reference internal" href="#gap-limit">gap limit</a>.</p>
+<p>If you need to pre-generate more addresses, you can do so by typing
+wallet.create_new_address(False) in the console. This command will generate
+one new address. Note that the address will be shown with a red
+background in the address tab to indicate that it is beyond the gap
+limit. The red color will remain until the gap is filled.</p>
+<p>WARNING: Addresses beyond the gap limit will not automatically be
+recovered from the seed. To recover them will require either increasing
+the client’s gap limit or generating new addresses until the used
+addresses are found.</p>
+<p>If you wish to generate more than one address, you can use a “for”
+loop. For example, if you wanted to generate 50 addresses, you could
+do this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">wallet</span><span class="o">.</span><span class="n">create_new_address</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">)]</span>
+</pre></div>
+</div>
+</section>
+<section id="how-do-i-upgrade-electrum">
+<h2>How do I upgrade Electrum?<a class="headerlink" href="#how-do-i-upgrade-electrum" title="Link to this heading"></a></h2>
+<p>Warning: always save your wallet seed on paper before
+doing an upgrade.</p>
+<p>To upgrade Electrum, just install the most recent version.
+The way to do this will depend on your OS.</p>
+<p>Note that your wallet files are stored separately from the
+software, so you can safely remove the old version of the
+software if your OS does not do it for you.</p>
+<p>Some Electrum upgrades will modify the format of your
+wallet files.</p>
+<p>For this reason, it is not recommended to downgrade
+Electrum to an older version once you have opened your
+wallet file with the new version. The older version will
+not always be able to read the new wallet file.</p>
+<p>The following issues should be considered when upgrading
+Electrum 1.x wallets to Electrum 2.x:</p>
+<ul class="simple">
+<li><p>Electrum 2.x will need to regenerate all of your
+addresses during the upgrade process. Please allow it
+time to complete, and expect it to take a little longer
+than usual for Electrum to be ready.</p></li>
+<li><p>The contents of your wallet file will be replaced with
+an Electrum 2 wallet. This means Electrum 1.x will no
+longer be able to use your wallet once the upgrade is
+complete.</p></li>
+<li><p>The “Addresses” tab will not show any addresses the
+first time you launch Electrum 2. This is expected
+behavior. Restart Electrum 2 after the upgrade is
+complete and your addresses will be available.</p></li>
+<li><p>Offline copies of Electrum will not show the
+addresses at all because it cannot synchronize with
+the network. You can force an offline generation of a
+few addresses by typing the following into the
+Console: wallet.synchronize(). When it’s complete,
+restart Electrum and your addresses will once again
+be available.</p></li>
+</ul>
+</section>
+<section id="my-anti-virus-has-flagged-electrum-as-malware-what-now">
+<span id="antivirus"></span><h2>My anti-virus has flagged Electrum as malware! What now?<a class="headerlink" href="#my-anti-virus-has-flagged-electrum-as-malware-what-now" title="Link to this heading"></a></h2>
+<p>Electrum binaries are often flagged by various anti-virus software.
+There is nothing we can do about it, so please stop reporting that to us.
+Anti-virus software uses heuristics in order to determine if a program
+is malware, and that often results in false positives.</p>
+<p>If you trust the developers of the project, you can verify
+the GPG signature of Electrum binaries, and safely ignore any anti-virus
+warnings.</p>
+<p>If you do not trust the developers of the project, you should build the
+binaries yourself, or run the software from source.</p>
+<p>Finally, if you are really concerned about malware, you should not use an
+operating system that relies on anti-virus software.</p>
+</section>
+<section id="electrum-requires-recent-python-my-linux-distribution-does-not-yet-have-it-what-now">
+<h2>Electrum requires recent Python. My Linux distribution does not yet have it. What now?<a class="headerlink" href="#electrum-requires-recent-python-my-linux-distribution-does-not-yet-have-it-what-now" title="Link to this heading"></a></h2>
+<p>There are several ways to resolve this.</p>
+<ol class="arabic">
+<li><p>Use the AppImage distributed by us. This is a single self-contained
+binary that includes all the dependencies.
+Currently, we only distribute this binary for x86_64 (amd64) architecture.
+Just download it, (verify GPG sig), make it executable, and run it. E.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ wget https://download.electrum.org/VERSION/electrum-VERSION-x86_64.AppImage
+$ chmod +x electrum-VERSION-x86_64.AppImage
+$ ./electrum-VERSION-x86_64.AppImage
+</pre></div>
+</div>
+</li>
+<li><p>Use backports (e.g. in case of Debian, check the packages in stable-backports)</p></li>
+<li><p>Upgrade your distribution (e.g. use Debian testing instead of stable)</p></li>
+<li><p>Compile Python yourself, and then install pyqt6 using pip (as the package
+manager for the distribution will only have PyQt6 for the version of
+Python that is packaged by them).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python3 -m pip install --user pyqt6
+</pre></div>
+</div>
+<p>(Unfortunately, it seems pyqt6 via pip is only available for x86/x86_64.
+On other archs, you might have to build Qt/PyQt yourself.)</p>
+</li>
+<li><p>Use a virtual machine where you run another Linux distribution that has
+more recent packages.</p></li>
+</ol>
+</section>
+<section id="i-might-run-my-own-server-are-client-server-connections-authenticated">
+<h2>I might run my own server. Are client-server connections authenticated?<a class="headerlink" href="#i-might-run-my-own-server-are-client-server-connections-authenticated" title="Link to this heading"></a></h2>
+<p>Electrum uses a client-server architecture, where the endpoints speak the
+Electrum protocol. The Electrum protocol is JSON-RPC based.
+The two main stacks the client supports are</p>
+<ol class="arabic simple">
+<li><p>JSON-RPC over SSL/TLS over TCP</p></li>
+<li><p>JSON-RPC over TCP</p></li>
+</ol>
+<p>Note that neither option uses HTTP.</p>
+<p>The client only connects to servers over SSL (so plaintext TCP is not used).
+Prior to Electrum 3.1, there used to be a checkbox in the GUI to toggle this
+but it was removed.</p>
+<p>As for authentication, the client accepts both CA-signed certificates and self-signed
+SSL certificates. When it first connects to a server, it pins the fact whether that
+server is using a CA-signed or a self-signed cert.</p>
+<ul class="simple">
+<li><p>If it is self-signed, it will only accept that cert until it expires for that server (TOFU).</p></li>
+<li><p>If it is CA signed, it will forever only accept CA-signed certs for that server.</p></li>
+</ul>
+<p>For your own server, both CA-signed and self-signed certs have their advantages.</p>
+<ul class="simple">
+<li><p>With self-signed certs, as the client uses TOFU, there is a possibility of
+man-in-the-middle during the first connection.</p></li>
+<li><p>With CA-signed certs, you need to trust the Certificate Authorities.</p></li>
+</ul>
+</section>
+<section id="does-electrum-support-altcoins-cryptocurrencies">
+<h2>Does Electrum support altcoins (“cryptocurrencies”)?<a class="headerlink" href="#does-electrum-support-altcoins-cryptocurrencies" title="Link to this heading"></a></h2>
+<p>No. Electrum only supports Bitcoin.</p>
+<p>The project has never supported any altcoins, only Bitcoin. However Electrum
+is free (as in freedom) software with a permissive license, and there are many
+forks of the software that support specific altcoins. These are separate projects,
+with their own maintainers, independent of Electrum. We do not review their code
+or endorse them in any way. If you are a user of these, please direct any and all
+support requests to their maintainers, instead of us.</p>
+</section>
+<section id="my-electrum-window-is-black-why-can-t-i-see-anything">
+<h2>My Electrum window is black. Why can’t I see anything?<a class="headerlink" href="#my-electrum-window-is-black-why-can-t-i-see-anything" title="Link to this heading"></a></h2>
+<p>Electrum windows can appear black in screenshots and virtual desktops on Windows due to a built-in
+screenshot protection feature that intends to prevent screen capture tools and Microsoft Recall from
+recording your wallet activity and secrets.
+If you want to disable this feature, for example to capture screenshots, you can do so in the
+following two ways:</p>
+<p>1. If you are able to access the GUI, open the <cite>Settings</cite> dialog and uncheck the <cite>[x] Prevent screenshots</cite>
+checkbox in the <cite>Misc</cite> tab of the dialog.</p>
+<ol class="arabic" start="2">
+<li><p>If you cannot even see the GUI it is possible to disable the feature by adding</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;screenshot_protection&quot;: false,
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p>to your Electrum config file.
+The config file location is described in the <a class="reference internal" href="#datadir"><span class="std std-ref">datadir</span></a> section.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the Electrum Documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="invoices.html" class="btn btn-neutral float-right" title="Invoices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2011-2023+, Thomas Voegtlin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
