@@ -59,6 +59,19 @@ The client uses SSL/TLS for all connections (plain TCP was removed as a client-s
 | SPV peer-to-peer (bloom filters) | ~few MB | Partial (IP leakage) | Poor | Minutes |
 | Web wallet / custodial | None (client) | Full server trust | Poor | Instant |
 
+## BlueWallet SPV implementation
+
+BlueWallet connects to Electrum servers via `react-native-tcp-socket` (TCP/SSL). Key differences from Electrum desktop:
+
+- **Default server:** `electrum1.bluewallet.io` (SSL 443) — BlueWallet-operated; trusted by default
+- **Fallback servers:** `electrum.acinq.co` (SSL 50002)
+- **User override:** Y — Settings → Electrum Server; any ElectrumX/Fulcrum endpoint accepted
+- **No Merkle proof verification:** confirmed in FAQ — "The idea is that by default BW doesn't use public electrum servers, only ones hosted by BlueWallet, so they are kinda trusted." This is a weaker security model than Electrum desktop, which verifies Merkle proofs against locally held headers
+- **No Tor:** no Tor/SOCKS proxy support detected in source inspection (2026-08-12); network-level privacy requires system VPN or routing
+- **Server history:** previous Electrum servers stored locally (`ELECTRUM_SERVER_HISTORY`), allowing reconnection preference
+
+Sources: `BlueElectrum.ts` source inspection — accessed 2026-08-12; FAQ.md — accessed 2026-08-12
+
 ## Known CVEs
 
 - **CVE-2012-2459** (severity: low): SPV verification could accept blocks with left-sibling hash duplicates in the Merkle tree, a known Bitcoin protocol flaw. Fixed in Electrum v4.8.0 (July 2026), release note: "fix CVE-2012-2459: reject left-sibling duplicates (#10568)".

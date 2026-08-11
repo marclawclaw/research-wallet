@@ -83,6 +83,26 @@ PSBT includes full UTXO data (previous transaction outputs), which means all par
 | Trezor pre-signed external inputs | Yes (added v4.5.x, `#8324`) |
 | Nostr relay transport (psbt_nostr plugin) | Yes |
 
+## BlueWallet PSBT implementation
+
+BlueWallet uses `bitcoinjs-lib`'s `Psbt` class (TypeScript) for all PSBT construction and signing. Key characteristics:
+
+- **Creation:** `MultisigHDWallet` and `AbstractHDElectrumWallet` both construct `Psbt` objects for transaction signing
+- **Hardware wallet flow:** PSBT exported as file (share sheet on iOS/Android) or BC-UR v2 animated QR (added v8.0.1 for OneKey and Keystone); signed PSBT returned via same channel
+- **Air-gapped:** Coldcard supported via PSBT file import/export; Cobo Vault via QR; BC-UR v2 for Keystone/OneKey
+- **Multisig coordinator:** BlueWallet acts as PSBT coordinator — creates unsigned PSBT, collects partial signatures from cosigners (hardware wallets or other BlueWallet instances), finalises and broadcasts
+- **Unchained cosigner import:** v8.0.1 added import of Unchained JSON as a multisig cosigner, allowing interoperability with Unchained Capital's multisig platform
+- **Crypto library:** v8.0.1 replaced crypto-js with `@noble/secp256k1` and `@noble/ciphers` throughout — improved auditability
+
+**Hardware devices confirmed supported (as of v8.0.1, 2026-08-12):**
+- Ledger (BLE)
+- Coldcard (PSBT file)
+- Cobo Vault (QR)
+- Keystone (BC-UR v2 QR)
+- OneKey (BC-UR v2 QR)
+
+Sources: source inspection of `multisig-hd-wallet.ts`, `abstract-hd-electrum-wallet.ts`, v8.0.1 release notes — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-repos-bluewallet-bluewallet-releases-latest.json)
+
 ## Sources
 
 - [electrum/transaction.py — PSBT implementation](https://github.com/spesmilo/electrum/blob/master/electrum/transaction.py) — accessed 2026-08-10 — source code inspection
