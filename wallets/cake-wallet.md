@@ -82,7 +82,7 @@ The website claims 1,750,000+ users as of 2026 and has been operating since 2018
 ### Signing
 
 - **Local, on-device signing** for all transactions across all supported coins.
-- **Hardware wallet signing:** Ledger (via Bluetooth on iOS/macOS; Bluetooth + USB on Android) supports Monero, BTC, LTC, ETH, and Polygon. Trezor (Bluetooth + USB on Android; Bluetooth on iOS/macOS) supports Monero (added v6.2.1), BTC, LTC, ETH, and Polygon with full passphrase support added in v6.4.0. BitBox supports BTC, ETH, Polygon (Android only).
+- **Hardware wallet signing:** Ledger (via Bluetooth + USB on Android/macOS/Linux; Bluetooth only on iOS) supports Monero, BTC, LTC, ETH, and Polygon. Trezor (Bluetooth + USB on Android/macOS/Linux; Bluetooth only on iOS) supports Monero (added v6.2.1), BTC, LTC, ETH, and Polygon with full passphrase support added in v6.4.0. BitBox supports BTC, ETH, Polygon (Android only).
 - **Air-gapped signing:** COLDCARD supported for Bitcoin via BCUR or BBQR QR-code format. Cupcake (Cake's companion air-gap signing app) also supported.
 - **Monero RingCT:** Ring size 16 decoys (network default); Bulletproof+ range proofs; stealth addresses. All constructed on-device.
 - **PSBT support:** For Bitcoin hardware wallet flows (implied by Sparrow-style COLDCARD integration).
@@ -103,7 +103,7 @@ The website claims 1,750,000+ users as of 2026 and has been operating since 2018
 - **Anypay / URI schemes:** BTC, XMR, ETH URI payment links supported.
 - **Language support:** 24+ languages.
 - **Customisable app:** Custom app icon, theme, display currency, and other visual settings.
-- **Home screen transaction history:** Added in v6.3.2 (July 2026); recent transactions visible on the home screen without navigating to history.
+- **Home screen transaction history:** Added in v6.3.0 (July 2026); recent transactions visible on the home screen without navigating to history.
 
 ### Backup / recovery
 
@@ -125,11 +125,11 @@ The website claims 1,750,000+ users as of 2026 and has been operating since 2018
 **Bitcoin-specific (opt-in):**
 - **Silent Payments:** Reusable, static address that generates unlinkable on-chain outputs per sender. Prevents address reuse tracking.
 - **Payjoin:** Collaborative transaction construction that breaks the common-input-ownership heuristic.
-- **Coin control:** Manual UTXO selection (also available for Litecoin).
+- **Coin control:** Manual UTXO selection available for Bitcoin, Litecoin, Bitcoin Cash, Dogecoin, Monero, and Decred.
 - **MEV protection (Ethereum/Base):** Transactions broadcast privately via Blink Labs before fallback to public mempool.
 
 **Litecoin:**
-- **MWEB (MimbleWimble Extension Blocks):** Confidential transactions hiding amounts and addresses on-chain; available on iOS, Android, and macOS (not Linux at time of writing).
+- **MWEB (MimbleWimble Extension Blocks):** Confidential transactions hiding amounts and addresses on-chain; available on iOS and Android only (desktop platforms — macOS, Linux, Windows — do not get a Private MWEB address).
 
 **Zcash:**
 - **Shielded transactions:** Sender, receiver, and amount hidden on-chain using the Sapling/Orchard shielded pool.
@@ -198,8 +198,8 @@ Supported coins as of v6.4.0 (July 2026):
 
 | Device | Connection | Supported coins |
 |--------|------------|-----------------|
-| Ledger | Bluetooth (iOS/macOS); Bluetooth + USB (Android) | XMR, BTC, LTC, ETH, Polygon |
-| Trezor | Bluetooth (iOS/macOS); Bluetooth + USB (Android) | XMR (added v6.2.1), BTC, LTC, ETH, Polygon; full passphrase support in v6.4.0 |
+| Ledger | Bluetooth only (iOS); Bluetooth + USB (Android/macOS/Linux) | XMR, BTC, LTC, ETH, Polygon |
+| Trezor | Bluetooth only (iOS); Bluetooth + USB (Android/macOS/Linux) | XMR (added v6.2.1), BTC, LTC, ETH, Polygon; full passphrase support in v6.4.0 |
 | BitBox | USB (Android only) | BTC, ETH, Polygon |
 | COLDCARD | Air-gapped QR (BCUR / BBQR) | BTC |
 | Cupcake | Air-gapped QR | Cake's own companion app |
@@ -273,7 +273,7 @@ Cake Wallet's main differentiators within the Monero ecosystem:
 
 - **Windows:** No current v6.x release; only pre-v6.0 builds are available. Desktop overhaul planned for late 2026. Not recommended for production use.
 - **Linux:** No hardware wallet support. No Lightning support. No MWEB support. Desktop overhaul pending.
-- **iOS/macOS:** No USB hardware wallet connection (Apple platform restriction); Bluetooth only.
+- **iOS:** No USB hardware wallet connection (Apple platform restriction); Bluetooth only. macOS and Linux support both Bluetooth and USB.
 - **Tor on iOS:** Requires Orbot or a VPN for comprehensive coverage; built-in Tor has service compatibility issues with some providers on iOS.
 
 ### App store and community criticisms

@@ -19,8 +19,8 @@ Cross-wallet feature comparison table. All entries sourced; `[NOT FOUND]` = no c
 | **Key management** | Wallet groups (multi-currency shared seed) | Yes (BIP39 only) | One BIP39 seed backs multiple currencies; Polyseed/legacy Monero excluded |
 | **Key management** | Key storage location | On-device only | Privacy policy: keys never leave device, never stored by Cake Labs |
 | **Signing** | Local on-device signing | Yes | All coins |
-| **Signing** | Hardware wallet — Ledger | Yes | XMR, BTC, LTC, ETH, Polygon; Bluetooth + USB (Android); Bluetooth only (iOS/macOS) |
-| **Signing** | Hardware wallet — Trezor | Yes | XMR (v6.2.1+), BTC, LTC, ETH, Polygon; full passphrase in v6.4.0 |
+| **Signing** | Hardware wallet — Ledger | Yes | XMR, BTC, LTC, ETH, Polygon; Bluetooth + USB (Android/macOS/Linux); Bluetooth only (iOS) |
+| **Signing** | Hardware wallet — Trezor | Yes | XMR (v6.2.1+), BTC, LTC, ETH, Polygon; Bluetooth + USB (Android/macOS/Linux); Bluetooth only (iOS); full passphrase in v6.4.0 |
 | **Signing** | Hardware wallet — BitBox | Yes (Android only) | BTC, ETH, Polygon; USB only |
 | **Signing** | Hardware wallet — COLDCARD | Yes (air-gapped) | BTC; BCUR or BBQR QR format |
 | **Signing** | Hardware wallet — Linux | [NOT FOUND] — not expected; pending desktop overhaul | — |
@@ -34,7 +34,7 @@ Cross-wallet feature comparison table. All entries sourced; `[NOT FOUND]` = no c
 | **UX** | OpenAlias / Unstoppable Domains | Yes | Human-readable addresses |
 | **UX** | Batch sending | Yes | Monero and Bitcoin |
 | **UX** | Multi-language | Yes | 24+ languages |
-| **UX** | Home screen transaction history | Yes (v6.3.2+) | Recent transactions on dashboard |
+| **UX** | Home screen transaction history | Yes (v6.3.0+) | Recent transactions on dashboard |
 | **Backup / recovery** | Seed phrase backup | Yes | Displayed at wallet creation; manual write-down |
 | **Backup / recovery** | Full app backup file | Yes | Encrypted export; requires fresh install to restore |
 | **Backup / recovery** | Restore by private key | Yes | — |
@@ -46,10 +46,10 @@ Cross-wallet feature comparison table. All entries sourced; `[NOT FOUND]` = no c
 | **Privacy** | Monero Bulletproof+ | Yes (structural) | Range proofs hiding transaction amounts |
 | **Privacy** | Bitcoin Silent Payments | Yes | Static, reusable, unlinkable BTC addresses |
 | **Privacy** | Bitcoin Payjoin | Yes | Collaborative transactions; breaks common-input heuristic |
-| **Privacy** | Litecoin MWEB | Yes | Confidential transactions (iOS, Android, macOS; not Linux) |
+| **Privacy** | Litecoin MWEB | Yes | Confidential transactions (iOS and Android only; desktop platforms — macOS, Linux, Windows — do not get a Private MWEB address) |
 | **Privacy** | Zcash shielded (Sapling/Orchard) | Yes | Sender, receiver, amount hidden on-chain; Ironwood in v6.4.0 |
 | **Privacy** | Zcash autoshielding | Yes | Automatic transparent → shielded sweep |
-| **Privacy** | Coin control (UTXO selection) | Yes | BTC and LTC |
+| **Privacy** | Coin control (UTXO selection) | Yes | Bitcoin, Litecoin, Bitcoin Cash, Dogecoin, Monero, Decred |
 | **Privacy** | Built-in Tor | Yes (opt-in) | Covers node + price API traffic; experimental; slower sync |
 | **Privacy** | Tor + Orbot | Yes | Documented for comprehensive coverage |
 | **Privacy** | ETH/Base MEV protection | Yes | Via Blink Labs; private mempool before public broadcast |
@@ -63,14 +63,14 @@ Cross-wallet feature comparison table. All entries sourced; `[NOT FOUND]` = no c
 | **Exchange / swap** | USDT bridge (ETH/Polygon/Arbitrum) | Yes (v6.1.0+) | In-app cross-chain USDT bridging |
 | **Exchange / swap** | KYC for swaps | [NOT FOUND] — Cake Wallet itself: none; individual providers may have thresholds | — |
 | **Multi-currency** | Number of coins supported | 17 active (Wownero: view-only; Haven: removed) | — |
-| **Multi-currency** | Bitcoin Lightning | Yes (via Spark protocol) | Added v6.0.1 (March 2026); iOS, Android, macOS; not Linux |
+| **Multi-currency** | Bitcoin Lightning | Yes (via Spark protocol) | Added v6.0.0 (March 2026); iOS, Android, macOS; not Linux |
 | **Open source** | Licence | MIT | — |
 | **Open source** | GitHub repo | https://github.com/cake-tech/cake_wallet | Public; all platforms in one repo |
 | **Open source** | Reproducible builds | [NOT FOUND] — no public process; Linux Flatpak GPG verification disabled | Issue #3513 requests this |
 | **Open source** | Security audit (third-party) | [NOT FOUND] — no publicly disclosed audit | — |
 | **Platform** | iOS | Yes | v6.4.0; Bluetooth HW only; Lightning yes |
 | **Platform** | Android | Yes | v6.4.0; Bluetooth + USB HW; Lightning yes; BitBox yes |
-| **Platform** | macOS | Yes | v6.4.0; Bluetooth HW only; Lightning yes |
+| **Platform** | macOS | Yes | v6.4.0; Bluetooth + USB HW; Lightning yes |
 | **Platform** | Linux | Yes | v6.4.0 via Flatpak; no HW wallet; no Lightning; no MWEB |
 | **Platform** | Windows | No (paused) | Pre-v6.0 only; v6.x planned late 2026 |
 | **Security** | PIN authentication | Yes | Device-only; not recoverable by Cake Labs |
