@@ -1,0 +1,76 @@
+> For the complete documentation index, see [llms.txt](https://docs.cakewallet.com/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.cakewallet.com/faq/common-questions.md).
+
+# Common questions
+
+## Is Cake Wallet custodial? Can you recover or freeze my funds?
+
+No. Cake Wallet is **non-custodial** — only you ever hold your keys. Cake never takes custody of your funds and **cannot** access, recover, freeze, reverse, or reset your wallet or your transactions. This is by design: it is what keeps your funds under your control and no one else's.
+
+The trade-off is that backing up your wallet is your responsibility. As long as you keep your **seed phrase** safe, you can always restore — see [Create a backup](https://docs.cakewallet.com/features/managing-your-wallet/create-backup).
+
+## I forgot my PIN
+
+There is **no PIN recovery**. Your PIN is stored only on your device; it cannot be reset, retrieved, or bypassed by Cake Wallet or anyone else.
+
+If you can no longer unlock the app, the only option is to delete the wallet and restore it from your **seed phrase**.
+
+{% hint style="danger" %}
+Do not delete your wallet unless you have your seed phrase (or an encrypted backup file). Without one of those, deleting the wallet means the funds cannot be recovered.
+{% endhint %}
+
+Once you have confirmed you have your seed, you can reinstall or reset the app and [restore from seed or keys](https://docs.cakewallet.com/get-started/setup/restore-existing-wallet/seed-or-keys). This is exactly why keeping a seed backup matters.
+
+## I sent to the wrong address or the wrong network — can I get it back?
+
+Blockchain transactions are **irreversible**. Once a transaction is broadcast and confirmed, no one — including Cake Wallet — can reverse, cancel, or refund it. Always double-check the address and the network before you send.
+
+There is one partial exception. If you sent an **EVM token** (for example an ERC-20 token like USDT) to an address you control but on the *wrong network*, the funds may still be reachable: because the same address exists across EVM chains, you can sometimes import your seed into a wallet configured for the correct network and access them there. If the funds went to an address you do not control, they cannot be recovered.
+
+## I can't send my token — it says I need gas or ETH
+
+Sending a token requires the blockchain's **native coin** to pay the network (gas) fee — the token itself cannot pay the fee. For example:
+
+* Sending **USDT, USDC, or any ERC-20 token on Ethereum** requires a small amount of **ETH**.
+* Sending a token on **Polygon** requires **POL**; on **Tron**, it requires **TRX**; and so on.
+
+If you get an insufficient-gas error, add a small amount of the chain's native coin to the same wallet, then try the send again. For more on adding and managing tokens, see [Add custom tokens](https://docs.cakewallet.com/features/advanced/add-custom-tokens).
+
+## Do I need an account or KYC to use Cake Wallet?
+
+No. Cake Wallet has no accounts, logins, or sign-ups, and using the wallet itself requires **no KYC** (identity verification). You simply create or restore a wallet and you are ready to go.
+
+The only time KYC may apply is when you use certain **third-party** services from inside the app — for example, some buy and sell (fiat on-ramp) providers require identity verification to comply with their own regulations. That requirement comes from the provider, not from Cake Wallet.
+
+## Does Cake Wallet charge a fee?
+
+Cake Wallet does **not** charge a fee to send or receive. When you send, you pay only the **network (miner) fee**, which goes to the blockchain — not to Cake.
+
+Some features that rely on **third-party** providers do carry those providers' rates or fees. For example, in-app swaps/exchanges and buy/sell services build their spread or fee into the quoted rate. Those are set by the provider, so the rate you are shown is what you get.
+
+## Can I use Cake Wallet on Windows or with a hardware wallet?
+
+**Windows:** Windows desktop builds are currently **paused** while the Cake Wallet desktop app is being overhauled and redesigned, so there is no up-to-date Windows app to download right now. In the meantime we recommend the mobile apps (Android or iOS). See [Windows](https://docs.cakewallet.com/get-started/install/windows) for the current status.
+
+**Hardware wallets:** Yes — Cake Wallet supports hardware wallets. See [Hardware wallet](https://docs.cakewallet.com/get-started/setup/restore-existing-wallet/hardware-wallet) for supported devices and setup steps.
+
+
+---
+
+# Agent Instructions
+This documentation is published with GitBook. GitBook is the documentation platform designed so that both humans and AI agents can read, navigate, and reason over technical content effectively. Learn more at gitbook.com.
+
+## Querying This Documentation
+If you need additional information that is not directly available in this page, you can query the documentation dynamically by asking a question.
+
+Perform an HTTP GET request on the current page URL with the `ask` query parameter, and the optional `goal` query parameter:
+
+```
+GET https://docs.cakewallet.com/faq/common-questions.md?ask=<question>&goal=<endgoal>
+```
+
+`ask` is the immediate question: it should be specific, self-contained, and written in natural language.
+`goal` is optional and describes the broader end goal you are ultimately trying to accomplish on behalf of the user. GitBook uses it to tailor the answer towards what is most useful for that goal.
+
+The response will contain a direct answer to the question and relevant excerpts and sources from the documentation.
+
+Use this mechanism when the answer is not explicitly present in the current page, you need clarification or additional context, or you want to retrieve related documentation sections.
