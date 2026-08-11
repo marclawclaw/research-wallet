@@ -34,6 +34,14 @@ Unlike Bitcoin (where you can see all transactions to a given address) or Ethere
 
 **Result:** No two stealth addresses for the same recipient are related — the blockchain shows a different address for every incoming payment. External observers cannot link payments to the same wallet.
 
+## Implementation in Monero GUI
+
+- Stealth address generation and output scanning are handled by the core `libmonero` C++ library, integrated via `libwallet` / `libwalletqt` in the GUI.
+- **Subaddresses:** Monero GUI exposes full subaddress management on the Receive page. Users can generate new subaddresses, label them, and organise them by account. The `Subaddress` and `SubaddressAccount` Qt models (`src/libwalletqt/`) are bound to QML views.
+- **Multiple accounts:** Each wallet can have multiple HD-style accounts, each with its own pool of subaddresses, all derived from the single 25-word master seed.
+- **View-only wallet:** Creating a view-only wallet (`createViewOnly`) in the GUI exports only the private view key. The view-only wallet can scan and identify all incoming outputs for monitoring purposes without exposing the spend key.
+- **Restore height:** Monero GUI uses the traditional 25-word seed, which does **not** encode the creation date. Users must record the restore height manually. If lost, the wallet scans from block 0 (can take many hours). Background sync (`setupBackgroundSync`) added in v0.18.4.2 allows the wallet to keep scanning while locked.
+
 ## Implementation in Cake Wallet
 
 - Stealth address generation is handled by the `monero_c` native library, integrated via Flutter FFI in the `cw_monero` package.

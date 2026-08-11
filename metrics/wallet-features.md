@@ -79,17 +79,39 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 |---------|------------|-----------|---------------|---------|
 | **Platforms** | iOS, Android, macOS, Linux | Windows, macOS, Linux | Windows, macOS, Linux, Tails | Android |
 | **License** | MIT | BSD-3-Clause | BSD-3-Clause | MIT |
-| **Full node** | N (remote node) | Y | N (remote node) | N (remote node) |
-| **Tor** | Y | Y | Y (built-in) | Y |
-| **Hardware wallet** | Y (Ledger, Trezor, BitBox Android-only, Coldcard air-gapped) | Y (Ledger) | N | N |
-| **Seed format** | Polyseed 16-word (default); legacy 25-word; BIP39 | 25-word Monero seed | [NF] | 25-word Monero seed |
+| **Architecture** | Flutter / remote node | C++/Qt/QML — full local node (advanced mode) or remote node | C++/Qt — remote node | Android / remote node |
+| **Latest version** | [NF] | v0.18.5.2 "Fluorine Fermi" (21 July 2026) | [NF] | [NF] |
+| **Full node** | N (remote node) | Y (monerod bundled; optional bootstrap mode) | N (remote node) | N (remote node) |
+| **Tor** | Y | Y (SOCKS5 proxy; daemon flags for p2p routing) | Y (built-in) | Y |
+| **Hardware wallet** | Y (Ledger, Trezor, BitBox Android-only, Coldcard air-gapped) | Y (Ledger Nano S/S+/X/Flex/Gen5; Trezor Model T/Safe 3/Safe 5) | N | N |
+| **Seed format** | Polyseed 16-word (default); legacy 25-word; BIP39 | 25-word Monero seed (standard; no Polyseed; no BIP39) | [NF] | 25-word Monero seed |
+| **Passphrase** | Y | N (wallet file password only; no seed passphrase extension for 25-word) | [NF] | [NF] |
 | **Lightning** | Y (Spark protocol, v6.0.0+) | N | N | N |
-| **Watch-only** | Y (primary address + view key) | Y | Y | Y |
+| **Watch-only** | Y (primary address + view key) | Y (createViewOnly — view key only; spend key withheld) | Y | Y |
 | **Multi-currency** | Y (17 coins: XMR, BTC, ETH, SOL, ZEC, LTC, others) | N (XMR only) | N (XMR only) | N (XMR only) |
 | **Built-in swap** | Y (Chainflip non-custodial + custodial providers) | N | N | N |
-| **Coin control** | Y (BTC, LTC, BCH, DOGE, XMR, DCR) | [NF] | Y | [NF] |
-| **Reproducible builds** | [NF] — no public process | N | [NF] | [NF] |
-| **Security audit** | [NF] — none publicly disclosed | [NF] | Y (Quarkslab 2022) | [NF] |
+| **Subaddresses** | Y | Y (full UI: generate, label, multi-account) | Y | Y |
+| **Multiple accounts** | [NF] | Y (HD-style sub-accounts per wallet) | [NF] | [NF] |
+| **Coin control** | Y (BTC, LTC, BCH, DOGE, XMR, DCR) | N (GUI) — Y via bundled monero-wallet-cli | Y | [NF] |
+| **Multisig** | [NF] | N (GUI) — Y via bundled monero-wallet-cli | [NF] | [NF] |
+| **P2Pool mining** | N | Y (built-in; solo and P2Pool modes; updated to v4.17.1) | N | N |
+| **Cold signing** | N | Y (output export/import + key image workflow) | [NF] | N |
+| **Background sync** | [NF] | Y (v0.18.4.2+; syncs while wallet locked) | [NF] | [NF] |
+| **Reproducible builds** | [NF] — no public process | Y (Windows + Linux Docker reproducible builds; SHA-256 + GPG hashes published) | [NF] | [NF] |
+| **GPG release signing** | [NF] | Y (getmonero.org/downloads/hashes.txt) | [NF] | [NF] |
+| **Security audit** | [NF] — none publicly disclosed | [NF] — no GUI-specific public audit found (HackerOne programme active) | Y (Quarkslab 2022) | [NF] |
+| **Package manager** | N | Y (Flathub, Arch, NixOS, Homebrew cask, Guix) | [NF] | N |
+| **Open-source** | Y (MIT) | Y (BSD-3-Clause) | Y (BSD-3-Clause) | Y (MIT) |
+
+**Sources for Monero GUI column:**
+- [GitHub API: monero-project/monero-gui](https://api.github.com/repos/monero-project/monero-gui) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-api-monero-project-monero-gui.json)
+- [getmonero.org/downloads/](https://www.getmonero.org/downloads/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-getmonero-org-downloads.html)
+- [GitHub releases: v0.18.5.2](https://github.com/monero-project/monero-gui/releases/tag/v0.18.5.2) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-api-monero-gui-releases.json)
+- [Source: src/libwalletqt/Wallet.h](https://raw.githubusercontent.com/monero-project/monero-gui/master/src/libwalletqt/Wallet.h) — Qt API inspection — accessed 2026-08-12
+- [Source: pages/Mining.qml](https://raw.githubusercontent.com/monero-project/monero-gui/master/pages/Mining.qml) — P2Pool confirmed — accessed 2026-08-12
+- [Source: pages/settings/SettingsLayout.qml](https://raw.githubusercontent.com/monero-project/monero-gui/master/pages/settings/SettingsLayout.qml) — SOCKS5 proxy confirmed — accessed 2026-08-12
+- [Source: wizard/WizardModeSelection.qml](https://raw.githubusercontent.com/monero-project/monero-gui/master/wizard/WizardModeSelection.qml) — mode selection confirmed — accessed 2026-08-12
+- [Flathub API: org.getmonero.Monero stats](https://flathub.org/api/v2/stats/org.getmonero.Monero) — accessed 2026-08-12 — [archived](../sources/2026-08-12-flathub-api-monero-gui-stats.json)
 
 ## Zcash wallets
 
