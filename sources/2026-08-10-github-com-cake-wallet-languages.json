@@ -1,0 +1,18 @@
+{
+  "Dart": 8494587,
+  "Shell": 129919,
+  "CMake": 37224,
+  "C++": 29088,
+  "Swift": 11759,
+  "Java": 10512,
+  "Ruby": 10183,
+  "Dockerfile": 9944,
+  "Kotlin": 3925,
+  "Batchfile": 2185,
+  "C": 1831,
+  "Inno Setup": 1763,
+  "Go": 1342,
+  "PowerShell": 1016,
+  "Objective-C": 759,
+  "Nix": 187
+}
