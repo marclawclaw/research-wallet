@@ -57,7 +57,7 @@ Cross-wallet adoption comparison for self-custody software wallets. All figures 
 
 | Wallet | GitHub stars | MAU | Date |
 |--------|-------------|-----|------|
-| Cake Wallet | 1,835 | [NOT FOUND] | 2026-08-10 |
+| Cake Wallet | 1,838 | [NOT FOUND] — structurally unavailable (Monero privacy); self-reported "1,750,000+ users" (unverified, all-time cumulative) | 2026-08-12 |
 | Monero GUI | 2,284 | [NOT FOUND] | 2026-08-10 |
 | Feather Wallet | 572 | [NOT FOUND] | 2026-08-10 |
 | Monerujo | 688 | [NOT FOUND] | 2026-08-10 |

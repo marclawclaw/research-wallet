@@ -81,8 +81,15 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 | **License** | MIT | BSD-3-Clause | BSD-3-Clause | MIT |
 | **Full node** | N (remote node) | Y | N (remote node) | N (remote node) |
 | **Tor** | Y | Y | Y (built-in) | Y |
-| **Hardware wallet** | N | Y (Ledger) | N | N |
-| **Atomic swaps** | Y (XMR↔BTC via COMIT) | N | N | N |
+| **Hardware wallet** | Y (Ledger, Trezor, BitBox Android-only, Coldcard air-gapped) | Y (Ledger) | N | N |
+| **Seed format** | Polyseed 16-word (default); legacy 25-word; BIP39 | 25-word Monero seed | [NF] | 25-word Monero seed |
+| **Lightning** | Y (Spark protocol, v6.0.0+) | N | N | N |
+| **Watch-only** | Y (primary address + view key) | Y | Y | Y |
+| **Multi-currency** | Y (17 coins: XMR, BTC, ETH, SOL, ZEC, LTC, others) | N (XMR only) | N (XMR only) | N (XMR only) |
+| **Built-in swap** | Y (Chainflip non-custodial + custodial providers) | N | N | N |
+| **Coin control** | Y (BTC, LTC, BCH, DOGE, XMR, DCR) | [NF] | Y | [NF] |
+| **Reproducible builds** | [NF] — no public process | N | [NF] | [NF] |
+| **Security audit** | [NF] — none publicly disclosed | [NF] | Y (Quarkslab 2022) | [NF] |
 
 ## Zcash wallets
 
