@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" />
+  <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Electrum Seed Version System" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.electrum.org/en/latest/seedphrase.html" />
+<meta property="og:site_name" content="Electrum Documentation" />
+<meta property="og:description" content="This document describes the Seed Version System used in Electrum (version 2.0 and higher). Description: Electrum derives its private keys and addresses from a seed phrase made of natural language w..." />
+<meta property="og:image" content="https://docs.electrum.org/en/latest/_static/og-image.png" />
+<meta property="og:image:alt" content="Electrum Documentation" />
+<meta name="description" content="This document describes the Seed Version System used in Electrum (version 2.0 and higher). Description: Electrum derives its private keys and addresses from a seed phrase made of natural language w..." />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electrum Seed Version System &mdash; Electrum 4 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/electrum.css?v=c7ab9e5e" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+    <link rel="canonical" href="https://docs.electrum.org/en/latest/seedphrase.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=71af5d5d"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/dark_mode_js/default_light.js?v=c2e647ce"></script>
+      <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/versions.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Electrum protocol specification" href="protocol.html" />
+    <link rel="prev" title="Simple Payment Verification" href="spv.html" /> 
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="electrum" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/seedphrase.html" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/electrum.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="switch-menus">
+                <div class="version-switch"></div>
+                <div class="language-switch"></div>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">GUI and beginners</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-does-electrum-work">How does Electrum work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#does-electrum-trust-servers">Does Electrum trust servers?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-is-the-seed">What is the seed?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-secure-is-the-seed">How secure is the seed?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#i-have-forgotten-my-password-what-can-i-do">I have forgotten my password. What can I do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-does-electrum-get-the-bitcoin-price-it-uses">How does Electrum get the Bitcoin price it uses?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#my-transaction-has-been-unconfirmed-for-a-long-time-what-can-i-do">My transaction has been unconfirmed for a long time. What can I do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-does-it-mean-to-freeze-an-address-in-electrum">What does it mean to “freeze” an address in Electrum?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-is-the-wallet-encrypted">How is the wallet encrypted?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#does-electrum-support-cold-wallets">Does Electrum support cold wallets?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#can-i-import-private-keys-from-other-bitcoin-clients">Can I import private keys from other Bitcoin clients?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#can-i-sweep-private-keys-from-other-bitcoin-clients">Can I sweep private keys from other Bitcoin clients?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#where-is-the-electrum-datadir-located">Where is the Electrum datadir located?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#where-is-my-wallet-file-located">Where is my wallet file located?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-to-enable-debug-logging">How to enable debug logging?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#can-i-do-bulk-payments-with-electrum-batching">Can I do bulk payments with Electrum? (batching)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#can-electrum-create-and-sign-raw-transactions">Can Electrum create and sign raw transactions?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#electrum-freezes-when-i-try-to-send-bitcoins">Electrum freezes when I try to send bitcoins.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-is-the-gap-limit">What is the gap limit?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-can-i-pre-generate-new-addresses">How can I pre-generate new addresses?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-upgrade-electrum">How do I upgrade Electrum?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#my-anti-virus-has-flagged-electrum-as-malware-what-now">My anti-virus has flagged Electrum as malware! What now?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#electrum-requires-recent-python-my-linux-distribution-does-not-yet-have-it-what-now">Electrum requires recent Python. My Linux distribution does not yet have it. What now?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#i-might-run-my-own-server-are-client-server-connections-authenticated">I might run my own server. Are client-server connections authenticated?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#does-electrum-support-altcoins-cryptocurrencies">Does Electrum support altcoins (“cryptocurrencies”)?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#my-electrum-window-is-black-why-can-t-i-see-anything">My Electrum window is black. Why can’t I see anything?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="invoices.html">Invoices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2fa.html">Two Factor Authentication</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2fa.html#creating-a-wallet">Creating a Wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2fa.html#restoring-from-seed">Restoring from seed</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multisig.html">Multisig Wallets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multisig.html#create-a-pair-of-2-of-2-wallets">Create a pair of 2-of-2 wallets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig.html#receiving">Receiving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multisig.html#spending">Spending</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multisig.html#transfer-a-file">Transfer a file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multisig.html#use-qr-code">Use QR-Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multisig.html#use-the-cosigner-pool-plugin">Use the Cosigner Pool Plugin</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coldstorage.html">Cold Storage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage.html#create-an-offline-wallet">Create an offline wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage.html#create-a-watching-only-version-of-your-wallet">Create a watching-only version of your wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage.html#create-an-unsigned-transaction">Create an unsigned transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage.html#get-your-transaction-signed">Get your transaction signed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage.html#broadcast-your-transaction">Broadcast your transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware-linux.html">Hardware wallets on Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware-linux.html#dependencies">1. Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware-linux.html#python-libraries">2. Python libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#trezor">Trezor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#ledger">Ledger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#keepkey">KeepKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#digital-bitbox">Digital Bitbox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#bitbox02">BitBox02</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#archos-safe-t">Archos Safe-T</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#coldcard">Coldcard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hardware-linux.html#jade">Jade</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hardware-linux.html#udev-rules">3. udev rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware-linux.html#done">4. Done</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tails.html">Using the most current Electrum on Tails</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tails.html#steps-to-use-appimage">Steps to use AppImage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#internal-plugins">Internal Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#external-plugins">External Plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#setting-up-the-plugin-password">Setting up the plugin password</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#on-linux">On Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#on-windows">On Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#plugin-development">Plugin Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="malware.html">Malware (and other avenues of losing money)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="malware.html#attack-scenarios">Attack scenarios</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="malware.html#malicious-clone">Malicious clone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="malware.html#clipboard-hijacker">Clipboard hijacker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="malware.html#compromised-pc">Compromised PC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="malware.html#posing-as-support">Posing as support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="malware.html#backup-accessed-by-flatmate-etc">Backup accessed by flatmate/etc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="malware.html#planted-wallet-file">Planted wallet file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="malware.html#defense-best-practices">Defense, best practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="malware.html#help-my-coins-have-been-stolen">Help! My coins have been stolen!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="malware.html#can-i-keep-using-the-wallet">Can I keep using the wallet?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="malware.html#my-anti-virus-has-flagged-electrum-as-malware">My anti-virus has flagged Electrum as malware!</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced users</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="coldstorage_cmdline.html">Using cold storage with the command line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage_cmdline.html#create-an-unsigned-transaction">Create an unsigned transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage_cmdline.html#sign-the-transaction">Sign the transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coldstorage_cmdline.html#broadcast-the-transaction">Broadcast the transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardfork.html">How to split your coins using Electrum in case of a fork</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardfork.html#note">Note:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardfork.html#what-is-a-fork">What is a fork?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardfork.html#what-does-it-mean-to-split-your-coins">What does it mean to ‘split your coins’?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardfork.html#fork-detection">Fork detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardfork.html#procedure">Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tor.html">Using Electrum Through Tor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tor.html#list-of-active-onion-servers">List of Active .onion servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tor.html#linux">LINUX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tor.html#option-1-single-server">Option 1: Single Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tor.html#option-2-multiple-servers-but-tor-main">Option 2: Multiple servers but Tor Main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tor.html#windows">WINDOWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tor.html#option-1-connecting-to-a-single-server">Option 1: Connecting to a single Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tor.html#option-2">Option 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gpg-check.html">Verifying GPG signature of Electrum using Linux command line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpg-check.html#obtain-public-gpg-key-for-thomasv">Obtain public GPG key for ThomasV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpg-check.html#download-electrum-and-signature-file-asc">Download Electrum and signature file (asc)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpg-check.html#verify-gpg-signature">Verify GPG signature</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Daemon and Command Line</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cmdline.html">Command Line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html#using-the-inline-help">Using the inline help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html#how-to-use-the-daemon">How to use the daemon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html#magic-words">Magic words</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html#aliases">Aliases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html#formatting-outputs-using-jq">Formatting outputs using jq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmdline.html#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#sign-and-verify-message">Sign and verify message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#show-the-values-of-your-unspents">Show the values of your unspents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#select-only-incoming-transactions-from-history">Select only incoming transactions from history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#filter-transactions-by-date">Filter transactions by date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#encrypt-and-decrypt-messages">Encrypt and decrypt messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmdline.html#export-private-keys-and-sweep-coins">Export private keys and sweep coins</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ssl.html">How to configure SSL with Electrum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ssl.html#add-your-ssl-private-key">Add your SSL private key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssl.html#add-your-ssl-certificate-bundle">Add your SSL certificate bundle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssl.html#check-that-your-certificate-was-accepted-by-electrum">Check that your certificate was accepted by Electrum</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="merchant.html">How to accept Bitcoin on a website using Electrum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="merchant.html#add-your-ssl-certificate-to-electrum">Add your SSL certificate to Electrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merchant.html#create-and-use-your-merchant-wallet">Create and use your merchant wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merchant.html#start-the-electrum-daemon">Start the Electrum daemon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merchant.html#create-a-signed-payment-request">Create a signed payment request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merchant.html#open-the-payment-request-page-in-your-browser">Open the payment request page in your browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merchant.html#lightning-payments">Lightning payments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="watchtower.html">How to setup a watchtower</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="watchtower.html#how-to-configure-a-watchtower">How to configure a watchtower</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watchtower.html#configure-the-watchtower-in-your-client">Configure the watchtower in your client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="swapserver.html">How to offer Submarine Swaps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="swapserver.html#swap-server-setup">Swap server setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swapserver.html#operation">Operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swapserver.html#shutting-down">Shutting down</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jsonrpc.html">JSONRPC interface</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">For developers</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="console.html">The Python Console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spv.html">Simple Payment Verification</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Electrum Seed Version System</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#motivation">Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-number">Version number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-reserved-numbers">List of reserved numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#seed-generation">Seed generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#security-implications">Security implications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="protocol.html">Electrum protocol specification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="protocol.html#format">Format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#response">Response</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="protocol.html#methods">Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#server-version">server.version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#server-banner">server.banner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#server-donation-address">server.donation_address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#server-peers-subscribe">server.peers.subscribe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-numblocks-subscribe">blockchain.numblocks.subscribe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-headers-subscribe">blockchain.headers.subscribe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-address-subscribe">blockchain.address.subscribe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-address-get-history">blockchain.address.get_history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-address-get-mempool">blockchain.address.get_mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-address-get-balance">blockchain.address.get_balance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-address-get-proof">blockchain.address.get_proof</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-address-listunspent">blockchain.address.listunspent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-utxo-get-address">blockchain.utxo.get_address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-block-get-header">blockchain.block.get_header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-block-get-chunk">blockchain.block.get_chunk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-transaction-broadcast">blockchain.transaction.broadcast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-transaction-get-merkle">blockchain.transaction.get_merkle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-transaction-get">blockchain.transaction.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol.html#blockchain-estimatefee">blockchain.estimatefee</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="protocol.html#external-links">External links</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transactions.html">Serialization of unsigned or partially signed transactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transactions.html#extended-public-keys">Extended public keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transactions.html#public-key">Public key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transactions.html#bip32-derivation">BIP32 derivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transactions.html#legacy-electrum-derivation">Legacy Electrum Derivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transactions.html#bitcoin-address">Bitcoin address</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugin_dev.html">Electrum Plugin development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugin_dev.html#plugin-hooks">Plugin Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin_dev.html#directory-structure">Directory structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin_dev.html#the-manifest-json-file">The manifest.json file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin_dev.html#the-plugin-module">The plugin module:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin_dev.html#creating-a-zip-file">Creating a zip file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin_dev.html#hardware-wallet-plugins">Hardware wallet plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugin_rules.html">Plugin rules</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Electrum</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Electrum Seed Version System</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/seedphrase.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="electrum-seed-version-system">
+<h1>Electrum Seed Version System<a class="headerlink" href="#electrum-seed-version-system" title="Link to this heading"></a></h1>
+<p>This document describes the Seed Version System used in Electrum
+(version 2.0 and higher).</p>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
+<p>Electrum derives its private keys and addresses from a seed phrase
+made of natural language words. Starting with version 2.0, Electrum
+seed phrases include a version number, whose purpose is to indicate
+which derivation should be followed in order to derive private keys
+and addresses.</p>
+<p>In order to eliminate the dependency on a fixed wordlist, the master
+private key and the version number are both obtained by hashes of the
+UTF8 normalized seed phrase. The version number is obtained by looking
+at the first bits of:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hmac_sha_512</span><span class="p">(</span><span class="s2">&quot;Seed version&quot;</span><span class="p">,</span> <span class="n">seed_phrase</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The version number is also used to check seed integrity; in order to
+be correct, a seed phrase must produce a registered version number.</p>
+</section>
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading"></a></h2>
+<p>Early versions of Electrum (before 2.0) used a bidirectional encoding
+between seed phrase and entropy. This type of encoding requires a
+fixed wordlist. This means that future versions of Electrum must ship
+with the exact same wordlist, in order to be able to read old seed
+phrases.</p>
+<p>BIP39 was introduced two years after Electrum. BIP39 seeds include a
+checksum, in order to help users figure out typing errors. However,
+BIP39 suffers the same shortcomings as early Electrum seed phrases:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A fixed wordlist is still required. Following our recommendation,
+BIP39 authors decided to derive keys and addresses in a way that
+does not depend on the wordlist. However, BIP39 still requires the
+wordlist in order to compute its checksum, which is plainly
+inconsistent, and defeats the purpose of our recommendation. This
+problem is exacerbated by the fact that BIP39 proposes to create
+one wordlist per language. This threatens the portability of BIP39
+seed phrases.</p></li>
+<li><p>BIP39 seed phrases do not include a version number. This means that
+software should always know how to generate keys and
+addresses. BIP43 suggests that wallet software will try various
+existing derivation schemes within the BIP32 framework. This is
+extremely inefficient and rests on the assumption that future
+wallets will support all previously accepted derivation
+methods. If, in the future, a wallet developer decides not to
+implement a particular derivation method because it is deprecated,
+then the software will not be able to detect that the corresponding
+seed phrases are not supported, and it will return an empty wallet
+instead. This threatens users funds.</p></li>
+</ul>
+</div></blockquote>
+<p>For these reasons, Electrum does not generate BIP39 seeds. Starting
+with version 2.0, Electrum uses the following Seed Version System,
+which addresses these issues.</p>
+<p>Electrum 2.0 derives keys and addresses from a hash of the UTF8
+normalized seed phrase with no dependency on a fixed wordlist.
+This means that the wordlist can differ between wallets while the seed remains
+portable, and that future wallet implementations will not need
+today’s wordlists in order to be able to decode the seeds
+created today. This reduces the cost of forward compatibility.</p>
+</section>
+<section id="version-number">
+<h2>Version number<a class="headerlink" href="#version-number" title="Link to this heading"></a></h2>
+<p>The version number is a prefix of a hash derived from the seed
+phrase. The length of the prefix is a multiple of 4 bits. The prefix
+is computed as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">version_number</span><span class="p">(</span><span class="n">seed_phrase</span><span class="p">):</span>
+  <span class="c1"># normalize seed</span>
+  <span class="n">normalized</span> <span class="o">=</span> <span class="n">prepare_seed</span><span class="p">(</span><span class="n">seed_phrase</span><span class="p">)</span>
+  <span class="c1"># compute hash</span>
+  <span class="n">h</span> <span class="o">=</span> <span class="n">hmac_sha_512</span><span class="p">(</span><span class="s2">&quot;Seed version&quot;</span><span class="p">,</span> <span class="n">normalized</span><span class="p">)</span>
+  <span class="c1"># use hex encoding, because prefix length is a multiple of 4 bits</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">)</span>
+  <span class="c1"># the length of the prefix is written on the first 4 bits</span>
+  <span class="c1"># for example, the prefix &#39;101&#39; is of length 4*3 bits = 4*(1+2)</span>
+  <span class="n">length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="mi">2</span>
+  <span class="c1"># read the prefix</span>
+  <span class="n">prefix</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">length</span><span class="p">]</span>
+  <span class="c1"># return version number</span>
+  <span class="k">return</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The normalization function (prepare_seed) removes all but one space
+between words. It also removes diacritics, and it removes spaces
+between Asian CJK characters.</p>
+</section>
+<section id="list-of-reserved-numbers">
+<h2>List of reserved numbers<a class="headerlink" href="#list-of-reserved-numbers" title="Link to this heading"></a></h2>
+<p>The following version numbers are used for Electrum seeds.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Number</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0x01</p></td>
+<td><p>Standard</p></td>
+<td><p>P2PKH and Multisig P2SH wallets</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x100</p></td>
+<td><p>Segwit</p></td>
+<td><p>Segwit: P2WPKH and P2WSH wallets</p></td>
+</tr>
+<tr class="row-even"><td><p>0x101</p></td>
+<td><p>2FA</p></td>
+<td><p>Two-factor authenticated wallets</p></td>
+</tr>
+</tbody>
+</table>
+<p>In addition, the version bytes of master public/private keys indicate
+what type of output script should be used, and on which network. The
+prefixes are detailed <a class="reference external" href="xpub_version_bytes.html">here</a>.</p>
+</section>
+<section id="seed-generation">
+<h2>Seed generation<a class="headerlink" href="#seed-generation" title="Link to this heading"></a></h2>
+<p>When the seed phrase is hashed during seed generation, the resulting hash must
+begin with the correct version number prefix. This is achieved by enumerating a
+nonce and re-hashing the seed phrase until the desired version number is
+created. This requirement does not decrease the security of the seed (up to the
+cost of key stretching, that might be required to generate the private keys).</p>
+</section>
+<section id="security-implications">
+<h2>Security implications<a class="headerlink" href="#security-implications" title="Link to this heading"></a></h2>
+<p>Electrum currently use the same wordlist as BIP39 (2048 words). A
+typical seed has 12 words, which results in 132 bits of entropy in the
+choice of the seed.</p>
+<p>Following BIP39, 2048 iterations of key stretching are added for the
+generation of the master private key. In terms of hashes, this is
+equivalent to adding an extra 11 bits of security to the seed
+(2048=2^11).</p>
+<p>From the point of view of an attacker, the constraint added by
+imposing a prefix to the seed version hash does not decrease the
+entropy of the seed, because there is no knowledge gained on the seed
+phrase. The attacker still needs to enumerate and test 2^n candidate
+seed phrases, where n is the number of bits of entropy used to
+generate the seed.</p>
+<p>However, the test made by the attacker will return faster if the
+candidate seed is not a valid seed, because the attacker does not need
+to generate the key. This means that the imposed prefix reduces the
+strength of key stretching.</p>
+<p>Let n denote the number of entropy bits of the seed, and m the number
+of bits of difficulty added by key stretching: m =
+log2(stretching_iterations). Let k denote the length of the prefix, in
+bits.</p>
+<p>On each iteration of the attack, the probability of obtaining a valid seed is p = 2^-k</p>
+<p>The number of hashes required to test a candidate seed is: p * (1+2^m) + (1-p)*1 = 1 + 2^(m-k)</p>
+<p>Therefore, the cost of an attack is: 2^n * (1 + 2^(m-k))</p>
+<p>This can be approximated as 2^(n + m - k) if m&gt;k and as 2^n otherwise.</p>
+<p>With the standard values currently used in Electrum, we obtain:
+2^(132 + 11 - 8) = 2^135. This means that a standard Electrum seed
+is equivalent, in terms of hashes, to 135 bits of entropy.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="spv.html" class="btn btn-neutral float-left" title="Simple Payment Verification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="protocol.html" class="btn btn-neutral float-right" title="Electrum protocol specification" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2011-2023+, Thomas Voegtlin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

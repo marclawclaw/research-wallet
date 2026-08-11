@@ -1,0 +1,75 @@
+# Cross-Wallet Adoption Metrics
+
+Cross-wallet adoption comparison for self-custody software wallets. All figures retrieved 2026-08-10.
+
+**Methodology notes:**
+- MAU = Monthly Active Users, where self-reported or from credible analyst sources.
+- GitHub stars = proxy metric where MAU unavailable.
+- Download counts from app stores or AppBrain.
+- [NOT FOUND] = no credible public figure located on 2026-08-10.
+- All figures are point-in-time; wallet markets fluctuate significantly.
+
+## Bitcoin wallets
+
+| Wallet | GitHub stars | Forks | Contributors | MAU | Android installs | iOS installs | Date |
+|--------|-------------|-------|--------------|-----|-----------------|--------------|------|
+| Electrum | 8,561 | 3,463 | ~350 | [NOT FOUND] | 1M+ | N/A (no iOS app) | 2026-08-10 |
+| BlueWallet | 3,264 | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | 2026-08-10 |
+| Sparrow Wallet | 2,083 | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | N/A (desktop only) | N/A (desktop only) | 2026-08-10 |
+| Phoenix | 855 | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | 2026-08-10 |
+
+**Sources:**
+- Electrum: [GitHub API](https://api.github.com/repos/spesmilo/electrum) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-api-spesmilo-electrum.json)
+- BlueWallet: [GitHub API](https://api.github.com/repos/bluewallet/bluewallet) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-bluewallet-bluewallet.json)
+- Sparrow: [GitHub API](https://api.github.com/repos/sparrowwallet/sparrow) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-sparrowwallet-sparrow.json)
+- Phoenix: [GitHub API](https://api.github.com/repos/ACINQ/phoenix) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-acinq-phoenix.json)
+- Electrum Android installs: _index.md citing AppBrain (credential required for live data); electrum.org notes "available on Google Play" with 1M+ badge
+
+## Ethereum/EVM wallets
+
+| Wallet | GitHub stars | MAU | Downloads/installs | Date |
+|--------|-------------|-----|--------------------|------|
+| MetaMask | 13,195 (metamask-extension) | 30M+ (April 2026) | 143M lifetime | 2026-08-10 |
+| Trust Wallet | [NOT FOUND] (no single main repo) | 60M (all chains, early 2025) | 220M+ total | 2026-08-10 |
+| Rabby | 1,872 | [NOT FOUND] | 4.2M installs (2025) | 2026-08-10 |
+| Rainbow | 4,379 | [NOT FOUND] | [NOT FOUND] | 2026-08-10 |
+
+**Sources:**
+- MetaMask: [coinlaw.io/metamask-wallet-statistics/](https://coinlaw.io/metamask-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-metamask-wallet-statistics.html)
+- Trust Wallet: [coinlaw.io trust-wallet-statistics (archived as metamask)](../sources/2026-08-10-coinlaw-io-metamask-wallet-statistics.html) — see _index.md
+- Rabby: [coinlaw.io/rabby-wallet-statistics/](https://coinlaw.io/rabby-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-rabby-wallet-statistics.html)
+- Rainbow: [GitHub API](https://api.github.com/repos/rainbow-me/rainbow) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-rainbow-me-rainbow.json)
+
+## Solana wallets
+
+| Wallet | GitHub stars | MAU | Market share | Date |
+|--------|-------------|-----|--------------|------|
+| Phantom | [NOT FOUND] (closed source) | 15–17M (2025 peak) | 39.4% Solana wallets | 2026-08-10 |
+| Solflare | [NOT FOUND] | 4M (Jan 2026) | [NOT FOUND] | 2026-08-10 |
+| Backpack | 1,650 | 100,000+ | [NOT FOUND] | 2026-08-10 |
+
+**Sources:**
+- Phantom: [coinlaw.io/phantom-wallet-statistics/](https://coinlaw.io/phantom-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-phantom-wallet-statistics.html)
+- Solflare: [coinlaw.io/solflare-wallet-statistics/](https://coinlaw.io/solflare-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-solflare-wallet-statistics.html)
+- Backpack: [GitHub API](https://api.github.com/repos/coral-xyz/backpack) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-coral-xyz-backpack.json)
+
+## Monero wallets
+
+| Wallet | GitHub stars | MAU | Date |
+|--------|-------------|-----|------|
+| Cake Wallet | 1,835 | [NOT FOUND] | 2026-08-10 |
+| Monero GUI | 2,284 | [NOT FOUND] | 2026-08-10 |
+| Feather Wallet | 572 | [NOT FOUND] | 2026-08-10 |
+| Monerujo | 688 | [NOT FOUND] | 2026-08-10 |
+
+**Sources:** GitHub API — see _index.md and archived `.json` files in sources/.
+
+## Zcash wallets
+
+| Wallet | GitHub stars | MAU | Date |
+|--------|-------------|-----|------|
+| Zodl (formerly Zashi) | 94 (zodl-android) | [NOT FOUND] | 2026-08-10 |
+| YWallet | 62 (zwallet) | [NOT FOUND] | 2026-08-10 |
+| Nighthawk | [NOT FOUND] | [NOT FOUND] | 2026-08-10 |
+
+**Sources:** GitHub API — see _index.md and archived `.json` files in sources/.

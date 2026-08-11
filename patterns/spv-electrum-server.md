@@ -1,0 +1,71 @@
+---
+tags: [pattern, spv, bitcoin, lightweight-client, server-protocol]
+applies_to: [electrum]
+---
+
+# Pattern: SPV via Electrum Server Protocol
+
+Electrum implements a specific variant of SPV (Simplified Payment Verification) that differs from the Nakamoto SPV described in the Bitcoin whitepaper. Rather than connecting peer-to-peer with full nodes, it uses a dedicated client-server protocol (JSON-RPC over SSL/TLS or plain TCP) with specialised indexing servers.
+
+## Core mechanism
+
+1. **Block headers only.** The client downloads and validates the chain of block headers (80 bytes each), maintaining the longest proof-of-work chain. Full blocks are never downloaded.
+
+2. **Address subscription.** The client sends the server the SHA-256 hashes of its scriptPubKeys (not the raw addresses or public keys). The server subscribes the client to notifications when transactions affecting those hashes are confirmed or appear in mempool.
+
+3. **Merkle proof verification.** For each confirmed transaction, the client requests a Merkle inclusion proof. It verifies the proof against the locally held header chain, confirming the transaction was included in a valid block without downloading the full block.
+
+4. **Multi-server redundancy.** The client connects to ~10 servers simultaneously. All servers supply block headers (useful for detecting chain splits and lagging servers). One server is designated "main" — used for address subscriptions, broadcasting transactions, and (optionally) fee estimates.
+
+5. **Fee estimation.** All connected servers are polled for fee estimates. With auto-connect enabled, the client uses the median value. Sanity limits (low/high) are applied client-side.
+
+## Trust model
+
+| Action | Trusted party | Attack risk |
+|--------|---------------|-------------|
+| Confirmed transaction inclusion | SPV-verified (Merkle proof) | Low — would require rewriting the chain |
+| Unconfirmed transaction reporting | Main server | Medium — server can fabricate mempool entries |
+| Lie by omission (withholding txs) | Main server | Medium — client cannot detect if server hides transactions |
+| Fee estimates | Median of all servers | Low — requires majority collusion |
+| IP address visibility | All connected servers | High — server sees client IP; mitigated by Tor |
+| Address set privacy | Main server | High — server infers all addresses belong to same wallet |
+
+## Privacy implications
+
+The address-subscription model reveals to the server that all subscribed scriptPubKey hashes likely belong to the same entity. This is a known and documented trade-off.
+
+Mitigations available in Electrum:
+- Route connections through Tor + .onion Electrum servers
+- Self-host an Electrum server (ElectrumX, Fulcrum) backed by a personal full node
+- Use manual server pinning to a trusted server
+
+## Electrum server protocol
+
+The protocol is versioned JSON-RPC. Key methods include:
+- `blockchain.scripthash.subscribe` — subscribe to a scriptPubKey hash
+- `blockchain.scripthash.get_history` — fetch transaction history
+- `blockchain.transaction.get_merkle` — get Merkle proof for a transaction
+- `blockchain.headers.subscribe` — subscribe to new block headers
+- `mempool.get_fee_histogram` — get fee histogram for dynamic fee estimation
+
+The client uses SSL/TLS for all connections (plain TCP was removed as a client-selectable option in v3.1). Both CA-signed and self-signed certificates are accepted; self-signed certs use TOFU (Trust On First Use) pinning.
+
+## Comparison to alternatives
+
+| Approach | Storage | Trust | Privacy | Startup |
+|----------|---------|-------|---------|---------|
+| Full node (Bitcoin Core) | ~650 GB (2026) | Trustless | Best | Hours–days |
+| SPV via Electrum server | ~few MB headers | Server-trusting | Moderate | Instant |
+| SPV peer-to-peer (bloom filters) | ~few MB | Partial (IP leakage) | Poor | Minutes |
+| Web wallet / custodial | None (client) | Full server trust | Poor | Instant |
+
+## Known CVEs
+
+- **CVE-2012-2459** (severity: low): SPV verification could accept blocks with left-sibling hash duplicates in the Merkle tree, a known Bitcoin protocol flaw. Fixed in Electrum v4.8.0 (July 2026), release note: "fix CVE-2012-2459: reject left-sibling duplicates (#10568)".
+
+## Sources
+
+- [Simple Payment Verification — readthedocs](https://electrum.readthedocs.io/en/latest/spv.html) — accessed 2026-08-10 — [archived](../sources/2026-08-10-electrum-readthedocs-io-spv.html)
+- [Electrum FAQ — Does Electrum trust servers?](https://electrum.readthedocs.io/en/latest/faq.html) — accessed 2026-08-10 — [archived](../sources/2026-08-10-electrum-readthedocs-io-faq-full.html)
+- [Electrum protocol specification — readthedocs](https://electrum.readthedocs.io/en/latest/protocol.html) — accessed 2026-08-10
+- [RELEASE-NOTES v4.8.0 — CVE-2012-2459 fix](https://raw.githubusercontent.com/spesmilo/electrum/master/RELEASE-NOTES) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-spesmilo-electrum-RELEASE-NOTES.txt)
