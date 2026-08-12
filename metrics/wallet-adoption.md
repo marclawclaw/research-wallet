@@ -60,13 +60,13 @@ Cross-wallet adoption comparison for self-custody software wallets. All figures 
 | Cake Wallet | 1,838 | [NOT FOUND] — structurally unavailable (Monero privacy); self-reported "1,750,000+ users" (unverified, all-time cumulative) | 2026-08-12 |
 | Monero GUI | 2,285 | [NOT FOUND] — structurally unavailable (Monero privacy); Flathub (Linux only): 101,837 total installs, 2,135 last 30 days, 398 last 7 days | 2026-08-12 |
 | Feather Wallet | 573 | [NOT FOUND] — structurally unavailable (Monero privacy); v2.8.1 release: 1,643 x64 AppImage downloads, 2,135 ARM64 AppImage downloads, 1,237 ARM32 AppImage downloads (GitHub release asset counters; partial proxy only) | 2026-08-12 |
-| Monerujo | 688 | [NOT FOUND] | 2026-08-10 |
+| Monerujo | 688 | [NOT FOUND] — structurally unavailable (Monero privacy); Google Play tier: 100,000+; Play rating: 3.19/5 (1,176 ratings); latest GitHub APK (v4.1.7): 10,642 direct downloads | 2026-08-12 |
 
 **Sources:**
 - Cake Wallet: GitHub API — see _index.md and archived `.json` files in sources/ — accessed 2026-08-12
 - Monero GUI: [GitHub API](https://api.github.com/repos/monero-project/monero-gui) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-api-monero-project-monero-gui.json); [Flathub API](https://flathub.org/api/v2/stats/org.getmonero.Monero) — accessed 2026-08-12 — [archived](../sources/2026-08-12-flathub-api-monero-gui-stats.json)
 - Feather Wallet: [GitHub API](https://api.github.com/repos/feather-wallet/feather) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-feather-wallet-feather.json); release asset download counts from [GitHub releases API (v2.8.1)](https://api.github.com/repos/feather-wallet/feather/releases/latest) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-feather-wallet-feather-releases-latest.json)
-- Monerujo: GitHub API — see _index.md and archived `.json` files in sources/ — accessed 2026-08-10
+- Monerujo: [GitHub API](https://api.github.com/repos/m2049r/xmrwallet) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-repos-m2049r-xmrwallet.json); [Google Play structured data](https://play.google.com/store/apps/details?id=com.m2049r.xmrwallet) — accessed 2026-08-12 — [archived](../sources/2026-08-12-play-google-com-monerujo.html); [GitHub releases API](https://api.github.com/repos/m2049r/xmrwallet/releases) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-repos-m2049r-xmrwallet-releases.json)
 
 ## Zcash wallets
 

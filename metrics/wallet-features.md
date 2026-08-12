@@ -97,35 +97,48 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 | Feature | Cake Wallet | Monero GUI | Feather Wallet | Monerujo |
 |---------|------------|-----------|---------------|---------|
 | **Platforms** | iOS, Android, macOS, Linux | Windows, macOS, Linux | Windows, macOS, Linux, Tails, Whonix, Qubes | Android |
-| **License** | MIT | BSD-3-Clause | BSD-3-Clause | MIT |
-| **Architecture** | Flutter / remote node | C++/Qt/QML — full local node (advanced mode) or remote node | C++/Qt — remote node only | Android / remote node |
-| **Latest version** | v6.4.0 (27 July 2026) | v0.18.5.2 "Fluorine Fermi" (21 July 2026) | v2.8.1 (14 April 2025) | [NF] |
+| **License** | MIT | BSD-3-Clause | BSD-3-Clause | Apache-2.0 |
+| **Architecture** | Flutter / remote node | C++/Qt/QML — full local node (advanced mode) or remote node | C++/Qt — remote node only | Java + C++ (Monero Core NDK) / remote node |
+| **Latest version** | v6.4.0 (27 July 2026) | v0.18.5.2 "Fluorine Fermi" (21 July 2026) | v2.8.1 (14 April 2025) | v4.1.7 "Exolix" (17 June 2025) |
 | **Full node** | N (remote node) | Y (monerod bundled; optional bootstrap mode) | N (remote node) | N (remote node) |
-| **Tor** | Y (opt-in; toggle in Settings) | Y (SOCKS5 proxy; daemon flags for p2p routing) | Y (bundled + on by default; switch-after-sync mode default; always-Tor option) | Y |
-| **Hardware wallet** | Y (Ledger, Trezor, BitBox Android-only, Coldcard air-gapped) | Y (Ledger Nano S/S+/X/Flex/Gen5; Trezor Model T/Safe 3/Safe 5) | Y (Ledger Nano S/S+/X/Stax/Flex; Trezor Model T/Safe 3/Safe 5; passphrase entry on-device) | N |
-| **Seed format** | Polyseed 16-word (default); legacy 25-word; BIP39 | 25-word Monero seed (standard; no Polyseed; no BIP39) | Polyseed 16-word (default); legacy 14-word (restore only); 25-word Monero (restore + export) | 25-word Monero seed |
-| **Passphrase** | Y | N (wallet file password only; no seed passphrase extension for 25-word) | Y (Polyseed passphrase supported) | [NF] |
+| **Tor** | Y (opt-in; toggle in Settings) | Y (SOCKS5 proxy; daemon flags for p2p routing) | Y (bundled + on by default; switch-after-sync mode default; always-Tor option) | Y (via Orbot; NetCipher integration; toggle on wallet list screen; .onion nodes supported) |
+| **Hardware wallet** | Y (Ledger, Trezor, BitBox Android-only, Coldcard air-gapped) | Y (Ledger Nano S/S+/X/Flex/Gen5; Trezor Model T/Safe 3/Safe 5) | Y (Ledger Nano S/S+/X/Stax/Flex; Trezor Model T/Safe 3/Safe 5; passphrase entry on-device) | P — Ledger Nano S series via USB OTG confirmed (USB HID, firmware ≥1.6.0); Sidekick (Bluetooth 2nd-phone as software HW wallet, open-source companion app); Trezor: library compiled in but no confirmed UI path |
+| **Seed format** | Polyseed 16-word (default); legacy 25-word; BIP39 | 25-word Monero seed (standard; no Polyseed; no BIP39) | Polyseed 16-word (default); legacy 14-word (restore only); 25-word Monero (restore + export) | 25-word Monero seed only (no Polyseed; no BIP39) |
+| **Passphrase** | Y | N (wallet file password only; no seed passphrase extension for 25-word) | Y (Polyseed passphrase supported) | Y (CeasarSeed: Monero seed offset passphrase; supported at restore; confirmed in GenerateFragment.java) |
 | **Lightning** | Y (Spark protocol, v6.0.0+) | N | N | N |
-| **Watch-only** | Y (primary address + view key) | Y (createViewOnly — view key only; spend key withheld) | Y (primary address + secret view key; wizard-guided; QR transfer to offline device) | Y |
-| **Multi-currency** | Y (17 coins: XMR, BTC, ETH, SOL, ZEC, LTC, others) | N (XMR only) | N (XMR only) | N (XMR only) |
-| **Built-in swap** | Y (Chainflip non-custodial + custodial providers) | N | N | N |
-| **Subaddresses** | Y | Y (full UI: generate, label, multi-account) | Y (generate, label; fresh subaddress per receive) | Y |
-| **Multiple accounts** | [NF] | Y (HD-style sub-accounts per wallet) | Y (multiple sub-accounts per wallet; independent history and balance) | [NF] |
-| **Coin control** | Y (BTC, LTC, BCH, DOGE, XMR, DCR) | N (GUI) — Y via bundled monero-wallet-cli | Y (sweep single/multi/all; output splitting; manual input selection; coin labeling; output blackballing) | [NF] |
-| **Multisig** | [NF] | N (GUI) — Y via bundled monero-wallet-cli | N (planned; marked ✖* in feature table) | [NF] |
+| **Watch-only** | Y (primary address + view key) | Y (createViewOnly — view key only; spend key withheld) | Y (primary address + secret view key; wizard-guided; QR transfer to offline device) | Y (address + view key; TYPE_VIEWONLY in LoginFragment; view key shown in wallet details) |
+| **Multi-currency** | Y (17 coins: XMR, BTC, ETH, SOL, ZEC, LTC, others) | N (XMR only) | N (XMR only) | N (XMR only; Exolix swap for outgoing BTC/LTC/ETH/USDT/SOL only) |
+| **Built-in swap** | Y (Chainflip non-custodial + custodial providers) | N | N | Y (Exolix KYC-free swap: XMR → BTC, LTC, ETH, USDT, SOL; centralised provider) |
+| **Subaddresses** | Y | Y (full UI: generate, label, multi-account) | Y (generate, label; fresh subaddress per receive) | Y (generate, label; SubaddressFragment; per-account subaddress pool) |
+| **Multiple accounts** | [NF] | Y (HD-style sub-accounts per wallet) | Y (multiple sub-accounts per wallet; independent history and balance) | Y (HD-style sub-accounts per wallet; sidebar drawer selection in WalletFragment; independent balance display per account) |
+| **Coin control** | Y (BTC, LTC, BCH, DOGE, XMR, DCR) | N (GUI) — Y via bundled monero-wallet-cli | Y (sweep single/multi/all; output splitting; manual input selection; coin labeling; output blackballing) | P — sweep-all ("Send all confirmed funds in this account") only; no per-output manual selection |
+| **Multisig** | [NF] | N (GUI) — Y via bundled monero-wallet-cli | N (planned; marked ✖* in feature table) | N |
 | **P2Pool mining** | N | Y (built-in; solo and P2Pool modes; updated to v4.17.1) | N (no plans; marked ✖† = explicitly out of scope) | N |
-| **Offline / air-gapped signing** | N | Y (output export/import + key image workflow) | Y (animated QR / UR standard + file transfer; wizard-guided; webcam QR scanner built-in) | N |
-| **Background sync** | [NF] | Y (v0.18.4.2+; syncs while wallet locked) | [NF] | [NF] |
-| **Reproducible builds** | [NF] — no public process | Y (Windows + Linux Docker reproducible builds; SHA-256 + GPG hashes published) | Y (GNU Guix bootstrappable builds; multi-signer attestation in feather-sigs repo) | [NF] |
-| **GPG release signing** | [NF] | Y (getmonero.org/downloads/hashes.txt) | Y (fingerprint 8185 E158 A333 30C7 FD61 BC0D 1F76 E155 CEFB A71C; .asc files per binary) | [NF] |
-| **Security audit** | [NF] — none publicly disclosed | [NF] — no GUI-specific public audit found (HackerOne programme active) | [NOT FOUND via primary source] — Quarkslab 2022 audit referenced in community but report URL returns 404; Feather documentation does not link to report; bug bounty programme active (USD 100–1,500 in XMR for fund-loss vulnerabilities) | [NF] |
-| **Package manager** | N | Y (Flathub, Arch, NixOS, Homebrew cask, Guix) | Y (Flatpak via release zip; AppImage self-contained) | N |
+| **Offline / air-gapped signing** | N | Y (output export/import + key image workflow) | Y (animated QR / UR standard + file transfer; wizard-guided; webcam QR scanner built-in) | N (Sidekick uses Bluetooth, not air-gap) |
+| **Background sync** | [NF] | Y (v0.18.4.2+; syncs while wallet locked) | [NF] | Y (background wallet service keeps syncing; background lock feature; source: FAQ + strings.xml) |
+| **Reproducible builds** | [NF] — no public process | Y (Windows + Linux Docker reproducible builds; SHA-256 + GPG hashes published) | Y (GNU Guix bootstrappable builds; multi-signer attestation in feather-sigs repo) | N (SHA-256 hash + APK signing cert published per release; no reproducible build process or multi-signer attestation found) |
+| **GPG release signing** | [NF] | Y (getmonero.org/downloads/hashes.txt) | Y (fingerprint 8185 E158 A333 30C7 FD61 BC0D 1F76 E155 CEFB A71C; .asc files per binary) | N (APK signed by developer key CN=m2049r; SHA-256 hashes published per release; no GPG detached signatures) |
+| **Security audit** | [NF] — none publicly disclosed | [NF] — no GUI-specific public audit found (HackerOne programme active) | [NOT FOUND via primary source] — Quarkslab 2022 audit referenced in community but report URL returns 404; Feather documentation does not link to report; bug bounty programme active (USD 100–1,500 in XMR for fund-loss vulnerabilities) | [NOT FOUND] — no public security audit; no bug bounty programme found |
+| **Package manager** | N | Y (Flathub, Arch, NixOS, Homebrew cask, Guix) | Y (Flatpak via release zip; AppImage self-contained) | N (Google Play + official F-Droid repo + direct APK from GitHub releases) |
 | **Tails OS support** | N | N | Y (dedicated Tails AppImage; persistent volume support; full installation guide in docs) | N |
 | **Whonix / Qubes support** | N | N | Y (explicitly supported; system Tor override on Whonix; Qubes isolated-qube compatible) | N |
 | **I2P support** | N | N | Y (node connections via I2P; site/docs available at .b32.i2p mirror) | N |
 | **Transaction pusher** | N | N | Y (broadcast raw hex without connected wallet) | N |
 | **Multibroadcasting** | N | N | Y (broadcast to multiple nodes simultaneously) | N |
-| **Open-source** | Y (MIT) | Y (BSD-3-Clause) | Y (BSD-3-Clause) | Y (MIT) |
+| **Open-source** | Y (MIT) | Y (BSD-3-Clause) | Y (BSD-3-Clause) | Y (Apache-2.0) |
+| **PocketChange** | N | N | N | Y (output pre-splitting: auto-creates ≥6 outputs at configurable amount with each tx to eliminate output-lock delay on repeat spending) |
+| **Street Mode** | N | N | N | Y (hides balance and previous transactions while enabled; toggle in wallet UI) |
+| **OpenAlias** | Y | Y | Y | Y (DNSSEC-verified human-readable addresses; OpenAliasHelper.java) |
+| **F-Droid** | Y | N | N | Y (official Monerujo F-Droid repo at https://f-droid.monerujo.io/fdroid/repo/) |
+
+**Sources for Monerujo column (updated 2026-08-12):**
+- [GitHub API](https://api.github.com/repos/m2049r/xmrwallet) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-repos-m2049r-xmrwallet.json)
+- [README.md](https://raw.githubusercontent.com/m2049r/xmrwallet/master/README.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-com-m2049r-xmrwallet-README.md)
+- [FAQ.md](https://raw.githubusercontent.com/m2049r/xmrwallet/master/doc/FAQ.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-m2049r-xmrwallet-doc-FAQ.md)
+- [Monerujo website](https://www.monerujo.app) — accessed 2026-08-12 — [archived](../sources/2026-08-12-monerujo-app-home.html)
+- [Sidekick README](https://raw.githubusercontent.com/m2049r/sidekick/master/README.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-m2049r-sidekick-README.md)
+- [GitHub releases API](https://api.github.com/repos/m2049r/xmrwallet/releases) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-repos-m2049r-xmrwallet-releases.json)
+- Source inspection: `GenerateFragment.java` (CeasarSeed, Ledger), `LoginFragment.java` (watch-only, Ledger/Sidekick), `NetCipherHelper.java` + `OnionHelper.java` (Tor), `Ledger.java` (USB HID, Nano S), `ShiftService.java` + `ExolixApiImpl.java` (swap), `ZipBackup.java` (backup), `app/CMakeLists.txt` (Trezor lib), `Wallet.java` (device enum), `WalletFragment.java` (accounts), `SettingsFragment.java`, `help.xml`, `strings.xml`, `about.xml`, `privacy-policy.md`, `LICENSE` — accessed 2026-08-12 via GitHub raw API
 
 **Sources for Feather Wallet column:**
 - [GitHub API: feather-wallet/feather](https://api.github.com/repos/feather-wallet/feather) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-feather-wallet-feather.json)

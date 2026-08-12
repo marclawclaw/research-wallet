@@ -48,6 +48,15 @@ Unlike Bitcoin (where you can see all transactions to a given address) or Ethere
 - **Subaddress rotation:** Cake Wallet auto-generates a fresh subaddress after each use (when enabled). Subaddresses are a variant of the stealth address scheme where the recipient pre-generates a pool of addresses, each binding to a specific account + index pair. This allows separating funds without exposing the primary address.
 - **View keys for watch-only wallets:** The private view key alone (without the spend key) allows a wallet to identify all incoming transactions — enabling watch-only monitoring — but not to spend funds.
 
+## Implementation in Monerujo
+
+- Stealth address generation and output scanning are handled by the bundled Monero Core v0.18.3.4 C++ library (`libwallet2_api`), compiled for Android via NDK. All cryptographic operations occur on-device; the library is the same codebase used by Monero GUI and Feather Wallet.
+- **Subaddresses:** Monerujo exposes subaddress generation and labelling via `SubaddressFragment`. Users can create named subaddresses per account and view all receive addresses for the open wallet.
+- **Multiple accounts:** Each wallet file supports HD-style sub-accounts (Monero account index), selectable from a sidebar drawer in `WalletFragment`. Each account maintains its own subaddress pool and balance display.
+- **View-only wallet:** Creating a watch-only wallet from address + view key is supported via `TYPE_VIEWONLY` in `LoginFragment`. The view key is displayed in wallet details (not clipboard-copyable, as a security measure). Source: [help.xml](https://raw.githubusercontent.com/m2049r/xmrwallet/master/app/src/main/res/values/help.xml) — accessed 2026-08-12.
+- **Restore height:** Monerujo uses the traditional 25-word seed, which does not encode the creation date. Users must supply a restore height (block number or YYYY-MM-DD date) when recovering. If lost, the wallet scans from block 0. **No Polyseed support** — unlike Cake Wallet and Feather Wallet, Monerujo cannot encode creation date in the seed itself.
+- **CeasarSeed (seed offset):** Monerujo implements Monero's seed offset feature, adding a user-supplied passphrase before the 25-word mnemonic is derived. This is distinct from Polyseed passphrase — it is a word-list shift applied to the existing seed. Source: `GenerateFragment.java` (`bSeedOffset`).
+
 ## Limitations
 
 - The scheme requires the recipient's wallet to scan every transaction on the blockchain using their private view key. This is why Monero wallets require a "sync" period after restoration: the wallet must replay all blocks from the restore height to find outputs addressed to it.
