@@ -81,13 +81,46 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 
 | Feature | MetaMask | Trust Wallet | Rabby | Rainbow |
 |---------|---------|-------------|-------|---------|
-| **Platforms** | Browser ext, iOS, Android | iOS, Android | Browser ext, iOS, Android, Desktop | iOS, Android, Browser ext |
-| **License** | [NF] | Apache-2.0 (wallet-core) | [NF] | [NF] |
-| **Architecture** | Browser-injected provider | Mobile app | Browser-injected provider | Mobile app |
-| **Lightning** | — | — | — | — |
-| **Hardware wallet** | Y (via MetaMask accounts) | [NF] | Y (Ledger, Trezor, OneKey, GridPlus) | [NF] |
-| **Multi-chain** | Y (EVM chains) | Y (100+ chains) | Y (EVM chains) | Y (ETH + Base + Solana) |
-| **Open-source** | Y (metamask-extension) | Y (wallet-core SDK) | Y | Y |
+| **Platforms** | Browser ext (Chrome, Firefox, Brave, Edge), iOS, Android | iOS, Android | Browser ext, iOS, Android, Desktop | iOS, Android, Browser ext |
+| **License** | Source-available, NOT open-source (ConsenSys proprietary; extension and mobile both; confirmed 2026-08-12 LICENSE inspection) | Apache-2.0 (wallet-core) | [NF] | [NF] |
+| **Architecture** | Browser extension: MV3 service worker + injected `window.ethereum` content script; Mobile: React Native WebView + WalletConnect v2 | Mobile app | Browser-injected provider | Mobile app |
+| **Latest version** | Extension: v13.43.0 (11 Aug 2026); Mobile: v8.6.0 (7 Aug 2026) | [NF] | [NF] | [NF] |
+| **Language** | TypeScript | [NF] | TypeScript | [NF] |
+| **Key management** | BIP39 SRP (12-word default, 24-word import); BIP44 m/44'/60'/0'/0/n; hardware accounts signed on device; imported single private keys; Bitcoin via Snap (BIP84 path) | [NF] | [NF] | [NF] |
+| **Seed format** | BIP39 12-word (default); 24-word import supported | [NF] | [NF] | [NF] |
+| **Passphrase (BIP39 extension)** | N — no 25th-word support in standard UI | [NF] | [NF] | [NF] |
+| **Hardware wallet** | Y — Ledger (WebHID/USB + Bluetooth); Trezor (WebUSB via TrezorConnect); Lattice1/GridPlus (gridplus-sdk); QR-based (Keystone via BC-UR v2). Confirmed via package.json `@ledgerhq/hw-transport-webhid`, `@trezor/connect-web`, `gridplus-sdk`, `eth-lattice-keyring` — accessed 2026-08-12 | [NF] | Y (Ledger, Trezor, OneKey, GridPlus) | [NF] |
+| **Multi-chain** | Y — EVM chains only by default; Bitcoin via `@metamask/bitcoin-wallet-snap` (Dec 2025); non-EVM chains possible via Snaps | Y (100+ chains) | Y (EVM chains) | Y (ETH + Base + Solana) |
+| **Signing** | EIP-191 (personal_sign), EIP-712 typed data (eth_signTypedData_v4), EIP-7702 authorisation, EIP-5792 batch; eth_sign disabled by default | [NF] | [NF] | [NF] |
+| **Transaction simulation** | Y — Blockaid PPOM (`@blockaid/ppom_release` v1.5.3); on-device, no tx data sent remotely; detects drainers, phishing, approval exploits | [NF] | [NF] | [NF] |
+| **MetaMask Snaps** | Y — extensibility platform; sandboxed JS; non-EVM key derivation; custom account types; 3rd-party audit required for key-deriving Snaps | N | N | N |
+| **Built-in swap** | Y — MetaMask Swaps; 0.875% fee; aggregates 1inch, 0x, Paraswap; plus Perpetual Futures via Hyperliquid (Oct 2025) | [NF] | [NF] | [NF] |
+| **Smart accounts (ERC-4337)** | P — via Delegation Toolkit / Snaps; not in base UI; requires external dapp or `@metamask/gator-permissions-snap` | [NF] | [NF] | [NF] |
+| **Default RPC** | Infura (ConsenSys-owned; logs IP and queries by default) | [NF] | [NF] | [NF] |
+| **Custom RPC** | Y — any Ethereum-compatible endpoint per-network | [NF] | [NF] | [NF] |
+| **Tor support** | N — no SOCKS5/Tor proxy; no onion service | [NF] | [NF] | [NF] |
+| **Biometric unlock (mobile)** | Y — Touch ID / Face ID (iOS), fingerprint / face (Android); key wrapped in platform keychain | [NF] | [NF] | [NF] |
+| **NFT support** | Y — ERC-721, ERC-1155 display (toggle) | [NF] | [NF] | [NF] |
+| **Reproducible builds** | N — no documented reproducible build process or multi-party attestation | [NF] | [NF] | [NF] |
+| **Watch-only wallet** | P — hardware wallet accounts are effectively watch-only (no private key in extension); true watch-only xpub import: [NF] | [NF] | [NF] | [NF] |
+| **Multisig** | N (native); smart-contract multisig via external Safe integration possible | [NF] | [NF] | [NF] |
+| **Coin control** | N | [NF] | [NF] | [NF] |
+| **Air-gapped signing** | P — QR-based hardware wallets (Keystone via BC-UR v2); not a first-class air-gap workflow | [NF] | [NF] | [NF] |
+| **Open-source** | N — source-available only (ConsenSys proprietary licence) | Y (wallet-core SDK) | Y | Y |
+| **Security audit** | [NF] — no public audit report found; HackerOne bug bounty active (https://hackerone.com/metamask) | [NF] | [NF] | [NF] |
+
+**Sources for MetaMask column (updated 2026-08-12):**
+- [GitHub API: MetaMask/metamask-extension](https://api.github.com/repos/MetaMask/metamask-extension) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-metamask-metamask-extension.json)
+- [GitHub API: MetaMask/metamask-mobile](https://api.github.com/repos/MetaMask/metamask-mobile) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-metamask-metamask-mobile.json)
+- [GitHub releases/latest: extension v13.43.0](https://api.github.com/repos/MetaMask/metamask-extension/releases/latest) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-metamask-extension-releases-latest.json)
+- [GitHub releases/latest: mobile v8.6.0](https://api.github.com/repos/MetaMask/metamask-mobile/releases/latest) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-metamask-mobile-releases-latest.json)
+- [coinlaw.io/metamask-wallet-statistics/](https://coinlaw.io/metamask-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-metamask-wallet-statistics.html)
+- [package.json dependency inspection: metamask-extension main](https://raw.githubusercontent.com/MetaMask/metamask-extension/main/package.json) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-metamask-extension-package-json.txt)
+- [MetaMask extension LICENSE](https://raw.githubusercontent.com/MetaMask/metamask-extension/main/LICENSE) — accessed 2026-08-12
+- [MetaMask mobile LICENSE](https://raw.githubusercontent.com/MetaMask/metamask-mobile/main/LICENSE) — accessed 2026-08-12
+- [MetaMask docs: sign data (EIP-712, personal_sign)](https://docs.metamask.io/wallet/how-to/sign-data/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-docs-metamask-io-sign-data.html)
+- [MetaMask docs: Snaps introduction](https://docs.metamask.io/snaps/learn/about-snaps/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-docs-metamask-io-about-snaps.html)
+- [MetaMask extension README](https://raw.githubusercontent.com/MetaMask/metamask-extension/main/README.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-metamask-extension-README.md)
 
 ## Solana wallets
 

@@ -29,13 +29,13 @@ Cross-wallet adoption comparison for self-custody software wallets. All figures 
 
 | Wallet | GitHub stars | MAU | Downloads/installs | Date |
 |--------|-------------|-----|--------------------|------|
-| MetaMask | 13,195 (metamask-extension) | 30M+ (April 2026) | 143M lifetime | 2026-08-10 |
+| MetaMask | 13,195 (metamask-extension); 3,008 (metamask-mobile) | 30M+ (plateau since March 2022; reconfirmed December 2025 Bitcoin Magazine; reconfirmed April 2026 BlockEden IPO analysis) | 143M lifetime downloads | 2026-08-12 |
 | Trust Wallet | [NOT FOUND] (no single main repo) | 17M+ (2025, coinlaw.io) / 60M (SQ Magazine, early 2025 — figure not verified against archive) | 220M+ total | 2026-08-10 |
 | Rabby | 1,872 | [NOT FOUND] | 4.2M installs (2025) | 2026-08-10 |
 | Rainbow | 4,379 | [NOT FOUND] | [NOT FOUND] | 2026-08-10 |
 
 **Sources:**
-- MetaMask: [coinlaw.io/metamask-wallet-statistics/](https://coinlaw.io/metamask-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-metamask-wallet-statistics.html)
+- MetaMask: [coinlaw.io/metamask-wallet-statistics/](https://coinlaw.io/metamask-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-metamask-wallet-statistics.html). Article last updated 2026-07-30. Key figures: 30M MAU (reconfirmed December 2025 Bitcoin Magazine, April 2026 BlockEden); $198.64M cumulative swap revenue; 143M lifetime downloads; 0.875% swap fee; CoinGecko 2026 #2 hot wallet. Mobile repo stars (3,008) from [GitHub API](https://api.github.com/repos/MetaMask/metamask-mobile) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-metamask-metamask-mobile.json).
 - Trust Wallet: 17M+ MAU per [coinlaw.io/trust-wallet-statistics/](https://coinlaw.io/trust-wallet-statistics/) — accessed 2026-08-10 — [archived (MetaMask page as cross-reference)](../sources/2026-08-10-coinlaw-io-metamask-wallet-statistics.html); 60M figure per sqmagazine.co.uk — [archive unavailable]; conflicting figures recorded, neither independently verified against primary Trust Wallet disclosure
 - Rabby: [coinlaw.io/rabby-wallet-statistics/](https://coinlaw.io/rabby-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-rabby-wallet-statistics.html)
 - Rainbow: [GitHub API](https://api.github.com/repos/rainbow-me/rainbow) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-rainbow-me-rainbow.json)
