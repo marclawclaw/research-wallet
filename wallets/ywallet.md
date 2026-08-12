@@ -43,7 +43,7 @@ Desktop binaries shipped for YWallet v1.15.3 include: `Ywallet-latest-x86_64.App
 - **Multiple accounts per seed**: Yes — the wallet supports multiple accounts, each with a different seed, secret key, or viewing key. Account indices can be set at restore.
 - **Watch-only accounts**: Yes — via Full Viewing Key (FVK); the account has full transaction visibility but cannot spend.
 - **Viewing key export**: The wallet exposes viewing key export ("Seed & Keys" screen in docs). FVK is used for watch-only account import.
-- **BIP39**: Not explicitly confirmed as a 24-word BIP39 mnemonic; the ZIP 32 derivation path is used. YWallet also supports sweeping funds from seed phrases at non-zero account indices (v1.13.3 fix).
+- **BIP39**: BIP39 24-word mnemonic (confirmed; iTunes App Store description: "Back up your wallet with 24 word phrase (BIP-39 compatible)"). The ZIP 32 derivation path is used. YWallet also supports sweeping funds from seed phrases at non-zero account indices (v1.13.3 fix).
 - **Passphrase (25th word)**: [NOT FOUND] — not mentioned in README, CHANGELOG, or documentation.
 - **PCZT** (Partially Completed Zcash Transaction — the Zcash PSBT-equivalent): **Not supported in YWallet**. The cold-wallet workflow uses a proprietary unsigned transaction file format transferred by USB OTG. PCZT is supported in the successor ZKool2.
 - **Backup**: Seed phrase backup (standard). Desktop also supports database encryption at rest.
@@ -61,7 +61,7 @@ Desktop binaries shipped for YWallet v1.15.3 include: `Ywallet-latest-x86_64.App
 | Transparent (t-address) | Y | Y |
 | Sapling | Y | Y |
 | Orchard | Y | Y |
-| Ironwood (NU6.3) | [NOT FOUND] — v1.15.3 adds NU6.2 support; Ironwood migration support [NOT FOUND] | [NOT FOUND] — not mentioned in zkool2 README |
+| Ironwood (NU6.3) | [NOT FOUND] — v1.15.0 added NU6.2 support (v1.15.3 fixed a circuit version detection bug); Ironwood migration support [NOT FOUND] | [NOT FOUND] — not mentioned in zkool2 README |
 | Unified Addresses (ZIP 316) | Y — "Snap (diversified) addresses" confirmed | Y — "internal address derivation for change (Zashi, ZIP 316)" confirmed |
 | ZIP 321 payment URIs | Y | Y — "Single/Multiple Recipients" confirmed in README |
 | Memo (512-byte encrypted) | Y — "Memo" feature listed | Y — "Text, Binary, Full text search" |
@@ -75,7 +75,7 @@ Note: YWallet shipped NU6.1 support in v1.14.0 (26 November 2025) and NU6.2 supp
 
 Warp Sync is YWallet's proprietary algorithm for accelerating block scanning in a Zcash light client. Standard Zcash light-client scanning (per ZIP 307) requires downloading each block's compact transactions and testing each note commitment against the wallet's keys — an O(n) scan of commitment tree witnesses that is computationally expensive at scale.
 
-Warp Sync, developed by @hhanh00 in the `zcash-sync` Rust library (submodule of `zwallet`), replaces the incremental Merkle witness update step with a batch witness computation algorithm. Rather than updating a witness for every note at every block, it accumulates leaf commitments and computes witnesses in bulk using a custom "Warp Merkle Tree" structure. The author claims this processes approximately **10,000 blocks per second** on a mid-range Android phone (OnePlus 7T, Snapdragon 855+).
+Warp Sync, developed by @hhanh00 in the `zcash-sync` Rust library (submodule of `zwallet`), replaces the incremental Merkle witness update step with a batch witness computation algorithm. Rather than updating a witness for every note at every block, it accumulates leaf commitments and computes witnesses in bulk using a custom "Warp Merkle Tree" structure. The author claims this processes approximately **10,000 blocks per second** on a 2019 flagship device (OnePlus 7T, Snapdragon 855+).
 
 The `zcash-sync` library (`hhanh00/zcash-sync`, 13 GitHub stars, Rust, last pushed 4 June 2026) is the standalone scanning engine. ZKool2 uses an "Improved Warp" synchronisation as its core algorithm with per-account sync state — each account can be individually enabled or disabled for sync.
 
