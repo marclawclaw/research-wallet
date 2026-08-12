@@ -95,11 +95,11 @@ Source: `/class/wallets/` directory (2026-08-12):
 
 ## Lightning Network
 
-**Critical context:** BlueWallet operated a custodial LNDhub instance at `ln.bluewallet.io` that allowed users to create Lightning wallets without running their own node. This service was **discontinued in April 2023**. The `LightningCustodianWallet` class and LNDhub support remain in the codebase, but Lightning now requires users to either:
+**Critical context:** BlueWallet operated a custodial LNDhub instance at `ln.bluewallet.io` that allowed users to create Lightning wallets without running their own node. This service was **discontinued on 31 May 2023**. The `LightningCustodianWallet` class and LNDhub support remain in the codebase, but Lightning now requires users to either:
 
 1. **Self-host LNDhub** (https://github.com/BlueWallet/LndHub) pointed at their own LND node, or
 2. **Use a third-party LNDhub provider** (e.g. Alby, Start9, Umbrel offer LNDhub-compatible endpoints), or
-3. **Use the Ark protocol wallet** (`lightning-ark-wallet`) via Arkade — integrated from v8.0.0, providing a non-channel-based Lightning-adjacent payment layer
+3. **Use the Ark protocol wallet** (`lightning-ark-wallet`) via Arkade — first integrated in v7.2.2 (November 2025); v8.0.0 upgraded the Ark SDK integration, providing a non-channel-based Lightning-adjacent payment layer
 
 **Self-custodial status:** Lightning via LNDhub is **not self-custodial by default** — users are trusting whatever LNDhub server they connect to. Only self-hosting makes it self-custodial. The Ark wallet integration uses the Arkade delegator at `delegate.arkade.money` by default — partially trust-minimised (delegated signing) but not fully trustless.
 
@@ -111,7 +111,7 @@ See [[patterns/lndhub-lightning]] for protocol detail.
 
 ### Ark (Arkade) integration
 
-- Integrated from v8.0.0 using `@arkade-os/sdk` and `@arkade-os/boltz-swap`
+- First integrated in v7.2.2 (24 November 2025); v8.0.0 upgraded the Ark SDK integration (`@arkade-os/sdk` and `@arkade-os/boltz-swap`)
 - Uses Boltz submarine swaps for on-chain ↔ off-chain conversion
 - Delegated signing via `https://delegate.arkade.money` (mainnet)
 - LNURL payment supported; push notifications via Arkade payment push service
@@ -177,7 +177,7 @@ See [[patterns/lndhub-lightning]] for protocol detail.
 
 **v8.0.0 (2 June 2026):**
 - React Native 85 upgrade
-- Ark protocol integration (lightning-ark-wallet via Arkade)
+- Ark SDK upgrade (lightning-ark-wallet first introduced in v7.2.2, November 2025; v8.0.0 upgraded the Ark SDK)
 - Redesigned transaction detail screen
 - Hex/base64 private key import
 - Realm database migration
@@ -196,7 +196,7 @@ See [[patterns/lndhub-lightning]] for protocol detail.
 
 ## Limitations and criticisms
 
-1. **Lightning self-custody gap:** BlueWallet's own LNDhub was shut down in April 2023. Lightning is only self-custodial if the user self-hosts LNDhub or uses Ark. Most users connecting to third-party hubs are custodial — a significant departure from the "self-custody" framing. The UI does not clearly distinguish custodial vs self-custodial Lightning configurations.
+1. **Lightning self-custody gap:** BlueWallet's own LNDhub was shut down on 31 May 2023. Lightning is only self-custodial if the user self-hosts LNDhub or uses Ark. Most users connecting to third-party hubs are custodial — a significant departure from the "self-custody" framing. The UI does not clearly distinguish custodial vs self-custodial Lightning configurations.
 
 2. **No Tor support (as-found):** Unlike Electrum or Sparrow, no Tor onion routing layer detected; users who want privacy beyond server selection must rely on system-level VPN/proxy.
 
@@ -224,6 +224,7 @@ See [[patterns/lndhub-lightning]] for protocol detail.
 | BlueWallet official site | https://bluewallet.io | 2026-08-12 | [archived](../sources/2026-08-12-bluewallet-io-home.html) |
 | BlueWallet README | https://github.com/BlueWallet/BlueWallet/blob/master/README.md | 2026-08-12 | [archived](../sources/2026-08-12-github-com-bluewallet-bluewallet-README.md) |
 | BlueWallet LNDhub page | https://bluewallet.io/lndhub/ | 2026-08-12 | [archived](../sources/2026-08-12-bluewallet-io-lndhub.html) |
+| BlueWallet — Sunsetting LNDhub.io announcement | https://bluewallet.io/sunsetting-lndhub/ | 2026-08-12 | [archived](../sources/2026-08-12-bluewallet-io-sunsetting-lndhub.html) |
 | BlueWallet FAQ | https://github.com/BlueWallet/BlueWallet/blob/master/FAQ.md | 2026-08-12 | source inspection |
 | Wallet class source — wallets directory | https://github.com/BlueWallet/BlueWallet/tree/master/class/wallets | 2026-08-12 | source inspection |
 | BlueElectrum.ts — Electrum default server | https://github.com/BlueWallet/BlueWallet/blob/master/blue_modules/BlueElectrum.ts | 2026-08-12 | source inspection |

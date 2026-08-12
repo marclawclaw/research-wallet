@@ -28,15 +28,15 @@ LNDhub is **custodial by design** — the hub operator holds the bitcoin in thei
 
 This is fundamentally different from a self-custodial Lightning wallet (such as Phoenix or Breez), where the user holds their own channel keys.
 
-**Self-custodial variant:** if a user self-hosts LNDhub pointed at their own LND node, the arrangement becomes self-custodial — no third-party trust required. This is the only self-custodial Lightning path in BlueWallet after the shutdown of `ln.bluewallet.io` in April 2023.
+**Self-custodial variant:** if a user self-hosts LNDhub pointed at their own LND node, the arrangement becomes self-custodial — no third-party trust required. This is the only self-custodial Lightning path in BlueWallet after the shutdown of `ln.bluewallet.io` on 31 May 2023.
 
-## BlueWallet LNDhub discontinuation (April 2023)
+## BlueWallet LNDhub discontinuation (31 May 2023)
 
-BlueWallet operated a free, public LNDhub instance at `ln.bluewallet.io`. This was shut down in April 2023 due to operational costs and sustainability concerns. After the shutdown:
+BlueWallet operated a free, public LNDhub instance at `ln.bluewallet.io`. This was shut down on 31 May 2023 due to operational costs and sustainability concerns. After the shutdown:
 
 - Existing users lost access to custodial Lightning unless they migrated to a third-party hub
 - BlueWallet UI retained Lightning wallet creation but requires users to supply a custom LNDhub URL
-- The `lightning-ark-wallet` (Arkade integration) was later added (v8.0.0, June 2026) as an alternative path to off-chain payments
+- The `lightning-ark-wallet` (Arkade integration) was first introduced in v7.2.2 (24 November 2025) as an alternative path to off-chain payments; v8.0.0 (June 2026) upgraded the Ark SDK
 
 ## Self-hosting LNDhub
 
@@ -69,7 +69,7 @@ After `ln.bluewallet.io` shutdown, users who don't self-host can use:
 
 ## Relationship to Ark (Arkade)
 
-BlueWallet v8.0.0 introduced `lightning-ark-wallet`, which uses the Ark protocol via Arkade SDKs (`@arkade-os/sdk`, `@arkade-os/boltz-swap`). Ark is a second-layer protocol distinct from Lightning channels — it uses shared UTXOs (VTXOs) and a delegated signing model. The Arkade integration uses Boltz submarine swaps for on-chain ↔ off-chain conversion and a delegator service at `https://delegate.arkade.money`. This is trust-minimised (delegated signing rather than full custody) but not fully trustless.
+BlueWallet first introduced `lightning-ark-wallet` in v7.2.2 (24 November 2025), using the Ark protocol via Arkade SDKs (`@arkade-os/sdk`, `@arkade-os/boltz-swap`). v8.0.0 (June 2026) upgraded the existing Ark SDK integration. Ark is a second-layer protocol distinct from Lightning channels — it uses shared UTXOs (VTXOs) and a delegated signing model. The Arkade integration uses Boltz submarine swaps for on-chain ↔ off-chain conversion and a delegator service at `https://delegate.arkade.money`. This is trust-minimised (delegated signing rather than full custody) but not fully trustless.
 
 ## Sources
 
@@ -80,3 +80,4 @@ BlueWallet v8.0.0 introduced `lightning-ark-wallet`, which uses the Ark protocol
 | lightning-custodian-wallet.ts | https://github.com/BlueWallet/BlueWallet/blob/master/class/wallets/lightning-custodian-wallet.ts | 2026-08-12 |
 | lightning-ark-wallet.ts | https://github.com/BlueWallet/BlueWallet/blob/master/class/wallets/lightning-ark-wallet.ts | 2026-08-12 |
 | BlueWallet official site | https://bluewallet.io | 2026-08-12 — [archived](../sources/2026-08-12-bluewallet-io-home.html) |
+| BlueWallet — Sunsetting LNDhub.io announcement | https://bluewallet.io/sunsetting-lndhub/ | 2026-08-12 — [archived](../sources/2026-08-12-bluewallet-io-sunsetting-lndhub.html) |
