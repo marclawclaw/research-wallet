@@ -107,7 +107,7 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 | **Coin control** | N | [NF] | [NF] | [NF] |
 | **Air-gapped signing** | P — QR-based hardware wallets (Keystone via BC-UR v2); not a first-class air-gap workflow | [NF] | [NF] | [NF] |
 | **Open-source** | N — source-available only (ConsenSys proprietary licence) | Y (wallet-core SDK) | Y | Y |
-| **Security audit** | [NF] — no public audit report found; HackerOne bug bounty active (https://hackerone.com/metamask) | [NF] | [NF] | [NF] |
+| **Security audit** | Y (component audits: Cure53, Least Authority, Diligence, OtterSec — see wallets/metamask.md) | [NF] | [NF] | [NF] |
 
 **Sources for MetaMask column (updated 2026-08-12):**
 - [GitHub API: MetaMask/metamask-extension](https://api.github.com/repos/MetaMask/metamask-extension) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-metamask-metamask-extension.json)

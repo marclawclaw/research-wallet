@@ -138,7 +138,12 @@ Extensibility platform launched in 2023 allowing third-party developers to add f
 - **Blockaid PPOM:** Privacy Preserving Offline Module; runs transaction simulations locally within the extension (no tx data sent to remote servers). Detects asset drainers, approval exploits, phishing domains. `@blockaid/ppom_release` v1.5.3 in v13.43.0.
 - **Phishing detection:** MetaMask maintains a phishing domain blocklist (`@metamask/phishing-controller`); extension intercepts navigation to known phishing sites
 - **LavaMoat:** Prevents compromised npm dependencies from accessing privileged extension APIs; each package operates within a declared capability boundary
-- **Security audits:** [NOT FOUND] — no comprehensive public security audit report identified at primary sources (metamask.io, GitHub) as of 2026-08-12. MetaMask has a HackerOne bug bounty programme (https://hackerone.com/metamask).
+- **Security audits:** Multiple component-level audits published at [metamask.io/security/metamask-security-program](https://metamask.io/security/metamask-security-program) — accessed 2026-08-12 — [archived](sources/2026-08-12-metamask-io-security-program.html). Key audits:
+  - Cure53: Aug 2017 (pentest), Feb 2023 (key-tree interface), Mar 2024 (Signing Snap), Apr 2024 (key-tree interface)
+  - Least Authority: Apr 2019 (mobile), Nov 2019 (permissions), Mar 2020 (LavaMoat), 2022 (seed phrase), Sep 2023 (Snaps ×2)
+  - Diligence: Jun 2024, Aug 2024, Oct 2024 (Delegation Framework), Aug 2025 (mUSD)
+  - OtterSec: Oct 2024 (LavaMoat Webpack Plugin)
+  Note: audits cover specific components, not a single whole-wallet monolithic audit. MetaMask also has a HackerOne bug bounty programme (https://hackerone.com/metamask).
 - **Phishing losses:** Crypto wallet phishing losses fell to $83.3M in 2025, down 83% from $494M in 2024 (MetaMask Security Report, January 2026) — MetaMask attributes this in part to Blockaid detection deployment
 - **ConsenSys IPO:** ConsenSys planned IPO delayed to fall 2026; BlockEden April 2026 analysis reaffirmed $10B+ valuation target. Co-founder Dan Finlay departed April 2026.
 
@@ -184,3 +189,4 @@ Extensibility platform launched in 2023 allowing third-party developers to add f
 - [MetaMask homepage](https://metamask.io) — accessed 2026-08-12 — [archived](../sources/2026-08-12-metamask-io-home.html)
 - [MetaMask docs: wallet/](https://docs.metamask.io/wallet/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-docs-metamask-io-wallet.html)
 - [MetaMask docs: SRP concepts](https://docs.metamask.io/wallet/concepts/secret-recovery-phrase/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-docs-metamask-io-srp.html)
+- [MetaMask Security Program](https://metamask.io/security/metamask-security-program) — accessed 2026-08-12 — [archived](../sources/2026-08-12-metamask-io-security-program.html). Lists 14+ component-level public audits by Cure53, Least Authority, Diligence, and OtterSec.
