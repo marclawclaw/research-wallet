@@ -1,6 +1,6 @@
 # Cross-Wallet Feature Comparison
 
-Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EVM, Solana, Monero, and Zcash ecosystems. All figures current as of 2026-08-10.
+Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EVM, Solana, Monero, and Zcash ecosystems. All figures current as of 2026-08-10; Rainbow column updated 2026-08-12.
 
 **Key:** Y = Yes / Confirmed; N = No / Not supported; P = Partial / Plugin; — = Not applicable; [NF] = Not Found / unconfirmed
 
@@ -81,33 +81,51 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 
 | Feature | MetaMask | Trust Wallet | Rabby | Rainbow |
 |---------|---------|-------------|-------|---------|
-| **Platforms** | Browser ext (Chrome, Firefox, Brave, Edge), iOS, Android | iOS, Android | Browser ext, iOS, Android, Desktop | iOS, Android, Browser ext |
-| **License** | Source-available, NOT open-source (ConsenSys proprietary; extension and mobile both; confirmed 2026-08-12 LICENSE inspection) | Apache-2.0 (wallet-core) | [NF] | [NF] |
-| **Architecture** | Browser extension: MV3 service worker + injected `window.ethereum` content script; Mobile: React Native WebView + WalletConnect v2 | Mobile app | Browser-injected provider | Mobile app |
-| **Latest version** | Extension: v13.43.0 (11 Aug 2026); Mobile: v8.6.0 (7 Aug 2026) | [NF] | [NF] | [NF] |
-| **Language** | TypeScript | [NF] | TypeScript | [NF] |
-| **Key management** | BIP39 SRP (12-word default, 24-word import); BIP44 m/44'/60'/0'/0/n; hardware accounts signed on device; imported single private keys; Bitcoin via Snap (BIP84 path) | [NF] | [NF] | [NF] |
-| **Seed format** | BIP39 12-word (default); 24-word import supported | [NF] | [NF] | [NF] |
-| **Passphrase (BIP39 extension)** | N — no 25th-word support in standard UI | [NF] | [NF] | [NF] |
-| **Hardware wallet** | Y — Ledger (WebHID/USB + Bluetooth); Trezor (WebUSB via TrezorConnect); Lattice1/GridPlus (gridplus-sdk); QR-based (Keystone via BC-UR v2). Confirmed via package.json `@ledgerhq/hw-transport-webhid`, `@trezor/connect-web`, `gridplus-sdk`, `eth-lattice-keyring` — accessed 2026-08-12 | [NF] | Y (Ledger, Trezor, OneKey, GridPlus) | [NF] |
-| **Multi-chain** | Y — EVM chains only by default; Bitcoin via `@metamask/bitcoin-wallet-snap` (Dec 2025); non-EVM chains possible via Snaps | Y (100+ chains) | Y (EVM chains) | Y (ETH + Base + Solana) |
-| **Signing** | EIP-191 (personal_sign), EIP-712 typed data (eth_signTypedData_v4), EIP-7702 authorisation, EIP-5792 batch; eth_sign disabled by default | [NF] | [NF] | [NF] |
-| **Transaction simulation** | Y — Blockaid PPOM (`@blockaid/ppom_release` v1.5.3); on-device, no tx data sent remotely; detects drainers, phishing, approval exploits | [NF] | [NF] | [NF] |
+| **Platforms** | Browser ext (Chrome, Firefox, Brave, Edge), iOS, Android | iOS, Android | Browser ext, iOS, Android, Desktop | iOS, Android, Browser ext (Chrome, Brave, Edge, Firefox, Arc) |
+| **License** | Source-available, NOT open-source (ConsenSys proprietary; extension and mobile both; confirmed 2026-08-12 LICENSE inspection) | Apache-2.0 (wallet-core) | [NF] | GPL-3.0 (mobile + browser extension; confirmed via GitHub API 2026-08-12) |
+| **Architecture** | Browser extension: MV3 service worker + injected `window.ethereum` content script; Mobile: React Native WebView + WalletConnect v2 | Mobile app | Browser-injected provider | React Native (iOS/Android); separate TypeScript browser extension codebase (`rainbow-me/browser-extension`); `window.ethereum` injection via extension |
+| **Latest version** | Extension: v13.43.0 (11 Aug 2026); Mobile: v8.6.0 (7 Aug 2026) | [NF] | [NF] | v2.0.42 (11 Aug 2026) |
+| **Language** | TypeScript | [NF] | TypeScript | TypeScript (React Native; confirmed via GitHub API language field 2026-08-12) |
+| **Key management** | BIP39 SRP (12-word default, 24-word import); BIP44 m/44'/60'/0'/0/n; hardware accounts signed on device; imported single private keys; Bitcoin via Snap (BIP84 path) | [NF] | [NF] | BIP39 12-word mnemonic; BIP44 m/44'/60'/0'/0/n; multiple wallets per seed; multiple independent seeds; private key import; watch-only |
+| **Seed format** | BIP39 12-word (default); 24-word import supported | [NF] | [NF] | BIP39 12-word English (standard Ethereum derivation) |
+| **Passphrase (BIP39 extension)** | N — no 25th-word support in standard UI | [NF] | [NF] | [NF] — 25th-word passphrase not mentioned in support docs |
+| **Hardware wallet** | Y — Ledger (WebHID/USB + Bluetooth); Trezor (WebUSB via TrezorConnect); Lattice1/GridPlus (gridplus-sdk); QR-based (Keystone via BC-UR v2). Confirmed via package.json `@ledgerhq/hw-transport-webhid`, `@trezor/connect-web`, `gridplus-sdk`, `eth-lattice-keyring` — accessed 2026-08-12 | [NF] | Y (Ledger, Trezor, OneKey, GridPlus) | Y — Mobile: Ledger Nano X/Stax/Flex via Bluetooth (`@ledgerhq/react-native-hw-transport-ble`); Extension: Ledger (USB) + Trezor (web interface; not on Firefox). No Keystone/airgap support. No Trezor on mobile. |
+| **Multi-chain** | Y — EVM chains only by default; Bitcoin via `@metamask/bitcoin-wallet-snap` (Dec 2025); non-EVM chains possible via Snaps | Y (100+ chains) | Y (EVM chains) | Y — 23+ EVM-compatible chains (Ethereum mainnet, Base, Optimism, Arbitrum, Zora, Blast, Polygon, Avalanche, BNB Smart Chain, Linea, Scroll, Gnosis, ZkSync, Berachain, Sonic, Abstract, WorldChain, Unichain, Gravity, Degen Chain, Ink, ApeChain, Katana, HyperEVM — as at 2026-08-12); EVM-only; no Bitcoin, Solana, or Monero |
+| **Signing** | EIP-191 (personal_sign), EIP-712 typed data (eth_signTypedData_v4), EIP-7702 authorisation, EIP-5792 batch; eth_sign disabled by default | [NF] | [NF] | EIP-191 (personal_sign), EIP-712 typed data, EIP-1559 transactions; custom gas editing confirmed |
+| **Transaction simulation** | Y — Blockaid PPOM (`@blockaid/ppom_release` v1.5.3); on-device, no tx data sent remotely; detects drainers, phishing, approval exploits | [NF] | [NF] | [NF] — no transaction simulation feature found in support docs (unlike Rabby built-in or MetaMask Blockaid) |
 | **MetaMask Snaps** | Y — extensibility platform; sandboxed JS; non-EVM key derivation; custom account types; 3rd-party audit required for key-deriving Snaps | N | N | N |
-| **Built-in swap** | Y — MetaMask Swaps; 0.875% fee; aggregates 1inch, 0x, Paraswap; plus Perpetual Futures via Hyperliquid (Oct 2025) | [NF] | [NF] | [NF] |
-| **Smart accounts (ERC-4337)** | P — via Delegation Toolkit / Snaps; not in base UI; requires external dapp or `@metamask/gator-permissions-snap` | [NF] | [NF] | [NF] |
-| **Default RPC** | Infura (ConsenSys-owned; logs IP and queries by default) | [NF] | [NF] | [NF] |
-| **Custom RPC** | Y — any Ethereum-compatible endpoint per-network | [NF] | [NF] | [NF] |
-| **Tor support** | N — no SOCKS5/Tor proxy; no onion service | [NF] | [NF] | [NF] |
-| **Biometric unlock (mobile)** | Y — Touch ID / Face ID (iOS), fingerprint / face (Android); key wrapped in platform keychain | [NF] | [NF] | [NF] |
-| **NFT support** | Y — ERC-721, ERC-1155 display (toggle) | [NF] | [NF] | [NF] |
-| **Reproducible builds** | N — no documented reproducible build process or multi-party attestation | [NF] | [NF] | [NF] |
-| **Watch-only wallet** | P — hardware wallet accounts are effectively watch-only (no private key in extension); true watch-only xpub import: [NF] | [NF] | [NF] | [NF] |
-| **Multisig** | N (native); smart-contract multisig via external Safe integration possible | [NF] | [NF] | [NF] |
-| **Coin control** | N | [NF] | [NF] | [NF] |
-| **Air-gapped signing** | P — QR-based hardware wallets (Keystone via BC-UR v2); not a first-class air-gap workflow | [NF] | [NF] | [NF] |
-| **Open-source** | N — source-available only (ConsenSys proprietary licence) | Y (wallet-core SDK) | Y | Y |
-| **Security audit** | Y (component audits: Cure53, Least Authority, Diligence, OtterSec — see wallets/metamask.md) | [NF] | [NF] | [NF] |
+| **Built-in swap** | Y — MetaMask Swaps; 0.875% fee; aggregates 1inch, 0x, Paraswap; plus Perpetual Futures via Hyperliquid (Oct 2025) | [NF] | [NF] | Y — RainbowRouter DEX aggregator (Uniswap v3, SushiSwap, others); 0.85% fee; cross-chain bridging; perps via Hyperliquid (50x, BTC/S&P500/Gold/Oil) |
+| **Smart accounts (ERC-4337)** | P — via Delegation Toolkit / Snaps; not in base UI; requires external dapp or `@metamask/gator-permissions-snap` | [NF] | [NF] | [NF] — no ERC-4337 smart account support found in docs |
+| **Default RPC** | Infura (ConsenSys-owned; logs IP and queries by default) | [NF] | [NF] | Infura (ConsenSys; confirmed via README setup instructions) |
+| **Custom RPC** | Y — any Ethereum-compatible endpoint per-network | [NF] | [NF] | [NF] — custom RPC not confirmed in support docs |
+| **Tor support** | N — no SOCKS5/Tor proxy; no onion service | [NF] | [NF] | N — no Tor or SOCKS5 proxy support found |
+| **Biometric unlock (mobile)** | Y — Touch ID / Face ID (iOS), fingerprint / face (Android); key wrapped in platform keychain | [NF] | [NF] | Y — `react-native-keychain` wraps iOS Secure Enclave / Android Keystore; biometric gate at app open |
+| **NFT support** | Y — ERC-721, ERC-1155 display (toggle) | [NF] | [NF] | Y — ERC-721, ERC-1155; first-class showcase curation; NFT send; offer display; hide/unhide; large-collection rendering (known bug for very large collections) |
+| **Reproducible builds** | N — no documented reproducible build process or multi-party attestation | [NF] | [NF] | [NF] — no reproducible build process or multi-party attestation documented |
+| **Watch-only wallet** | P — hardware wallet accounts are effectively watch-only (no private key in extension); true watch-only xpub import: [NF] | [NF] | [NF] | Y — import address to view balance; confirmed in support docs |
+| **Multisig** | N (native); smart-contract multisig via external Safe integration possible | [NF] | [NF] | N — no native multisig; no ERC-4337 smart account multisig in base UI |
+| **Coin control** | N | [NF] | [NF] | N — EVM-native; no UTXO model; no manual output selection |
+| **Air-gapped signing** | P — QR-based hardware wallets (Keystone via BC-UR v2); not a first-class air-gap workflow | [NF] | [NF] | N — no QR hardware wallet or airgap workflow; Ledger BLE only (mobile), Ledger/Trezor USB only (extension) |
+| **Open-source** | N — source-available only (ConsenSys proprietary licence) | Y (wallet-core SDK) | Y | Y — GPL-3.0 (both mobile and browser extension repos) |
+| **Security audit** | Y (component audits: Cure53, Least Authority, Diligence, OtterSec — see wallets/metamask.md) | [NF] | [NF] | [NF] — no public security audit report found |
+| **Loyalty / rewards** | N | N | N | Y — RNBW token staking; 4 tiers (Silver 5K, Gold 10K, Diamond 15K, Black 20K RNBW staked); 25–100% swap fee cashback; 10% unstaking exit fee redistributed to stakers |
+| **Backup method** | iCloud / Google Drive encrypted (mobile) | [NF] | [NF] | iCloud (iOS) or Google Drive (Android) encrypted AES + manual seed phrase; both recommended simultaneously; cloud key stored in device Secure Enclave / Keystore |
+| **Browser extension launched** | 2019 | [NF] | [NF] | ~Sep 2022 (repo created 2022-09-29; confirmed via GitHub API) |
+| **Fiat on-ramp** | [NF] | [NF] | [NF] | Y — Ramp (2.49–4.9%), MoonPay (2–4.89%), Coinbase Pay (0.5–2.5%); Apple Pay, ACH, debit, credit; ETH mainnet, Optimism, Arbitrum, Polygon, BSC, Base |
+
+**Sources for Rainbow column (updated 2026-08-12):**
+- [GitHub API: rainbow-me/rainbow](https://api.github.com/repos/rainbow-me/rainbow) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-rainbow-me-rainbow.json)
+- [GitHub API: rainbow-me/browser-extension](https://api.github.com/repos/rainbow-me/browser-extension) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-rainbow-me-browser-extension.json)
+- [GitHub releases (latest 5)](https://api.github.com/repos/rainbow-me/rainbow/releases?per_page=5) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-rainbow-me-rainbow-releases.json)
+- [package.json: rainbow-me/rainbow](https://raw.githubusercontent.com/rainbow-me/rainbow/develop/package.json) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-rainbow-me-rainbow-package-json.json)
+- [Rainbow support: Supported Networks](https://rainbow.me/support/app/supported-networks) — accessed 2026-08-12 — [archived](../sources/2026-08-12-rainbow-me-support-app-supported-networks.html)
+- [Rainbow support: Backups](https://rainbow.me/support/app/the-importance-of-backups) — accessed 2026-08-12 — [archived](../sources/2026-08-12-rainbow-me-support-app-backups.html)
+- [Rainbow support: Ledger (mobile)](https://rainbow.me/support/app/add-a-wallet-from-ledger-to-rainbow) — accessed 2026-08-12 — [archived](../sources/2026-08-12-rainbow-me-support-app-ledger.html)
+- [Rainbow support: Hardware Wallet (extension)](https://rainbow.me/support/extension/connect-your-hardware-wallet) — accessed 2026-08-12 — [archived](../sources/2026-08-12-rainbow-me-support-extension-hardware-wallet.html)
+- [Rainbow support: Staking RNBW](https://rainbow.me/support/app/staking-rnbw) — accessed 2026-08-12 — [archived](../sources/2026-08-12-rainbow-me-support-staking-rnbw.html)
+- [learn.rainbow.me: Buying Crypto with Rainbow](https://learn.rainbow.me/buying-crypto-with-rainbow) — accessed 2026-08-12 — [archived](../sources/2026-08-12-learn-rainbow-me-buying-crypto.html)
+- [coinlaw.io: Rainbow Wallet Statistics 2026](https://coinlaw.io/rainbow-wallet-statistics/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-coinlaw-io-rainbow-wallet-statistics.html)
+- [rainbow.me/privacy](https://rainbow.me/privacy) — accessed 2026-08-12 — [archived](../sources/2026-08-12-rainbow-me-privacy.html)
 
 **Sources for MetaMask column (updated 2026-08-12):**
 - [GitHub API: MetaMask/metamask-extension](https://api.github.com/repos/MetaMask/metamask-extension) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-metamask-metamask-extension.json)

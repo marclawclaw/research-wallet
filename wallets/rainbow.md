@@ -7,9 +7,12 @@ support: https://rainbow.me/support
 github_mobile: https://github.com/rainbow-me/rainbow
 github_extension: https://github.com/rainbow-me/browser-extension
 launched: 2019
+browser_extension_launched: "~Sep 2022"
+latest_version: v2.0.42 (11 Aug 2026)
 licence: GPL-3.0
 platforms: iOS, Android, Browser Extension (Chrome, Brave, Edge, Firefox, Arc)
 ecosystem: Ethereum/EVM
+supported_chains: 23+ EVM-compatible networks
 ---
 
 # Rainbow Wallet
@@ -42,6 +45,8 @@ Rainbow is a consumer-focused, mobile-first, self-custody Ethereum and EVM walle
 | Total funding raised | ~USD 21 million (4 rounds) | 2026-08-12 | [coinlaw.io](https://coinlaw.io/rainbow-wallet-statistics/) |
 | Series A | USD 18 million, led by Seven Seven Six | 2021 | [coinlaw.io](https://coinlaw.io/rainbow-wallet-statistics/) |
 | Development cadence | ~14 commits/week, ~304/month | mid-2025 | [coinlaw.io](https://coinlaw.io/rainbow-wallet-statistics/) |
+| Latest release (mobile) | v2.0.42 | 2026-08-11 | [GitHub releases API](https://api.github.com/repos/rainbow-me/rainbow/releases/latest) |
+| Browser extension repo created | 2022-09-29 | 2026-08-12 | [GitHub API: rainbow-me/browser-extension](https://api.github.com/repos/rainbow-me/browser-extension) |
 
 **Note on coinlaw.io figures:** coinlaw.io aggregates swap-fee data sourced from Bankless and on-chain analytics; figures are third-party estimates, not Rainbow self-reported disclosures. Treat as indicative rather than exact.
 
