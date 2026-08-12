@@ -63,7 +63,7 @@ Confirmed via `src/constant/index.ts` `createHardwareObject()` and `src/backgrou
 | Ledger | WebHID (USB) | `@ledgerhq/device-transport-kit-web-hid`; Bluetooth on mobile (`@ledgerhq/react-native-hw-transport-ble`) |
 | Trezor | WebUSB | `@rabby-wallet/eth-trezor-keyring`, `@trezor/connect-webextension` |
 | OneKey | USB/Bluetooth | `@onekeyfe/hd-core`, `@onekeyfe/hd-web-sdk`; BLE on mobile |
-| GridPlus (Lattice1) | WebUSB | `eth-lattice-keyring` |
+| GridPlus (Lattice1) | WebUSB | `@rabby-wallet/eth-lattice-keyring` |
 | Keystone | QR code (air-gapped) | `@keystonehq/metamask-airgapped-keyring`, `@keystonehq/hw-app-eth` |
 | NGRAVE ZERO | QR code (air-gapped) | listed as `NGRAVEZERO` in hardware enum |
 | BitBox02 | WebUSB | `eth-bitbox02-keyring` directory |
@@ -163,10 +163,12 @@ From `audits/` directory in `RabbyHub/Rabby` repo (2026-08-12):
 
 | Year | Auditor | Report name | Finding |
 |------|---------|-------------|---------|
+| 2024 | Least Authority | `[20241212]Least Authority - DeBank Rabby Wallet Extension Final Audit Report.pdf` | December 2024 audit; recommended migrating encryption from AES-CBC to AES-GCM |
+| 2024 | SlowMist | `[20241217]Rabby Browser Extension Wallet - SlowMist Audit Report.pdf` | December 2024 audit; [NOT FOUND — report not fetched; filename confirms December 2024 audit] |
 | 2025 | SlowMist | `[20250821]Rabby Browser Extension Wallet - SlowMist Audit Report.pdf` | [NOT FOUND — report not fetched; filename confirms August 2025 audit] |
 | 2025 | Least Authority | `[20250903]Least Authority - Rabby Wallet Wallet Extension Final Audit Report.pdf` | Key recommendation: migrate encryption from AES-CBC to AES-GCM (per coinlaw.io, July 2026) |
 
-Earlier audits in `2021/`, `2022/`, `2023/`, `2024/` subdirectories (filenames not inspected).
+Earlier audits in `2021/`, `2022/`, `2023/` subdirectories (filenames not inspected).
 
 WalletBeat (2026) independent scorecard: **Stage 0** — Security 2/7, Privacy 0/5, Self-Sovereignty 2/6, Transparency 1/5. (Source: coinlaw.io citing walletbeat.eth.limo, June 2026.)
 
@@ -231,4 +233,5 @@ Note on install discrepancy: 4.2 million is a self-reported all-time cumulative 
 - [rabby-mobile/README.md (monorepo)](https://raw.githubusercontent.com/RabbyHub/rabby-mobile/master/README.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-rabbyhub-rabby-mobile-README.md)
 - [coinlaw.io/rabby-wallet-statistics/](https://coinlaw.io/rabby-wallet-statistics/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-coinlaw-io-rabby-wallet-statistics.html) — last updated 20 July 2026; install counts, swap fees, WalletBeat score, App Store ratings, audit dates, funding
 - [AGENTS.md](https://raw.githubusercontent.com/RabbyHub/Rabby/master/AGENTS.md) — accessed 2026-08-12 — security invariants, confirms Least Authority and SlowMist audits
-- [audits/ directory listing](https://api.github.com/repos/RabbyHub/Rabby/contents/audits/2025) — accessed 2026-08-12 — confirms SlowMist (Aug 2025) and Least Authority (Sep 2025) reports present
+- [audits/2024 directory listing](https://api.github.com/repos/RabbyHub/Rabby/contents/audits/2024) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-rabbyhub-rabby-audits-2024.json) — confirms Least Authority (Dec 2024) and SlowMist (Dec 2024) reports present
+- [audits/2025 directory listing](https://api.github.com/repos/RabbyHub/Rabby/contents/audits/2025) — accessed 2026-08-12 — confirms SlowMist (Aug 2025) and Least Authority (Sep 2025) reports present
