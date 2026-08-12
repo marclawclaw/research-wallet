@@ -136,10 +136,46 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 
 | Feature | Phantom | Solflare | Backpack |
 |---------|---------|---------|---------|
-| **Open-source** | N (Connect SDK only) | P | Y |
-| **Hardware wallet** | Y (Ledger) | Y (Ledger) | [NF] |
-| **Multi-chain** | Y (ETH, BTC, Base, Solana, Sui, Polygon, Hyperliquid, Monad) | P | Y |
-| **Staking** | Y | Y ($14B SOL staked) | Y |
+| **Platforms** | Browser ext, iOS, Android | Browser ext, web app, iOS, Android | Browser ext, iOS, Android |
+| **License** | Partially open source (Connect SDK only; main app: N) | Partially open source (SDKs, Snap, token lists; main extension/mobile/web: not public) | [NF] |
+| **Architecture** | Flutter/React Native (mobile); extension | Flutter (mobile); extension; web app | [NF] |
+| **Latest version (iOS)** | [NF] | 2.24.0 (30 July 2026) | [NF] |
+| **Seed format** | BIP39 24-word | BIP39 24-word | [NF] |
+| **Key algorithm** | Ed25519 (Solana standard) | Ed25519 (Solana standard) | Ed25519 |
+| **Derivation path** | SLIP-0010; m/44'/501'/0'/0' | SLIP-0010; m/44'/501'/0'/0' | [NF] |
+| **Multiple accounts** | Y | Y | Y |
+| **BIP39 passphrase** | [NF] | [NF] | [NF] |
+| **Watch-only** | [NF] | [NF] | [NF] |
+| **Open-source** | N (Connect SDK only) | P — SDKs, Snap, token lists public; main app closed | Y |
+| **Hardware wallet** | Y — Ledger (USB desktop, BLE mobile) | Y — Ledger (USB + BLE); Keystone (QR air-gapped); Solflare Shield (NFC proprietary) | [NF] |
+| **Multi-chain** | Y (ETH, BTC, Base, Solana, Sui, Polygon, Hyperliquid, Monad) | P — Solana native; EVM via MetaMask Snap (bridge only) | Y |
+| **Staking** | Y (native + liquid; Marinade mSOL) | Y (native validator delegation + liquid staking; Marinade, Jito; ~7% APY) | Y |
+| **Built-in swap** | Y (Jupiter aggregator) | Y (aggregated swap; likely Jupiter) | [NF] |
+| **DApp browser** | Y (mobile + extension) | Y (mobile in-app browser + extension; Solana Pay) |  [NF] |
+| **NFT support** | Y (gallery; Magic Eden integration) | Y (Collectibles tab; bulk actions; Magic Eden integration) | Y |
+| **cNFT (compressed NFT)** | Y | [NF] — not explicitly confirmed in archived sources | [NF] |
+| **Transaction simulation** | Y (transaction previews) | Y (Solflare Guards — balance change preview, drainer detection, delegation alerts) | [NF] |
+| **Phishing protection** | Y (blocklist, scam warnings) | Y (Solflare Guards; blocklist; credibility flags) | [NF] |
+| **Biometric unlock** | Y (FaceID, TouchID, PIN) | Y (FaceID, PIN on mobile) | [NF] |
+| **Multisig** | N (native); external Squads Protocol | N (native); external Squads Protocol; hot-wallet segregation for institutional | [NF] |
+| **Solana Pay** | [NF] | Y (built-in QR scan support) | [NF] |
+| **AI assistant** | N | Y — Magic (closed beta 2026; natural-language trade execution, alerts, DeFi automation) | N |
+| **Debit card** | N | Y — Solflare Card (Mastercard; spend USDC directly from wallet at 100M+ merchants) | N |
+| **Private send** | N | Y — Private Send (privacy aggregator; reduces sender-recipient link; not full anonymity) | N |
+| **Security audit** | Y (Kudelski Security; $50K bug bounty) | P — ConsenSys Diligence (MetaMask Snap only, Aug 2023); no audit found for main extension/mobile; no public bug bounty program | [NF] |
+| **Reproducible builds** | [NF] | N — not found | [NF] |
+| **AUM** | $25B+ (self-reported early 2025) | $14.1B (live homepage, 2026-08-12) | [NF] |
+
+**Sources for Solflare column (2026-08-12):**
+- [solflare.com](https://solflare.com) — [archived](../sources/2026-08-12-solflare-com-home.html)
+- [coinbureau.com — Solflare vs Phantom](https://coinbureau.com/analysis/solflare-vs-phantom/) — [archived](../sources/2026-08-12-coinbureau-com-solflare-vs-phantom.html)
+- [coinbureau.com — Is Solflare Safe?](https://coinbureau.com/analysis/is-solflare-safe/) — [archived](../sources/2026-08-12-coinbureau-com-is-solflare-safe.html)
+- [GitHub org API](https://api.github.com/orgs/solflare-wallet/repos?per_page=100) — [archived](../sources/2026-08-12-api-github-com-orgs-solflare-repos-full.json)
+- [iTunes API](https://itunes.apple.com/lookup?bundleId=com.solflare.mobile) — [archived](../sources/2026-08-12-itunes-apple-com-solflare.json)
+- [Google Play](https://play.google.com/store/apps/details?id=com.solflare.mobile) — [archived](../sources/2026-08-12-play-google-com-solflare.html)
+- [solflare.com/magic](https://solflare.com/magic) — [archived](../sources/2026-08-12-solflare-com-magic.html)
+- [solflare.com/card](https://solflare.com/card) — [archived](../sources/2026-08-12-solflare-com-card.html)
+- [wallets/solflare.md](../wallets/solflare.md) — primary note with full detail
 
 ## Monero wallets
 
