@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preload" href="/static/fonts/ubuntu-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/static/fonts/ubuntu-v15-subset-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/static/files/feather.png" as="image" type="image/svg+xml">
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Tor support | Feather Wallet Documentation</title>
+<meta property="og:title" content="Tor support" />
+<meta property="og:locale" content="en_GB" />
+<meta name="description" content="Feather works with Tor out of the box. You don’t have to manually install Tor to use it." />
+<meta property="og:description" content="Feather works with Tor out of the box. You don’t have to manually install Tor to use it." />
+<link rel="canonical" href="https://docs.featherwallet.org/guides/tor-support" />
+<meta property="og:url" content="https://docs.featherwallet.org/guides/tor-support" />
+<meta property="og:site_name" content="Feather Wallet Documentation" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-23T13:06:27&#43;00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Tor support" />
+<meta name="twitter:site" content="@featherwallet" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Tor support","dateModified":"2026-07-23T13:06:27+00:00","datePublished":"2026-07-23T13:06:27+00:00","description":"Feather works with Tor out of the box. You don’t have to manually install Tor to use it.","url":"https://docs.featherwallet.org/guides/tor-support","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.featherwallet.org/guides/tor-support"},"@context":"https://schema.org"}</script>
+  <link rel="icon" type="image/svg+xml" href="/static/files/feather.png">
+  <!-- Stylesheets -->
+  <style>/*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+*,::after,::before{box-sizing:border-box}:root{-moz-tab-size:4;tab-size:4}html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji'}hr{height:0;color:inherit}abbr[title]{text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}::-moz-focus-inner{border-style:none;padding:0}:-moz-focusring{outline:1px dotted ButtonText}:-moz-ui-invalid{box-shadow:none}legend{padding:0}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}</style>
+  <style>
+@font-face {
+  /* ubuntu-regular - latin */
+  font-family: 'Ubuntu';
+  src: local(''), url('/static/fonts/ubuntu-v15-latin-regular.woff2') format('woff2'), url('/static/fonts/ubuntu-v15-latin-regular.woff') format('woff'), url('/static/fonts/ubuntu-v15-latin-regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --header-height: 4rem;
+  --content-inline-padding: 1.3rem;
+  --content-max-width: 80ch;
+  /* define our palette for all themes */
+  --white: #fff;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --brand-purple: #5555ff;
+  --brand-pink: #ff55dd;
+  /* light-theme vars */
+  --c-bg: var(--gray-100);
+  --c-bg-secondary: var(--white);
+  --c-text: var(--gray-800);
+  --c-border: var(--gray-300);
+  --c-hl: var(--brand-pink);
+  --c-hl-secondary: var(--brand-purple);
+  --c-text-on-hl: var(--gray-800);
+  --c-text-on-hl-secondary: var(--white);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-bg: var(--gray-800);
+    --c-bg-secondary: var(--gray-900);
+    --c-text: var(--gray-200);
+    --c-border: var(--gray-400);
+  }
+}
+
+* {
+  color: var(--c-text);
+  box-sizing: border-box;
+  font-family: Ubuntu, sans-serif;
+  letter-spacing: .1ch;
+}
+
+main *, .hero * {
+  line-height: 1.5;
+}
+
+body {
+  background-color: var(--c-bg);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: var(--header-height) min-content auto auto min-content;
+  grid-template-columns: 1fr;
+  grid-template-areas: "header" "hero" "main" "aside" "footer";
+}
+
+a {
+  text-decoration: underline;
+  text-underline-offset: .05rem;
+}
+
+a:hover {
+  text-underline-offset: .25rem;
+  color: var(--c-hl);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  word-break: break-word;
+  scroll-margin-block-start: 4.5rem;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: 500;
+}
+
+em {
+  font-style: italic;
+}
+
+h2, h3, h4, h5, h6 {
+  margin-block-end: 0;
+}
+
+h1+*, h2+*, h3+*, h4+*, h5+*, h6+* {
+  margin-block-start: 0;
+}
+
+main h1 {
+  font-size: 2.25rem;
+}
+
+main h2 {
+  font-size: 1.5rem;
+}
+
+main h3 {
+  font-size: 1.25rem;
+}
+
+main :is(h2, h3, h4, h5, h6) a {
+  text-decoration: none;
+  position: relative;
+}
+
+main :is(h2, h3, h4, h5, h6) a:hover::before {
+  content: '#';
+  position: absolute;
+  left: -1.5ch;
+  bottom: 0;
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 800px) {
+  body {
+    grid-template-columns: min-content 8fr;
+    grid-template-rows: 4rem min-content auto min-content;
+    grid-template-areas: "header header" "hero hero" "aside main" "footer footer";
+  }
+}
+
+.skiplink {
+  z-index: 9999;
+  transform: translateY(calc(-100% - 1rem));
+  display: block;
+  position: absolute;
+  height: 4rem;
+  padding: var(--content-inline-padding);
+  background-color: var(--c-bg);
+  border-inline-end: 1px solid var(--c-border);
+  border-block-end: 1px solid var(--c-border);
+}
+
+.skiplink:focus {
+  z-index: 9999;
+  transform: translateY(0);
+}
+
+header {
+  grid-area: header;
+  height: var(--header-height);
+  border-block-end: 1px solid var(--c-border);
+  background-color: var(--c-bg-secondary);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header .logo {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 100%;
+  padding-inline-start: var(--content-inline-padding);
+}
+
+header .logo img {
+  padding-block-end: .3rem;
+}
+
+header .logo h1 {
+  margin: 0;
+  margin-bottom: -.4rem;
+  font-size: 1.7rem;
+  line-height: 1;
+  font-family: Comfortaa, Ubuntu, sans-serif;
+  font-weight: bold;
+}
+
+header .nav-toggle {
+  display: block;
+  border-inline-start: 1px solid var(--c-border);
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+header nav details summary, header nav a {
+  border-block-end: 1px solid var(--c-border);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+header nav details summary::before {
+  content: "►";
+  padding-inline-end: .3rem;
+}
+
+header nav details[open] summary::before {
+  content: "▼";
+}
+
+header nav .nav-close {
+  display: none;
+}
+
+header nav.show .nav-close {
+  display: flex;
+}
+
+header nav {
+  transform: translateY(calc(-100% - 1rem));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: var(--c-bg-secondary);
+  min-width: 20rem;
+  max-width: 30rem;
+  border-inline-start: 1px solid var(--c-border);
+  z-index: 10000;
+}
+
+header nav.show, header nav:focus-within {
+  transform: translateY(0);
+}
+
+header nav details summary.highlight, header nav a.highlight {
+  background-color: var(--c-hl);
+  color: var(--c-text-on-hl);
+  font-weight: 500;
+}
+
+header nav details summary:hover, header nav a:hover {
+  background-color: var(--c-bg);
+}
+
+header nav details summary.highlight:hover, header nav a.highlight:hover {
+  background-color: var(--c-hl-secondary);
+  color: var(--c-text-on-hl-secondary);
+}
+
+header nav details {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+header nav details a {
+  padding-inline-start: 2.5rem;
+}
+
+@media screen and (min-width: 800px) {
+  header .nav-toggle, header .nav-close, header nav.show .nav-close {
+    display: none;
+  }
+  header nav {
+    transform: initial;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    position: initial;
+    background-color: initial;
+    min-width: unset;
+    max-width: unset;
+    border-inline-start: none;
+  }
+  header nav.show, header nav:focus-within {
+    transform: initial;
+  }
+  header nav details summary, header nav a {
+    border-block-end: none;
+    border-inline-start: 1px solid var(--c-border);
+    border-inline-end: 1px solid var(--c-border);
+    padding: 0 1rem;
+    display: flex;
+    margin-inline-start: -1px;
+    align-items: center;
+    height: 100%;
+  }
+  header nav details:last-of-type summary {
+    border-inline-end: none;
+  }
+  header nav details[open] summary {
+    border-block-end: 1px solid var(--c-border);
+    height: calc(100% + 1px);
+  }
+  header nav details div {
+    position: absolute;
+    right: 0;
+  }
+  header nav details div a {
+    background-color: var(--c-bg-secondary);
+    border-block-end: 1px solid var(--c-border);
+    padding: 1rem;
+  }
+}
+
+main {
+  grid-area: main;
+  padding: 0 var(--content-inline-padding);
+  max-width: var(--content-max-width);
+  min-width: 0;
+  width: 100%;
+  margin: 2rem auto;
+}
+
+nav.article-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+nav.article-nav div {
+  width: 33%;
+  text-align: center;
+}
+
+footer {
+  grid-area: footer;
+  align-self: end;
+  background-color: var(--c-bg-secondary);
+  border-block-start: 1px solid var(--c-border);
+  padding: .5rem var(--content-inline-padding);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+footer div:last-of-type {
+  padding-inline-start: 1rem;
+}
+</style>
+  
+  <style>aside {
+  grid-area: aside;
+  background-color: var(--c-bg-secondary);
+  /* padding: var(--content-inline-padding); */
+  border-block-start: 1px solid var(--c-border);
+  width: 100%;
+  height: min-content;
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 30ch;
+  overflow-y: auto;
+}
+
+aside .title {
+  margin-block-end: 0;
+  margin-inline: var(--content-inline-padding);
+  margin-block-start: 1rem;
+  margin-block-end: .5rem;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+aside details:not(:last-child) {
+  border-block-end: 1px solid var(--c-border);
+}
+
+aside details summary, aside a {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+aside a {
+  text-decoration: none;
+}
+
+aside details summary::before {
+  content: "►";
+  padding-inline-end: .3rem;
+}
+
+aside details[open] summary::before {
+  content: "▼";
+}
+
+aside details summary:hover, aside a:hover, aside a.active {
+  background-color: var(--c-bg);
+}
+
+aside details {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+aside details a {
+  padding-inline-start: 2.5rem;
+}
+
+@media screen and (min-width: 800px) {
+  aside {
+    border-block-start: none;
+    border-inline-end: 1px solid var(--c-border);
+    width: max-content;
+    height: 100%;
+  }
+}
+</style>
+  
+  <link rel="stylesheet" href="/static/css/additional-styles.css">
+</head>
+
+<body>
+<a class="skiplink" href="#main">Skip to content</a>
+<header>
+  <a class="logo" href="https://docs.featherwallet.org">
+    <h1>Feather Wallet Documentation</h1>
+  </a>
+
+  <nav class="" id="main-nav" aria-labelledby="nav-toggle" role="menubar">
+    <a id="nav-close" class="nav-close hidden" aria-controls="main-nav"><span>Close</span></a>
+
+  </nav>
+</header>
+
+<aside role="menu"><details >
+    <summary>Installation</summary>
+
+    <div>
+      <a
+      role="menuitem"
+      
+      href="/guides/linux"
+      ><span>Linux</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/raspberry-pi"
+      ><span>Raspberry Pi</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/tails"
+      ><span>Tails</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/windows"
+      ><span>Windows</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/macos"
+      ><span>macOS</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/building-from-source"
+      ><span>From source</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/supported-operating-systems"
+      ><span>Supported Operating Systems</span></a>
+    </div>
+  </details><details >
+    <summary>Getting started</summary>
+
+    <div>
+      <a
+      role="menuitem"
+      
+      href="/guides/first-start"
+      ><span>First start</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/create-wallet"
+      ><span>Create a wallet</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/create-wallet-hardware-device"
+      ><span>Create a wallet (hardware device)</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/restore-from-seed"
+      ><span>Restore wallet from seed</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/receive-transaction"
+      ><span>Receive a transaction</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/send-transaction"
+      ><span>Send a transaction</span></a>
+    </div>
+  </details><details >
+    <summary>How To</summary>
+
+    <div>
+      <a
+      role="menuitem"
+      
+      href="/guides/add-contact"
+      ><span>Add a contact</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/change-password"
+      ><span>Change wallet password</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/create-view-only-wallet"
+      ><span>Create a view-only wallet</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/export-tx-history"
+      ><span>Export transaction history</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/freeze-thaw-output"
+      ><span>Freeze/thaw outputs</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/import-transaction"
+      ><span>Import transaction</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/local-node"
+      ><span>Connect to local node</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/pay-to-many"
+      ><span>Pay to many</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/portable-mode"
+      ><span>Enable portable mode</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/prove-ownership-of-address"
+      ><span>Prove ownership of address</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/prove-payment"
+      ><span>Prove payment</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/prove-tx-authorship"
+      ><span>Prove authorship of transaction</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/show-wallet-seed"
+      ><span>Show wallet seed</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/sign-verify-message"
+      ><span>Sign / verify a message</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/sweep-output"
+      ><span>Sweep outputs</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/switch-subaddress-account"
+      ><span>Switch subaddress account</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/verify-tx-proof"
+      ><span>Verify transaction proof</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/webcam-qr-scanner"
+      ><span>Use webcam QR code scanner</span></a>
+    </div>
+  </details><details open>
+    <summary>FAQ</summary>
+
+    <div>
+      <a
+      role="menuitem"
+      
+      href="/guides/accounts"
+      ><span>Accounts</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/balance"
+      ><span>Balance</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/features"
+      ><span>Feature comparison</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/formatted-tx-proofs"
+      ><span>Formatted transaction proofs</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/hardware-wallet-support"
+      ><span>Hardware wallets</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/i2p-support"
+      ><span>i2p support</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/keyboard-shortcuts"
+      ><span>Keyboard shortcuts</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/network-traffic"
+      ><span>Network Traffic</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/nodes"
+      ><span>Nodes</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/paths"
+      ><span>Paths</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/primary-address"
+      ><span>Primary address</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/restore-height"
+      ><span>Restore height</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/seed-scheme"
+      ><span>Seed scheme</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/synchronization"
+      ><span>Synchronization</span></a>
+      <a
+      role="menuitem"
+      class="active"
+      href="/guides/tor-support"
+      ><span>Tor support</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/transaction-fee"
+      ><span>Transaction Fee</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/wallet-files"
+      ><span>Wallet files</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/websocket"
+      ><span>Websocket</span></a>
+    </div>
+  </details><details >
+    <summary>Advanced</summary>
+
+    <div>
+      <a
+      role="menuitem"
+      
+      href="/guides/address-checker"
+      ><span>Address checker</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/damaged-seed"
+      ><span>Recovering a damaged Polyseed</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/entropy-from-dice"
+      ><span>Additional seed entropy from dice rolls</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/offline-tx-signing"
+      ><span>Offline transaction signing</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/push-tx"
+      ><span>Transaction pusher</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/release-signing-key"
+      ><span>Release signing key</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/stagenet-testnet-mode"
+      ><span>Stagenet / testnet</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/updater"
+      ><span>Updater</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/wallet-cache-viewer"
+      ><span>Wallet cache viewer</span></a>
+    </div>
+  </details><details >
+    <summary>Troubleshooting</summary>
+
+    <div>
+      <a
+      role="menuitem"
+      
+      href="/guides/airgapped-signing-issues"
+      ><span>Airgapped signing issues</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/failed-tx"
+      ><span>Failed transaction</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/incorrect-balance"
+      ><span>Incorrect balance</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/missing-tx"
+      ><span>Missing transaction</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/troubleshooting-startup-issues"
+      ><span>Startup issues</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/tx-did-not-arrive"
+      ><span>Transaction did not arrive</span></a>
+    </div>
+  </details><details >
+    <summary>Help</summary>
+
+    <div>
+      <a
+      role="menuitem"
+      
+      href="/guides/about"
+      ><span>About</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/donate"
+      ><span>Donate</span></a>
+      <a
+      role="menuitem"
+      
+      href="/guides/report-an-issue"
+      ><span>Report an issue</span></a>
+    </div>
+  </details>
+</aside>
+
+<main id="main">
+    
+    <h1>Tor support</h1>
+    <p>Feather works with Tor out of the box. You don’t have to manually install Tor to use it.</p>
+<p>Feather releases are bundled with a Tor binary. If the presence of a local Tor daemon on the default port (9050) is not detected, Feather will place the bundled Tor binary in the <a href="paths">config folder</a> and run it on port 19450.</p>
+<p>If you are unable to connect to the Tor network on your machine, you may configure Feather to use a different proxy (or no proxy at all).</p>
+<p>Feather can be configured to handle traffic to nodes in three different ways:</p>
+<ul>
+<li>Never over Tor</li>
+<li>Switch to Tor after initial synchronization (<strong>default</strong>)</li>
+<li>Always over Tor</li>
+</ul>
+<p>You have the option to select the desired mode when Feather is started for the first time <strong>before</strong> any network connections are made. You can also change the mode in the <strong>Settings → Network → Proxy</strong> tab.</p>
+<p>By default, Feather routes all network traffic over Tor, except for wallet synchronization. Synchronization requires a lot of data transfer and is therefore very slow over Tor. A remote node does not learn much about your wallet during synchronization (for more information see <a href="nodes">Nodes</a>). We believe this is a reasonable privacy / convenience trade-off.</p>
+<p>On Tails, Whonix, or when Feather is started with <code class="language-plaintext highlighter-rouge">torsocks</code>, all traffic is routed through Tor regardless of application configuration. Traffic to a <a href="local-node">local node</a> is never routed over Tor.</p>
+
+  </main>
+<footer>
+  <div>
+  </div>
+  <div>
+    <a href="https://featherwallet.org" rel="noopener noreferrer">Main site</a>
+    /
+    <a href="https://github.com/feather-wallet/feather" rel="noopener noreferrer">Git repository</a>
+  </div>
+</footer>
+
