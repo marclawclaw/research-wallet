@@ -35,6 +35,17 @@ Polyseed encodes the creation date within its 16 words, eliminating the need to 
 | Wallet group support | No (cannot join Cake Wallet groups) | No | Yes (required for multi-currency shared seed) |
 | Standard | Polyseed open spec | Monero Project standard | BIP39 open standard |
 
+## Usage in Feather Wallet
+
+Feather Wallet was the **first production Monero wallet to ship Polyseed** (introduced in Feather v2.0.0). It remains the default seed format for all new wallets.
+
+- **Default:** Polyseed (16-word) is the default for new wallets. Feather explicitly describes itself as a "testing grounds for experimental features that may later be adopted in reference wallets."
+- **Also supports:** 25-word legacy seed (full restore); 14-word legacy seed (the older `monero-seed` library format, supported for restore indefinitely); converting a Polyseed wallet's keys to a 25-word representation (Wallet → Seed → Show 25 word seed).
+- **Passphrase:** Supported for Polyseed via an optional additional entropy input.
+- **Conversion (Polyseed → 25-word):** Possible via Wallet → Seed. The 25-word representation and the restore height can then be used with any Monero-compatible wallet.
+- **Conversion (25-word → Polyseed):** Not possible — Polyseed uses a one-way KDF.
+- **Damaged seed recovery:** Feather includes a guide and tooling (`guides/damaged-seed`) for recovering from a partially damaged Polyseed.
+
 ## Non-usage in Monero GUI
 
 Monero GUI uses only the traditional **25-word Monero mnemonic** (Monero Project standard). Polyseed is not supported.
@@ -57,3 +68,5 @@ Monero GUI uses only the traditional **25-word Monero mnemonic** (Monero Project
 - [Cake Wallet docs: LLM full export — seed formats section](https://docs.cakewallet.com/llms-full.txt) — accessed 2026-08-12 — [archived](../sources/2026-08-12-docs-cakewallet-com-llms-full.txt)
 - [Polyseed GitHub](https://github.com/tevador/polyseed) — tevador (Monero developer); open specification
 - [Cake Wallet docs: Wallet Groups](https://docs.cakewallet.com/features/managing-your-wallet/wallet-groups) — accessed 2026-08-12 — [archived](../sources/2026-08-12-docs-cakewallet-com-wallet-groups.html)
+- [Feather Wallet docs: Seed scheme](https://docs.featherwallet.org/guides/seed-scheme) — accessed 2026-08-12 — [archived](../sources/2026-08-12-docs-featherwallet-org-seed-scheme.html)
+- [Feather Wallet docs: Feature comparison — Seed scheme row](https://docs.featherwallet.org/guides/features) — accessed 2026-08-12 — [archived](../sources/2026-08-12-docs-featherwallet-org-features.html)
