@@ -14,13 +14,13 @@ Cross-wallet adoption comparison for self-custody software wallets. All figures 
 | Wallet | GitHub stars | Forks | Contributors | MAU | Android installs | iOS installs | Date |
 |--------|-------------|-------|--------------|-----|-----------------|--------------|------|
 | Electrum | 8,561 | 3,463 | ~350 | [NOT FOUND] | 1M+ | N/A (no iOS app) | 2026-08-10 |
-| BlueWallet | 3,264 | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | 2026-08-10 |
+| BlueWallet | 3,268 | 1,045 | ~100 (top-100 API page) | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | 2026-08-12 |
 | Sparrow Wallet | 2,083 | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | N/A (desktop only) | N/A (desktop only) | 2026-08-10 |
 | Phoenix | 855 | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | 2026-08-10 |
 
 **Sources:**
 - Electrum: [GitHub API](https://api.github.com/repos/spesmilo/electrum) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-api-spesmilo-electrum.json)
-- BlueWallet: [GitHub API](https://api.github.com/repos/bluewallet/bluewallet) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-bluewallet-bluewallet.json)
+- BlueWallet: [GitHub API](https://api.github.com/repos/bluewallet/bluewallet) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-repos-bluewallet-bluewallet.json); forks/contributors from same API call; MAU and install counts [NOT FOUND]
 - Sparrow: [GitHub API](https://api.github.com/repos/sparrowwallet/sparrow) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-sparrowwallet-sparrow.json)
 - Phoenix: [GitHub API](https://api.github.com/repos/ACINQ/phoenix) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-acinq-phoenix.json)
 - Electrum Android installs: _index.md citing AppBrain (credential required for live data); electrum.org notes "available on Google Play" with 1M+ badge
