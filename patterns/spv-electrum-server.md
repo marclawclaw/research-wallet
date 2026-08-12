@@ -72,6 +72,33 @@ BlueWallet connects to Electrum servers via `react-native-tcp-socket` (TCP/SSL).
 
 Sources: `BlueElectrum.ts` source inspection — accessed 2026-08-12; FAQ.md — accessed 2026-08-12
 
+## Sparrow Wallet Electrum server implementation
+
+Sparrow connects to Electrum-compatible servers (ElectrumX, Fulcrum, Electrs, Electrs-Esplora, EPS, BWT) but explicitly does **not** implement SPV — it does not download and verify block headers or Merkle proofs. Instead, it fully delegates transaction data provision to the configured server.
+
+Key differences from Electrum desktop and BlueWallet:
+- **No Merkle proof verification.** Sparrow trusts the configured server to return correct transaction data. This is deliberate: the project encourages users to use a self-hosted server or Bitcoin Core to eliminate this trust.
+- **No peer-to-peer block header download.** Sparrow's lightweight architecture relies entirely on server-side indexing.
+- **Bitcoin Core (direct RPC):** Sparrow supports connecting directly to Bitcoin Core via the **Cormorant** library (a custom descriptor-wallet RPC adapter), bypassing Electrum-protocol servers entirely. Requires Bitcoin Core v24+ for Taproot wallet support. This is the highest-trust-minimising mode.
+- **Public servers:** A curated list of pre-configured public servers is provided for beginners. The Sparrow documentation frames this as the starting point of a "privacy journey" toward self-hosted infrastructure.
+- **SSL for all connections:** All Electrum server connections use SSL/TLS. The server SSL certificate is TOFU-pinned (stored in `certs/` in the Sparrow home directory).
+- **Tor integration:** When a SOCKS5 proxy is configured or the server address is `.onion`, Sparrow routes all server communication through Tor. Local network addresses (192.168.*.*, 172.16.*.*, 10.*.*.*) bypass the proxy.
+- **Electrum RPC batching:** Enabled for mempool-electrs servers from v2.1.0.
+
+Supported server implementations (all over SSL):
+
+| Server | Notes |
+|--------|-------|
+| Fulcrum | Recommended by Sparrow for performance |
+| ElectrumX | Full support |
+| Electrs | Full support |
+| Electrs-Esplora | Full support |
+| EPS (Electrum Personal Server) | Full support |
+| BWT (Bitcoin Wallet Tracker) | Full support |
+| Bitcoin Core (direct RPC) | Via Cormorant; highest privacy |
+
+Sources: [sparrowwallet.com/features/](https://sparrowwallet.com/features/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-sparrowwallet-com-features.html); [sparrowwallet.com/docs/faq.html](https://sparrowwallet.com/docs/faq.html) — accessed 2026-08-12 — [archived](../sources/2026-08-12-sparrowwallet-com-docs-faq.html)
+
 ## Known CVEs
 
 - **CVE-2012-2459** (severity: low): SPV verification could accept blocks with left-sibling hash duplicates in the Merkle tree, a known Bitcoin protocol flaw. Fixed in Electrum v4.8.0 (July 2026), release note: "fix CVE-2012-2459: reject left-sibling duplicates (#10568)".

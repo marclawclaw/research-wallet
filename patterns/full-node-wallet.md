@@ -23,6 +23,19 @@ A full-node wallet eliminates this leak: all transaction data is fetched from th
 3. **Transaction broadcast:** Outgoing transactions are broadcast directly to the peer-to-peer network via the local node, not via an intermediary API.
 4. **Ongoing sync:** After the initial sync, the daemon stays in sync by downloading new blocks as they arrive.
 
+## Implementation in Sparrow Wallet (Bitcoin)
+
+Sparrow is the only widely-used Bitcoin desktop wallet that supports **direct Bitcoin Core connection** (no Electrum server intermediary) as a first-class connectivity mode. This is functionally equivalent to a full-node wallet architecture for Bitcoin.
+
+- **Cormorant library:** Sparrow uses its own Cormorant library to communicate with Bitcoin Core via RPC (`bitcoin-cli` / JSON-RPC). Cormorant manages descriptor wallets within Bitcoin Core rather than Electrum-protocol indexing.
+- **Requirements:** Bitcoin Core v24 or later (for Taproot descriptor wallet support). Standard `bitcoin.conf` settings (RPC user/pass, or cookie authentication).
+- **Privacy:** No Electrum server sees the wallet's scriptPubKeys. All transaction queries are answered by the local Bitcoin Core node, which has the full blockchain.
+- **Initial sync:** Standard Bitcoin Core initial block download — ~600 GB+ uncompressed, or pruned. This is a one-time cost.
+- **Taproot wallets on Bitcoin Core:** Supported from v1.7.2 (February 2023) via descriptor wallets.
+- **Bootstrap mode:** [NOT FOUND] — Sparrow does not appear to offer a bootstrap mode like Monero GUI; users must wait for full node sync before wallet data is available via Bitcoin Core connection. Alternatively, they can temporarily use a public Electrum server and switch to Bitcoin Core when synced.
+
+Sparrow also supports Electrum-protocol servers as a less privacy-preserving alternative (see [[spv-electrum-server]]).
+
 ## Implementation in Monero GUI
 
 Monero GUI is the only Monero wallet with a full-node option. Feather Wallet, Cake Wallet, and Monerujo all connect to remote nodes.

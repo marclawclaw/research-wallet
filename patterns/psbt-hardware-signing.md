@@ -103,6 +103,54 @@ BlueWallet uses `bitcoinjs-lib`'s `Psbt` class (TypeScript) for all PSBT constru
 
 Sources: source inspection of `multisig-hd-wallet.ts`, `abstract-hd-electrum-wallet.ts`, v8.0.1 release notes — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-repos-bluewallet-bluewallet-releases-latest.json)
 
+## Sparrow Wallet PSBT implementation
+
+PSBT is the architectural foundation of Sparrow — the entire keystore design, transaction editor, and signing flow are built around PSBTs from the ground up. PSBTv2 file loading added in v2.1.0.
+
+**Transaction editor:** Sparrow's transaction editor doubles as a PSBT inspector — every field (inputs, outputs, scripts, signatures, pubkeys, sighash types) is visible and editable at any stage. Non-default sighash type warnings added in v2.5.2; `sighash none` warning in v2.0.0.
+
+**Hardware wallet PSBT signing via Lark (v2.1.0+):**
+Sparrow replaced the HWI (Hardware Wallet Interface) library with its own **Lark** library for direct USB communication in v2.1.0. Lark handles USB/HID protocol directly without requiring Python or external binaries.
+
+Connected USB flow:
+```
+Sparrow builds PSBT → Lark sends to hardware wallet over USB/HID
+    → Device displays outputs and amounts for user confirmation
+    → User confirms on device → Device returns signed PSBT
+    → Sparrow finalises and broadcasts
+```
+
+Supported USB devices (v2.5.3): Trezor (Model One, T, Safe 3, Safe 5), Ledger (Nano S/S+/X/Stax/Flex), BitBox02, Blockstream Jade/Jade Plus, ERA.
+
+**Airgapped signing via BC-UR QR fountain codes:**
+```
+Watch-only wallet → unsigned PSBT → animated BC-UR QR displayed on screen
+    → Hardware wallet camera scans → verifies outputs
+    → User confirms → device signs → returns signed PSBT as BC-UR QR
+    → Sparrow webcam scans → finalises → broadcasts
+```
+Supported airgapped QR devices: Foundation Passport, SeedSigner, Keystone, Krux (BBQr optional), Jade/Jade Plus, Specter DIY, Seed Tool.
+
+**Airgapped signing via microSD (Coldcard):**
+```
+Watch-only wallet → unsigned PSBT file → exported to microSD
+    → Coldcard reads from SD → signs → writes signed PSBT to SD
+    → Sparrow reads signed PSBT from SD → broadcasts
+```
+
+**Airgapped signing via NFC (smartcards):**
+Tapsigner, SatChip, Satochip, Keycard — NFC tap via PC/SC reader on the host machine.
+
+**Silent Payments PSBT extensions (BIP375):**
+From v2.4.0, Sparrow supports BIP375 PSBT fields for Silent Payment (BIP352) outputs, including DLEQ proof generation and verification for hardware wallet support.
+
+**Multisig PSBT coordination:**
+Sparrow acts as the PSBT coordinator for multisig — creates the unsigned PSBT, routes it to each cosigner in sequence (any combination of USB, QR, microSD, NFC, or xpub software key), finalises once all required signatures are collected, and broadcasts. Mixed-vendor multisig (e.g. Ledger + Coldcard + Trezor 2-of-3) is fully supported.
+
+Ledger multisig wallet registrations are stored and resent automatically to the device from v2.1.0.
+
+Sources: [sparrowwallet.com/features/](https://sparrowwallet.com/features/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-sparrowwallet-com-features.html); GitHub releases API — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-repos-sparrowwallet-sparrow-releases.json)
+
 ## Sources
 
 - [electrum/transaction.py — PSBT implementation](https://github.com/spesmilo/electrum/blob/master/electrum/transaction.py) — accessed 2026-08-10 — source code inspection

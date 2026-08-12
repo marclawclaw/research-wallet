@@ -12,12 +12,12 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 | **License** | MIT | MIT | Apache-2.0 | Apache-2.0 |
 | **Architecture** | SPV (Electrum server) | SPV / Electrum server | Full node / Electrum server | Lightning-native |
 | **Language** | Python | React Native | Java | Kotlin |
-| **Latest version** | 4.8.1 (August 2026) | 8.0.1 (21 July 2026) | [NF] | [NF] |
-| **Key management** | BIP32 HD; Electrum native seed or BIP39 import | BIP32 HD; BIP39 | BIP32 HD; BIP39; BIP47 (PayNym) | BIP32 HD; BIP39 |
-| **Seed format** | Electrum native (version-embedded) or BIP39 | BIP39 | BIP39 | BIP39 |
+| **Latest version** | 4.8.1 (August 2026) | 8.0.1 (21 July 2026) | 2.5.3 (30 July 2026) | [NF] |
+| **Key management** | BIP32 HD; Electrum native seed or BIP39 import | BIP32 HD; BIP39 | BIP32 HD; BIP39; BIP39 passphrase; SLIP39 import; BIP47 (PayNym); xpub watch-only; output descriptor | BIP32 HD; BIP39 |
+| **Seed format** | Electrum native (version-embedded) or BIP39 | BIP39 | BIP39 (12/24-word); SLIP39 import | BIP39 |
 | **Passphrase (BIP39 extension)** | Y | Y | Y | Y |
 | **Watch-only wallet** | Y | Y | Y | N |
-| **Hardware wallet** | Y (Trezor, Ledger, KeepKey, BitBox02, Coldcard, Jade, Safe-T, Bitbox01) | P (Ledger via BLE) | Y (Trezor, Ledger, Coldcard, BitBox02, Jade, Specter DIY, Passport) | N |
+| **Hardware wallet** | Y (Trezor, Ledger, KeepKey, BitBox02, Coldcard, Jade, Safe-T, Bitbox01) | P (Ledger via BLE) | Y — USB: Trezor, Ledger, BitBox02, Jade/Jade Plus, ERA; Airgapped QR: Passport, SeedSigner, Keystone, Krux, Jade, Specter DIY, Seed Tool; Airgapped SD: Coldcard; Airgapped NFC: Tapsigner, Satochip, Keycard | N |
 | **PSBT** | Y | Y | Y | N |
 | **Multisig** | Y (native m-of-n; P2SH and P2WSH) | Y (native m-of-n; P2WSH, P2SH-P2WSH, P2SH) | Y (native, all script types) | N |
 | **Air-gapped signing** | Y (file, QR code, audio modem plugin) | Y (PSBT file, BC-UR v2 QR — v8.0.1) | Y (QR, microSD, NFC) | N |
@@ -27,21 +27,25 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 | **Script types — P2SH** | Y | Y (P2SH-P2WPKH wrapped SegWit; P2SH multisig) | Y | N |
 | **Script types — P2WPKH (bech32)** | Y | Y | Y | Y |
 | **Script types — P2WSH** | Y (multisig) | Y (multisig via MultisigHDWallet) | Y | N |
-| **Script types — P2TR (Taproot receive)** | N (can send to P2TR; cannot create P2TR wallet) | Y (HDTaprootWallet, BIP86, m/86'/0'/0') | Y | N |
+| **Script types — P2TR (Taproot receive)** | N (can send to P2TR; cannot create P2TR wallet) | Y (HDTaprootWallet, BIP86, m/86'/0'/0') | Y (from v1.4.3, July 2021; full signing including script-path) | N |
 | **Coin control (UTXO selection)** | Y | Y (documented feature; fetchUtxo/getUtxo in source) | Y | N |
 | **RBF (Replace-By-Fee)** | Y (default) | Y (BIP68 sequence 0x80000000; watch-only bech32 added v8.0.1) | Y | — |
 | **CPFP** | Y | Y (documented in official support) | Y | — |
-| **CoinJoin** | N | N | Y (PayJoin; Whirlpool via Samourai coordinator) | N |
+| **CoinJoin** | N | N | P — PayJoin (BIP78): Y; Whirlpool (Samourai): REMOVED v1.9.0 (Apr 2024, post-Samourai arrests); PayJoin v2 (BIP77): [NF] | N |
 | **Tor support** | Y (SOCKS5 proxy to .onion servers) | N (not found in source inspection 2026-08-12) | Y (built-in) | N |
 | **Privacy-preserving routing** | Y (Tor, manual server) | P (custom Electrum server only; no Tor) | Y (Tor, self-hosted full node) | Y (trampoline) |
 | **Fee estimation** | Y (dynamic; median of ~10 servers) | Y | Y | Y |
 | **Payment batching** | Y | Y (Send to Many / batch documented in official support) | Y | — |
 | **2FA** | Y (TrustedCoin plugin, 2-of-3) | N | N | N |
 | **Open-source** | Y (MIT) | Y (MIT) | Y (Apache-2.0) | Y (Apache-2.0) |
-| **Reproducible builds** | Y (5 independent signers) | P (APK + IPA released with detached .sig; full reproducible-build attestation [NOT FOUND]) | [NF] | [NF] |
+| **Reproducible builds** | Y (5 independent signers) | P (APK + IPA released with detached .sig; full reproducible-build attestation [NOT FOUND]) | P — .tar.gz and .zip reproducible from v1.5.0; .deb/.rpm/.msi/.dmg have minor variances; bitcoinbinary.org attestations v1.5.0–v1.6.6 only; more recent releases [NF] at bitcoinbinary.org | [NF] |
 | **F-Droid** | Y | Y | N | Y |
 | **Command-line / daemon** | Y (full RPC/JSON-RPC) | N | N | N |
 | **Plugin system** | Y (hardware wallets, 2FA, NWC, watchtower, etc.) | N | P (limited) | N |
+| **Silent Payments (BIP352)** | N | N | Y — sending v2.3.0 (Oct 2025); receiving wallets v2.5.0 (May 2026); HW support via BIP375 v2.4.0 | N |
+| **Wallet encryption** | PBKDF2 | [NF] | Argon2 (≥500ms key derivation on modern hardware) | [NF] |
+| **Transaction graph explorer** | N | N | Y (built-in; all inputs/outputs hyperlinked to coinbase) | N |
+| **Terminal / headless mode** | Y (full RPC/JSON-RPC) | N | Y (Sparrow Terminal TUI from v1.7.0; Sparrow Server headless builds) | N |
 
 **Sources for Electrum column:**
 - [electrum.org](https://electrum.org) — [archived](../sources/2026-08-10-electrum-org-home.html)
@@ -57,7 +61,15 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 - BlueWallet FAQ: https://github.com/BlueWallet/BlueWallet/blob/master/FAQ.md — accessed 2026-08-12
 - Official support docs: https://bluewallet.io/lndhub/ — [archived](../sources/2026-08-12-bluewallet-io-lndhub.html)
 
-**Sources for other columns:** _index.md discovery research (2026-08-10). Sparrow and Phoenix columns will be filled in full during their respective deep-research runs.
+**Sources for Sparrow Wallet column (updated 2026-08-12):**
+- [GitHub API: sparrowwallet/sparrow](https://api.github.com/repos/sparrowwallet/sparrow) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-repos-sparrowwallet-sparrow.json)
+- [GitHub releases (20 most recent)](https://api.github.com/repos/sparrowwallet/sparrow/releases?per_page=20) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-repos-sparrowwallet-sparrow-releases.json)
+- [sparrowwallet.com/features/](https://sparrowwallet.com/features/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-sparrowwallet-com-features.html)
+- [sparrowwallet.com/docs/faq.html](https://sparrowwallet.com/docs/faq.html) — accessed 2026-08-12 — [archived](../sources/2026-08-12-sparrowwallet-com-docs-faq.html)
+- [sparrowwallet.com/download/](https://sparrowwallet.com/download/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-sparrowwallet-com-download.html)
+- [GitHub README](https://raw.githubusercontent.com/sparrowwallet/sparrow/master/README.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-com-sparrowwallet-sparrow-README.md)
+
+**Sources for other columns:** _index.md discovery research (2026-08-10). Phoenix column will be filled in during its respective deep-research run.
 
 ## Ethereum/EVM wallets
 

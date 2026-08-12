@@ -1,0 +1,536 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.3 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Documentation - Sparrow Wallet</title>
+<meta name="description" content="Sparrow is a modern desktop Bitcoin wallet application supporting most hardware wallets and built on common standards such as PSBT, with an emphasis on transparency and usability.">
+
+
+  <meta name="author" content="Sparrow Wallet">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Sparrow Wallet">
+<meta property="og:title" content="Documentation">
+<meta property="og:url" content="https://sparrowwallet.com/docs/">
+
+
+  <meta property="og:description" content="Sparrow is a modern desktop Bitcoin wallet application supporting most hardware wallets and built on common standards such as PSBT, with an emphasis on transparency and usability.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://sparrowwallet.com/docs/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Sparrow Wallet",
+      "url": "https://sparrowwallet.com/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Sparrow Wallet Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Sparrow Wallet
+          <span class="site-subtitle">Financial self sovereignty</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/features/">Features</a>
+            </li><li class="masthead__menu-item">
+              <a href="/docs/">Docs</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/donate/">Donate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/download/">Download</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/docs/quick-start.html"><span class="nav__sub-title">Quick Start Guide</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/quick-start.html#installation">Installation</a></li>
+          
+            <li><a href="/docs/quick-start.html#welcome-to-sparrow">Welcome to Sparrow</a></li>
+          
+            <li><a href="/docs/quick-start.html#sparrow-server-setup">Sparrow Server Setup</a></li>
+          
+            <li><a href="/docs/quick-start.html#creating-your-first-wallet">Creating Your First Wallet</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/docs/connect-node.html"><span class="nav__sub-title">Connect to Bitcoin Core</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/connect-node.html#prerequistes">Prerequistes</a></li>
+          
+            <li><a href="/docs/connect-node.html#bitcoin-core-setup">Bitcoin Core setup</a></li>
+          
+            <li><a href="/docs/connect-node.html#sparrow-wallet-setup">Sparrow Wallet setup</a></li>
+          
+            <li><a href="/docs/connect-node.html#creating-your-wallet">Creating your Wallet</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/docs/connected-wallet.html"><span class="nav__sub-title">Setup a connected hardware wallet</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/connected-wallet.html#prerequistes">Prerequistes</a></li>
+          
+            <li><a href="/docs/connected-wallet.html#why-use-a-hardware-wallet">Why use a hardware wallet?</a></li>
+          
+            <li><a href="/docs/connected-wallet.html#connected-or-airgapped">Connected or airgapped?</a></li>
+          
+            <li><a href="/docs/connected-wallet.html#why-trezor">Why Trezor?</a></li>
+          
+            <li><a href="/docs/connected-wallet.html#ordering-and-receiving">Ordering and receiving</a></li>
+          
+            <li><a href="/docs/connected-wallet.html#setting-up-your-trezor">Setting up your Trezor</a></li>
+          
+            <li><a href="/docs/connected-wallet.html#importing-your-trezor-into-sparrow">Importing your Trezor into Sparrow</a></li>
+          
+            <li><a href="/docs/connected-wallet.html#receiving-bitcoin">Receiving Bitcoin</a></li>
+          
+            <li><a href="/docs/connected-wallet.html#sending-bitcoin">Sending Bitcoin</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/docs/airgapped-wallet-qr.html"><span class="nav__sub-title">Setup an airgapped hardware wallet with QR codes</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/airgapped-wallet-qr.html#prerequistes">Prerequistes</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-qr.html#why-use-a-hardware-wallet">Why use a hardware wallet?</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-qr.html#why-qr-codes">Why QR codes?</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-qr.html#why-passport">Why Passport?</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-qr.html#ordering-and-receiving">Ordering and receiving</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-qr.html#setting-up-your-passport">Setting up your Passport</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-qr.html#importing-your-passport-into-sparrow">Importing your Passport into Sparrow</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-qr.html#receiving-bitcoin">Receiving Bitcoin</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-qr.html#sending-bitcoin">Sending Bitcoin</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/docs/airgapped-wallet-sdcard.html"><span class="nav__sub-title">Setup an airgapped hardware wallet with SD cards</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/airgapped-wallet-sdcard.html#prerequistes">Prerequistes</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-sdcard.html#why-use-a-hardware-wallet">Why use a hardware wallet?</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-sdcard.html#why-coldcard">Why Coldcard?</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-sdcard.html#ordering-and-receiving">Ordering and receiving</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-sdcard.html#setting-up-your-coldcard">Setting up your Coldcard</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-sdcard.html#important-check-your-firmware-version">Important: Check your firmware version</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-sdcard.html#creating-the-wallet-on-the-coldcard">Creating the wallet on the Coldcard</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-sdcard.html#importing-the-coldcard-into-sparrow">Importing the Coldcard into Sparrow</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-sdcard.html#receiving-bitcoin">Receiving Bitcoin</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-sdcard.html#sending-bitcoin">Sending Bitcoin</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/docs/airgapped-wallet-smartcard.html"><span class="nav__sub-title">Setup an airgapped smartcard wallet</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/airgapped-wallet-smartcard.html#prerequistes">Prerequistes</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-smartcard.html#why-use-a-hardware-wallet">Why use a hardware wallet?</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-smartcard.html#why-smartcards">Why smartcards?</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-smartcard.html#why-keycard">Why Keycard?</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-smartcard.html#ordering-and-receiving">Ordering and receiving</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-smartcard.html#setting-up-your-keycard">Setting up your Keycard</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-smartcard.html#importing-your-keycard-into-sparrow">Importing your Keycard into Sparrow</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-smartcard.html#receiving-bitcoin">Receiving Bitcoin</a></li>
+          
+            <li><a href="/docs/airgapped-wallet-smartcard.html#sending-bitcoin">Sending Bitcoin</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/docs/spending-privately.html"><span class="nav__sub-title">Spending Privately</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/spending-privately.html#prerequistes">Prerequistes</a></li>
+          
+            <li><a href="/docs/spending-privately.html#why-is-this-necessary">Why is this necessary?</a></li>
+          
+            <li><a href="/docs/spending-privately.html#fake-two-person-coinjoin">Fake two person coinjoin</a></li>
+          
+            <li><a href="/docs/spending-privately.html#paynym-payment-code">PayNym? Payment code?</a></li>
+          
+            <li><a href="/docs/spending-privately.html#paying-to-paynym">Paying to a PayNym</a></li>
+          
+            <li><a href="/docs/spending-privately.html#conclusion">Conclusion</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/docs/best-practices.html"><span class="nav__sub-title">Best Practices</span></a>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/best-practices.html#how-to-store-bitcoin">How to Store Bitcoin</a></li>
+          
+            <li><a href="/docs/best-practices.html#how-much-are-you-storing">How Much Are You Storing?</a></li>
+          
+            <li><a href="/docs/best-practices.html#summary">Summary</a></li>
+          
+            <li><a href="/docs/best-practices.html#the-beginner-stage">The Beginner Stage</a></li>
+          
+            <li><a href="/docs/best-practices.html#the-intermediate-stage">The Intermediate Stage</a></li>
+          
+            <li><a href="/docs/best-practices.html#the-expert-stage">The Expert Stage</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/docs/faq.html"><span class="nav__sub-title">FAQ</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/docs/server-performance.html"><span class="nav__sub-title">Server Performance</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Documentation">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Documentation
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h3 id="quick-start-guide"><a href="/docs/quick-start.html">Quick Start Guide</a></h3>
+<p>A great place to start. Contains an explanation of how to setup Sparrow to connect to a public server, and create your first wallet.</p>
+
+<h3 id="connect-to-bitcoin-core"><a href="/docs/connect-node.html">Connect to Bitcoin Core</a></h3>
+<p>Make your wallet private by connecting Sparrow to your Bitcoin Core node using this guide.</p>
+
+<h3 id="setup-a-connected-hardware-wallet"><a href="/docs/connected-wallet.html">Setup a connected hardware wallet</a></h3>
+<p>Use Sparrow with a Trezor, Ledger, BitBox02, Jade or other USB connected hardware wallet by following this guide.</p>
+
+<h3 id="setup-an-airgapped-hardware-wallet-with-qr-codes"><a href="/docs/airgapped-wallet-qr.html">Setup an airgapped hardware wallet with QR codes</a></h3>
+<p>Use Sparrow with a Passport, Jade, SeedSigner, Keystone, Krux or other airgapped hardware wallet using QR codes.</p>
+
+<h3 id="setup-an-airgapped-hardware-wallet-with-an-sd-card"><a href="/docs/airgapped-wallet-sdcard.html">Setup an airgapped hardware wallet with an SD card</a></h3>
+<p>Secure your bitcoin by using Sparrow with a Coldcard, Keystone, Passport or other airgapped hardware wallet using an SD card.</p>
+
+<h3 id="setup-an-airgapped-smartcard-wallet"><a href="/docs/airgapped-wallet-smartcard.html">Setup an airgapped smartcard wallet</a></h3>
+<p>Use Sparrow with a Tapsigner, Satschip, Satochip or Keycard smartcard by following this guide.</p>
+
+<h3 id="spending-privately"><a href="/docs/spending-privately.html">Spending Privately</a></h3>
+<p>Learn how to protect your privacy when spending from Sparrow.</p>
+
+<h3 id="best-practices"><a href="/docs/best-practices.html">Best Practices</a></h3>
+<p>Learn which Sparrow configuration is best for you at each stage in your Bitcoin journey.</p>
+
+<h3 id="frequently-asked-questions"><a href="/docs/faq.html">Frequently Asked Questions</a></h3>
+<p>Reading this may help you figure something out, or improve your understanding and usage.</p>
+
+<h3 id="server-performance"><a href="/docs/server-performance.html">Server Performance</a></h3>
+<p>Compare and contrast popular Electrum server implementations for your needs.</p>
+
+<h3 id="contributed">Contributed</h3>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=yJpvfRl03Tw" target="_blank">Why You Need Sparrow Bitcoin Wallet NOW</a> by <a href="https://x.com/BTCSessions" target="_blank">@BTCSessions</a> <strong>(Recommended!)</strong></li>
+  <li><a href="https://www.youtube.com/watch?v=ppZ9cPvGTVU" target="_blank">Unlock Sparrow Bitcoin Wallet’s Hidden Power: Advanced Features Tutorial</a> by <a href="https://x.com/BTCSessions" target="_blank">@BTCSessions</a></li>
+  <li><a href="https://youtu.be/9dcXXz1CHV8" target="_blank">Sparrow Wallet Walkthrough</a> by <a href="https://x.com/ministryofnodes" target="_blank">@ministryofnodes</a></li>
+  <li><a href="https://www.athena-alpha.com/how-to-send-bitcoin/" target="_blank">How To Send Bitcoin</a> by <a href="https://x.com/athena_alpha_" target="_blank">@athena_alpha_</a></li>
+  <li><a href="https://youtu.be/qJ_SpQX_YKw" target="_blank">SeedSigner and Sparrow Wallet</a> by <a href="https://x.com/BTCSessions" target="_blank">@BTCSessions</a></li>
+  <li><a href="https://bitcoiner.guide/sparrow/" target="_blank">Bitcoiner Guide - Sparrow Wallet 101</a> by <a href="https://x.com/BitcoinQ_A" target="_blank">@BitcoinQ_A</a></li>
+  <li><a href="https://bitcoinmagazine.com/guides/bitcoin-wallets-for-beginners-part-four-installing-sparrow-wallet" target="_blank">Bitcoin Wallets For Beginners - Installing Sparrow Wallet</a> by <a href="https://x.com/econoalchemist" target="_blank">@econoalchemist</a></li>
+  <li><a href="https://www.youtube.com/watch?v=7EmshGDXi04" target="_blank">Bitcoin Replace By Fee and Child Pays For Parent Tutorial using Sparrow Wallet</a> by <a href="https://x.com/w_s_bitcoin" target="_blank">@Wicked</a></li>
+  <li><a href="https://bitcoinmagazine.com/technical/how-to-use-passport-hardware-bitcoin-wallet" target="_blank">How to setup and secure your Bitcoin with Foundation Passport wallet (and Sparrow)</a> by <a href="https://x.com/econoalchemist" target="_blank">@econoalchemist</a></li>
+  <li><a href="https://www.youtube.com/watch?v=QiX0rR_o_fI" target="_blank">Setup and run an ElectrumX server</a> by <a href="https://x.com/ministryofnodes" target="_blank">@ministryofnodes</a></li>
+  <li><a href="https://www.youtube.com/watch?v=SpQRrbJt7cg" target="_blank">Setup and run an Fulcrum server</a> by <a href="https://x.com/ministryofnodes" target="_blank">@ministryofnodes</a></li>
+</ul>
+
+<h3 id="support">Support</h3>
+<p>As an open source project Sparrow Wallet does not have a support team. 
+Instead, there is an active community-managed Telegram group: <a href="https://telegram.me/SparrowWallet" target="_blank">@SparrowWallet</a>.</p>
+
+<p>Please be aware that there are many scammers on Telegram! The group admins (or “Sparrow support”) <strong>will not DM you</strong>.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+   
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2026 Sparrow Wallet. Sparrow is licensed under the Apache 2 software licence.</div>
+<script type="text/javascript" src="/assets/js/lightbox.js"></script>
+<link rel="stylesheet" href="/assets/css/lightbox.css">
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
