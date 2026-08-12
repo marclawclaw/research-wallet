@@ -1,0 +1,34 @@
+[
+  {
+    "name": "[20241212]Least Authority - DeBank Rabby Wallet Extension Final Audit Report.pdf",
+    "path": "audits/2024/[20241212]Least Authority - DeBank Rabby Wallet Extension Final Audit Report.pdf",
+    "sha": "299be2e5580f8cc5bb8785433146e7e309a155ff",
+    "size": 349644,
+    "url": "https://api.github.com/repos/RabbyHub/Rabby/contents/audits/2024/[20241212]Least%20Authority%20-%20DeBank%20Rabby%20Wallet%20Extension%20Final%20Audit%20Report.pdf?ref=develop",
+    "html_url": "https://github.com/RabbyHub/Rabby/blob/develop/audits/2024/[20241212]Least%20Authority%20-%20DeBank%20Rabby%20Wallet%20Extension%20Final%20Audit%20Report.pdf",
+    "git_url": "https://api.github.com/repos/RabbyHub/Rabby/git/blobs/299be2e5580f8cc5bb8785433146e7e309a155ff",
+    "download_url": "https://raw.githubusercontent.com/RabbyHub/Rabby/develop/audits/2024/%5B20241212%5DLeast%20Authority%20-%20DeBank%20Rabby%20Wallet%20Extension%20Final%20Audit%20Report.pdf",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/RabbyHub/Rabby/contents/audits/2024/[20241212]Least%20Authority%20-%20DeBank%20Rabby%20Wallet%20Extension%20Final%20Audit%20Report.pdf?ref=develop",
+      "git": "https://api.github.com/repos/RabbyHub/Rabby/git/blobs/299be2e5580f8cc5bb8785433146e7e309a155ff",
+      "html": "https://github.com/RabbyHub/Rabby/blob/develop/audits/2024/[20241212]Least%20Authority%20-%20DeBank%20Rabby%20Wallet%20Extension%20Final%20Audit%20Report.pdf"
+    }
+  },
+  {
+    "name": "[20241217]Rabby Browser Extension Wallet - SlowMist Audit Report.pdf",
+    "path": "audits/2024/[20241217]Rabby Browser Extension Wallet - SlowMist Audit Report.pdf",
+    "sha": "ead68b56fca24a7a6fb3ef94565b36c40cf3f230",
+    "size": 6280325,
+    "url": "https://api.github.com/repos/RabbyHub/Rabby/contents/audits/2024/[20241217]Rabby%20Browser%20Extension%20Wallet%20-%20SlowMist%20Audit%20Report.pdf?ref=develop",
+    "html_url": "https://github.com/RabbyHub/Rabby/blob/develop/audits/2024/[20241217]Rabby%20Browser%20Extension%20Wallet%20-%20SlowMist%20Audit%20Report.pdf",
+    "git_url": "https://api.github.com/repos/RabbyHub/Rabby/git/blobs/ead68b56fca24a7a6fb3ef94565b36c40cf3f230",
+    "download_url": "https://raw.githubusercontent.com/RabbyHub/Rabby/develop/audits/2024/%5B20241217%5DRabby%20Browser%20Extension%20Wallet%20-%20SlowMist%20Audit%20Report.pdf",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/RabbyHub/Rabby/contents/audits/2024/[20241217]Rabby%20Browser%20Extension%20Wallet%20-%20SlowMist%20Audit%20Report.pdf?ref=develop",
+      "git": "https://api.github.com/repos/RabbyHub/Rabby/git/blobs/ead68b56fca24a7a6fb3ef94565b36c40cf3f230",
+      "html": "https://github.com/RabbyHub/Rabby/blob/develop/audits/2024/[20241217]Rabby%20Browser%20Extension%20Wallet%20-%20SlowMist%20Audit%20Report.pdf"
+    }
+  }
+]

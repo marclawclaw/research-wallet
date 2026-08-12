@@ -82,32 +82,32 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 | Feature | MetaMask | Trust Wallet | Rabby | Rainbow |
 |---------|---------|-------------|-------|---------|
 | **Platforms** | Browser ext (Chrome, Firefox, Brave, Edge), iOS, Android | iOS, Android | Browser ext, iOS, Android, Desktop | iOS, Android, Browser ext |
-| **License** | Source-available, NOT open-source (ConsenSys proprietary; extension and mobile both; confirmed 2026-08-12 LICENSE inspection) | Apache-2.0 (wallet-core) | [NF] | [NF] |
+| **License** | Source-available, NOT open-source (ConsenSys proprietary; extension and mobile both; confirmed 2026-08-12 LICENSE inspection) | Apache-2.0 (wallet-core) | MIT (extension + mobile; brand name and logo reserved per LICENSE — confirmed package.json 2026-08-12) | [NF] |
 | **Architecture** | Browser extension: MV3 service worker + injected `window.ethereum` content script; Mobile: React Native WebView + WalletConnect v2 | Mobile app | Browser-injected provider | Mobile app |
-| **Latest version** | Extension: v13.43.0 (11 Aug 2026); Mobile: v8.6.0 (7 Aug 2026) | [NF] | [NF] | [NF] |
+| **Latest version** | Extension: v13.43.0 (11 Aug 2026); Mobile: v8.6.0 (7 Aug 2026) | [NF] | Extension: v0.94.2 (7 Aug 2026); Mobile app: v0.6.84 | [NF] |
 | **Language** | TypeScript | [NF] | TypeScript | [NF] |
-| **Key management** | BIP39 SRP (12-word default, 24-word import); BIP44 m/44'/60'/0'/0/n; hardware accounts signed on device; imported single private keys; Bitcoin via Snap (BIP84 path) | [NF] | [NF] | [NF] |
-| **Seed format** | BIP39 12-word (default); 24-word import supported | [NF] | [NF] | [NF] |
-| **Passphrase (BIP39 extension)** | N — no 25th-word support in standard UI | [NF] | [NF] | [NF] |
-| **Hardware wallet** | Y — Ledger (WebHID/USB + Bluetooth); Trezor (WebUSB via TrezorConnect); Lattice1/GridPlus (gridplus-sdk); QR-based (Keystone via BC-UR v2). Confirmed via package.json `@ledgerhq/hw-transport-webhid`, `@trezor/connect-web`, `gridplus-sdk`, `eth-lattice-keyring` — accessed 2026-08-12 | [NF] | Y (Ledger, Trezor, OneKey, GridPlus) | [NF] |
-| **Multi-chain** | Y — EVM chains only by default; Bitcoin via `@metamask/bitcoin-wallet-snap` (Dec 2025); non-EVM chains possible via Snaps | Y (100+ chains) | Y (EVM chains) | Y (ETH + Base + Solana) |
-| **Signing** | EIP-191 (personal_sign), EIP-712 typed data (eth_signTypedData_v4), EIP-7702 authorisation, EIP-5792 batch; eth_sign disabled by default | [NF] | [NF] | [NF] |
-| **Transaction simulation** | Y — Blockaid PPOM (`@blockaid/ppom_release` v1.5.3); on-device, no tx data sent remotely; detects drainers, phishing, approval exploits | [NF] | [NF] | [NF] |
+| **Key management** | BIP39 SRP (12-word default, 24-word import); BIP44 m/44'/60'/0'/0/n; hardware accounts signed on device; imported single private keys; Bitcoin via Snap (BIP84 path) | [NF] | BIP39 12-word mnemonic (128-bit entropy via `@scure/bip39`); BIP44 m/44'/60'/0'/0/n; HD, single private key, WalletConnect, Safe, hardware keyrings; watch-only | [NF] |
+| **Seed format** | BIP39 12-word (default); 24-word import supported | [NF] | BIP39 12-word English | [NF] |
+| **Passphrase (BIP39 extension)** | N — no 25th-word support in standard UI | [NF] | N — no BIP39 passphrase (25th word) in UI [NOT FOUND in source] | [NF] |
+| **Hardware wallet** | Y — Ledger (WebHID/USB + Bluetooth); Trezor (WebUSB via TrezorConnect); Lattice1/GridPlus (gridplus-sdk); QR-based (Keystone via BC-UR v2). Confirmed via package.json `@ledgerhq/hw-transport-webhid`, `@trezor/connect-web`, `gridplus-sdk`, `eth-lattice-keyring` — accessed 2026-08-12 | [NF] | Y — Ledger (WebHID), Trezor (WebUSB), OneKey (USB/BT), GridPlus Lattice1 (WebUSB), Keystone (QR/air-gapped), NGRAVE ZERO (QR/air-gapped), BitBox02 (WebUSB), imKey (USB); mobile: Ledger BLE, OneKey BLE, Trezor | [NF] |
+| **Multi-chain** | Y — EVM chains only by default; Bitcoin via `@metamask/bitcoin-wallet-snap` (Dec 2025); non-EVM chains possible via Snaps | Y (100+ chains) | Y — 73 active EVM chains (DeBank chain list via `static.debank.com/supported_chains.json`; refreshed every 55 min); custom EVM chains addable; no BTC/SOL/Monero | Y (ETH + Base + Solana) |
+| **Signing** | EIP-191 (personal_sign), EIP-712 typed data (eth_signTypedData_v4), EIP-7702 authorisation, EIP-5792 batch; eth_sign disabled by default | [NF] | EIP-191 (personal_sign), EIP-712 typed data (eth_signTypedData_v4), EIP-1559 Type-2 txs; eth_sign deprecated in UI | [NF] |
+| **Transaction simulation** | Y — Blockaid PPOM (`@blockaid/ppom_release` v1.5.3); on-device, no tx data sent remotely; detects drainers, phishing, approval exploits | [NF] | Y — server-side pre-tx simulation via `api.rabby.io`; shows balance_change (token in/out, NFT in/out, approvals) before signing; action decoder for swaps, permits, bridge, LP; unrecognised txs show raw decoded calldata | [NF] |
 | **MetaMask Snaps** | Y — extensibility platform; sandboxed JS; non-EVM key derivation; custom account types; 3rd-party audit required for key-deriving Snaps | N | N | N |
-| **Built-in swap** | Y — MetaMask Swaps; 0.875% fee; aggregates 1inch, 0x, Paraswap; plus Perpetual Futures via Hyperliquid (Oct 2025) | [NF] | [NF] | [NF] |
-| **Smart accounts (ERC-4337)** | P — via Delegation Toolkit / Snaps; not in base UI; requires external dapp or `@metamask/gator-permissions-snap` | [NF] | [NF] | [NF] |
-| **Default RPC** | Infura (ConsenSys-owned; logs IP and queries by default) | [NF] | [NF] | [NF] |
-| **Custom RPC** | Y — any Ethereum-compatible endpoint per-network | [NF] | [NF] | [NF] |
-| **Tor support** | N — no SOCKS5/Tor proxy; no onion service | [NF] | [NF] | [NF] |
-| **Biometric unlock (mobile)** | Y — Touch ID / Face ID (iOS), fingerprint / face (Android); key wrapped in platform keychain | [NF] | [NF] | [NF] |
-| **NFT support** | Y — ERC-721, ERC-1155 display (toggle) | [NF] | [NF] | [NF] |
-| **Reproducible builds** | N — no documented reproducible build process or multi-party attestation | [NF] | [NF] | [NF] |
-| **Watch-only wallet** | P — hardware wallet accounts are effectively watch-only (no private key in extension); true watch-only xpub import: [NF] | [NF] | [NF] | [NF] |
-| **Multisig** | N (native); smart-contract multisig via external Safe integration possible | [NF] | [NF] | [NF] |
-| **Coin control** | N | [NF] | [NF] | [NF] |
-| **Air-gapped signing** | P — QR-based hardware wallets (Keystone via BC-UR v2); not a first-class air-gap workflow | [NF] | [NF] | [NF] |
+| **Built-in swap** | Y — MetaMask Swaps; 0.875% fee; aggregates 1inch, 0x, Paraswap; plus Perpetual Futures via Hyperliquid (Oct 2025) | [NF] | Y — DEX aggregator; 0.25% fee; ETH, Arbitrum, BSC, Base, Polygon, Avalanche, OP Mainnet + others; bridge via LI.FI (10+ chains, 18-bridge stack; since Aug 2024); Perps + Lending on Desktop | [NF] |
+| **Smart accounts (ERC-4337)** | P — via Delegation Toolkit / Snaps; not in base UI; requires external dapp or `@metamask/gator-permissions-snap` | [NF] | P — Safe (Gnosis) smart account integration via `GnosisKeyring`; Cobo Argus co-management via `CoboArgusKeyring`; native ERC-4337 AA not found | [NF] |
+| **Default RPC** | Infura (ConsenSys-owned; logs IP and queries by default) | [NF] | `api.rabby.io` (Rabby-operated); chain list from `static.debank.com`; per-install UUID API key; tx simulation data sent server-side | [NF] |
+| **Custom RPC** | Y — any Ethereum-compatible endpoint per-network | [NF] | Y — custom RPC endpoint per supported chain; custom EVM chains via `customTestnet.ts` | [NF] |
+| **Tor support** | N — no SOCKS5/Tor proxy; no onion service | [NF] | N — no SOCKS5/Tor proxy setting [NOT FOUND in source] | [NF] |
+| **Biometric unlock (mobile)** | Y — Touch ID / Face ID (iOS), fingerprint / face (Android); key wrapped in platform keychain | [NF] | [NF] — mobile app exists; biometric unlock not confirmed in archived source | [NF] |
+| **NFT support** | Y — ERC-721, ERC-1155 display (toggle) | [NF] | Y — ERC-721, ERC-1155 display; Send NFT; NFT approval revocation (batch) | [NF] |
+| **Reproducible builds** | N — no documented reproducible build process or multi-party attestation | [NF] | [NOT FOUND] — no reproducible build process or attestation found | [NF] |
+| **Watch-only wallet** | P — hardware wallet accounts are effectively watch-only (no private key in extension); true watch-only xpub import: [NF] | [NF] | Y — `WatchAddressKeyring` type; address-only with no signing capability | [NF] |
+| **Multisig** | N (native); smart-contract multisig via external Safe integration possible | [NF] | P — Safe (Gnosis) multisig via `GnosisKeyring` integration; no native on-chain multisig | [NF] |
+| **Coin control** | N | [NF] | N — EVM tokens, not UTXO model; token allowance manager serves analogous approval hygiene function | [NF] |
+| **Air-gapped signing** | P — QR-based hardware wallets (Keystone via BC-UR v2); not a first-class air-gap workflow | [NF] | P — Keystone and NGRAVE ZERO QR-based air-gapped signing via `@keystonehq/metamask-airgapped-keyring`; not a standalone air-gap workflow | [NF] |
 | **Open-source** | N — source-available only (ConsenSys proprietary licence) | Y (wallet-core SDK) | Y | Y |
-| **Security audit** | Y (component audits: Cure53, Least Authority, Diligence, OtterSec — see wallets/metamask.md) | [NF] | [NF] | [NF] |
+| **Security audit** | Y (component audits: Cure53, Least Authority, Diligence, OtterSec — see wallets/metamask.md) | [NF] | Y — SlowMist (Aug 2025), Least Authority (Sep 2025); earlier audits 2021–2024 in repo; Least Authority flagged AES-CBC → AES-GCM migration | [NF] |
 
 **Sources for MetaMask column (updated 2026-08-12):**
 - [GitHub API: MetaMask/metamask-extension](https://api.github.com/repos/MetaMask/metamask-extension) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-metamask-metamask-extension.json)
@@ -121,6 +121,16 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 - [MetaMask docs: sign data (EIP-712, personal_sign)](https://docs.metamask.io/wallet/how-to/sign-data/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-docs-metamask-io-sign-data.html)
 - [MetaMask docs: Snaps introduction](https://docs.metamask.io/snaps/learn/about-snaps/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-docs-metamask-io-about-snaps.html)
 - [MetaMask extension README](https://raw.githubusercontent.com/MetaMask/metamask-extension/main/README.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-metamask-extension-README.md)
+
+**Sources for Rabby column (2026-08-12):**
+- [GitHub API: RabbyHub/Rabby](https://api.github.com/repos/RabbyHub/Rabby) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-rabbyhub-rabby-live.json) — stars: 1,878; forks: 593; contributors: 72
+- [GitHub API: RabbyHub/rabby-mobile](https://api.github.com/repos/RabbyHub/rabby-mobile) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-rabbyhub-rabby-mobile-live.json) — stars: 77
+- [GitHub releases/latest: v0.94.2](https://api.github.com/repos/RabbyHub/Rabby/releases/latest) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-rabbyhub-rabby-releases-live.json)
+- [package.json: RabbyHub/Rabby](https://raw.githubusercontent.com/RabbyHub/Rabby/master/package.json) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-rabbyhub-rabby-package-json.txt) — licence: MIT; version: 0.94.2
+- [src/constant/index.ts](https://raw.githubusercontent.com/RabbyHub/Rabby/master/src/constant/index.ts) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-rabbyhub-rabby-constant-index-ts.txt) — `createHardwareObject()` hardware wallet list; `KEYRING_CLASS`
+- [src/background/service/keyring/index.ts](https://raw.githubusercontent.com/RabbyHub/Rabby/master/src/background/service/keyring/index.ts) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-rabbyhub-rabby-keyring-index-ts.txt)
+- [coinlaw.io/rabby-wallet-statistics/](https://coinlaw.io/rabby-wallet-statistics/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-coinlaw-io-rabby-wallet-statistics.html)
+- [wallets/rabby.md](../wallets/rabby.md) — primary note with full feature detail and source citations
 
 ## Solana wallets
 

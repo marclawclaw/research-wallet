@@ -57,6 +57,19 @@ MetaMask's Blockaid PPOM (Privacy Preserving Offline Module) applies to signing 
 
 Uniswap's Permit2 contract generalises EIP-712 signatures across all ERC-20 tokens (not just those that implement ERC-2612 natively). A single `approve(Permit2, uint256.max)` to the Permit2 contract allows subsequent EIP-712 permit signatures to authorise specific amounts to specific dapps — without additional on-chain approval transactions. MetaMask displays Permit2 signatures using the standard EIP-712 dialog. Blockaid detects malicious Permit2 usages.
 
+## Rabby implementation
+
+Rabby supports `eth_signTypedData_v4` (EIP-712) and `personal_sign` (EIP-191), confirmed via the `SignTypedData.tsx` and `SignText.tsx` components in `src/ui/views/Approval/components/` — accessed 2026-08-12.
+
+Rabby additionally applies its **Security Engine** (`@rabby-wallet/rabby-security-engine`) to EIP-712 signing requests. This evaluates:
+- `permit` signatures (ERC-2612): detects unlimited allowance (`amount = uint256.max`), known drainer spender addresses
+- `Permit2` signatures (Uniswap Permit2): dedicated `RevokePermit2` and `BatchRevokePermit2` action components
+- Order-book signatures (OpenSea Seaport, 0x): decoded via `TypedDataActions/` directory
+
+The `SignTypedDataExplain/` component provides a decoded human-readable breakdown of the EIP-712 struct fields, similar to MetaMask's typed data dialog. The typed-data action decoder is a separate subsystem from the transaction pre-execution simulator.
+
+Unlike MetaMask's Blockaid analysis (on-device), Rabby's Security Engine for signing requests runs locally against `defaultRules` from `@rabby-wallet/rabby-security-engine` — no server round-trip required for signing analysis specifically (the pre-execution API call is for transactions, not typed-data signing).
+
 ## Privacy note
 
 EIP-712 domain separator typically includes `chainId` and `verifyingContract`. If a dapp uses a non-standard domain or omits `chainId`, MetaMask shows a warning but still allows signing. Replay across chains is a risk if `chainId` is omitted and the same contract is deployed on multiple chains at the same address.
