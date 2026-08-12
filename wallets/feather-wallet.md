@@ -24,7 +24,7 @@ The GitHub repository (feather-wallet/feather) shows 573 stars, 80 forks, and ~2
 | GitHub stars | 573 | 2026-08-12 | [GitHub API](https://api.github.com/repos/feather-wallet/feather) — [archived](../sources/2026-08-12-api-github-com-feather-wallet-feather.json) |
 | GitHub forks | 80 | 2026-08-12 | [GitHub API](https://api.github.com/repos/feather-wallet/feather) — [archived](../sources/2026-08-12-api-github-com-feather-wallet-feather.json) |
 | GitHub watchers (subscribers) | 17 | 2026-08-12 | [GitHub API](https://api.github.com/repos/feather-wallet/feather) — [archived](../sources/2026-08-12-api-github-com-feather-wallet-feather.json) |
-| GitHub open issues | 79 | 2026-08-12 | [GitHub API](https://api.github.com/repos/feather-wallet/feather) — [archived](../sources/2026-08-12-api-github-com-feather-wallet-feather.json) |
+| GitHub open issues | 80 | 2026-08-12 | [GitHub API](https://api.github.com/repos/feather-wallet/feather) — [archived](../sources/2026-08-12-api-github-com-feather-wallet-feather.json) |
 | GitHub contributors | ~20 (API page limit) | 2026-08-12 | [GitHub contributors API](https://api.github.com/repos/feather-wallet/feather/contributors) |
 | Primary developer commits | tobtoht: 1,772 | 2026-08-12 | GitHub contributors API |
 | Latest release | v2.8.1 | 2025-04-14 | [GitHub releases](https://github.com/feather-wallet/feather/releases/tag/2.8.1) — [archived](../sources/2026-08-12-api-github-com-feather-wallet-feather-releases-latest.json) |
@@ -148,7 +148,7 @@ All Monero transactions use RingCT (confidential amounts via Pedersen commitment
 - **CSV export:** Export transaction history as CSV.
 - **Auto-open passwordless wallets:** Convenience option for users with multiple wallets and no password.
 - **Open multiple wallets in single instance:** Not supported (one wallet per Feather instance).
-- **Feather does not support:** Mining (solo, pool, or P2Pool — marked `✖†` meaning "planned but not implemented"), multisig (marked `✖*` meaning "planned but not yet available"), language localisation beyond English (marked `✖*` as planned).
+- **Feather does not support:** Mining (solo, pool, or P2Pool — marked `✖†` meaning "no plans to support"), multisig (marked `✖*` meaning "planned but not yet available"), language localisation beyond English (marked `✖*` as planned).
 
 ### Backup / recovery
 
@@ -254,9 +254,9 @@ Feather is XMR-only. Users who want to move between XMR and BTC or other currenc
 
 Multisig is marked as planned (`✖*`) in Feather's own feature comparison. Monero multisig is supported by the `monero-wallet-cli` and `wallet2` library, but Feather has not yet implemented a GUI for it.
 
-### No P2Pool mining (yet)
+### No mining support
 
-Mining (including P2Pool) is marked as planned (`✖†`). Monero GUI ships built-in P2Pool. Users wanting XMR mining must use a separate miner or Monero GUI.
+No mining support — solo, pool, and P2Pool are all explicitly listed as out of scope with no plans to add (marked `✖†` in Feather's own feature comparison, where `†` = "no plans to support"). Monero GUI ships built-in P2Pool. Users wanting XMR mining must use a separate miner or Monero GUI.
 
 ### Community size
 

@@ -94,7 +94,7 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 | **Multiple accounts** | [NF] | Y (HD-style sub-accounts per wallet) | Y (multiple sub-accounts per wallet; independent history and balance) | [NF] |
 | **Coin control** | Y (BTC, LTC, BCH, DOGE, XMR, DCR) | N (GUI) — Y via bundled monero-wallet-cli | Y (sweep single/multi/all; output splitting; manual input selection; coin labeling; output blackballing) | [NF] |
 | **Multisig** | [NF] | N (GUI) — Y via bundled monero-wallet-cli | N (planned; marked ✖* in feature table) | [NF] |
-| **P2Pool mining** | N | Y (built-in; solo and P2Pool modes; updated to v4.17.1) | N (planned; marked ✖†) | N |
+| **P2Pool mining** | N | Y (built-in; solo and P2Pool modes; updated to v4.17.1) | N (no plans; marked ✖† = explicitly out of scope) | N |
 | **Offline / air-gapped signing** | N | Y (output export/import + key image workflow) | Y (animated QR / UR standard + file transfer; wizard-guided; webcam QR scanner built-in) | N |
 | **Background sync** | [NF] | Y (v0.18.4.2+; syncs while wallet locked) | [NF] | [NF] |
 | **Reproducible builds** | [NF] — no public process | Y (Windows + Linux Docker reproducible builds; SHA-256 + GPG hashes published) | Y (GNU Guix bootstrappable builds; multi-signer attestation in feather-sigs repo) | [NF] |
