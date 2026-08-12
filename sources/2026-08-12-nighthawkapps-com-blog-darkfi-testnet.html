@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nighthawk Apps releases client suite for DarkFi Testnet — nighthawk apps</title>
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Nighthawk Apps releases client suite for DarkFi Testnet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Sunshine Coast, Australia." />
+<meta property="og:description" content="Sunshine Coast, Australia." />
+<link rel="canonical" href="https://nighthawkapps.com/blog/nighthawk-darkfi-wallet-suite-testnet/" />
+<meta property="og:url" content="https://nighthawkapps.com/blog/nighthawk-darkfi-wallet-suite-testnet/" />
+<meta property="og:site_name" content="nighthawk apps" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-08-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Nighthawk Apps releases client suite for DarkFi Testnet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-08-01T00:00:00+00:00","datePublished":"2026-08-01T00:00:00+00:00","description":"Sunshine Coast, Australia.","headline":"Nighthawk Apps releases client suite for DarkFi Testnet","mainEntityOfPage":{"@type":"WebPage","@id":"https://nighthawkapps.com/blog/nighthawk-darkfi-wallet-suite-testnet/"},"url":"https://nighthawkapps.com/blog/nighthawk-darkfi-wallet-suite-testnet/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <link rel="stylesheet" href="/assets/css/normalize.css" />
+  <link rel="stylesheet" href="/assets/css/open-color.css" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script src="/assets/js/typed.umd.js"></script>
+</head>
+
+<body class="post">
+  <main class="document">
+
+<nav class="crumb">
+  <a href="/">nighthawk apps</a>
+  <span class="punct">/</span>
+  <a href="/blog/">blog</a>
+  <span class="punct">/</span>
+  <span class="here">nighthawk-darkfi-wallet-suite-testnet</span>
+</nav>
+
+<header class="post-meta">
+  <div class="my ms">
+    "<span class="key">title</span>":
+    "<span class="value">Nighthawk Apps releases client suite for DarkFi Testnet</span>",
+  </div>
+  
+  <div class="my ms">
+    "<span class="key">subtitle</span>":
+    "<span class="value">Press Release</span>",
+  </div>
+  
+  <div class="my ms">
+    "<span class="key">date</span>":
+    "<span class="value">2026-08-01</span>",
+  </div>
+  <div class="my ms">
+    "<span class="key">type</span>":
+    "<span class="value">press release</span>"
+  </div>
+</header>
+
+<article class="post-body">
+<p>Sunshine Coast, Australia.</p>
+
+<p>Nighthawk Apps today announced that its updated Nighthawk wallet suite spanning Android, iOS, Desktop and the <strong>Moonshine</strong> CLI; together with the companion <strong>darkfi-lightwalletd</strong> server, is available for public testing for the <strong>DarkFi testnet</strong>. The release positions confidential chain interaction and privacy-preserving light-client sync with UnifOMR as the default path for everyday users, rather than as an optional afterthought.</p>
+
+<p>The majority of cryptocurrency networks still expose user activity by design. Transparent chains publish every transfer in full view, and in privacy chains where transaction graph and amounts are private, the light wallet servers typically learn which block ranges a client requests and the metadata can fingerprint wallets over time. DarkFi inverts that model: transfers are completely confidential on-chain and Nighthawk’s light wallet path is built so a block server need not learn which of a user’s notes decrypt. This release is strictly for testnet and works with highly experimental code.</p>
+
+<hr />
+
+<h2 id="closing-the-privacy-gap">Closing the privacy gap</h2>
+
+<p>On a typical transparent network, balances and payment flows are public records. A light server that answers “give me blocks 1000–2000” can infer interest in those heights even if it never sees keys. Nighthawk on DarkFi takes a different stance. DRK transfers are private by construction, so there is no transparent-versus-shielded split for users to manage. Sync prefers <strong>UnifOMR</strong> (scheme <code class="language-plaintext highlighter-rouge">0x05</code>): encrypted digests and private information retrieval so the server does not learn which notes match. Production wallets talk only to <strong>darkfi-lightwalletd</strong> and avoid direct access to a full <code class="language-plaintext highlighter-rouge">darkfid</code> node. Sync also applies range padding, poll jitter, TLS certificate pinning for remote servers and optional Tor so traffic patterns and clearnet endpoints are harder to exploit.</p>
+
+<p>The sync-time benefit is practical, not only cryptographic. Traditional trial decryption downloads every compact block in the scan window and attempts to decrypt every note — work that grows with chain length and output count, so catch-up and periodic sync get slower as the network ages. UnifOMR flips that cost model: the client asks for an encrypted any-match digest over the window, then pulls only the matching heights through PIR. Wallet sync therefore tracks <em>relevant activity</em> instead of re-scanning the whole tip history, which keeps restore and incremental sync far snappier on phones and desktops than a full trial-decrypt pass over the same range.</p>
+
+<p>When UnifOMR cannot complete, clients may fall back to padded trial sync. That path is still stronger than raw full-node visibility, but it is intentionally described as degraded relative to the FHE-backed default — slower and heavier precisely because it returns to scanning the window note-by-note. Moonshine is stricter: it is UnifOMR-only and has no PerfOMR or height-list fallback.</p>
+
+<hr />
+
+<h2 id="darkfi-lightwalletd">darkfi-lightwalletd</h2>
+
+<p><strong>darkfi-lightwalletd</strong> is a dedicated light wallet server for the DarkFi network. It serves compact blocks — with ZK proofs, signatures, and PoW data stripped — over gRPC, runs UnifOMR detection when built with the default <code class="language-plaintext highlighter-rouge">fhe-omr</code> feature, and relays transactions with optional OMR clues for private receive detection. Cleartext is refused off-loopback; remote deployments expect TLS, and clients pin the leaf certificate’s SHA-256 digest. The server does not keep wallet accounts or session identity, and it is designed not to log detection keys or match heights.</p>
+
+<p>In short: the light wallet server exists so phones, desktops, and CLI clients download far less than a full <code class="language-plaintext highlighter-rouge">darkfid</code> node would require, without becoming an oracle for “which blocks this wallet cares about” in the UnifOMR path. Under the active UnifOMR Param2 profile, a detection key is about <strong>38 MB</strong> (gRPC per-key cap <strong>48 MB</strong>, total request budget <strong>64 MB</strong>, up to <strong>16</strong> keys), digests are served at the last BFV RNS level for size and noise reduction, and a match returns only the relevant compact blocks via SealPIR-style <code class="language-plaintext highlighter-rouge">FetchPirBatch</code> instead of streaming every height for trial decryption.</p>
+
+<p>Operators should size the host for UnifOMR detection load and compact-block cache growth. Recommended infrastructure specs for <strong>darkfi-lightwalletd</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Scale</th>
+      <th>CPU</th>
+      <th>RAM</th>
+      <th>Storage</th>
+      <th>Bandwidth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>~1k users</td>
+      <td>2 cores</td>
+      <td>4 GB</td>
+      <td>50 GB SSD</td>
+      <td>~50 Mbps</td>
+    </tr>
+    <tr>
+      <td>~10k users</td>
+      <td>8 cores</td>
+      <td>16 GB</td>
+      <td>200 GB SSD</td>
+      <td>~500 Mbps</td>
+    </tr>
+    <tr>
+      <td>~100k users</td>
+      <td>32+ cores (detector pool)</td>
+      <td>64+ GB</td>
+      <td>1 TB NVMe</td>
+      <td>~5 Gbps</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A reachable <code class="language-plaintext highlighter-rouge">darkfid</code> JSON-RPC peer is required for full-block ingest; production remote deployments should terminate TLS and publish a pinable leaf certificate digest for clients.</p>
+
+<hr />
+
+<h2 id="client-suite-on-testnet">Client suite on testnet</h2>
+
+<h3 id="android">Android</h3>
+
+<p>The Android wallet is a native application with a shared UniFFI DarkFi core, an encrypted wallet database and UnifOMR-first sync against lightwalletd. Tor is available over SOCKS for both lightwallet traffic and DarkIRC chat. Chat runs in-process rather than depending on a separate desktop IRC daemon. A side-by-side testnet package lets testers run testnet builds without colliding with mainnet installs.</p>
+
+<h3 id="ios">iOS</h3>
+
+<p>The iOS wallet uses the same UniFFI wallet API (<code class="language-plaintext highlighter-rouge">DarkfiWalletHandle</code>) for sync, send, and receive. DarkIRC chat runs in-process. Tor is provided in-app through embedded <strong>Arti</strong>, covering chat and lightwallet dial when enabled. Separate testnet and mainnet schemes keep network identity explicit. The product continues under the Nighthawk Wallet lineage, with the DarkFi edition in active testnet use.</p>
+
+<h3 id="desktop">Desktop</h3>
+
+<p>The desktop product is <strong>nighthawk-desktop</strong>: a Tauri 2 host with a Lit UI covering DarkIRC Chat, Wallet and Mining. It shares the same <code class="language-plaintext highlighter-rouge">darkfi-mobile-ffi</code> stack as mobile, stores seeds behind a local PIN vault and keeps separate data directories for testnet and mainnet. For any non-loopback lightwalletd or chat use, Tor is recommended so sync and peer-to-peer encrypted messaging do not exit over clearnet by default.</p>
+
+<h3 id="moonshine-cli">Moonshine (CLI)</h3>
+
+<p><strong>Moonshine</strong> is a private, lightweight CLI light wallet for DarkFi. It connects to <strong>darkfi-lightwalletd</strong> over gRPC and syncs with <strong>UnifOMR only</strong> (scheme <code class="language-plaintext highlighter-rouge">0x05</code>) — there is no PerfOMR fallback. Unlike a full node (<code class="language-plaintext highlighter-rouge">darkfid</code>) or the heavy CLI wallet (<code class="language-plaintext highlighter-rouge">drk</code>), Moonshine keeps a pruned SQLCipher wallet and a small on-disk footprint, so operators and power users can script send, receive, and sync against the same privacy-preserving light path as the mobile and desktop apps.</p>
+
+<hr />
+
+<h2 id="what-improved-across-the-suite">What improved across the suite</h2>
+
+<p>Relative to Nighthawl’s earlier Zcash-era wallets, the Nighthawk DarkFi suite collapses the old shield and deshield theater into a single confidential balance model. One Rust wallet core is shared across Android, iOS and Desktop apps, with Moonshine as the UnifOMR-only CLI sibling on the same lightwalletd stack, which keeps sync and cryptography aligned instead of forking incompatible clients. Users get private payment memos, fee selection, DAO-oriented surfaces and DarkIRC end-to-end direct messages as part of the graphical applications. Most importantly, sync is designed around <strong>what the light server must not learn</strong>, not only around what appears encrypted on the ledger.</p>
+
+<hr />
+
+<h2 id="availability">Availability</h2>
+
+<p>Testnet builds and operator documentation are published through Nighthawk Apps’s GitHub organization. NOTE: This is a testnet trial software and we look forward to feedback to fix issues and deliver bleeding-edge privacy directly into the hands of end users.</p>
+
+<p><strong>Repositories:</strong></p>
+
+<ul>
+  <li><a href="https://github.com/nighthawk-apps/darkfi-lightwalletd">darkfi-lightwalletd</a> — light wallet server + UnifOMR</li>
+  <li><a href="https://github.com/nighthawk-apps/moonshine">moonshine</a> — CLI light wallet</li>
+  <li><a href="https://github.com/nighthawk-apps/nighthawk-android-wallet">nighthawk-android-wallet</a> — Android</li>
+  <li><a href="https://github.com/nighthawk-apps/nighthawk-ios-wallet">nighthawk-ios-wallet</a> — iOS</li>
+  <li><a href="https://github.com/nighthawk-apps/nighthawk-desktop">nighthawk-desktop</a> — Desktop (Tauri)</li>
+</ul>
+
+<p><strong>Contact:</strong> X: <a href="https://x.com/nighthawkwallet">@nighthawkwallet</a>, <a href="https://x.com/nighthawkapps">@nighthawkapps</a>, <a href="mailto:email@nighthawkapps.com">email@nighthawkapps.com</a><br />
+<strong>Web:</strong> <a href="https://nighthawkapps.com">nighthawkapps.com</a> · <a href="https://nighthawkapps.com/blog/">nighthawkapps.com/blog</a><br />
+<strong>Source:</strong> <a href="https://github.com/nighthawk-apps">github.com/nighthawk-apps</a></p>
+
+</article>
+
+<footer class="post-footer">
+  <a href="/blog/">← blog</a>
+</footer>
+
+
+  </main>
+  <script>
+    if (document.getElementById("typed") && document.getElementById("strings")) {
+      new Typed("#typed", {
+        stringsElement: "#strings",
+        backSpeed: 10,
+        typeSpeed: 30,
+        backDelay: 1000,
+        loop: true,
+        smartBackspace: true,
+      });
+    }
+  </script>
+</body>
+
+</html>
