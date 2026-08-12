@@ -1,0 +1,290 @@
+[
+  {
+    "name": "app-extension",
+    "path": "packages/app-extension",
+    "sha": "285aedea1b3ad08e341ecb23c4b13a82ef43cf62",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/app-extension?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/app-extension",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/285aedea1b3ad08e341ecb23c4b13a82ef43cf62",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/app-extension?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/285aedea1b3ad08e341ecb23c4b13a82ef43cf62",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/app-extension"
+    }
+  },
+  {
+    "name": "background",
+    "path": "packages/background",
+    "sha": "47a23b61291401e4ebae73ea3cec5cfbbf8c6522",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/background?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/background",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/47a23b61291401e4ebae73ea3cec5cfbbf8c6522",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/background?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/47a23b61291401e4ebae73ea3cec5cfbbf8c6522",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/background"
+    }
+  },
+  {
+    "name": "common",
+    "path": "packages/common",
+    "sha": "5db19161b33843e5a910fb2897ad3a48cde8b8ca",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/common?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/common",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/5db19161b33843e5a910fb2897ad3a48cde8b8ca",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/common?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/5db19161b33843e5a910fb2897ad3a48cde8b8ca",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/common"
+    }
+  },
+  {
+    "name": "data-components",
+    "path": "packages/data-components",
+    "sha": "66eca03afcc289b0f7cbfac263c9538e2bcd1093",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/data-components?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/data-components",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/66eca03afcc289b0f7cbfac263c9538e2bcd1093",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/data-components?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/66eca03afcc289b0f7cbfac263c9538e2bcd1093",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/data-components"
+    }
+  },
+  {
+    "name": "eslint-config-custom",
+    "path": "packages/eslint-config-custom",
+    "sha": "c9718953c944ab7b86781b40b2b2d6cee0394bd9",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/eslint-config-custom?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/eslint-config-custom",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/c9718953c944ab7b86781b40b2b2d6cee0394bd9",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/eslint-config-custom?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/c9718953c944ab7b86781b40b2b2d6cee0394bd9",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/eslint-config-custom"
+    }
+  },
+  {
+    "name": "expo-devtools",
+    "path": "packages/expo-devtools",
+    "sha": "bbff02c25f75d7cb4c66bec42559cd11f7f29a5d",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/expo-devtools?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/expo-devtools",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/bbff02c25f75d7cb4c66bec42559cd11f7f29a5d",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/expo-devtools?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/bbff02c25f75d7cb4c66bec42559cd11f7f29a5d",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/expo-devtools"
+    }
+  },
+  {
+    "name": "i18n",
+    "path": "packages/i18n",
+    "sha": "a9d210109d0eefe6746aa3a99d29a79ac70ec653",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/i18n?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/i18n",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/a9d210109d0eefe6746aa3a99d29a79ac70ec653",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/i18n?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/a9d210109d0eefe6746aa3a99d29a79ac70ec653",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/i18n"
+    }
+  },
+  {
+    "name": "provider-core",
+    "path": "packages/provider-core",
+    "sha": "80fdde31408276320a348ddfd1879a01b9e6056e",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/provider-core?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/provider-core",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/80fdde31408276320a348ddfd1879a01b9e6056e",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/provider-core?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/80fdde31408276320a348ddfd1879a01b9e6056e",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/provider-core"
+    }
+  },
+  {
+    "name": "provider-injection",
+    "path": "packages/provider-injection",
+    "sha": "1c930d967d636c7a2949e86cefd88e99d1a67d2a",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/provider-injection?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/provider-injection",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/1c930d967d636c7a2949e86cefd88e99d1a67d2a",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/provider-injection?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/1c930d967d636c7a2949e86cefd88e99d1a67d2a",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/provider-injection"
+    }
+  },
+  {
+    "name": "react-common",
+    "path": "packages/react-common",
+    "sha": "df31017b9d66b89d1b8e3058f3d2714e762301fa",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/react-common?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/react-common",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/df31017b9d66b89d1b8e3058f3d2714e762301fa",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/react-common?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/df31017b9d66b89d1b8e3058f3d2714e762301fa",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/react-common"
+    }
+  },
+  {
+    "name": "recoil",
+    "path": "packages/recoil",
+    "sha": "868cb26f7d952743c22453aa4baed5bb7ef897c6",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/recoil?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/recoil",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/868cb26f7d952743c22453aa4baed5bb7ef897c6",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/recoil?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/868cb26f7d952743c22453aa4baed5bb7ef897c6",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/recoil"
+    }
+  },
+  {
+    "name": "secure-background",
+    "path": "packages/secure-background",
+    "sha": "7265849e5cff4841c0d0347814ae4e7b7e374a78",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/secure-background?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/secure-background",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/7265849e5cff4841c0d0347814ae4e7b7e374a78",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/secure-background?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/7265849e5cff4841c0d0347814ae4e7b7e374a78",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/secure-background"
+    }
+  },
+  {
+    "name": "secure-clients",
+    "path": "packages/secure-clients",
+    "sha": "e1b57a49ccc40b543c602e803899a1bdb6b224d0",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/secure-clients?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/secure-clients",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/e1b57a49ccc40b543c602e803899a1bdb6b224d0",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/secure-clients?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/e1b57a49ccc40b543c602e803899a1bdb6b224d0",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/secure-clients"
+    }
+  },
+  {
+    "name": "secure-ui",
+    "path": "packages/secure-ui",
+    "sha": "e193c511cc89079872bf0b8fe8872112bbabbb91",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/secure-ui?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/secure-ui",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/e193c511cc89079872bf0b8fe8872112bbabbb91",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/secure-ui?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/e193c511cc89079872bf0b8fe8872112bbabbb91",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/secure-ui"
+    }
+  },
+  {
+    "name": "staking",
+    "path": "packages/staking",
+    "sha": "6a8b5d4d44c60176ab913a4db3b727999fc6d8ed",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/staking?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/staking",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/6a8b5d4d44c60176ab913a4db3b727999fc6d8ed",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/staking?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/6a8b5d4d44c60176ab913a4db3b727999fc6d8ed",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/staking"
+    }
+  },
+  {
+    "name": "tamagui-core",
+    "path": "packages/tamagui-core",
+    "sha": "97c6ac2243724f91b43d7740868d02d659c8e081",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/tamagui-core?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/tamagui-core",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/97c6ac2243724f91b43d7740868d02d659c8e081",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/tamagui-core?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/97c6ac2243724f91b43d7740868d02d659c8e081",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/tamagui-core"
+    }
+  },
+  {
+    "name": "wallet-standard",
+    "path": "packages/wallet-standard",
+    "sha": "ceaa9f4398f59fc65a4052de5518c220027a38c2",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/wallet-standard?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/wallet-standard",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/ceaa9f4398f59fc65a4052de5518c220027a38c2",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/wallet-standard?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/ceaa9f4398f59fc65a4052de5518c220027a38c2",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/wallet-standard"
+    }
+  },
+  {
+    "name": "xnft-cli",
+    "path": "packages/xnft-cli",
+    "sha": "b228761d723739ee14ecb8c5fcc1686f3806ccbe",
+    "size": 0,
+    "url": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/xnft-cli?ref=master",
+    "html_url": "https://github.com/coral-xyz/backpack/tree/master/packages/xnft-cli",
+    "git_url": "https://api.github.com/repos/coral-xyz/backpack/git/trees/b228761d723739ee14ecb8c5fcc1686f3806ccbe",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/coral-xyz/backpack/contents/packages/xnft-cli?ref=master",
+      "git": "https://api.github.com/repos/coral-xyz/backpack/git/trees/b228761d723739ee14ecb8c5fcc1686f3806ccbe",
+      "html": "https://github.com/coral-xyz/backpack/tree/master/packages/xnft-cli"
+    }
+  }
+]

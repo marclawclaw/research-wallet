@@ -136,31 +136,35 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 
 | Feature | Phantom | Solflare | Backpack |
 |---------|---------|---------|---------|
-| **Platforms** | Chrome, Brave, Edge, Firefox (extension); iOS, Android | Browser ext + mobile | Browser ext + mobile |
-| **License** | Proprietary (closed-source) | [NF] | Apache-2.0 |
-| **Open-source** | N (public SDKs/blocklist only; wallet code proprietary) | P | Y |
-| **Latest version** | iOS: 26.24.2 (2026-08-12) | [NF] | [NF] |
-| **Key management** | BIP39 12-word; SLIP-10 ed25519 `m/44'/501'/0'/0'` (Solana); BIP44 `m/44'/60'/0'/0/n` (EVM); BIP84 (BTC) | [NF] | [NF] |
-| **Seed format** | BIP39 12-word | [NF] | [NF] |
-| **Passphrase (25th word)** | [NF] — not confirmed | [NF] | [NF] |
-| **Hardware wallet** | Y (Ledger — extension only; mobile HW: [NF]) | Y (Ledger) | [NF] |
-| **Multi-chain** | Y — 8 chains: Solana, Ethereum, Bitcoin (+ Ordinals/BRC-20), Base, Polygon, Sui, Hyperliquid, Monad | P | Y |
-| **Transaction simulation** | Y — pre-signing token balance change preview; scam detection | [NF] | [NF] |
-| **Phishing blocklist** | Y — open-source domain blocklist (github.com/phantom/blocklist) | [NF] | [NF] |
-| **Staking** | Y — native Solana delegated staking in-wallet | Y ($14B SOL staked) | Y |
-| **Built-in swap** | Y — aggregator; $20B annual swap volume (2025); perps via Hyperliquid | [NF] | [NF] |
-| **NFT display** | Y — Solana NFTs (Metaplex, cNFTs), ERC-721/1155, Ordinals | [NF] | [NF] |
-| **DApp browser (mobile)** | Y — built-in dApp browser on iOS and Android | [NF] | [NF] |
+| **Platforms** | Chrome, Brave, Edge, Firefox (extension); iOS, Android | Browser ext + mobile | Chrome/Brave extension; iOS, Android |
+| **License** | Proprietary (closed-source) | [NF] | GPL-3.0 |
+| **Open-source** | N (public SDKs/blocklist only; wallet code proprietary) | P | Y (GPL-3.0; coral-xyz/backpack) |
+| **Latest version** | iOS: 26.24.2 (2026-08-12) | [NF] | iOS/Android: 2.82.1; extension package: 0.10.30 (2026-08-12) |
+| **Key management** | BIP39 12-word; SLIP-10 ed25519 `m/44'/501'/0'/0'` (Solana); BIP44 `m/44'/60'/0'/0/n` (EVM); BIP84 (BTC) | [NF] | BIP39 mnemonic; SLIP-10 ed25519 via `ed25519-hd-key` for Solana (`m/44'/501'/…`); BIP44 via ethers6 for Ethereum; HD keyring + import + Ledger keyring per chain — confirmed via source inspection 2026-08-12 |
+| **Seed format** | BIP39 12-word | [NF] | BIP39 (word count unspecified in source; standard is 12-word) |
+| **Passphrase (25th word)** | [NF] — not confirmed | [NF] | [NF] — no passphrase field found in source |
+| **Hardware wallet** | Y (Ledger — extension only; mobile HW: [NF]) | Y (Ledger) | Y — Ledger (WebHID; `@ledgerhq/hw-transport-webhid` dep confirmed in package.json 2026-08-12; `SolanaLedgerKeyringFactory` + `EthereumLedgerKeyringFactory` registered); Trezor [NOT FOUND] |
+| **Multi-chain** | Y — 8 chains: Solana, Ethereum, Bitcoin (+ Ordinals/BRC-20), Base, Polygon, Sui, Hyperliquid, Monad | P | Y — Solana, Eclipse (SVM L2), Ethereum confirmed in source; Sui, Monad per iOS description; Bitcoin [NOT FOUND] |
+| **Transaction simulation** | Y — pre-signing token balance change preview; scam detection | [NF] | Y — "Scam detection alerts you before interacting with bad sites" (iOS App Store description 2026-08-12); implementation details [NF] |
+| **Phishing blocklist** | Y — open-source domain blocklist (github.com/phantom/blocklist) | [NF] | [NF] — scam detection confirmed; whether it uses a domain blocklist [NF] |
+| **Staking** | Y — native Solana delegated staking in-wallet | Y ($14B SOL staked) | Y — `packages/staking` exists in repo; iOS description confirms staking |
+| **Built-in swap** | Y — aggregator; $20B annual swap volume (2025); perps via Hyperliquid | [NF] | Y — in-wallet swap + bridge (iOS description); fee details [NF]; Backpack Exchange offers spot, margin, perpetuals (custodial) |
+| **NFT display** | Y — Solana NFTs (Metaplex, cNFTs), ERC-721/1155, Ordinals | [NF] | Y — Solana NFTs + ERC-721/1155 (iOS description); xNFT execution unique to Backpack |
+| **xNFT support** | N | N | Y — defining feature; in-wallet executable NFT apps; `packages/xnft-cli` scaffold |
+| **DApp browser (mobile)** | Y — built-in dApp browser on iOS and Android | [NF] | Y — iOS description: "Explore all the major tokens, decentralized apps, and NFTs" |
 | **Deep links** | Y — phantom:// deep link protocol; public demo repo | [NF] | [NF] |
 | **WalletConnect** | [NF] — uses injected provider (ext) / deep links (mobile) | [NF] | [NF] |
-| **Biometric unlock** | Y — Face ID / Touch ID (iOS), fingerprint/face (Android) | [NF] | [NF] |
-| **Watch-only** | [NF] — not confirmed | [NF] | [NF] |
-| **Multiple accounts** | Y — multiple accounts under one seed | [NF] | [NF] |
+| **Biometric unlock** | Y — Face ID / Touch ID (iOS), fingerprint/face (Android) | [NF] | [NF] — iOS description does not mention; likely OS keystore |
+| **Watch-only** | [NF] — not confirmed | [NF] | [NF] — no WatchAddressKeyring found in source |
+| **Multiple accounts** | Y — multiple accounts under one seed | [NF] | Y — HD derivation paths array per blockchain; `BlockchainKeyring` tracks multiple derivation paths |
+| **Lock NFTs** | [NF] | [NF] | Y — "Lock your NFTs to protect them from malicious transactions" (iOS description 2026-08-12) |
 | **Multisig** | [NF] — not confirmed | [NF] | [NF] |
-| **Tor support** | N — no SOCKS5/Tor proxy; no onion RPC | [NF] | [NF] |
-| **Reproducible builds** | N — closed-source; no build process | [NF] | [NF] |
-| **Security audits** | Y — Kudelski Security (2021), Least Authority (2024); reports at github.com/phantom/audit-reports | [NF] | [NF] |
+| **Tor support** | N — no SOCKS5/Tor proxy; no onion RPC | [NF] | [NF] — no Tor / SOCKS5 proxy found in source |
+| **Reproducible builds** | N — closed-source; no build process | [NF] | [NF] — no reproducible build process found |
+| **Security audits** | Y — Kudelski Security (2021), Least Authority (2024); reports at github.com/phantom/audit-reports | [NF] | [NOT FOUND] — SECURITY.md (2026-08-12) states no audits completed at time of writing; iOS description claims "regularly audited" — discrepancy unresolved; no public audit reports found |
+| **Bug bounty** | [NF] | [NF] | N — SECURITY.md states no paid bug bounty programme |
 | **F-Droid** | N | [NF] | [NF] |
+| **Integrated exchange** | N | N | Y — Backpack Exchange (custodial CEX); spot, margin, perpetuals; self-custody wallet ↔ exchange transfer |
 
 **Sources for Phantom column (updated 2026-08-12):**
 - [phantom.com/download](https://phantom.com/download) — accessed 2026-08-12 — [archived](../sources/2026-08-12-phantom-com-download.html) (platforms confirmed: Chrome, Brave, Firefox, Edge, iOS, Android)
@@ -172,6 +176,17 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 - [github.com/phantom/blocklist](https://api.github.com/repos/phantom/blocklist) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-phantom-blocklist.json)
 - [Apple App Store API](https://itunes.apple.com/lookup?bundleId=app.phantom) — accessed 2026-08-12 — [archived](../sources/2026-08-12-itunes-apple-com-phantom.json) (v26.24.2; 4.78★; 64,122 ratings; "Trusted by 20M+ users")
 - [coinlaw.io/phantom-wallet-statistics/](https://coinlaw.io/phantom-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-phantom-wallet-statistics.html)
+
+**Sources for Backpack column (2026-08-12):**
+- [GitHub API: coral-xyz/backpack](https://api.github.com/repos/coral-xyz/backpack) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-coral-xyz-backpack.json) (stars: 1,651; forks: 947; licence: GPL-3.0; language: TypeScript)
+- [Extension package.json](https://raw.githubusercontent.com/coral-xyz/backpack/master/packages/app-extension/package.json) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-coral-xyz-backpack-extension-package-json.txt) (version: 0.10.30; `@ledgerhq/hw-transport-webhid` dep confirmed; `bip39`, `ethers`, `@solana/web3.js` deps confirmed)
+- [common/src/types.ts (Blockchain enum)](https://raw.githubusercontent.com/coral-xyz/backpack/master/packages/common/src/types.ts) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-coral-xyz-backpack-common-types-ts.txt) (SOLANA, ECLIPSE, ETHEREUM confirmed)
+- [secure-background/src/keyring/index.ts](https://raw.githubusercontent.com/coral-xyz/backpack/master/packages/secure-background/src/keyring/index.ts) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-coral-xyz-backpack-keyring-index-ts.txt) (SolanaLedgerKeyringFactory, EthereumLedgerKeyringFactory confirmed)
+- [secure-background/src/keyring/BlockchainKeyring.ts](https://raw.githubusercontent.com/coral-xyz/backpack/master/packages/secure-background/src/keyring/BlockchainKeyring.ts) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-coral-xyz-backpack-BlockchainKeyring-ts.txt) (HD, imported, Ledger keyring types)
+- [secure-background/src/services/svm/util.ts](https://raw.githubusercontent.com/coral-xyz/backpack/master/packages/secure-background/src/services/svm/util.ts) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-coral-xyz-backpack-svm-util-ts.txt) (SLIP-10 ed25519 via `ed25519-hd-key`; legacy Sollet `501'` path supported)
+- [secure-background/src/services/evm/keyring.ts](https://raw.githubusercontent.com/coral-xyz/backpack/master/packages/secure-background/src/services/evm/keyring.ts) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-coral-xyz-backpack-evm-keyring-full-ts.txt) (ethers6 HDNodeWallet for EVM derivation; LedgerKeyringBase used)
+- [SECURITY.md](https://raw.githubusercontent.com/coral-xyz/backpack/master/SECURITY.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-coral-xyz-backpack-SECURITY.md) (no audits completed; no bug bounty)
+- [Apple App Store API](https://itunes.apple.com/lookup?bundleId=app.backpack.mobile) — accessed 2026-08-12 — [archived](../sources/2026-08-12-itunes-apple-com-backpack.json) (v2.82.1; 4.39★; 228 ratings; features: Solana, Ethereum, Sui, Eclipse, Monad, swap, bridge, staking, NFTs, scam detection, hardware wallet, NFT locking)
 
 ## Monero wallets
 
