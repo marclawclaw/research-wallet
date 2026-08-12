@@ -141,9 +141,9 @@ The README includes a prominent warning: "This code is unaudited. Use at your ow
 | GitHub stars | 1,651 | GitHub API — 2026-08-12 |
 | GitHub forks | 947 | GitHub API — 2026-08-12 |
 | Chrome extension users | 300,000 | Chrome Web Store — 2026-08-12 |
-| Chrome extension ratings | 370 (4.3★) | Chrome Web Store — 2026-08-12 |
+| Chrome extension ratings | 370 (4.5★) | Chrome Web Store — 2026-08-12 |
 | Google Play installs | 100,000+ (495,750 precise) | Play Store structured data — 2026-08-12 |
-| Google Play reviews | 1,352 | Play Store — 2026-08-12 |
+| Google Play reviews | ~1,947 total reviews (1,352 five-star) | Play Store — 2026-08-12 |
 | iOS version | 2.82.1 | App Store API — 2026-08-12 |
 | iOS rating | 4.39★ (228 ratings) | App Store API — 2026-08-12 |
 | Self-reported MAU | 100,000+ | Task brief; primary source [NOT FOUND] confirmed by this research |
