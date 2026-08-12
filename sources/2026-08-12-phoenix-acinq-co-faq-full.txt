@@ -1,0 +1,85 @@
+Phoenix FAQ — Full text extracted via browser automation — accessed 2026-08-12
+URL: https://phoenix.acinq.co/faq
+
+GENERAL
+What are the fees?
+Operation | Fees
+Sending via Lightning | 0.4% + 4 sat
+Sending on-chain | mining fees (user-chosen)
+Receiving via Lightning | 0 (no fees)
+Receiving via Lightning with insufficient liquidity | 1% + mining fees
+Requesting liquidity | 1% + mining fees
+Receiving on-chain | mining fees
+Channel creation | 1000 sat
+
+Which version of iOS and Android are supported?
+Phoenix requires iOS 16.0 or later, or Android 8.0 or later.
+
+Is there a 'Testnet' version of Phoenix?
+Yes, but only for Android.
+
+TRUST AND PRIVACY
+Is Phoenix a "real" Lightning node?
+Yes. Phoenix is a real, self-contained Lightning node that runs on your phone. It does not require you to run another Lightning node at home or in the cloud. It is not a custodial wallet either, you are in full control of your funds.
+
+Is Phoenix trustless?
+Phoenix is trust-minimized, but not trustless. The creation or modification of a channel: When it is caused by an incoming Lightning payment, requires trust until the funding tx is confirmed. However the entirety of funds can always be spent at all time, even if the funding transaction is unconfirmed. When it is caused by an on-chain deposit, does not require trust.
+
+Swaps are trustless.
+
+You can configure Phoenix to use your own Electrum server to watch the Blockchain and monitor your channels.
+
+How private are my payments on Phoenix?
+The current version of Phoenix offers no advantage regarding privacy over existing, hosted, custodial wallets. We (ACINQ) know the final destination and amount of payments. Later versions will be much more privacy friendly, but that's in the works.
+
+What happens if ACINQ disappears?
+If ACINQ (or even the whole Lightning Network) completely disappears overnight, your funds will still be safe, but you won't be able to make any payments. In that case, and only in that case, you will need to force close your channels (Settings > Danger zone). After a 720 blocks delay (~5 days) your funds will be moved back on-chain.
+
+LIGHTNING PAYMENTS
+Is there a minimum receiving amount?
+No, but a mining fee will be required if you don't have a channel already. If the fee is too high, the payment will be rejected.
+
+What is inbound liquidity?
+It is the amount that you can receive within your existing channel, without incurring any fee.
+
+What happens after a year of reserving liquidity?
+After a year, the channel will simply revert to default behavior, which is that part or all of the unused liquidity may be claimed back anytime by your counterparty (ACINQ).
+
+Incoming payments are rejected because of fees, what can I do?
+By default, Phoenix will reject incoming payments if the fee is more than 5000 satoshi (or 50% of the amount). You can change the max acceptable fee in Settings > Channel management.
+
+ON-CHAIN PAYMENTS
+Where is my on-chain balance?
+There is no on-chain balance. Phoenix is a pure LN wallet, all your funds are always in channels. You can still send and receive on-chain payments with swaps, they are completely transparent. Just scan a QR code, it will work.
+
+Can I deposit funds on-chain to Phoenix?
+Yes, Phoenix provides a standard bitcoin address. Needs 3 confirmations then swapped to Lightning if mining fee below configured max. Uses taproot addresses since v2.2.
+
+Is my on-chain address rotated?
+Yes, since version 2.2 (Android and iOS). Phoenix uses a taproot script making swaps appear as regular transactions.
+
+RESTORING A WALLET
+How do I restore my wallet?
+Need the 12-word English seed phrase. 
+On iOS: iCloud backup automatically restores payments history (unless disabled).
+On Android: Manual export/import of payments database.
+Recovery uses standard BIP39 seed with standard BIP84 derivation path ("native segwit p2wpkh").
+
+LIMITATIONS
+Can I connect to any node / my own node?
+No. Phoenix has been designed for less technical users. There is trust involved with Phoenix, which would make connecting to random nodes unsafe. For advanced users with their own node, a "remote-control" app would be better suited.
+
+Is Phoenix affected by high on-chain fees?
+Sending payments over Lightning is not affected. But incoming on-chain payments and some incoming off-chain payments may be more expensive or rejected.
+
+Why do I need Google services on GrapheneOS?
+Phoenix relies on Google Firebase Cloud Messaging (FCM) to deliver wake-up notifications. This allows receiving payments when Phoenix is in the background.
+
+TROUBLESHOOTING
+Phoenix uses standard BIP39 seed with BIP84 derivation path (native segwit p2wpkh). Any compliant wallet will work for recovery. Electrum recommended.
+
+Why is my on-chain address invalid?
+Phoenix uses modern format (p2tr) for Bitcoin addresses. Can configure Legacy format (p2wsh) in Settings > Payment options.
+
+Bumping on-chain fees?
+Phoenix uses CPFP (child pays for parent) not RBF.

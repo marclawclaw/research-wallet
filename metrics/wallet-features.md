@@ -12,38 +12,38 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 | **License** | MIT | MIT | Apache-2.0 | Apache-2.0 |
 | **Architecture** | SPV (Electrum server) | SPV / Electrum server | Full node / Electrum server | Lightning-native |
 | **Language** | Python | React Native | Java | Kotlin |
-| **Latest version** | 4.8.1 (August 2026) | 8.0.1 (21 July 2026) | 2.5.3 (30 July 2026) | [NF] |
-| **Key management** | BIP32 HD; Electrum native seed or BIP39 import | BIP32 HD; BIP39 | BIP32 HD; BIP39; BIP39 passphrase; SLIP39 import; BIP47 (PayNym); xpub watch-only; output descriptor | BIP32 HD; BIP39 |
-| **Seed format** | Electrum native (version-embedded) or BIP39 | BIP39 | BIP39 (12/24-word); SLIP39 import | BIP39 |
-| **Passphrase (BIP39 extension)** | Y | Y | Y | Y |
-| **Watch-only wallet** | Y | Y | Y | N |
+| **Latest version** | 4.8.1 (August 2026) | 8.0.1 (21 July 2026) | 2.5.3 (30 July 2026) | 2.8.1 (18 June 2026) |
+| **Key management** | BIP32 HD; Electrum native seed or BIP39 import | BIP32 HD; BIP39 | BIP32 HD; BIP39; BIP39 passphrase; SLIP39 import; BIP47 (PayNym); xpub watch-only; output descriptor | BIP32 HD; BIP39 (12-word); on-chain: BIP84 path (m/84'/0'/0'); Lightning keys via lightning-kmp |
+| **Seed format** | Electrum native (version-embedded) or BIP39 | BIP39 | BIP39 (12/24-word); SLIP39 import | BIP39 (12-word English) |
+| **Passphrase (BIP39 extension)** | Y | Y | Y | [NF] — not mentioned in FAQ or release notes |
+| **Watch-only wallet** | Y | Y | Y | N — Lightning-native; no xpub import |
 | **Hardware wallet** | Y (Trezor, Ledger, KeepKey, BitBox02, Coldcard, Jade, Safe-T, Bitbox01) | P (Ledger via BLE) | Y — USB: Trezor, Ledger, BitBox02, Jade/Jade Plus, ERA; Airgapped QR: Passport, SeedSigner, Keystone, Krux, Jade, Specter DIY, Seed Tool; Airgapped SD: Coldcard; Airgapped NFC: Tapsigner, Satochip, Keycard | N |
 | **PSBT** | Y | Y | Y | N |
 | **Multisig** | Y (native m-of-n; P2SH and P2WSH) | Y (native m-of-n; P2WSH, P2SH-P2WSH, P2SH) | Y (native, all script types) | N |
 | **Air-gapped signing** | Y (file, QR code, audio modem plugin) | Y (PSBT file, BC-UR v2 QR — v8.0.1) | Y (QR, microSD, NFC) | N |
-| **Lightning Network** | Y (built-in, trampoline via ACINQ) | Y (LNDhub, self-custodial requires own hub) | N | Y (native self-custodial) |
-| **Submarine swaps** | Y (on-chain ↔ Lightning) | Y (via Arkade/Boltz — v8.0.0+) | N | Y |
+| **Lightning Network** | Y (built-in, trampoline via ACINQ) | Y (LNDhub, self-custodial requires own hub) | N | Y — native self-custodial; single-channel model; trampoline routing via ACINQ node; BOLT11, BOLT12 offers, LNURL-pay, LNURL-withdraw, BIP353 |
+| **Submarine swaps** | Y (on-chain ↔ Lightning) | Y (via Arkade/Boltz — v8.0.0+) | N | Y — splice-in (on-chain→LN) and splice-out (LN→on-chain); both trustless since v2.0.0; no external swap service |
 | **Script types — P2PKH** | Y | Y | Y | N |
 | **Script types — P2SH** | Y | Y (P2SH-P2WPKH wrapped SegWit; P2SH multisig) | Y | N |
-| **Script types — P2WPKH (bech32)** | Y | Y | Y | Y |
+| **Script types — P2WPKH (bech32)** | Y | Y | Y | Y — on-chain recovery via BIP84 path |
 | **Script types — P2WSH** | Y (multisig) | Y (multisig via MultisigHDWallet) | Y | N |
-| **Script types — P2TR (Taproot receive)** | N (can send to P2TR; cannot create P2TR wallet) | Y (HDTaprootWallet, BIP86, m/86'/0'/0') | Y (from v1.4.3, July 2021; full signing including script-path) | N |
+| **Script types — P2TR (Taproot receive)** | N (can send to P2TR; cannot create P2TR wallet) | Y (HDTaprootWallet, BIP86, m/86'/0'/0') | Y (from v1.4.3, July 2021; full signing including script-path) | Y — default on-chain receive address since v2.2.0 (Feb 2024); taproot Lightning channels since v2.7.0 (Oct 2025) |
 | **Coin control (UTXO selection)** | Y | Y (documented feature; fetchUtxo/getUtxo in source) | Y | N |
 | **RBF (Replace-By-Fee)** | Y (default) | Y (BIP68 sequence 0x80000000; watch-only bech32 added v8.0.1) | Y | — |
 | **CPFP** | Y | Y (documented in official support) | Y | — |
 | **CoinJoin** | N | N | P — PayJoin (BIP78): Y; Whirlpool (Samourai): REMOVED v1.9.0 (Apr 2024, post-Samourai arrests); PayJoin v2 (BIP77): [NF] | N |
 | **Tor support** | Y (SOCKS5 proxy to .onion servers) | N (not found in source inspection 2026-08-12) | Y (built-in) | N |
-| **Privacy-preserving routing** | Y (Tor, manual server) | P (custom Electrum server only; no Tor) | Y (Tor, self-hosted full node) | Y (trampoline) |
+| **Privacy-preserving routing** | Y (Tor, manual server) | P (custom Electrum server only; no Tor) | Y (Tor, self-hosted full node) | P — trampoline via ACINQ node (ACINQ sees all payment metadata); Tor requires external Orbot VPN app since v2.5.0; custom Electrum server supported |
 | **Fee estimation** | Y (dynamic; median of ~10 servers) | Y | Y | Y |
 | **Payment batching** | Y | Y (Send to Many / batch documented in official support) | Y | — |
 | **2FA** | Y (TrustedCoin plugin, 2-of-3) | N | N | N |
 | **Open-source** | Y (MIT) | Y (MIT) | Y (Apache-2.0) | Y (Apache-2.0) |
-| **Reproducible builds** | Y (5 independent signers) | P (APK + IPA released with detached .sig; full reproducible-build attestation [NOT FOUND]) | P — .tar.gz and .zip reproducible from v1.5.0; .deb/.rpm/.msi/.dmg have minor variances; bitcoinbinary.org attestations v1.5.0–v1.6.6 only; more recent releases [NF] at bitcoinbinary.org | [NF] |
+| **Reproducible builds** | Y (5 independent signers) | P (APK + IPA released with detached .sig; full reproducible-build attestation [NOT FOUND]) | P — .tar.gz and .zip reproducible from v1.5.0; .deb/.rpm/.msi/.dmg have minor variances; bitcoinbinary.org attestations v1.5.0–v1.6.6 only; more recent releases [NF] at bitcoinbinary.org | [NF] — GPG-signed SHA256SUMS.asc published per release (key E04E48E72C205463); no full reproducible build process documented |
 | **F-Droid** | Y | Y | N | Y |
 | **Command-line / daemon** | Y (full RPC/JSON-RPC) | N | N | N |
 | **Plugin system** | Y (hardware wallets, 2FA, NWC, watchtower, etc.) | N | P (limited) | N |
 | **Silent Payments (BIP352)** | N | N | Y — sending v2.3.0 (Oct 2025); receiving wallets v2.5.0 (May 2026); HW support via BIP375 v2.4.0 | N |
-| **Wallet encryption** | PBKDF2 | [NF] | Argon2 (≥500ms key derivation on modern hardware) | [NF] |
+| **Wallet encryption** | PBKDF2 | [NF] | Argon2 (≥500ms key derivation on modern hardware) | [NF] — mobile OS keystore used; no explicit encryption scheme documented |
 | **Transaction graph explorer** | N | N | Y (built-in; all inputs/outputs hyperlinked to coinbase) | N |
 | **Terminal / headless mode** | Y (full RPC/JSON-RPC) | N | Y (Sparrow Terminal TUI from v1.7.0; Sparrow Server headless builds) | N |
 
@@ -69,7 +69,13 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 - [sparrowwallet.com/download/](https://sparrowwallet.com/download/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-sparrowwallet-com-download.html)
 - [GitHub README](https://raw.githubusercontent.com/sparrowwallet/sparrow/master/README.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-com-sparrowwallet-sparrow-README.md)
 
-**Sources for other columns:** _index.md discovery research (2026-08-10). Phoenix column will be filled in during its respective deep-research run.
+**Sources for Phoenix column (updated 2026-08-12):**
+- [GitHub API: ACINQ/phoenix](https://api.github.com/repos/ACINQ/phoenix) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-acinq-phoenix.json)
+- [GitHub releases (20 most recent)](https://api.github.com/repos/ACINQ/phoenix/releases?per_page=20) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-acinq-phoenix-releases-20.json)
+- [GitHub README](https://raw.githubusercontent.com/ACINQ/phoenix/master/README.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-com-acinq-phoenix-README.md)
+- [Phoenix FAQ (full text)](https://phoenix.acinq.co/faq) — accessed 2026-08-12 — [archived](../sources/2026-08-12-phoenix-acinq-co-faq-full.txt)
+- [Splicing blog post](https://acinq.co/blog/phoenix-splicing-update) — accessed 2026-08-12 — [archived](../sources/2026-08-12-acinq-co-blog-phoenix-splicing-update.txt)
+- [PhoenixD GitHub API](https://api.github.com/repos/ACINQ/phoenixd) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-acinq-phoenixd.json)
 
 ## Ethereum/EVM wallets
 

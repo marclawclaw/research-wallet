@@ -16,13 +16,13 @@ Cross-wallet adoption comparison for self-custody software wallets. All figures 
 | Electrum | 8,561 | 3,463 | ~350 | [NOT FOUND] | 1M+ | N/A (no iOS app) | 2026-08-10 |
 | BlueWallet | 3,268 | 1,045 | ~100 (top-100 API page) | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | 2026-08-12 |
 | Sparrow Wallet | 2,090 | 312 | 32 | [NOT FOUND] — desktop only, no app-store analytics; GitHub downloads: ~1.33M across 20 recent releases (Apr 2024–Jul 2026); v2.5.3: 56,279; v2.5.2: 101,039; v2.3.1: 110,776 | N/A (desktop only) | N/A (desktop only) | 2026-08-12 |
-| Phoenix | 855 | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | [NOT FOUND] | 2026-08-10 |
+| Phoenix | 857 | 143 | 38 | [NOT FOUND] — no self-reported MAU; Google Play: 100,000+ installs (164,112 precise from structured data), 867 reviews, 4.27★ rating | 100,000+ (Google Play) | [NOT FOUND] — removed from US App Store May 2024; global iOS store stats not accessible | 2026-08-12 |
 
 **Sources:**
 - Electrum: [GitHub API](https://api.github.com/repos/spesmilo/electrum) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-api-spesmilo-electrum.json)
 - BlueWallet: [GitHub API](https://api.github.com/repos/bluewallet/bluewallet) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-repos-bluewallet-bluewallet.json); forks/contributors from same API call; MAU and install counts [NOT FOUND]
 - Sparrow: [GitHub API](https://api.github.com/repos/sparrowwallet/sparrow) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-repos-sparrowwallet-sparrow.json); [releases API](https://api.github.com/repos/sparrowwallet/sparrow/releases?per_page=20) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-repos-sparrowwallet-sparrow-releases.json)
-- Phoenix: [GitHub API](https://api.github.com/repos/ACINQ/phoenix) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-acinq-phoenix.json)
+- Phoenix: [GitHub API](https://api.github.com/repos/ACINQ/phoenix) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-acinq-phoenix.json); [GitHub releases API (10 most recent)](https://api.github.com/repos/ACINQ/phoenix/releases?per_page=10) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-acinq-phoenix-releases.json); [Google Play Store listing](https://play.google.com/store/apps/details?id=fr.acinq.phoenix.mainnet) — accessed 2026-08-12 — [archived](../sources/2026-08-12-play-google-com-phoenix-mainnet.html) (install count: 100,000+/164,112 from structured data; rating: 4.27; reviews: 867)
 - Electrum Android installs: _index.md citing AppBrain (credential required for live data); electrum.org notes "available on Google Play" with 1M+ badge
 
 ## Ethereum/EVM wallets

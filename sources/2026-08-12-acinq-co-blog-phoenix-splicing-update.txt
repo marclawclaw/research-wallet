@@ -1,0 +1,27 @@
+Source: https://acinq.co/blog/phoenix-splicing-update
+Title: Introducing the new Phoenix
+Accessed: 2026-08-12
+(Content extracted from HTML — JavaScript-rendered page, saved as text)
+
+KEY EXCERPTS:
+
+1. Single-channel model via splicing:
+"Leveraging a technology called splicing, the new Phoenix has the possibility to resize channels, making all those issues go away: each user has only one channel, there is no more scattered liquidity or splitting issues, adding or removing funds to the channel doesn't add future risk and can be priced at current cost: the 1% / 3000 sat fee is replaced by the mining fee for the underlying on-chain transaction."
+
+2. Fee change:
+"The main change is that the 1% fee on incoming payments has been replaced by a 0.4% fee on outgoing Lightning payments."
+"This does not mean that incoming payments are free, because mining fees may apply, but when the feerate is low (under 10 sat/byte) it's always cheaper than before, and practically free at 1 sat/byte."
+
+3. Trustless on-chain swaps:
+"Splicing makes the distinction between on-chain and off-chain really blurry. Removing funds from a channel (splice-out), effectively translates to making an on-chain transaction directly from your channel. No swap service is needed and the operation is trustless."
+
+4. Taproot (v2.7.0, Oct 2025):
+"Lightning channels created by Phoenix now use taproot, meaning that they are cheaper (by about 15%), and more private, since they cannot be distinguished from regular transactions."
+
+5. Privacy limitation:
+"The current version of Phoenix offers no advantage regarding privacy over existing, hosted, custodial wallets. We (ACINQ) know the final destination and amount of payments. Later versions will be much more privacy friendly."
+
+6. On-chain address:
+"In the new Phoenix, funds stay in control of Phoenix during the process. Phoenix uses a taproot script that makes swaps appear as regular transactions, unrelated to Lightning or Phoenix."
+
+7. Blinded paths, BOLT12, Taproot mentioned as upcoming features at time of v2.0 launch.
