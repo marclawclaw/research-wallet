@@ -1,0 +1,2229 @@
+# Changelog
+
+## [6.26.1](https://github.com/hhanh00/zkool2/compare/zkool-v6.26.0...zkool-v6.26.1) (2026-08-02)
+
+
+### Bug Fixes
+
+* ironwood tx detection in mempool ([cef5160](https://github.com/hhanh00/zkool2/commit/cef5160c39f6354f60d40f0c04df8e2a585f1a8b))
+* refresh mempool keys after new blocks ([ce74c2f](https://github.com/hhanh00/zkool2/commit/ce74c2fd1e86f1851fe9cfa57ba85357eed4bf14))
+
+## [6.26.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.25.1...zkool-v6.26.0) (2026-07-31)
+
+
+### Features
+
+* add dust filter toggle for notes (hide ZEC notes &lt;= 5000 zats) ([531e4d8](https://github.com/hhanh00/zkool2/commit/531e4d8d77a9736eaebed9cb404c31db0673ce7d))
+* add group by pool toggle for notes view ([b785872](https://github.com/hhanh00/zkool2/commit/b785872644a2c683ff0c1260cba122dcd87c7d6c))
+* add lock/unlock all button per pool section header ([3e63ea7](https://github.com/hhanh00/zkool2/commit/3e63ea7d022c401a762e456020a854a2944b1aa1))
+* add one-shot Orchard migration ([d4aae4d](https://github.com/hhanh00/zkool2/commit/d4aae4d227ecf4ba98ecca683786855409d4cda2))
+* add toggle all notes button to invert lock state of every note ([ecb0a61](https://github.com/hhanh00/zkool2/commit/ecb0a6116889b4fdc9c057d24d9e98e33fdb35fb))
+* enhance migration with streaming and progress tracking ([71bab2b](https://github.com/hhanh00/zkool2/commit/71bab2b46676d08df269802015fc1d4f37c76832))
+* identify migration txs in history ([b28998e](https://github.com/hhanh00/zkool2/commit/b28998e7ee91cfa435bf99b70e7f90762877022c))
+* improve migration flow ([e448ff4](https://github.com/hhanh00/zkool2/commit/e448ff4c02886559bdb9fefb62a3ebae6888237b))
+* skip migration step when no new blocks since last broadcast ([d025a94](https://github.com/hhanh00/zkool2/commit/d025a9459f11c7d5808807ac1f9e99f5e96f0413))
+
+
+### Bug Fixes
+
+* add cancellation support for note migration ([11fe166](https://github.com/hhanh00/zkool2/commit/11fe1665bb30410e003b4be890dbd3505cbb8e78))
+* add error log printer utility ([85d17a1](https://github.com/hhanh00/zkool2/commit/85d17a1118f84c834839a6867f4130d0f30608b6))
+* address review comments ([09ac425](https://github.com/hhanh00/zkool2/commit/09ac4256ed26ef836177e5535a8f1763c667bbd1))
+* confirm before leaving active migration ([961a8a8](https://github.com/hhanh00/zkool2/commit/961a8a8bd905d8d0051bffffe90c5655f504ff56))
+
+## [6.25.1](https://github.com/hhanh00/zkool2/compare/zkool-v6.25.0...zkool-v6.25.1) (2026-07-28)
+
+
+### Bug Fixes
+
+* restore Ledger build compatibility ([51ff5e5](https://github.com/hhanh00/zkool2/commit/51ff5e50437dea22ca539aec922f122c62f34bab))
+* ZSA dependency compatibility - Use production versions of lrz ([2dbe9a3](https://github.com/hhanh00/zkool2/commit/2dbe9a393d3f7a6149812605a89e817769b4b001))
+
+## [6.25.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.24.0...zkool-v6.25.0) (2026-07-27)
+
+
+### Features
+
+* log per-pool spend/output counts before build_for_pczt ([2aebcf5](https://github.com/hhanh00/zkool2/commit/2aebcf5a85dfd826dd632c16776bf4088b892d43))
+* PCZT-DUMP with enc_ciphertext length, per-pool counts, block-wait loops in tests ([e1b8868](https://github.com/hhanh00/zkool2/commit/e1b886859d231404bea910beeeea97ff5c3e76ad))
+* re-enable ZSA support ([#1164](https://github.com/hhanh00/zkool2/issues/1164)) ([4fd9c66](https://github.com/hhanh00/zkool2/commit/4fd9c66f1bc620ddc4821fe9d2279ac58b1a81c3))
+* TransactionData.orchard_bundle -&gt; OrchardBundle enum, ZSA PCZT domain support, test: block-mining wait loop, per-account coins ([0f75d5a](https://github.com/hhanh00/zkool2/commit/0f75d5aef2d8fe0fc5da37651197fd40fb49dc04))
+* TransactionData.orchard_bundle uses OrchardBundle enum, ZSA PCZT domain support ([314c281](https://github.com/hhanh00/zkool2/commit/314c2815b5e3e539d7d152dcc88fcaa975212fcb))
+* ZSA circuit separation — use vanilla PK for O2O, ZSA PK for issuance; add zsa-circuit feature; add ZSA issuance test ([38a3838](https://github.com/hhanh00/zkool2/commit/38a3838e44b9bdc045cea9b6030733791db483c7))
+* ZSA prover uses ORCHARD_ZSA_PK for all Nu7 txs, add pczt_replay CLI ([9a6d304](https://github.com/hhanh00/zkool2/commit/9a6d30465e881d238028a2d4e4e6a24baba2ae9d))
+
+
+### Bug Fixes
+
+* always select notes for privacy, with fee as tie-breaker ([329a1cf](https://github.com/hhanh00/zkool2/commit/329a1cf1373239a4dca5dafa4b3cf130f384958c))
+* auto-pin db to coin=3 when filename contains 'zsa' ([42ed01c](https://github.com/hhanh00/zkool2/commit/42ed01c8d69478e13a58054740505fd0f62792f4))
+* complete ZSA PCZT transaction support ([850ad82](https://github.com/hhanh00/zkool2/commit/850ad829e475ee2540a53737a47a462edbe123b1))
+* correct ZSA action fees and transaction summaries ([90a0286](https://github.com/hhanh00/zkool2/commit/90a02867f7517d89263ef0d3e34229f0dd87a08f))
+* finalize new ZSA issuance ([bebc3a5](https://github.com/hhanh00/zkool2/commit/bebc3a5075171800f22cc95ec6b137376168bf4c))
+* hide ZSA reissuance flow ([6550ad7](https://github.com/hhanh00/zkool2/commit/6550ad760faeb98e82231e46ba58abdc365d43da))
+* improve error handling and diagnostics - fix IRW detection ([b42acbb](https://github.com/hhanh00/zkool2/commit/b42acbbfda59bb237051b2cff4b669287bb571be))
+* remove cargo config ([484563c](https://github.com/hhanh00/zkool2/commit/484563c9347410d14c1e35bd5a57652e012dba67))
+* retain ZSA notes below ZEC dust threshold ([a611410](https://github.com/hhanh00/zkool2/commit/a611410b7b89091e8d0c33d687d5e2509539f5e3))
+* skip loading state on account page reload, enable prerelease versioning ([fabb1fe](https://github.com/hhanh00/zkool2/commit/fabb1feaf554a0729513bc3aedae56fe41bab984))
+
+## [6.24.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.23.0...zkool-v6.24.0) (2026-07-20)
+
+
+### Features
+
+* add coin selection mode (fee vs privacy) and improve migration UI ([dac2b7b](https://github.com/hhanh00/zkool2/commit/dac2b7bf51e30f01abbce1b25c163425ac1e7bd8))
+* add migration speed slider to control delay between steps ([7f7de27](https://github.com/hhanh00/zkool2/commit/7f7de2707e08205dda1a148a6afbf969e2541953))
+* add Orchard-to-Ironwood migration (splitting + migrating phases) ([c028d2a](https://github.com/hhanh00/zkool2/commit/c028d2aa1c559797ed396f45a7ef0a27687c0bc6))
+* ironwood protocol support, proto build from service.proto, lrz dep bump ([d029e58](https://github.com/hhanh00/zkool2/commit/d029e5897383e9161d6599a8d785aaaf6816711b))
+* **pay:** add anytime branch-and-bound note selection solver ([8dad07c](https://github.com/hhanh00/zkool2/commit/8dad07c05b5f9ee4798cd10fe219a0f633a20f06))
+* re-enable ZSA — issuance pipeline, decryption, split note padding ([86cc86c](https://github.com/hhanh00/zkool2/commit/86cc86cb5b7494097a72a1d314b1e99f87ac8578))
+* switch to git-based ZSA dependencies, replace nu7 hacks with orchard_mode() ([7fa33be](https://github.com/hhanh00/zkool2/commit/7fa33be10df77f60018f5da1d019945b638fb5ed))
+* **vault:** add loading spinner dialogs to vault recovery and other async wait points ([78266c3](https://github.com/hhanh00/zkool2/commit/78266c3bdc1ebc5412bfbdc5c8271d4d09591fe4))
+* **vault:** bullet-proof recovery, passkey fallback, and compress ([835b729](https://github.com/hhanh00/zkool2/commit/835b729143fb63976ace3106f7ca5c4b83c61f15))
+* **vault:** offer passkey registration after password recovery ([d0eb7ee](https://github.com/hhanh00/zkool2/commit/d0eb7ee49d4fa4dcd4e8ea3313b48c93ca5ffdd6))
+* wire up ironwood sync protocol, add ironwood balance widget ([609e941](https://github.com/hhanh00/zkool2/commit/609e9419eadc8eb7ad6c24dc542040eba70eaf85))
+
+
+### Bug Fixes
+
+* accept older account backups on import, relax version check ([d626b2c](https://github.com/hhanh00/zkool2/commit/d626b2ca0cdb25e88d4ea1be21bbd62a7112af5e))
+* add Ironwood bundle to fee decrypt, streaming migration, menu gate ([e192ec8](https://github.com/hhanh00/zkool2/commit/e192ec8d4646a4da15744aeb335d6de041d9c869))
+* add ironwood field to Addresses GQL type and include ironwood in source pools ([c13f79c](https://github.com/hhanh00/zkool2/commit/c13f79cfaa4f774876eb8f5fb170eb3af3d52b71))
+* add NU7/ZSA fields and coin type 3 for lrz zsa branch compatibility ([232aff9](https://github.com/hhanh00/zkool2/commit/232aff93bf3106a19a165b577648e57ad1808d33))
+* bump MIN_SD to 500k zats, reserve fee buffer when remainder too small ([3321548](https://github.com/hhanh00/zkool2/commit/3321548f5f5286574b417a6e3fe1fb42c46dcf4e))
+* comment out proto build in build.rs ([02fa0c5](https://github.com/hhanh00/zkool2/commit/02fa0c5d744b85ba54e430144e3560ca988ca098))
+* commit macos project files ([6860c33](https://github.com/hhanh00/zkool2/commit/6860c330ce83ab85fd26011c6686c8fce089dd31))
+* **db:** add visiblePassword keyboard type to fix deleting password field content ([3fd232c](https://github.com/hhanh00/zkool2/commit/3fd232cc5ec3c1c84daf6e640cba294554856397))
+* deduct fee from recipient when recipient_pays_fee is true ([#1150](https://github.com/hhanh00/zkool2/issues/1150)) ([e752431](https://github.com/hhanh00/zkool2/commit/e752431ee6e1c222cbde5e8bb9c34e9fddca0b8e))
+* disable ledger feature in CI builds due to pczt API breakage ([9725959](https://github.com/hhanh00/zkool2/commit/97259595478663f21f79b60ac0e16c8bef214eb6))
+* **frost:** update get_orchard_pk call to pass ironwood_active ([d5fcff2](https://github.com/hhanh00/zkool2/commit/d5fcff2fc652be0a113886560c2c1f78d879adc8))
+* handle Ironwood bundles in mempool and zebra block parsing ([335497b](https://github.com/hhanh00/zkool2/commit/335497b312db6d9accfe5e240282f1ddcdcc335a))
+* Ironwood DKG memo decryption, sign protocol, and misc fixes ([3841b6e](https://github.com/hhanh00/zkool2/commit/3841b6e6bae65774d8569d67d4233676778687b5))
+* **macos:** configure manual code signing with Developer ID and zkool provisioning profile ([#1155](https://github.com/hhanh00/zkool2/issues/1155)) ([4e050f7](https://github.com/hhanh00/zkool2/commit/4e050f70170b0ba35d212ceb148495e919a08188))
+* remove unused GraphQL migration_status query ([d7bd6e0](https://github.com/hhanh00/zkool2/commit/d7bd6e0a7ee9de1e235ba0d55377c05c9df75253))
+* revert accidental macOS file changes since 61ccf03f ([b05f7c6](https://github.com/hhanh00/zkool2/commit/b05f7c6e40b5c06b4d3b31e746211af9c5ff7d95))
+* revert plan_transaction signature, add coin-selection module ([94208cc](https://github.com/hhanh00/zkool2/commit/94208cc3da9a6ff97ae3ad9bb4e30b829a3ef410))
+* rewrite ledger builder.rs for new pczt API with in-place Updater ([911b7f1](https://github.com/hhanh00/zkool2/commit/911b7f175ec86c8f36e90cb7ddd19e96d9642374))
+* show loading spinner in blank() instead of empty screen ([#1157](https://github.com/hhanh00/zkool2/issues/1157)) ([41e645c](https://github.com/hhanh00/zkool2/commit/41e645c0a23061587ca67008aa265ec30535e91b))
+* switch zcash-trees from local path to git dependency ([4e84b27](https://github.com/hhanh00/zkool2/commit/4e84b2774f1adf727b9eab7ad908f081a1313118))
+* track note index through B&B pipeline to prevent duplicate selection ([8945f05](https://github.com/hhanh00/zkool2/commit/8945f05cf51e237169ad4f546d6cee403e9d51f8))
+* **tx plan:** decode ironwood bundle in TxPlan::from_package ([d0f7b27](https://github.com/hhanh00/zkool2/commit/d0f7b27e622b491c2a5531ad340fd748aedf7a70))
+* **tx plan:** only create Ironwood txs after Nu6.3 activation ([f0e09a2](https://github.com/hhanh00/zkool2/commit/f0e09a27377a5f15deefb51812d5b5e2496529cb))
+* **ui:** fix pool selector segment order to Trp/Sap/Orc/Iwd ([a9320f1](https://github.com/hhanh00/zkool2/commit/a9320f1dd545173724eab9e538dd15fe63978ed7))
+* **ui:** reorder balance chips to Trp/Sap/Orc/Iwd ([ab5f317](https://github.com/hhanh00/zkool2/commit/ab5f3175a77470c5e012058f36fe684cb151c5c4))
+* update lrz rev, add zkproof getter, fix pczt.serialize() in ledger ([e45e745](https://github.com/hhanh00/zkool2/commit/e45e7458d19fb8c6139bba70fb6ff34b8614fa7a))
+* update regtest to ironwood ([43f7e92](https://github.com/hhanh00/zkool2/commit/43f7e922f4deee0944b9572151beec7c12f7377b))
+* update tests for Ironwood (pool 3) and zebra connector support ([de7254a](https://github.com/hhanh00/zkool2/commit/de7254ab92c9b02db111a19aa316bece2703fa11))
+* use isIronwoodActive API instead of hardcoded height 450 ([ac33aec](https://github.com/hhanh00/zkool2/commit/ac33aecfece1e28ed210157fd3f7c2c77608acc8))
+* use lrz zsa branch with git rev, pass shielded sighash to Issuer::sign() ([74187c3](https://github.com/hhanh00/zkool2/commit/74187c314835af240bbff708c1ca9585ea44fdf3))
+* **vault:** add onDismissCallback to showLoadingDialog for AwesomeDialog compat ([c1dfe33](https://github.com/hhanh00/zkool2/commit/c1dfe3386819f92ad334761ca0f7a960cfdbf40f))
+* **vault:** always show Google picker when enabling vault, even on re-enable ([a22d3e4](https://github.com/hhanh00/zkool2/commit/a22d3e43190eb864fd263587659ad445a465f6ac))
+* **vault:** bypass EasyDebounce in compress to save all accounts ([ed35a6c](https://github.com/hhanh00/zkool2/commit/ed35a6cd0d8de1f4de58ae53f4020a2389ebfe39))
+* **vault:** disable passkeys on iOS, limit macOS to debug builds ([825fe60](https://github.com/hhanh00/zkool2/commit/825fe60c26394755792d2af41a81cae395edcd4d))
+* **vault:** explicit Google Drive sign-in during vault enable, credentials cached ([54ca242](https://github.com/hhanh00/zkool2/commit/54ca2421c491e5d3755ce4865958993649943676))
+* **vault:** set autoDismiss=true in showLoadingDialog so .dismiss() pops the navigator ([d8dc9fb](https://github.com/hhanh00/zkool2/commit/d8dc9fb4856df7e6ad656cd7c24582f535bdf91b))
+* wire select_notes knapsack DP into plan_transaction, fix migration fees ([14c229c](https://github.com/hhanh00/zkool2/commit/14c229cfd02283cd5f514033ad97650a90c6042b))
+
+
+### Reverts
+
+* remove ios/ files accidentally committed in 0c6a82c8 ([35a375a](https://github.com/hhanh00/zkool2/commit/35a375af31331fc426521819b68e22f22775e1ac))
+
+## [6.23.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.22.0...zkool-v6.23.0) (2026-07-02)
+
+
+### Features
+
+* **db-manager:** show account list when tapping a database, highlight last-opened DB, remove OK button ([#1122](https://github.com/hhanh00/zkool2/issues/1122)) ([8299461](https://github.com/hhanh00/zkool2/commit/829946133714218cafbcdd2e778d4e792cb9c7bd))
+* switch from bundled Sapling proving keys to downloadable params ([#1117](https://github.com/hhanh00/zkool2/issues/1117)) ([17a21cd](https://github.com/hhanh00/zkool2/commit/17a21cd105fb65fcfd802a449e434c6a3eebd498))
+
+
+### Bug Fixes
+
+* **android,ios:** resolve sapling params directory from app data dir ([97b9d26](https://github.com/hhanh00/zkool2/commit/97b9d26e0705af009040086cf13be5cb6dfec114))
+* **android:** resolve sapling params directory from app data dir ([e460e4e](https://github.com/hhanh00/zkool2/commit/e460e4e1698c2da567d3c74d89ee0d128435a022))
+* **graphql:** download sapling params on startup ([#1124](https://github.com/hhanh00/zkool2/issues/1124)) ([ed82f71](https://github.com/hhanh00/zkool2/commit/ed82f7151bf88131c90bd78da2d478af4ff3a951))
+* **pay:** replace panicking SAPLING_PROVER LazyLock with fallible async get_sapling_prover ([#1125](https://github.com/hhanh00/zkool2/issues/1125)) ([66e6348](https://github.com/hhanh00/zkool2/commit/66e63481033038e1f3133905fcf0e6425a0340d8))
+* **pay:** simplify coin selection — separate fee handling from note assignment ([f50759b](https://github.com/hhanh00/zkool2/commit/f50759b852b91b410ab2ae97476d8b9fd9cb09b1))
+* resolve Windows db password change failure and improve error UX ([8bbdeda](https://github.com/hhanh00/zkool2/commit/8bbdedae299b748b68eeb56296119347d6dee4c5))
+* **tx:** add error_for_status, return count, and progress feedback for Fetch Tx Prices ([3efc6f2](https://github.com/hhanh00/zkool2/commit/3efc6f255211e09a0f857992a936f6b8d8a0ec13))
+
+## [6.22.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.21.0...zkool-v6.22.0) (2026-06-26)
+
+
+### Features
+
+* hook setExpertMode to AppSettings, move verbose sync/db/memo logs to debug ([ed0f01b](https://github.com/hhanh00/zkool2/commit/ed0f01b2b4ba1808e91401fb0c6c3aa4fcfdb95f))
+* include txid in transaction history search/filter ([38d0240](https://github.com/hhanh00/zkool2/commit/38d0240bae8fa7133f4a55605cd23ceecbf9195a))
+
+
+### Bug Fixes
+
+* accept RC tags without version number in Docker workflow semver match ([4206dec](https://github.com/hhanh00/zkool2/commit/4206dec4b1d9805037078e5bb2944e9805eee714))
+* add dismiss button after successful transaction send ([ea3427a](https://github.com/hhanh00/zkool2/commit/ea3427a7e6db4875256dec755dd9be1f7ad9fbde))
+* center QR code and remove fingerprint on viewing keys page ([f1037c5](https://github.com/hhanh00/zkool2/commit/f1037c50a269518e2709f0ffa8beb215a2db3f8c))
+* display ZSA amounts correctly instead of as ZEC ([1dc33b5](https://github.com/hhanh00/zkool2/commit/1dc33b5d039e02d16ed3aff0399e22900afaf4c7))
+* move wallet sync check before transaction plan computation ([e17b296](https://github.com/hhanh00/zkool2/commit/e17b296186090adf76b2bf7528a97b969a3ffea7))
+* offset all toasts 64px down using global marginBuilder ([68b80ac](https://github.com/hhanh00/zkool2/commit/68b80aca62964503e089d9cb38af1f5d2f5ccc21))
+* offset transaction toast messages 64px down ([d62b998](https://github.com/hhanh00/zkool2/commit/d62b998994493e3f23417f252667aa9aeb7f1b8a))
+* remove const from ToastificationConfig, lambda is not a constant ([105d765](https://github.com/hhanh00/zkool2/commit/105d765096cc423b8badf339ca95cfcaf928f2fe))
+* remove sensitive wallet data from production logging ([047a5e7](https://github.com/hhanh00/zkool2/commit/047a5e702a2cfc62b7e17f5b78104cd35aec41af))
+* rename duplicate _ parameters in lambda ([f260bd1](https://github.com/hhanh00/zkool2/commit/f260bd13a339279a65ae98940777f888302bf193))
+* restart autoSync when interval is changed back to a positive value ([0d75ea9](https://github.com/hhanh00/zkool2/commit/0d75ea95a0bceb57659e53a291e3ed7a50199f14))
+* update default block explorer URL and restore prerelease config ([dc1da9b](https://github.com/hhanh00/zkool2/commit/dc1da9bf88210c5ac8708c394e63cc244e142efa))
+
+## [6.21.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.20.0...zkool-v6.21.0) (2026-06-19)
+
+
+### Features
+
+* add account picker to cloud vault recovery ([719aafe](https://github.com/hhanh00/zkool2/commit/719aafe1fe7d8e72b04eccca38e26f4b72be0105))
+* make transparent scan limit an optional GraphQL parameter ([1df02cb](https://github.com/hhanh00/zkool2/commit/1df02cb22c872b998c472aee247e16403e509f04))
+* plugin system with rhai script engine ([f31faae](https://github.com/hhanh00/zkool2/commit/f31faaeca569b5ddb4412f3db68cf21c7e1d912c))
+
+
+### Bug Fixes
+
+* bump build number to 275 ([97d4e74](https://github.com/hhanh00/zkool2/commit/97d4e745b0fcd1458388bf08da5e718c0e3cc5ed))
+* remove per-item delete button, add multi-select with checkmark, fix setPluginEnabled Tokio panic ([888b8a4](https://github.com/hhanh00/zkool2/commit/888b8a4ad24d1dc93cbddfbf4f59d2d6c81c6256))
+* remove unsupported prerelease input from release-please-action@v5 ([6f678bb](https://github.com/hhanh00/zkool2/commit/6f678bbd257c40f310afdfe0726eee8c57989757))
+* show scaffold with settings bar on empty account list ([a8d99f9](https://github.com/hhanh00/zkool2/commit/a8d99f99d886e22ffb49444888ed14394b79c718))
+* use --force instead of --force-with-lease for release PR push ([2e8d7b6](https://github.com/hhanh00/zkool2/commit/2e8d7b64df7ca34ef05f13d28421f45a73b324cc))
+* use amend instead of new commit for build number bump in release-please workflow ([be9add0](https://github.com/hhanh00/zkool2/commit/be9add03adc81cecb3d230579105e4a076908594))
+
+## [6.20.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.19.0...zkool-v6.20.0) (2026-06-15)
+
+
+### Features
+
+* add contacts address book with vCard import/export and tx matching ([3f57e80](https://github.com/hhanh00/zkool2/commit/3f57e803b49a786c5f6676289622631310a36cee))
+* add debounced tx search bar filtering by memo and contact ([2f1b8b2](https://github.com/hhanh00/zkool2/commit/2f1b8b23638787bf4ec9c2c4cc06a79ce476c6c2))
+* add DNSSEC validation for OpenAlias DNS resolution ([b851ec2](https://github.com/hhanh00/zkool2/commit/b851ec2ae01d919b43101a6974088f9a967d1303))
+* add OpenAlias resolution via DNS TXT lookup ([7871882](https://github.com/hhanh00/zkool2/commit/78718827866603d501f6b9fdf4694ca5a4ac865c))
+
+
+### Bug Fixes
+
+* add native contacts import with zcash URI support ([774a9ff](https://github.com/hhanh00/zkool2/commit/774a9ffead79180a710ed22cd788e333ce9411d0))
+* fall back to Google DNS when system resolver config is unavailable ([e6aa896](https://github.com/hhanh00/zkool2/commit/e6aa89649ab1a976469a7dacfa066ec13bbdb1f3))
+* invalidate account provider cache when selecting account ([67f7605](https://github.com/hhanh00/zkool2/commit/67f7605a433b636f238462bdb98a9a0e6dab1077))
+* pin raptorq to exact version 2.0.0 ([63ca252](https://github.com/hhanh00/zkool2/commit/63ca2523942679e1e0ede5a5afbeac1be527aba3))
+* remove openalias crate dependency, inline OA1 parsing ([1fba7ec](https://github.com/hhanh00/zkool2/commit/1fba7ec351ef1aa050504cfa089da320c00511d2))
+* replace [@account](https://github.com/account) with !account, add [@contactname](https://github.com/contactname) resolver with autocomplete ([2822f94](https://github.com/hhanh00/zkool2/commit/2822f945fc6370e74e8b3dad81b1263d67514f3d))
+* show tx search bar on both table and list views ([99f8441](https://github.com/hhanh00/zkool2/commit/99f84419255ed41069f1e6c8bf449e90fd91a3c2))
+* TTL-cache getCurrentHeight in async provider with offline check ([#1083](https://github.com/hhanh00/zkool2/issues/1083)) ([ee75a1a](https://github.com/hhanh00/zkool2/commit/ee75a1a322fa4526d05565f2d06af48ce7a7307b))
+* update flutter version ([139d190](https://github.com/hhanh00/zkool2/commit/139d190006e7c3c4322629eb59e17783127aa3d2))
+* watch appSettingsProvider so toggling list/table view rebuilds UI ([a5c63ae](https://github.com/hhanh00/zkool2/commit/a5c63ae7ab934e74f5bfd954723f9a846cb1f909))
+* zebra JSON-RPC backend error handling and orchard decrypt panics ([7a29610](https://github.com/hhanh00/zkool2/commit/7a2961084d9c57d0b2a3adf693d7663e09554f79))
+
+## [6.19.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.18.11...zkool-v6.19.0) (2026-06-13)
+
+
+### Features
+
+* add artifact attestation step to build workflow ([d0ec143](https://github.com/hhanh00/zkool2/commit/d0ec143e70f2c9f9216c03a3ebd2d62bc3f8f522))
+* add editable user memos overlay ([0d03d4b](https://github.com/hhanh00/zkool2/commit/0d03d4b8d2a64bf5e0b9dca62262cbdfc0217d34))
+* add sync warning before sending transaction ([97f1dc7](https://github.com/hhanh00/zkool2/commit/97f1dc7ef42de1862938e448a4fcce854557105b))
+* add table view for transaction history ([d109627](https://github.com/hhanh00/zkool2/commit/d109627af430d5c01b059e8eb813270c611b7ec2))
+* offer to sync account after import/restore ([464f511](https://github.com/hhanh00/zkool2/commit/464f51181dd8beb42679bdf311795295d9e8cc46))
+* sync warning on send, loop-based sync retry, misc fixes ([9966a5c](https://github.com/hhanh00/zkool2/commit/9966a5c5fff04a1cda49a4acf0fdffcfb7422e8c))
+
+
+### Bug Fixes
+
+* add contents write permission for release step ([2ba346c](https://github.com/hhanh00/zkool2/commit/2ba346c3923b7cdb7db1fc76c66bb55fea7c8e09))
+* align Switch icons with TextField prefixIcon horizontal position ([370247d](https://github.com/hhanh00/zkool2/commit/370247d51c9d2a26402618c4482e95694f7eafcc))
+* disable ZSA issuance button when ZSA is not available on the current network ([af563ea](https://github.com/hhanh00/zkool2/commit/af563ead7054d51191ee4fb97ab13f1f1181b302))
+* fix server ordering ([#1074](https://github.com/hhanh00/zkool2/issues/1074)) ([1ca4fbe](https://github.com/hhanh00/zkool2/commit/1ca4fbe9815fc80482d4ddfd092c1961c91727ce))
+* hide checkbox column in transaction history table ([90a2f81](https://github.com/hhanh00/zkool2/commit/90a2f8124e618cd4574e54ceb0671dc78124c551))
+* sort ZSA holdings alphabetically by display name ([43e4e13](https://github.com/hhanh00/zkool2/commit/43e4e130704a67ba0bfb8cb48109029609ac1dd3))
+* use coin type instead of hardcoded 'main' in LWD server list query ([cd0e692](https://github.com/hhanh00/zkool2/commit/cd0e69269e61c177702e4dac0d1fb815cbc5ef1f))
+
+## [6.18.11](https://github.com/hhanh00/zkool2/compare/zkool-v6.17.7...zkool-v6.18.11) (2026-06-12)
+
+
+### Features
+
+* add diversifier_index column to notes table ([e98f3c7](https://github.com/hhanh00/zkool2/commit/e98f3c7b86e02a4f5adddff726917477c36f97f9))
+* add multi-currency support ([#1030](https://github.com/hhanh00/zkool2/issues/1030)) ([f119172](https://github.com/hhanh00/zkool2/commit/f119172f4e64facf14460674e895a31044771c1a))
+* AddressesPage with derivation-driven loop, segmented filters, scope filter, icons ([693c49a](https://github.com/hhanh00/zkool2/commit/693c49aa872ba40a9fee3d715bfc168a3e62dec6))
+* derivation-driven address tx counts with pool and usage filters ([93c6cc8](https://github.com/hhanh00/zkool2/commit/93c6cc80552e1b2b1b03e7b620d4c14d65f35a72))
+* make Account Page the home page, Account Manager from overflow menu ([#1033](https://github.com/hhanh00/zkool2/issues/1033)) ([5ba6147](https://github.com/hhanh00/zkool2/commit/5ba6147f97a79ffc6f893e64d9689e22678916a1))
+* pool filter drives address derivation, UA disabled for single pool ([d35cb42](https://github.com/hhanh00/zkool2/commit/d35cb42a329b4de914a064bbd1360ce29b2bc6f9))
+
+
+### Bug Fixes
+
+* add collapsible filter toggle to addresses page ([879b325](https://github.com/hhanh00/zkool2/commit/879b325e9d5f2f81479284cdfc723e34e3aa41ce))
+* add component and tag config for simple release type ([71894cb](https://github.com/hhanh00/zkool2/commit/71894cbdae4fd6cef80e395546b8022a8f6321eb))
+* add diversifier_index and id_asset to CREATE TABLE notes ([b63c230](https://github.com/hhanh00/zkool2/commit/b63c230bdfc9f2625730256a1ab02e04e175dda2))
+* add Market Price menu item to account page menu ([7b20b1b](https://github.com/hhanh00/zkool2/commit/7b20b1b8abbfe96af1c1ce816808c657fed0a9d3))
+* add versioning prerelease strategy to release-please config ([e6d468b](https://github.com/hhanh00/zkool2/commit/e6d468bd744dd1161d2e9e126c844f5c75d69a4c))
+* **ci:** wire RELEASE_VERSION env var in Android build action ([5682a49](https://github.com/hhanh00/zkool2/commit/5682a498bd0d19697fc7b092ca2106f80bb09bc3))
+* configure git user before amending release-please commit ([6c85895](https://github.com/hhanh00/zkool2/commit/6c85895d8ded6d52f724f8294056ab6e2efa3588))
+* correct garbled version string in pubspec.yaml ([45eaf8a](https://github.com/hhanh00/zkool2/commit/45eaf8a49421175c31bd6e86cbd80a2795b02e69))
+* correct release to stable patch 6.18.5 ([79d7af2](https://github.com/hhanh00/zkool2/commit/79d7af2c4f432cfc6882ba94bf5a94ca66943553))
+* correct release-please branch name for simple release type ([eaddb12](https://github.com/hhanh00/zkool2/commit/eaddb124a76d0c0d7cce6b5bd792752fefef2aaa))
+* derivation-driven address tx counts with PoolMask, aggregate UA, and filters ([4429ef6](https://github.com/hhanh00/zkool2/commit/4429ef65c7870af38d0d0487e589ad3074071f83))
+* fetch_address_tx_count sapling gate skips T/O addresses ([0c8ff65](https://github.com/hhanh00/zkool2/commit/0c8ff6510572a7957d41700b172b27835b483995))
+* guard -Wno-error=nontrivial-memcall behind VS_PLATFORM_TOOLSET check, drop /WX ([1cdd5cc](https://github.com/hhanh00/zkool2/commit/1cdd5cc5b96628529f6917afc95e285672f05263))
+* move cmake_policy(SET CMP0175 OLD) to first line of CMakeLists.txt ([255b8c1](https://github.com/hhanh00/zkool2/commit/255b8c1bbc531039a1bd3897431f60fd68ec2946))
+* move coroutine deprecation define to global scope ([e5abc47](https://github.com/hhanh00/zkool2/commit/e5abc472b987b49b32021c8211d72f3d8daf6e84))
+* move nontrivial-memcall flag to global scope too ([84913a7](https://github.com/hhanh00/zkool2/commit/84913a7c0228b372ecdd75ffd815758f53b164b2))
+* pool filter server-side, aggregate UA rows bypass Dart pool filter ([7fa1b3f](https://github.com/hhanh00/zkool2/commit/7fa1b3f3703401e4e81095e2540bf8e89e1f478c))
+* propagate fastforge exit code so build failures fail the job ([18e1dd1](https://github.com/hhanh00/zkool2/commit/18e1dd1c9ccfa627c2760c791a90de09fca086ae))
+* remove +0 placeholder from pubspec.yaml to prevent generic updater from dropping it ([b38c896](https://github.com/hhanh00/zkool2/commit/b38c8964198d65bece414f5773c97e160dfe78dd))
+* remove generator expression from -Wno-error=nontrivial-memcall, fail on empty build output ([c248284](https://github.com/hhanh00/zkool2/commit/c24828467b7459f11d7e2987d45d64863d0adcea))
+* remove Pools label and center segment controls on Addresses page ([f1ee5c3](https://github.com/hhanh00/zkool2/commit/f1ee5c310784fa6a8c923bf6239fa991236cefa9))
+* remove prerelease versioning strategy to avoid rc suffix duplication ([cb9d42f](https://github.com/hhanh00/zkool2/commit/cb9d42fb2c6b013490e470fe299c0764ea38dfa0))
+* remove release-please prerelease config, reset to stable versioning ([bf79fed](https://github.com/hhanh00/zkool2/commit/bf79fed8f13acc27758aee3262a0750b7273a48b))
+* remove showcaseview and replace with Flutter Tooltip widgets ([b3cd414](https://github.com/hhanh00/zkool2/commit/b3cd414e059acbc9043c6f1b6931e08371570394))
+* reorganize new account page with advanced options toggle ([12558ab](https://github.com/hhanh00/zkool2/commit/12558ab2fa38f35c5c7514cffb3aa87b9b498c81))
+* set CMP0175 OLD via env var to survive plugin cmake_minimum_required ([e0ccf90](https://github.com/hhanh00/zkool2/commit/e0ccf90efcd83bdfe210995a2e40bd4654506003))
+* set CMP0175 to OLD for flutter_inappwebview_windows CMake 4.0 compat ([f27a0d1](https://github.com/hhanh00/zkool2/commit/f27a0d1b2cfb13a920c4fe262acd33cb52afd197))
+* show empty state with help message when no accounts exist ([b036722](https://github.com/hhanh00/zkool2/commit/b0367221c1a715e15bfca89243571bb331dbab55))
+* splice build number into pubspec.yaml before flutter build ([0343b93](https://github.com/hhanh00/zkool2/commit/0343b939fab4fe8db66d99b24b46c266744e0d31))
+* style new account page with cards, icons, and flair text ([701fe53](https://github.com/hhanh00/zkool2/commit/701fe53794b385646f1fb7f4ffd0d3b1bcb7f6c4))
+* support rc tags in docker semver pattern ([f9aac1a](https://github.com/hhanh00/zkool2/commit/f9aac1afd71bae9bbda51604500d7f856e5d8f1a))
+* suppress experimental coroutine deprecation error for Windows build ([109b406](https://github.com/hhanh00/zkool2/commit/109b406a989efd327c003ca07f0f4730afdce2b3))
+* suppress nontrivial-memcall warning in rive_common harfbuzz ([3be2a10](https://github.com/hhanh00/zkool2/commit/3be2a10b7dd59c8b562ab38e3e0d047e49859311))
+* swap diversifier_index and asset_base bind order in shielded sync insert ([20f0917](https://github.com/hhanh00/zkool2/commit/20f091714faf5d12b7693af562d1b4970fad9fe9))
+* use -Wno-error=nontrivial-memcall instead of -Wno-nontrivial-memcall ([6785606](https://github.com/hhanh00/zkool2/commit/6785606385da4b1a58044a01f6b99d45e9207cc6))
+* use correct release-please branch name with component suffix ([e8aacac](https://github.com/hhanh00/zkool2/commit/e8aacac6b4e1303c09b5bb339291cc2afdd5e54e))
+* use portable sed -i.bak for macOS compatibility ([f1f3131](https://github.com/hhanh00/zkool2/commit/f1f3131b4dc3fcd08393e75c1dbaa02325d379c1))
+
+## [6.17.7](https://github.com/hhanh00/zkool2/compare/zkool-v6.16.4...zkool-v6.17.7) (2026-06-09)
+
+
+### Features
+
+* add configurable LWD server selection ([609fe1a](https://github.com/hhanh00/zkool2/commit/609fe1a36418d95c87c7e910b98dd248f8779c1e))
+* add edit account entry to account page app menu ([c1a9222](https://github.com/hhanh00/zkool2/commit/c1a9222b38015c08021f53e6e42b85a5538b7a83))
+* add NU6_2 canonmgr to parse_shield_tx test ([b38a076](https://github.com/hhanh00/zkool2/commit/b38a0760593c993e821aea2fa0f793e86f81ada8))
+* add SOCKS/HTTP proxy support with Arti Tor toggle ([#1028](https://github.com/hhanh00/zkool2/issues/1028)) ([09188cd](https://github.com/hhanh00/zkool2/commit/09188cd183f0572ef1001c7b8bde1632c17ad223))
+* cumulative changelog in GitHub release body per minor series ([7172f3c](https://github.com/hhanh00/zkool2/commit/7172f3c2b7e9aff6474aacaa8f9347e57100ce3f))
+* disable send button during tx broadcast, re-enable on error ([4c37ce5](https://github.com/hhanh00/zkool2/commit/4c37ce56a8aaccc935d052654605b83d77ce3fca))
+* max button turns on receiver pays fees ([1568ad6](https://github.com/hhanh00/zkool2/commit/1568ad6947d1c3d4756304f4a9b0e2ba3ccdabbc))
+* move theme button to settings app bar ([92336b2](https://github.com/hhanh00/zkool2/commit/92336b23596b0cc56b72dfcd53f07e8d54ec4208))
+* move theme selector to separate settings page ([1f98cf4](https://github.com/hhanh00/zkool2/commit/1f98cf4ab9c7dfd939e9423d8f635d776766a35f))
+* move view keys from Edit Account to Backup on account page ([bdc3202](https://github.com/hhanh00/zkool2/commit/bdc3202186cd39a01bd028614a02c5a76690340c))
+* move ZSA Holdings to a tab and add export support ([65d3b69](https://github.com/hhanh00/zkool2/commit/65d3b69ee76e6e1b997dc579cac4e959fd872fd7))
+* port theme manager from zwallet with flex_color_scheme ([f9ee00e](https://github.com/hhanh00/zkool2/commit/f9ee00e51cf686f158b4765f2d86cd39348c8de2))
+* reissuance — tap a ZSA holding to issue more tokens ([0fbe9fe](https://github.com/hhanh00/zkool2/commit/0fbe9fee6789f7058e9cf4a8284100dc46f05488))
+* resolve [@accountname](https://github.com/accountname) to address in send form, show avatar instead of generic icon ([d864df7](https://github.com/hhanh00/zkool2/commit/d864df73d57facab1244c6d579da0c222d01cd8e))
+
+
+### Bug Fixes
+
+* add bottom safe area for edge-to-edge system navigation bar ([112fb80](https://github.com/hhanh00/zkool2/commit/112fb80297b8ebffa8411c2130a7b1e285a6a3ee))
+* add URL scheme to LWD server list and enable Tor for onion addresses ([d3edc08](https://github.com/hhanh00/zkool2/commit/d3edc08ef93554b5a53e1d4b021d37f19c5617a8))
+* apply theme changes immediately in settings page ([c68e5b9](https://github.com/hhanh00/zkool2/commit/c68e5b9fbe466adbd79b363bd1db0b84bb6977e1))
+* correct record type mismatch in theme page callback ([4842ed7](https://github.com/hhanh00/zkool2/commit/4842ed73289d42d8fcf4605082590c8c3e0d0e0b))
+* correct shared_preferences import in LWD select page ([f27ab12](https://github.com/hhanh00/zkool2/commit/f27ab12382ae9e47d415e8ddb6e7fa89508230d2))
+* delegate issuance to plan_transaction and integrate ZSA PCZT roles ([16b0e04](https://github.com/hhanh00/zkool2/commit/16b0e046ea7a2bf881d8d810b50f1d95edf277c9))
+* ensure GitHub release is always marked as prerelease ([5e52fc8](https://github.com/hhanh00/zkool2/commit/5e52fc835ecf025577d2d0dceae4b5de04c94556))
+* handle null amount when sending to TEX address and hide pool selector for TEX ([f94c3f4](https://github.com/hhanh00/zkool2/commit/f94c3f409ac6ed1704d83151cfa61f16620de526))
+* invalidate account data after transparent scan completes ([49ad1f6](https://github.com/hhanh00/zkool2/commit/49ad1f6829346c78ca0a307a89faf0211b3f023a))
+* make account list rows fully tappable ([#1024](https://github.com/hhanh00/zkool2/issues/1024)) ([0b78a26](https://github.com/hhanh00/zkool2/commit/0b78a260a93feb21fbe16125d7a4d954f89e134d))
+* parse semver from tag in release body script, add error handling ([d8c15f8](https://github.com/hhanh00/zkool2/commit/d8c15f8d785b0460968321644845cd3315358efb))
+* remove duplicate color scheme section in theme settings ([9ab6a9f](https://github.com/hhanh00/zkool2/commit/9ab6a9fd58717155120205c57b917bc067153ed8))
+* remove gradient from account card list items ([192a699](https://github.com/hhanh00/zkool2/commit/192a6990661f9e97e018c3c5e7ccdacb3a849095))
+* remove incorrect finalize bonus from issuance fee calculation ([bfbb360](https://github.com/hhanh00/zkool2/commit/bfbb360431a9010e75309f8faf324ce4f69cbd44))
+* replace sed|awk with single awk to avoid pipefail on SIGPIPE ([62f06b7](https://github.com/hhanh00/zkool2/commit/62f06b71f0352a9dccfe9e21a2e957bfcc294f08))
+* require auth for Pin Lock and Cloud Vault toggles, not Settings navigation ([d12112a](https://github.com/hhanh00/zkool2/commit/d12112aaac99cd214c6199ad408b1d6d8cf383b8))
+* resolve ZSA recipient pool_mask to orchard when UA has 2 receivers ([d43bfda](https://github.com/hhanh00/zkool2/commit/d43bfda4bb9a552b82ce917a4bc148e77eacad16))
+* skip biometric authentication when device has no biometric hardware ([33c5b1d](https://github.com/hhanh00/zkool2/commit/33c5b1dcef6fb7cb59b9d76884a37335e9265dcc))
+* update librustzcash to zsa2 branch with ZSA issuer port ([c9e4725](https://github.com/hhanh00/zkool2/commit/c9e4725ce683826d19564dae1947f40987783167))
+
+## [6.16.6](https://github.com/hhanh00/zkool2/compare/zkool-v6.16.5...zkool-v6.16.6) (2026-06-06)
+
+
+### Bug Fixes
+
+* update librustzcash to zsa2 branch with ZSA issuer port ([c9e4725](https://github.com/hhanh00/zkool2/commit/c9e4725ce683826d19564dae1947f40987783167))
+
+## [6.16.5](https://github.com/hhanh00/zkool2/compare/zkool-v6.16.4...zkool-v6.16.5) (2026-06-05)
+
+
+### Bug Fixes
+
+* delegate issuance to plan_transaction and integrate ZSA PCZT roles ([16b0e04](https://github.com/hhanh00/zkool2/commit/16b0e046ea7a2bf881d8d810b50f1d95edf277c9))
+* handle null amount when sending to TEX address and hide pool selector for TEX ([f94c3f4](https://github.com/hhanh00/zkool2/commit/f94c3f409ac6ed1704d83151cfa61f16620de526))
+
+## [6.16.4](https://github.com/hhanh00/zkool2/compare/zkool-v6.16.3...zkool-v6.16.4) (2026-06-04)
+
+
+### Bug Fixes
+
+* set RUSTFLAGS for NU7 in alpine dockerfile ([29cd81b](https://github.com/hhanh00/zkool2/commit/29cd81bd7f67bc128083f519396a9c11869ec123))
+* update librustzcash, orchard, zcash-trees deps; add nu6_2 activation ([2722dcd](https://github.com/hhanh00/zkool2/commit/2722dcd5f6392358cfe42ebe04a2bd0a84b65358))
+
+## [6.16.3](https://github.com/hhanh00/zkool2/compare/zkool-v6.16.2...zkool-v6.16.3) (2026-06-03)
+
+
+### Features
+
+* inline editing for ZSA asset names ([#1004](https://github.com/hhanh00/zkool2/issues/1004)) ([79ba511](https://github.com/hhanh00/zkool2/commit/79ba511841a33577e6e067c23a4371078ab3259e))
+* show ZSA amount as primary for ZSA-only transfers, hide ZEC fee ([3903753](https://github.com/hhanh00/zkool2/commit/3903753cfd99976c00ae49bff02989976fb9b443))
+
+
+### Bug Fixes
+
+* invalidate accountProvider after ZSA rename to refresh holdings ([3aad309](https://github.com/hhanh00/zkool2/commit/3aad30943b33fec81ae8aa0f87d30cf3f2e04a61))
+
+## [6.16.2](https://github.com/hhanh00/zkool2/compare/zkool-v6.16.1...zkool-v6.16.2) (2026-06-03)
+
+
+### Features
+
+* ZSA asset name display in transaction plan + holdings fixes ([#1000](https://github.com/hhanh00/zkool2/issues/1000)) ([27db1a9](https://github.com/hhanh00/zkool2/commit/27db1a9744ba5d30bb814ba88961daf0180b400a))
+
+
+### Bug Fixes
+
+* correct ZSA transaction type; hide payment URI for ZSA sends ([#1002](https://github.com/hhanh00/zkool2/issues/1002)) ([e44579b](https://github.com/hhanh00/zkool2/commit/e44579b19ab70dcfa2c7b0a4af5cb1e8ea28caf8))
+* set RUSTFLAGS for NU7 consensus upgrade in alpine dockerfile ([388cc99](https://github.com/hhanh00/zkool2/commit/388cc9980d246549d7d4259aa254b77c0ef8b416))
+
+## [6.16.1](https://github.com/hhanh00/zkool2/compare/zkool-v6.16.0...zkool-v6.16.1) (2026-06-02)
+
+
+### Bug Fixes
+
+* exclude ZSA notes from ZEC value computations ([#997](https://github.com/hhanh00/zkool2/issues/997)) ([0e4f6c0](https://github.com/hhanh00/zkool2/commit/0e4f6c01875819af3098adf40f5be5f5088d7096))
+* filter ZSA notes from ZEC selection in issuance and payment planning; add issuance progress dialog ([#999](https://github.com/hhanh00/zkool2/issues/999)) ([5d90a73](https://github.com/hhanh00/zkool2/commit/5d90a736fe0140cf2573570210d791168fbe142b))
+
+## [6.16.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.15.0...zkool-v6.16.0) (2026-06-02)
+
+
+### Features
+
+* account, pay, issuance, GraphQL, FROST, and warp decrypter updates ([dc4cb3c](https://github.com/hhanh00/zkool2/commit/dc4cb3c8b5fe25295d885c2f5c6e6fada4c8530e))
+* issuance note synthesis from per-note CompactBlock data ([1493924](https://github.com/hhanh00/zkool2/commit/1493924b4563b35a26b3952356d60d8475f0efcc))
+* MCP server ([#992](https://github.com/hhanh00/zkool2/issues/992)) ([ed256bf](https://github.com/hhanh00/zkool2/commit/ed256bf32d04f93a138f8dac47078af29ff705f9))
+* remove voting feature ([#993](https://github.com/hhanh00/zkool2/issues/993)) ([f3b296c](https://github.com/hhanh00/zkool2/commit/f3b296c469e9233b452bebf00de39b6303585a52))
+* ZSA holdings, issuance, send support + fix split-spend signing ([a716a0b](https://github.com/hhanh00/zkool2/commit/a716a0b79aebba9e79bb72d08bab2675c535ead3))
+* ZSA-aware transaction history (list + detail view) ([ddfa640](https://github.com/hhanh00/zkool2/commit/ddfa6402e7a88785f3584d2084c6f1174e6ec166))
+
+
+### Bug Fixes
+
+* add mining to dkg, frost loop ([#987](https://github.com/hhanh00/zkool2/issues/987)) ([9750017](https://github.com/hhanh00/zkool2/commit/9750017b3625db3a76d9f1a86dc33c0f9e480968))
+* add warning when server is running without JWT auth ([#977](https://github.com/hhanh00/zkool2/issues/977)) ([d778209](https://github.com/hhanh00/zkool2/commit/d778209becb3f77d4fec1a139a598462745aad03))
+* **android:** propagate CargoKit rustflags for zcash_unstable nu7 ([b46aff8](https://github.com/hhanh00/zkool2/commit/b46aff8f0c8840b77f38864392862dd9ceae4a8d))
+* authenticate jwt subscriptions ([#980](https://github.com/hhanh00/zkool2/issues/980)) ([4caa8b4](https://github.com/hhanh00/zkool2/commit/4caa8b48123b5daf3e0b94b6785eb51809fe53ae))
+* conditional NU7 activation and Orchard proving key selection ([7f737b6](https://github.com/hhanh00/zkool2/commit/7f737b6ea0246db75c02bd4b86cd603f5d673517))
+* filter zero-value issuance notes in preprocessor, not try_decrypt ([7d5797f](https://github.com/hhanh00/zkool2/commit/7d5797fbc06f4bf6f31742f64ed7934837aca595))
+* **frost:** add orchard_split_spend_indices to PcztPackage and sign them ([35e5162](https://github.com/hhanh00/zkool2/commit/35e5162800d9b2ed99628f73a3b1bd3d528f1b05))
+* incorrect config parsing. toml is overridden by command line args ([#975](https://github.com/hhanh00/zkool2/issues/975)) ([998b87c](https://github.com/hhanh00/zkool2/commit/998b87c140f24980a0e60b23355b9ade452c7c4a))
+* io save/load assets + id_asset, skip zero-value issuance notes ([05f875f](https://github.com/hhanh00/zkool2/commit/05f875f304f0e917d09321bcc538fed23e7b1622))
+* **ios:** propagate Cargo rustflags from .cargo/config.toml into CARGO_ENCODED_RUSTFLAGS ([d8f72ff](https://github.com/hhanh00/zkool2/commit/d8f72ffa08b3d9763b49b0b03d576728573cf1d9))
+* **ios:** search workspace .cargo/config.toml for rustflags when building pod ([18a72f1](https://github.com/hhanh00/zkool2/commit/18a72f16c58e5b67697cea11a5e24462cc2193d4))
+* **macos:** replace Flutter SPM with CocoaPods resources and configure manual code signing ([0c7275b](https://github.com/hhanh00/zkool2/commit/0c7275b0a714ad9e6f15010ea956d4f25f6cd4a9))
+* no_mempool should be overridable ([#978](https://github.com/hhanh00/zkool2/issues/978)) ([e921bfe](https://github.com/hhanh00/zkool2/commit/e921bfe13607a491f4c0ba289b1a5618298e4bea))
+* pass id_account to issue_asset, remove lock_note race, fix ZIP-32 account param ([5ce4b69](https://github.com/hhanh00/zkool2/commit/5ce4b694bd7846fecd23b26d04ca2e60920d380a))
+* **pay:** always emit per-asset change output and correct ZSA filter ([ee27664](https://github.com/hhanh00/zkool2/commit/ee2766441245538076de963806990b987e50a220))
+* **pay:** ZSA fee estimation, input selection, and PCZT split spend support ([20af2cb](https://github.com/hhanh00/zkool2/commit/20af2cb83232685a82ae17ecc6aeaab5c20c7721))
+* skip zero-value issuance reference notes in wallet, keep cmx in tree ([017f9f5](https://github.com/hhanh00/zkool2/commit/017f9f5446a92dc2d1c3da5d22f590f678d8ce02))
+* update zkool for regtest ([e24ffc7](https://github.com/hhanh00/zkool2/commit/e24ffc7acaf406e07f8ebc2197136b24ba2aedd0))
+* use CARGO_ENCODED_RUSTFLAGS for Android to avoid cargokit override ([d5c209b](https://github.com/hhanh00/zkool2/commit/d5c209b5950609e98e01fd92b2470f6e6b41f1fc))
+* use CARGO_ENCODED_RUSTFLAGS with \u001f escape for Android ([ac49bb9](https://github.com/hhanh00/zkool2/commit/ac49bb99bc5d617193f3ff795e5609064c749eb5))
+* V6/ZSA orchard bundle support across mempool, memo, zebra, and decryptor ([39b67bd](https://github.com/hhanh00/zkool2/commit/39b67bd6ba568bb12cab0825083a81a232f700c1))
+* v6/ZSA transaction support for transparent sync and shielding ([7350f9a](https://github.com/hhanh00/zkool2/commit/7350f9a750eb1383bd0a805b11f89efce1b3b76f))
+
+## [6.15.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.14.6...zkool-v6.15.0) (2026-05-07)
+
+
+### Features
+
+* support uncompressed transparent private keys (5XXX) ([#973](https://github.com/hhanh00/zkool2/issues/973)) ([f20bb8a](https://github.com/hhanh00/zkool2/commit/f20bb8a0ead97b74b5e2a62b5deeefaba1083706))
+
+## [6.14.6](https://github.com/hhanh00/zkool2/compare/zkool-v6.13.5...zkool-v6.14.6) (2026-05-01)
+
+
+### Features
+
+* add ed25519 keypair to dkg as round 0 for future message signing ([#900](https://github.com/hhanh00/zkool2/issues/900)) ([80733df](https://github.com/hhanh00/zkool2/commit/80733df1a5f5e88a8db9fdab2db47739765294d3))
+* dart vault impl placeholder ([#908](https://github.com/hhanh00/zkool2/issues/908)) ([98a5041](https://github.com/hhanh00/zkool2/commit/98a504188cc6ad48a2873ae777be53a1d406ae75))
+* encrypt and save account keys to vault ([#912](https://github.com/hhanh00/zkool2/issues/912)) ([572813e](https://github.com/hhanh00/zkool2/commit/572813e3a462687f46ab4dea1621ce5df90a060e))
+* google drive integration ([#907](https://github.com/hhanh00/zkool2/issues/907)) ([d2e3712](https://github.com/hhanh00/zkool2/commit/d2e371202ccd5f8488e14204e45e113eeca75980))
+* passkey support for the key vault ([#914](https://github.com/hhanh00/zkool2/issues/914)) ([0bec4cf](https://github.com/hhanh00/zkool2/commit/0bec4cf2a55a4506e862838c51b368a6dce491d4))
+* set master vault password api ([#910](https://github.com/hhanh00/zkool2/issues/910)) ([98d6ddf](https://github.com/hhanh00/zkool2/commit/98d6ddf2829afd816b986e8e0f6099117aa8648b))
+* sign and verify Frost Messages ([#901](https://github.com/hhanh00/zkool2/issues/901)) ([40dc4e1](https://github.com/hhanh00/zkool2/commit/40dc4e1adaa771ef294a80c6d60e4c713ef9a41a))
+* vault impl in dart ([#909](https://github.com/hhanh00/zkool2/issues/909)) ([d36e13e](https://github.com/hhanh00/zkool2/commit/d36e13ebdde74aceb4224baa2391d88219efe9d9))
+* vault master key implementation ([#911](https://github.com/hhanh00/zkool2/issues/911)) ([8220e63](https://github.com/hhanh00/zkool2/commit/8220e637f6e7d1c75ba43954ab46746322ab239a))
+* vault recovery from master password ([#913](https://github.com/hhanh00/zkool2/issues/913)) ([8f09005](https://github.com/hhanh00/zkool2/commit/8f0900511cac591ac0a7178e0cc6b2d4476cb48e))
+
+
+### Bug Fixes
+
+* add confirmation/explanation messages ([#915](https://github.com/hhanh00/zkool2/issues/915)) ([def0c69](https://github.com/hhanh00/zkool2/commit/def0c69e20b9100002b20d5b7c9c1fc0a7c56507))
+* add expert mode flag and gate the vault behind it ([#957](https://github.com/hhanh00/zkool2/issues/957)) ([2603bcd](https://github.com/hhanh00/zkool2/commit/2603bcdb7d686562918fd856e92fad17fba35fb9))
+* add logging messages and fix passkey on android ([#916](https://github.com/hhanh00/zkool2/issues/916)) ([2d28cbc](https://github.com/hhanh00/zkool2/commit/2d28cbc4318f080487eddb0a28e653a7a1049bb7))
+* add some extra padding ([#956](https://github.com/hhanh00/zkool2/issues/956)) ([f64014e](https://github.com/hhanh00/zkool2/commit/f64014e36ff18c97489d573a59413629c2ba19b3))
+* add timestamp to vault log entry ([#921](https://github.com/hhanh00/zkool2/issues/921)) ([8488cfb](https://github.com/hhanh00/zkool2/commit/8488cfb656888287f1f12343af751c42bc58e6c8))
+* add try/catch around rust code ([#963](https://github.com/hhanh00/zkool2/issues/963)) ([ae646b7](https://github.com/hhanh00/zkool2/commit/ae646b73fa3c319aa158cc52fd465f66af245401))
+* allow platform + cross-platform by removing authenticatorAttachment ([#941](https://github.com/hhanh00/zkool2/issues/941)) ([c44724c](https://github.com/hhanh00/zkool2/commit/c44724cefb4d3016c41dea9c20524bda89514e68))
+* check for missing witnesses and offer to resync ([#891](https://github.com/hhanh00/zkool2/issues/891)) ([d8c7aa5](https://github.com/hhanh00/zkool2/commit/d8c7aa5f9e361091a5bb01d9799a43a172948439))
+* check_witness_consistency as debug only ([#968](https://github.com/hhanh00/zkool2/issues/968)) ([5e19e30](https://github.com/hhanh00/zkool2/commit/5e19e30301f107b939e973b841354780b50ec817))
+* disable android auto backup ([#932](https://github.com/hhanh00/zkool2/issues/932)) ([4859fd6](https://github.com/hhanh00/zkool2/commit/4859fd6ea0f3bd5eb8f7a7a7c0e07d6020aaebb9))
+* disable passkeys on unsupported platforms ([#936](https://github.com/hhanh00/zkool2/issues/936)) ([643dc95](https://github.com/hhanh00/zkool2/commit/643dc95a40ced093f8446ee7a40a3402a087192f))
+* do not update vault when disabled ([#947](https://github.com/hhanh00/zkool2/issues/947)) ([d56c7f0](https://github.com/hhanh00/zkool2/commit/d56c7f0c73b6bc2e5ccf424c8ff2b11955814b14))
+* eliminate UI refresh "flash" at end of sync ([#958](https://github.com/hhanh00/zkool2/issues/958)) ([20f9bde](https://github.com/hhanh00/zkool2/commit/20f9bded8105e2861ffe4838cebabb0a46371635))
+* fetch tx details from account manager ([#964](https://github.com/hhanh00/zkool2/issues/964)) ([89bc7a4](https://github.com/hhanh00/zkool2/commit/89bc7a4769a2b4a9b88e6d76f204c0e3fac3df69))
+* iOS build ([#919](https://github.com/hhanh00/zkool2/issues/919)) ([087b755](https://github.com/hhanh00/zkool2/commit/087b755970b3c6e2ea64af5c818af64252703908))
+* iOS Google signin to Drive ([#938](https://github.com/hhanh00/zkool2/issues/938)) ([a510c9f](https://github.com/hhanh00/zkool2/commit/a510c9f5b7cb3488c8b1a32782a9f04c82252095))
+* lazily sync with the vault ([#937](https://github.com/hhanh00/zkool2/issues/937)) ([293dd53](https://github.com/hhanh00/zkool2/commit/293dd53fb6d13083b2e2a9cec4e959b69e9a2a3a))
+* linux nix build ([#899](https://github.com/hhanh00/zkool2/issues/899)) ([ef778f9](https://github.com/hhanh00/zkool2/commit/ef778f95b079b9fa24f00fecaa15a07ed0dfc9eb))
+* lots of UI glitches ([#955](https://github.com/hhanh00/zkool2/issues/955)) ([2189fb9](https://github.com/hhanh00/zkool2/commit/2189fb9c5fbfd184d44b95f0b67d3680c6c87d10))
+* pin to given flutter version ([#949](https://github.com/hhanh00/zkool2/issues/949)) ([fe63f75](https://github.com/hhanh00/zkool2/commit/fe63f750426e9c84b08d9864a593affd5475adc7))
+* removed display, zip212 grace period ([#966](https://github.com/hhanh00/zkool2/issues/966)) ([575aa67](https://github.com/hhanh00/zkool2/commit/575aa67c8ebe6f5012e0b3a8fb82cf3508cab335))
+* replace zaino by lightwalletd ([#895](https://github.com/hhanh00/zkool2/issues/895)) ([1b0b67f](https://github.com/hhanh00/zkool2/commit/1b0b67fba7db22f2b7244b50683a70987cbe075a))
+* reregister the passkey if it is stale ([#923](https://github.com/hhanh00/zkool2/issues/923)) ([2de92cb](https://github.com/hhanh00/zkool2/commit/2de92cb76cd010a61227c5c4079c6defa2027546))
+* return error msg when no prf support ([#944](https://github.com/hhanh00/zkool2/issues/944)) ([5f8216f](https://github.com/hhanh00/zkool2/commit/5f8216f1022fa36de44ce80c08fe9c7ff88364ff))
+* sync sends extra chunk of blocks when reorg/abort ([#951](https://github.com/hhanh00/zkool2/issues/951)) ([83a2f1b](https://github.com/hhanh00/zkool2/commit/83a2f1b9470af31a58f09b7090229528bd76fe3a))
+* taddress at dindex=0 should always be created ([#953](https://github.com/hhanh00/zkool2/issues/953)) ([5aa35c2](https://github.com/hhanh00/zkool2/commit/5aa35c22f5cbca688f1639fa8b302ff6f66e3a7e))
+* ua pool selection ([#961](https://github.com/hhanh00/zkool2/issues/961)) ([e15b98e](https://github.com/hhanh00/zkool2/commit/e15b98ec71b5dc5cfbf5c19af9fb9d919d49a9df))
+* upgrade zcvlib ([#948](https://github.com/hhanh00/zkool2/issues/948)) ([0850576](https://github.com/hhanh00/zkool2/commit/0850576d942590fb241551952d7ece17f406c73f))
+* use better constant salt ([#946](https://github.com/hhanh00/zkool2/issues/946)) ([008a942](https://github.com/hhanh00/zkool2/commit/008a942066f98e35c23f63100743be45a81a616b))
+* **vault:** restore latest logentry ([#922](https://github.com/hhanh00/zkool2/issues/922)) ([59edc06](https://github.com/hhanh00/zkool2/commit/59edc06fa248c16c3606a8c5b06587924b50cd84))
+* **vault:** skip accounts that use a short seed phrase ([#954](https://github.com/hhanh00/zkool2/issues/954)) ([b80c4dd](https://github.com/hhanh00/zkool2/commit/b80c4dd712488915b446a992cac5dbf25aa788a3))
+* zcash-trees panic on empty rho ([dc3f037](https://github.com/hhanh00/zkool2/commit/dc3f037ff8e5c0c44ca10ca1b99bbf1bd4a7a526))
+
+## [6.13.5](https://github.com/hhanh00/zkool2/compare/zkool-v6.12.0...zkool-v6.13.5) (2026-04-08)
+
+
+### Features
+
+* add quit election button ([#872](https://github.com/hhanh00/zkool2/issues/872)) ([19db47a](https://github.com/hhanh00/zkool2/commit/19db47a491a75a301512b967923111afe23fb48b))
+* add rewind method to witness that brings it to ([#863](https://github.com/hhanh00/zkool2/issues/863)) ([ea50692](https://github.com/hhanh00/zkool2/commit/ea506928036b56d040e0f07ec22707cafe1e6f8b))
+* add serializers to commitment tree state ([#868](https://github.com/hhanh00/zkool2/issues/868)) ([054433c](https://github.com/hhanh00/zkool2/commit/054433c8aa0fcd15b55f363a55c03d803b89503a))
+* add serializers, size to Edge ([#869](https://github.com/hhanh00/zkool2/issues/869)) ([fb17c08](https://github.com/hhanh00/zkool2/commit/fb17c0833583b74695345b82e60c549c51d3db33))
+* add support for computing the auth path of a witness at a prior position ([#860](https://github.com/hhanh00/zkool2/issues/860)) ([b1cb42c](https://github.com/hhanh00/zkool2/commit/b1cb42cc06312af0e9a7e72c108d6d7dc7cdb0e8))
+* pir integration ([#871](https://github.com/hhanh00/zkool2/issues/871)) ([4c81679](https://github.com/hhanh00/zkool2/commit/4c81679cda92281aeaa62caaca60b92d581f2d41))
+
+
+### Bug Fixes
+
+* add diversifier index to new_addresses and return from unconfirmed by account ([#881](https://github.com/hhanh00/zkool2/issues/881)) ([590b7cb](https://github.com/hhanh00/zkool2/commit/590b7cbf5f4db4b003232091b867a01b24df9a91))
+* add more info to mempool txs ([#877](https://github.com/hhanh00/zkool2/issues/877)) ([ef03343](https://github.com/hhanh00/zkool2/commit/ef03343c916ac0d1a9ff2c257ceda6d33d0a486a))
+* assert in witness calculation ([#870](https://github.com/hhanh00/zkool2/issues/870)) ([97ba893](https://github.com/hhanh00/zkool2/commit/97ba893f61c422c7f8032ab341f6473eab94ae20))
+* build break iOS ([#888](https://github.com/hhanh00/zkool2/issues/888)) ([366fc63](https://github.com/hhanh00/zkool2/commit/366fc63095c14bd270888e823522526cf4cc7f0b))
+* db escaping in change_db_password ([#883](https://github.com/hhanh00/zkool2/issues/883)) ([ed04c2c](https://github.com/hhanh00/zkool2/commit/ed04c2cc60bc6c8c0deaa68f9f3584c9b7f476ce))
+* drop support for 32-bit android due to build breaks ([#858](https://github.com/hhanh00/zkool2/issues/858)) ([3edbd1e](https://github.com/hhanh00/zkool2/commit/3edbd1e6993775520f3d24de07cefd3b00aa1c39))
+* fetch election and import atomically ([#875](https://github.com/hhanh00/zkool2/issues/875)) ([c065b04](https://github.com/hhanh00/zkool2/commit/c065b042959eedec1f4d803f853e05e0d22ac7e1))
+* fix issue with refresh of input amount widget ([#874](https://github.com/hhanh00/zkool2/issues/874)) ([cf41de8](https://github.com/hhanh00/zkool2/commit/cf41de843252e663f868b1079e773f477f640a7e))
+* ledger new account ([#887](https://github.com/hhanh00/zkool2/issues/887)) ([1bde434](https://github.com/hhanh00/zkool2/commit/1bde434f553e8e2eddef9200055e3d5a00436b67))
+* tooltip ([#873](https://github.com/hhanh00/zkool2/issues/873)) ([0f8fc75](https://github.com/hhanh00/zkool2/commit/0f8fc75b84e5aa3626ed2ffb41c661b4e0fe93a4))
+* update to upstream crates ([#885](https://github.com/hhanh00/zkool2/issues/885)) ([2a9e331](https://github.com/hhanh00/zkool2/commit/2a9e3315107ed5da21eee3f7c7551c0f5f16d0a1))
+* witness.rewind and test ([#865](https://github.com/hhanh00/zkool2/issues/865)) ([b5c0c8d](https://github.com/hhanh00/zkool2/commit/b5c0c8d66c866fc0852e62a17aff94a602e98e09))
+
+## [6.12.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.11.4...zkool-v6.12.0) (2026-03-27)
+
+
+### Features
+
+* add flag "fast" that skips downloading tx details ([#851](https://github.com/hhanh00/zkool2/issues/851)) ([d50c22d](https://github.com/hhanh00/zkool2/commit/d50c22dd636909b4fce0a8887255cda277b28184))
+* Fetch tx details in the background ([#853](https://github.com/hhanh00/zkool2/issues/853)) ([517f50b](https://github.com/hhanh00/zkool2/commit/517f50bdbe6f321239436a6d4d3d40c2b00a2bcb))
+
+
+### Bug Fixes
+
+* make smoke test wait for blocks instead of sleep ([#855](https://github.com/hhanh00/zkool2/issues/855)) ([afe1f80](https://github.com/hhanh00/zkool2/commit/afe1f80d1358867f3ff8d8c9edf152ceb4ee2081))
+* **test:** mine a few blocks via api instead of waiting ([#854](https://github.com/hhanh00/zkool2/issues/854)) ([f5f0f9b](https://github.com/hhanh00/zkool2/commit/f5f0f9b3649b54b8e096cda8686685f0fca8fd6a))
+
+## [6.11.4](https://github.com/hhanh00/zkool2/compare/zkool-v6.11.3...zkool-v6.11.4) (2026-03-24)
+
+
+### Bug Fixes
+
+* escape db password and wrap in single quotes ([#840](https://github.com/hhanh00/zkool2/issues/840)) ([cb7b74d](https://github.com/hhanh00/zkool2/commit/cb7b74d906f5b41db9453e4611086f4c08960b0d))
+* voting button "Next" should not be enabled when election associated with another account ([#838](https://github.com/hhanh00/zkool2/issues/838)) ([6be8aaa](https://github.com/hhanh00/zkool2/commit/6be8aaa1d57a8fcd42ad1968868231d7ce423f61))
+
+## [6.11.3](https://github.com/hhanh00/zkool2/compare/zkool-v6.11.2...zkool-v6.11.3) (2026-03-20)
+
+
+### Bug Fixes
+
+* increase delay after voting from 2s to 15s before refreshing ([#835](https://github.com/hhanh00/zkool2/issues/835)) ([9dcb1e4](https://github.com/hhanh00/zkool2/commit/9dcb1e47003b83d19c7513d9392e9a7389d2fd56))
+
+## [6.11.2](https://github.com/hhanh00/zkool2/compare/zkool-v6.11.1...zkool-v6.11.2) (2026-03-17)
+
+
+### Bug Fixes
+
+* DEFAULT_TX_EXPIRY_DELTA is added by the pczt builder ([#829](https://github.com/hhanh00/zkool2/issues/829)) ([8a5011c](https://github.com/hhanh00/zkool2/commit/8a5011caca7349c877b9e59aa055660f42ed1ce1))
+* do not show sync snackbar when app is in background ([#832](https://github.com/hhanh00/zkool2/issues/832)) ([56355e5](https://github.com/hhanh00/zkool2/commit/56355e5328bf8416c19c31b0ab90eff518558878))
+* remove redundant tooltip reset message ([#830](https://github.com/hhanh00/zkool2/issues/830)) ([a6a1bf4](https://github.com/hhanh00/zkool2/commit/a6a1bf4d46092cc5b85395a196c9bb0dc8245cf7))
+* use default expiry delta (40) ([#827](https://github.com/hhanh00/zkool2/issues/827)) ([393bf2d](https://github.com/hhanh00/zkool2/commit/393bf2d52a42f75f2ed90f1b5a82cf5cb4ebc62e))
+
+## [6.11.1](https://github.com/hhanh00/zkool2/compare/zkool-v6.11.0...zkool-v6.11.1) (2026-03-09)
+
+
+### Bug Fixes
+
+* change logic of the next button in vote & add tooltips ([#824](https://github.com/hhanh00/zkool2/issues/824)) ([b931115](https://github.com/hhanh00/zkool2/commit/b931115c26b93816df21a7900b4852832a084653))
+
+## [6.11.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.10.2...zkool-v6.11.0) (2026-03-09)
+
+
+### Features
+
+* add auto fx rate update flag ([#816](https://github.com/hhanh00/zkool2/issues/816)) ([9ba11de](https://github.com/hhanh00/zkool2/commit/9ba11de52e1efb54051ae34674c3d58e4df8637e))
+* add progress bar during scanning ([#801](https://github.com/hhanh00/zkool2/issues/801)) ([9412f0e](https://github.com/hhanh00/zkool2/commit/9412f0e03153131d8f5fbc818c5ea7150ef28d1d))
+* button for deleting election data ([#806](https://github.com/hhanh00/zkool2/issues/806)) ([db9db91](https://github.com/hhanh00/zkool2/commit/db9db918503f55019ee063d059b9d221cd615a6c))
+* coin voting functionality ([#808](https://github.com/hhanh00/zkool2/issues/808)) ([acb36a9](https://github.com/hhanh00/zkool2/commit/acb36a9eb8091553035d09034deb6190d8bae7bd))
+* fetch election from vote server ([#798](https://github.com/hhanh00/zkool2/issues/798)) ([f5761ad](https://github.com/hhanh00/zkool2/commit/f5761adc85935b96cb571f01a7370ae5791cd556))
+* fetch election from vote server ([#799](https://github.com/hhanh00/zkool2/issues/799)) ([89957c4](https://github.com/hhanh00/zkool2/commit/89957c461a55af441e9e2b20ce3f556272305450))
+* **graphql:** jwt authorization ([#794](https://github.com/hhanh00/zkool2/issues/794)) ([9f1b146](https://github.com/hhanh00/zkool2/commit/9f1b1463c2468e0a0503c00169a57aaae47fb4d5))
+* **graphql:** read/write scope ([#822](https://github.com/hhanh00/zkool2/issues/822)) ([84e9b8d](https://github.com/hhanh00/zkool2/commit/84e9b8d2655135ceb5c3dcf503952fac18c79ed7))
+* scan existing notes to compute voting power ([#800](https://github.com/hhanh00/zkool2/issues/800)) ([d26d6c5](https://github.com/hhanh00/zkool2/commit/d26d6c56e011e525f9d2da73a46f0bb5753755d1))
+* submit ballot ([#804](https://github.com/hhanh00/zkool2/issues/804)) ([d3252a1](https://github.com/hhanh00/zkool2/commit/d3252a1237a84e0e785bf14c4644c04f5bc64e38))
+* synchronize with voting chain ([#805](https://github.com/hhanh00/zkool2/issues/805)) ([44b6b84](https://github.com/hhanh00/zkool2/commit/44b6b84f9a2aa7db72d9d16cb3b51eaccbad2461))
+* tx account update ([#812](https://github.com/hhanh00/zkool2/issues/812)) ([fc87ba2](https://github.com/hhanh00/zkool2/commit/fc87ba2034a9654bd21d8dd9650aed6fecf7bb2f))
+* vote delegation ([#810](https://github.com/hhanh00/zkool2/issues/810)) ([8c40248](https://github.com/hhanh00/zkool2/commit/8c4024824d789b942e6448eb69429ea313577837))
+* voting form ([#803](https://github.com/hhanh00/zkool2/issues/803)) ([0624ecf](https://github.com/hhanh00/zkool2/commit/0624ecfd3df286dd3785bbacfe9c74e7dc430053))
+
+
+### Bug Fixes
+
+* account list ui update ([#815](https://github.com/hhanh00/zkool2/issues/815)) ([e4f2fb9](https://github.com/hhanh00/zkool2/commit/e4f2fb93e4de7695630da8fdc324a9cb76a1be32))
+* add error handling ([#817](https://github.com/hhanh00/zkool2/issues/817)) ([403d859](https://github.com/hhanh00/zkool2/commit/403d859d4acfc2b26ef83d9c742383939aa3ec1b))
+* allow admin user to execute any command ([#796](https://github.com/hhanh00/zkool2/issues/796)) ([31742a7](https://github.com/hhanh00/zkool2/commit/31742a71db2549c26919feb596b54d908298003f))
+* check that current account is associated with the vote ([#811](https://github.com/hhanh00/zkool2/issues/811)) ([b59989e](https://github.com/hhanh00/zkool2/commit/b59989e16da87c3b459ba213714bcc1142b165c5))
+* put the progress bar in a modal dialog box ([#802](https://github.com/hhanh00/zkool2/issues/802)) ([a4171ad](https://github.com/hhanh00/zkool2/commit/a4171ad2a133f55cbed2dc88f54d208e44425444))
+* remove dummy text ([381a0f7](https://github.com/hhanh00/zkool2/commit/381a0f73f0c3efae3507cb2af0023414641367db))
+* save current account between restarts ([#814](https://github.com/hhanh00/zkool2/issues/814)) ([c67126a](https://github.com/hhanh00/zkool2/commit/c67126a00a416fa77f6c3c800fc73cdaa190dad8))
+* tile overflow ([#819](https://github.com/hhanh00/zkool2/issues/819)) ([5de3abe](https://github.com/hhanh00/zkool2/commit/5de3abe9ea1b5ffce1ccb6943e6760096444dc3b))
+* voting ui ([#809](https://github.com/hhanh00/zkool2/issues/809)) ([5195c06](https://github.com/hhanh00/zkool2/commit/5195c0637aa551a4b9139cb0e384a77d251c0af4))
+
+## [6.10.2](https://github.com/hhanh00/zkool2/compare/zkool-v6.10.1...zkool-v6.10.2) (2026-02-18)
+
+
+### Bug Fixes
+
+* alpine base image for docker ([#789](https://github.com/hhanh00/zkool2/issues/789)) ([5ac91bb](https://github.com/hhanh00/zkool2/commit/5ac91bba24cafb0b9fcba6ee03cf1a79c3b6c533))
+
+## [6.10.1](https://github.com/hhanh00/zkool2/compare/zkool-v6.10.0...zkool-v6.10.1) (2026-02-17)
+
+
+### Bug Fixes
+
+* android build break ([#770](https://github.com/hhanh00/zkool2/issues/770)) ([8d85dbb](https://github.com/hhanh00/zkool2/commit/8d85dbb6117076c0e128bbabd131f9411a011a62))
+* docker build ([#779](https://github.com/hhanh00/zkool2/issues/779)) ([5e80485](https://github.com/hhanh00/zkool2/commit/5e8048561b2b52b9954a029d5dead50df65add1d))
+* increase build number ([#788](https://github.com/hhanh00/zkool2/issues/788)) ([9442814](https://github.com/hhanh00/zkool2/commit/9442814144fab6637045e5357312b0ea64098ad4))
+* make docker image multiplatform ([#785](https://github.com/hhanh00/zkool2/issues/785)) ([aa8f467](https://github.com/hhanh00/zkool2/commit/aa8f467f1510c5a7d88d1505f600f1a8803c8380))
+* txid in csv in wrong byte order ([#776](https://github.com/hhanh00/zkool2/issues/776)) ([60b057b](https://github.com/hhanh00/zkool2/commit/60b057b07a166e37b5fd38b0826e7ab014bfeb70))
+
+## [6.10.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.9.0...zkool-v6.10.0) (2026-02-14)
+
+
+### Features
+
+* add Flatpak support ([#766](https://github.com/hhanh00/zkool2/issues/766)) ([a160ce4](https://github.com/hhanh00/zkool2/commit/a160ce4107332a35747c9debd67425cb8789c7e6))
+
+
+### Bug Fixes
+
+* add message when wallet is offline ([#763](https://github.com/hhanh00/zkool2/issues/763)) ([5ad358a](https://github.com/hhanh00/zkool2/commit/5ad358a0ccd419a01ce7334e54a454070a9d3b17))
+* bind to anyip ([#767](https://github.com/hhanh00/zkool2/issues/767)) ([634140d](https://github.com/hhanh00/zkool2/commit/634140d3193635a2c3029562234694bf212c660e))
+* fix address qr scan ([#760](https://github.com/hhanh00/zkool2/issues/760)) ([a28617f](https://github.com/hhanh00/zkool2/commit/a28617fd2c400ae38ebf5bfad0ee0e7fa1a9946f))
+* sending to tex address ([#765](https://github.com/hhanh00/zkool2/issues/765)) ([98eea82](https://github.com/hhanh00/zkool2/commit/98eea82efdec7e64e35d4ebc3bd64af49e4128e4))
+
+## [6.9.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.8.2...zkool-v6.9.0) (2026-01-17)
+
+
+### Features
+
+* "synchronize" returns current height ([#731](https://github.com/hhanh00/zkool2/issues/731)) ([048e851](https://github.com/hhanh00/zkool2/commit/048e8519df6f7520c064b95799a2dd8afeb9c546))
+* add edge from note to tx ([#733](https://github.com/hhanh00/zkool2/issues/733)) ([1f241ef](https://github.com/hhanh00/zkool2/commit/1f241efe42378438fd8db05954444da98e4e6993))
+* add polling interval to coin config ([#727](https://github.com/hhanh00/zkool2/issues/727)) ([2c9c8e6](https://github.com/hhanh00/zkool2/commit/2c9c8e6b441532299edc7acfba26affef1d32c53))
+* add total balance to get_balance ([#734](https://github.com/hhanh00/zkool2/issues/734)) ([f79220c](https://github.com/hhanh00/zkool2/commit/f79220c282c9bda51a95209f01e44b468b63fe27))
+* cli config settings ([#737](https://github.com/hhanh00/zkool2/issues/737)) ([d55386e](https://github.com/hhanh00/zkool2/commit/d55386ed664aba14827d08f93d20ae220ea14c21))
+* graphql query account main data ([#711](https://github.com/hhanh00/zkool2/issues/711)) ([0ea90e8](https://github.com/hhanh00/zkool2/commit/0ea90e8e2382a74401aaa2fedb0100c3266c4600))
+* **graphql:** account_by_id, transaction_by_id, and connections ([#724](https://github.com/hhanh00/zkool2/issues/724)) ([e9d2a77](https://github.com/hhanh00/zkool2/commit/e9d2a77600aee480b857ab393ed7b3d9e77edc6d))
+* **graphql:** add height & balance to account data ([#749](https://github.com/hhanh00/zkool2/issues/749)) ([c47eb69](https://github.com/hhanh00/zkool2/commit/c47eb69e9f12a1a33be6f116492edda0e3d19b1f))
+* **graphql:** add outputs, memos, spends to tx details ([#750](https://github.com/hhanh00/zkool2/issues/750)) ([924beb5](https://github.com/hhanh00/zkool2/commit/924beb59b456fc1b4daaba5e05814c505ec10b74))
+* **graphql:** add scope, diversifier and address to notes ([#738](https://github.com/hhanh00/zkool2/issues/738)) ([b65d9e4](https://github.com/hhanh00/zkool2/commit/b65d9e418d62345ad0f3b8da8516dea8bf3104a3))
+* **graphql:** balance of account ([#715](https://github.com/hhanh00/zkool2/issues/715)) ([cd6ec77](https://github.com/hhanh00/zkool2/commit/cd6ec773f2f4e35a18d8348914acd47176c97741))
+* **graphql:** CI ([#713](https://github.com/hhanh00/zkool2/issues/713)) ([9468580](https://github.com/hhanh00/zkool2/commit/9468580cfcdc1a40f04639dd8a0514ecb5ba6155))
+* **graphql:** cold wallet ([#746](https://github.com/hhanh00/zkool2/issues/746)) ([cd4d242](https://github.com/hhanh00/zkool2/commit/cd4d242cdba5022053067c293d1e25f24c6042b7))
+* **graphql:** create_account ([#716](https://github.com/hhanh00/zkool2/issues/716)) ([11785de](https://github.com/hhanh00/zkool2/commit/11785de7ecc4b273a52d3ddab69339392f8e0fb0))
+* **graphql:** dkg (no automation) ([#740](https://github.com/hhanh00/zkool2/issues/740)) ([1e9d831](https://github.com/hhanh00/zkool2/commit/1e9d83120ad210110fe27d03b886b6b4f69dd383))
+* **graphql:** dkg automation ([#741](https://github.com/hhanh00/zkool2/issues/741)) ([ca977f4](https://github.com/hhanh00/zkool2/commit/ca977f44949564180c652a4705c1607b9b277da4))
+* **graphql:** edit/delete account, current_height ([#717](https://github.com/hhanh00/zkool2/issues/717)) ([2ae3514](https://github.com/hhanh00/zkool2/commit/2ae3514408ed79aa9b585ff40805375353a51388))
+* **graphql:** frost signature ([#744](https://github.com/hhanh00/zkool2/issues/744)) ([ee637a3](https://github.com/hhanh00/zkool2/commit/ee637a378c513ccbe76cb2b7ec810fa749b0d152))
+* **graphql:** frost signing automation ([#745](https://github.com/hhanh00/zkool2/issues/745)) ([965ebea](https://github.com/hhanh00/zkool2/commit/965ebeaf27859938a851e356d8153eda1921a241))
+* **graphql:** get_addresses ([#719](https://github.com/hhanh00/zkool2/issues/719)) ([3261996](https://github.com/hhanh00/zkool2/commit/3261996352bc89d45debdea47219c1e2b9ec788b))
+* **graphql:** list notes ([#721](https://github.com/hhanh00/zkool2/issues/721)) ([4fe48f9](https://github.com/hhanh00/zkool2/commit/4fe48f9b1e7c4f8ac96f13856f55b349cb000936))
+* **graphql:** memos_by_transaction ([#714](https://github.com/hhanh00/zkool2/issues/714)) ([3c4bcaa](https://github.com/hhanh00/zkool2/commit/3c4bcaa01c2f4cdce791d7754411c64a3b16d535))
+* **graphql:** mempool monitoring, unconfirmed txs ([#723](https://github.com/hhanh00/zkool2/issues/723)) ([9157906](https://github.com/hhanh00/zkool2/commit/91579064e6a8a71def507163faa063df3470847b))
+* **graphql:** new addresses, get balance at height ([#722](https://github.com/hhanh00/zkool2/issues/722)) ([e92f29f](https://github.com/hhanh00/zkool2/commit/e92f29f10a4cefe32085ba524908714810170eb9))
+* **graphql:** pczt decode in human readble form ([#743](https://github.com/hhanh00/zkool2/issues/743)) ([754465a](https://github.com/hhanh00/zkool2/commit/754465aabacb33b12d14ce3b91edbbc76d313625))
+* **graphql:** prepare unsigned tx ([#742](https://github.com/hhanh00/zkool2/issues/742)) ([1f2393c](https://github.com/hhanh00/zkool2/commit/1f2393cceb6098e26114bb8fb92a9063e9536431))
+* **graphql:** send funds ([#720](https://github.com/hhanh00/zkool2/issues/720)) ([1ffc3a9](https://github.com/hhanh00/zkool2/commit/1ffc3a9a6bad6f3ae48575f825a0208bae979fbf))
+* **graphql:** synchronize ([#718](https://github.com/hhanh00/zkool2/issues/718)) ([9f97237](https://github.com/hhanh00/zkool2/commit/9f9723750a60197fe95994aed078ca11930a9d89))
+* **graphql:** transactions_by_account ([#712](https://github.com/hhanh00/zkool2/issues/712)) ([fed31e1](https://github.com/hhanh00/zkool2/commit/fed31e19fe04ea566b380d1a9f96a5d8908b7e3f))
+* remove rocket, add warp ([#726](https://github.com/hhanh00/zkool2/issues/726)) ([f15c90b](https://github.com/hhanh00/zkool2/commit/f15c90b01405d5738765bd3ccf5ee293bc31e24f))
+* subscription channels for block/tx events ([#729](https://github.com/hhanh00/zkool2/issues/729)) ([1607b98](https://github.com/hhanh00/zkool2/commit/1607b98b0824c0cd6b5266b6e095dd56e43afdfd))
+* subscription to tx and new blocks ([#730](https://github.com/hhanh00/zkool2/issues/730)) ([265b4f6](https://github.com/hhanh00/zkool2/commit/265b4f6d94d2187bcf707770aaf00b91ab5ebf85))
+* use the best source pool for the change ([#708](https://github.com/hhanh00/zkool2/issues/708)) ([af130e1](https://github.com/hhanh00/zkool2/commit/af130e10a5bd7425a5a336d9600de9ab52fb48a9))
+* use warp as the web server ([#728](https://github.com/hhanh00/zkool2/issues/728)) ([0e14ceb](https://github.com/hhanh00/zkool2/commit/0e14ceb8d47de09e4b50001c3d372acee288b1ae))
+
+
+### Bug Fixes
+
+* build warnings ([#736](https://github.com/hhanh00/zkool2/issues/736)) ([e37f9a5](https://github.com/hhanh00/zkool2/commit/e37f9a5fbc343f1e8d2e10a466476e305ee73385))
+* coingecko api key required now ([#754](https://github.com/hhanh00/zkool2/issues/754)) ([bbd6c79](https://github.com/hhanh00/zkool2/commit/bbd6c7904abcdf8280edd840a940b97fa2baf1d8))
+* disclaimer page showing up twice ([#752](https://github.com/hhanh00/zkool2/issues/752)) ([c6c5d89](https://github.com/hhanh00/zkool2/commit/c6c5d89d2ba122e895800cbf7358d5805767131c))
+* get_notes by txid ([#747](https://github.com/hhanh00/zkool2/issues/747)) ([7d0fbaa](https://github.com/hhanh00/zkool2/commit/7d0fbaa5e482e1083806ce391a1f8700d9142da5))
+* pinlock ([#748](https://github.com/hhanh00/zkool2/issues/748)) ([f1a41b2](https://github.com/hhanh00/zkool2/commit/f1a41b2f515053f7148abd1d1dc80b0f2f4f0dea))
+* remove dust change policy ([#755](https://github.com/hhanh00/zkool2/issues/755)) ([5d53a3f](https://github.com/hhanh00/zkool2/commit/5d53a3f5a2d8f5b0619248384d7431f0a185e171))
+* remove polling_interval from config ([#732](https://github.com/hhanh00/zkool2/issues/732)) ([e630604](https://github.com/hhanh00/zkool2/commit/e630604e20f7388abef00fa25d931f00fa312deb))
+* remove transparent receiver from default ua ([#735](https://github.com/hhanh00/zkool2/issues/735)) ([8efa557](https://github.com/hhanh00/zkool2/commit/8efa55733583db8bbb79f0dcc91e5980e8c082ea))
+* save send form state between pinlocks ([#756](https://github.com/hhanh00/zkool2/issues/756)) ([559a15c](https://github.com/hhanh00/zkool2/commit/559a15c015bc9c7cebd14ddde81d82bf5b43f93c))
+* transparent scan on restore account ([#753](https://github.com/hhanh00/zkool2/issues/753)) ([f81ea3f](https://github.com/hhanh00/zkool2/commit/f81ea3f0881c63ab88054c183ca8bb2b4b2f9d9d))
+* tx details ([#757](https://github.com/hhanh00/zkool2/issues/757)) ([842b317](https://github.com/hhanh00/zkool2/commit/842b317c65d521c15c8a0199026488417a71eb53))
+* ui bugs ([#758](https://github.com/hhanh00/zkool2/issues/758)) ([6392c24](https://github.com/hhanh00/zkool2/commit/6392c244eea4b216137af54221cdd1e1263d91f7))
+* use helper fn to ensure that data is loaded ([#710](https://github.com/hhanh00/zkool2/issues/710)) ([1caa053](https://github.com/hhanh00/zkool2/commit/1caa053447adea9ba3e06072afa020059458256c))
+
+## [6.8.2](https://github.com/hhanh00/zkool2/compare/zkool-v6.8.1...zkool-v6.8.2) (2025-12-29)
+
+
+### Bug Fixes
+
+* new account from ledger ([#704](https://github.com/hhanh00/zkool2/issues/704)) ([4529d7f](https://github.com/hhanh00/zkool2/commit/4529d7f8699e656f93d7378e5dca69e7a808e37b))
+* remove Ledger NU6.1 warning since the app was updated ([#707](https://github.com/hhanh00/zkool2/issues/707)) ([f78135b](https://github.com/hhanh00/zkool2/commit/f78135bd7915236678a6a0c088723b2de468cd72))
+* spending sapling internal notes ([#706](https://github.com/hhanh00/zkool2/issues/706)) ([30f7eb6](https://github.com/hhanh00/zkool2/commit/30f7eb63e8856eedd011fe0552ad1cdc0cbe42de))
+
+## [6.8.1](https://github.com/hhanh00/zkool2/compare/zkool-v6.8.0...zkool-v6.8.1) (2025-12-20)
+
+
+### Bug Fixes
+
+* update dependencies ([#702](https://github.com/hhanh00/zkool2/issues/702)) ([8e0788b](https://github.com/hhanh00/zkool2/commit/8e0788bacf8bf8d80575d48b3ee594f28bdec4f6))
+
+## [6.8.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.7.0...zkool-v6.8.0) (2025-12-03)
+
+
+### Features
+
+* derive Ledger sapling from seed ([#696](https://github.com/hhanh00/zkool2/issues/696)) ([14a72f7](https://github.com/hhanh00/zkool2/commit/14a72f7c8b67137ba8afae0aa4248183a3a59936))
+
+
+### Bug Fixes
+
+* http over tor ([#688](https://github.com/hhanh00/zkool2/issues/688)) ([cec2d29](https://github.com/hhanh00/zkool2/commit/cec2d29cdc2c5c2759dde65e9137cc654cb954d4))
+* show warning when using ledger because of NU6.1 ([#691](https://github.com/hhanh00/zkool2/issues/691)) ([8b27cf3](https://github.com/hhanh00/zkool2/commit/8b27cf38911ddfaed0c0994885c422b5396f895f))
+
+## [6.7.1](https://github.com/hhanh00/zkool2/compare/zkool-v6.7.0...zkool-v6.7.1) (2025-12-02)
+
+
+### Bug Fixes
+
+* http over tor ([#688](https://github.com/hhanh00/zkool2/issues/688)) ([cec2d29](https://github.com/hhanh00/zkool2/commit/cec2d29cdc2c5c2759dde65e9137cc654cb954d4))
+* show warning when using ledger because of NU6.1 ([#691](https://github.com/hhanh00/zkool2/issues/691)) ([8b27cf3](https://github.com/hhanh00/zkool2/commit/8b27cf38911ddfaed0c0994885c422b5396f895f))
+
+## [6.7.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.6.0...zkool-v6.7.0) (2025-11-28)
+
+
+### Features
+
+* QR code transmission ([#680](https://github.com/hhanh00/zkool2/issues/680)) ([62a041d](https://github.com/hhanh00/zkool2/commit/62a041dac700636fecf1bb9f38bae2d8ababdcae))
+
+
+### Bug Fixes
+
+* ledger build ([#686](https://github.com/hhanh00/zkool2/issues/686)) ([6219c0f](https://github.com/hhanh00/zkool2/commit/6219c0fa5bf495c47cea62ccb5f2c972181fb21d))
+* missing update of lwd url ([#684](https://github.com/hhanh00/zkool2/issues/684)) ([70de7d0](https://github.com/hhanh00/zkool2/commit/70de7d01ad49fec5f545381648f05212ff36ac6b))
+* pass coin as parameter ([#682](https://github.com/hhanh00/zkool2/issues/682)) ([5e4d291](https://github.com/hhanh00/zkool2/commit/5e4d2910ebdd953cfef30a10212e0f2d9207bd3d))
+* support for NU6.1 ([#683](https://github.com/hhanh00/zkool2/issues/683)) ([0560901](https://github.com/hhanh00/zkool2/commit/0560901ca7df6655b636ccc7ad0db12995e4e49d))
+
+## [6.6.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.5.2...zkool-v6.6.0) (2025-11-19)
+
+
+### Features
+
+* allow ledger account without sapling address ([#677](https://github.com/hhanh00/zkool2/issues/677)) ([49f0fab](https://github.com/hhanh00/zkool2/commit/49f0fabb061a7208b01d6620dbe972d9ec63d3a1))
+
+
+### Bug Fixes
+
+* account navigation ([#658](https://github.com/hhanh00/zkool2/issues/658)) ([5a5ee28](https://github.com/hhanh00/zkool2/commit/5a5ee28b76a50b4816ae1daf4beca83cb7d96d53))
+* account tx history not refreshing after sync ([#675](https://github.com/hhanh00/zkool2/issues/675)) ([ce146cf](https://github.com/hhanh00/zkool2/commit/ce146cf59418993d042a7e6dba9e95823e2e383b))
+* add ledger-recovery tool ([#676](https://github.com/hhanh00/zkool2/issues/676)) ([e551b92](https://github.com/hhanh00/zkool2/commit/e551b92d2655e84ee4733c1304ee96a3df52358a))
+* aindex not saved for ledger accounts ([49f0fab](https://github.com/hhanh00/zkool2/commit/49f0fabb061a7208b01d6620dbe972d9ec63d3a1))
+* app resize ([#661](https://github.com/hhanh00/zkool2/issues/661)) ([de91895](https://github.com/hhanh00/zkool2/commit/de918954d3997f088ab466e7d30044262e21381e))
+* app state notification system mobx -&gt; riverpod ([#657](https://github.com/hhanh00/zkool2/issues/657)) ([b060512](https://github.com/hhanh00/zkool2/commit/b060512c0b55389027827d792e5abceccfa57a41))
+* appsettings ([#660](https://github.com/hhanh00/zkool2/issues/660)) ([6e59339](https://github.com/hhanh00/zkool2/commit/6e59339ab831a6150f0331c64b444bfd0d8081c3))
+* autosync & mempool ([#659](https://github.com/hhanh00/zkool2/issues/659)) ([ee7f63d](https://github.com/hhanh00/zkool2/commit/ee7f63d05546f8e6c457de079ea0f89304e6070e))
+* change of lwd ([#662](https://github.com/hhanh00/zkool2/issues/662)) ([e53c4b0](https://github.com/hhanh00/zkool2/commit/e53c4b0e6234d780dd389a5b360189bba5d06a8e))
+* don't require pin if biometrics not available ([#679](https://github.com/hhanh00/zkool2/issues/679)) ([203debc](https://github.com/hhanh00/zkool2/commit/203debc94fa40805044a71de393f50ee07c40f26))
+* lock pin ([#665](https://github.com/hhanh00/zkool2/issues/665)) ([157ab79](https://github.com/hhanh00/zkool2/commit/157ab792f7340372557bf55892a0c6175bb9dc24))
+* pinlock always needed even when disabled in settings ([#678](https://github.com/hhanh00/zkool2/issues/678)) ([5fd5b35](https://github.com/hhanh00/zkool2/commit/5fd5b358346cb15b4a2a4e20e0c6f7a73465e82a))
+* pinlock on rest of the pages ([#666](https://github.com/hhanh00/zkool2/issues/666)) ([65a5c4f](https://github.com/hhanh00/zkool2/commit/65a5c4f878ff764a712ab361e2e62c0f7012956a))
+* remove dependency on connectivity_plus and use config setting ([#654](https://github.com/hhanh00/zkool2/issues/654)) ([763de59](https://github.com/hhanh00/zkool2/commit/763de59fb3f4516d24e71f03ff38084b0d28cb4d))
+* remove some ui glitch ([#668](https://github.com/hhanh00/zkool2/issues/668)) ([267a5e1](https://github.com/hhanh00/zkool2/commit/267a5e19fe69a2bdedc1a84787ef0cc6eb1aadfc))
+* small ui bug ([#672](https://github.com/hhanh00/zkool2/issues/672)) ([6f3e080](https://github.com/hhanh00/zkool2/commit/6f3e080963d13bbccde2d1ed0f6179982f20d8fc))
+* sync missing last chunk of messages ([#670](https://github.com/hhanh00/zkool2/issues/670)) ([a6588c1](https://github.com/hhanh00/zkool2/commit/a6588c185a2528a0edb537f367fe3c9fd8163352))
+* synced_height was getting inserted for missing pools ([#664](https://github.com/hhanh00/zkool2/issues/664)) ([82fe69e](https://github.com/hhanh00/zkool2/commit/82fe69e1145358972cde4b6393a2b8ca96155ea3))
+* transaction export to csv was missing tx without category ([#656](https://github.com/hhanh00/zkool2/issues/656)) ([634bb7e](https://github.com/hhanh00/zkool2/commit/634bb7ea6fc85822867bf0a0e184febbcaba5ba1))
+* transparent sweep ([#663](https://github.com/hhanh00/zkool2/issues/663)) ([4d3e224](https://github.com/hhanh00/zkool2/commit/4d3e22469db48b909aa3e1f25ace90979f9fe3cf))
+* UI bugs ([#671](https://github.com/hhanh00/zkool2/issues/671)) ([4ffcde0](https://github.com/hhanh00/zkool2/commit/4ffcde0014d907c8774b728ebbd2fc5e1d016205))
+
+## [6.5.2](https://github.com/hhanh00/zkool2/compare/zkool-v6.5.1...zkool-v6.5.2) (2025-10-23)
+
+
+### Bug Fixes
+
+* add anchor corruption detection ([#648](https://github.com/hhanh00/zkool2/issues/648)) ([66ecf43](https://github.com/hhanh00/zkool2/commit/66ecf43f1022b781d89f4e4bd9a0d2dd2b3504f0))
+* add db check ([#644](https://github.com/hhanh00/zkool2/issues/644)) ([2cf4775](https://github.com/hhanh00/zkool2/commit/2cf4775883d825f45ea537f3e8ac28e9479a9607))
+* add debugging messages ([#647](https://github.com/hhanh00/zkool2/issues/647)) ([213a8b8](https://github.com/hhanh00/zkool2/commit/213a8b855d43157136568e0b77896834faf9bb61))
+* remove out of band abort messages that could mess with the commit ([#646](https://github.com/hhanh00/zkool2/issues/646)) ([a19529f](https://github.com/hhanh00/zkool2/commit/a19529fb58e33b2efa411735c39dc5b6a5a4b925))
+
+## [6.5.1](https://github.com/hhanh00/zkool2/compare/zkool-v6.5.0...zkool-v6.5.1) (2025-10-17)
+
+
+### Bug Fixes
+
+* build script for iso ([#636](https://github.com/hhanh00/zkool2/issues/636)) ([bd6e3b3](https://github.com/hhanh00/zkool2/commit/bd6e3b32c08b24cddd24c3bf88b0603731b079b5))
+* support ledger memos ([#632](https://github.com/hhanh00/zkool2/issues/632)) ([c5677dd](https://github.com/hhanh00/zkool2/commit/c5677dd3938b92f18f97e3de0d6e557ed9ead708))
+
+## [6.5.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.4.0...zkool-v6.5.0) (2025-10-14)
+
+
+### Features
+
+* accept transparent public keys ([#592](https://github.com/hhanh00/zkool2/issues/592)) ([7bec12c](https://github.com/hhanh00/zkool2/commit/7bec12c345d37ee3dedde2b898805743bb294c81))
+* generate diversified addresses for the Ledger ([f269ed4](https://github.com/hhanh00/zkool2/commit/f269ed4154c5b34be58aa59e5fb9ef6d2e03fdd9))
+* import ledger accounts ([#594](https://github.com/hhanh00/zkool2/issues/594)) ([bade75c](https://github.com/hhanh00/zkool2/commit/bade75cff829cdaeb14eebfa1c8771be003df2d1))
+* **ledger:** error handling ([#609](https://github.com/hhanh00/zkool2/issues/609)) ([c557065](https://github.com/hhanh00/zkool2/commit/c55706525b13c5e7e55e8790f65ba279c047b6c6))
+* **ledger:** error when tx has too many I/O ([#611](https://github.com/hhanh00/zkool2/issues/611)) ([2d69baf](https://github.com/hhanh00/zkool2/commit/2d69baf66336626c9609281368a178ba86fdaf59))
+* **ledger:** Ledger integration ([#591](https://github.com/hhanh00/zkool2/issues/591)) ([dbd2a65](https://github.com/hhanh00/zkool2/commit/dbd2a65544d66de15e6ea5d2f680b28b1bdca49d))
+* **ledger:** move zemu under feature flag ([#610](https://github.com/hhanh00/zkool2/issues/610)) ([ecf07e9](https://github.com/hhanh00/zkool2/commit/ecf07e91c3309be39ac394c3ec5adaac007c2329))
+* **ledger:** save/restore hw account ([#616](https://github.com/hhanh00/zkool2/issues/616)) ([db18458](https://github.com/hhanh00/zkool2/commit/db18458a828ee3cb284c93fdb9eb718edfda9eca))
+* **ledger:** scan transparent addresses ([#607](https://github.com/hhanh00/zkool2/issues/607)) ([63d9331](https://github.com/hhanh00/zkool2/commit/63d93313582b6296807dc85f04ddd31edfac628a))
+* **ledger:** show t/z address on device for verification ([#622](https://github.com/hhanh00/zkool2/issues/622)) ([8a8260c](https://github.com/hhanh00/zkool2/commit/8a8260c8e95bc7fecb509d2641c37098a203108f))
+* **ledger:** support for t2t and t2z ([#608](https://github.com/hhanh00/zkool2/issues/608)) ([08013d5](https://github.com/hhanh00/zkool2/commit/08013d5812b76eac68376754efe26ab91c24d26f))
+* **ledger:** support transparent addresses ([#606](https://github.com/hhanh00/zkool2/issues/606)) ([9c81e54](https://github.com/hhanh00/zkool2/commit/9c81e54480affad19c6d85b9f1472f3fd031c2ae))
+* send tx with Ledger ([#595](https://github.com/hhanh00/zkool2/issues/595)) ([69546be](https://github.com/hhanh00/zkool2/commit/69546be43b8ccfd79399f56c77ee6a657ed28b41))
+
+
+### Bug Fixes
+
+* build break on CI macos ([#600](https://github.com/hhanh00/zkool2/issues/600)) ([34c44cd](https://github.com/hhanh00/zkool2/commit/34c44cd9d40e58eec3103165bf1cea7889501059))
+* build break on mobile ([#598](https://github.com/hhanh00/zkool2/issues/598)) ([76dcef4](https://github.com/hhanh00/zkool2/commit/76dcef4b20a14ebc6e9a9c9f51068a41bac21670))
+* build break on mobile ([#624](https://github.com/hhanh00/zkool2/issues/624)) ([4e8c429](https://github.com/hhanh00/zkool2/commit/4e8c429524b2f476587640fdaf58f1d799512706))
+* conversion from USD to ZEC does not take locale into consideration ([#597](https://github.com/hhanh00/zkool2/issues/597)) ([9ea8436](https://github.com/hhanh00/zkool2/commit/9ea8436b0f670175c67635b132445b5ae6f77f6d))
+* db schema upgrage ([#614](https://github.com/hhanh00/zkool2/issues/614)) ([286e493](https://github.com/hhanh00/zkool2/commit/286e4939f63c0e2fef867deba7ee49d405afaf8c))
+* **ledger:** build break on mobile platforms (no support for ledger) ([#613](https://github.com/hhanh00/zkool2/issues/613)) ([9e15ed5](https://github.com/hhanh00/zkool2/commit/9e15ed5668b427414bc9727cefeeeb54e89cab5d))
+* **ledger:** device thread serialization ([#626](https://github.com/hhanh00/zkool2/issues/626)) ([a009248](https://github.com/hhanh00/zkool2/commit/a0092486193950bae3aebbd61b192b54513df675))
+* macos usb entitlements ([#620](https://github.com/hhanh00/zkool2/issues/620)) ([40755ff](https://github.com/hhanh00/zkool2/commit/40755ff795e863382f9f6a644155e2a8bf0f4bb3))
+* no ledger build break ([#629](https://github.com/hhanh00/zkool2/issues/629)) ([96f3d87](https://github.com/hhanh00/zkool2/commit/96f3d87b98e9ec019761810ef91877097a01f566))
+* remove dialog asking for scanning taddr on new accounts ([#582](https://github.com/hhanh00/zkool2/issues/582)) ([7a1ee58](https://github.com/hhanh00/zkool2/commit/7a1ee58f43008066975a2d607d57899e53e39227))
+* remove extra column from query ([#618](https://github.com/hhanh00/zkool2/issues/618)) ([5c5b113](https://github.com/hhanh00/zkool2/commit/5c5b11378cdcd27f218dc5c5729257f14b64744e))
+* use get_address_sapling to avoid div_list bug ([#627](https://github.com/hhanh00/zkool2/issues/627)) ([86ed507](https://github.com/hhanh00/zkool2/commit/86ed5077dd6515aaa427b7c108cafa1b84874c2a))
+
+## [6.4.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.3.1...zkool-v6.4.0) (2025-09-29)
+
+
+### Features
+
+* encrypt wallet file with age/zstd ([#579](https://github.com/hhanh00/zkool2/issues/579)) ([6943da2](https://github.com/hhanh00/zkool2/commit/6943da2c2a4286f719af58d1860162e69313528c))
+
+## [6.3.1](https://github.com/hhanh00/zkool2/compare/zkool-v6.3.0...zkool-v6.3.1) (2025-09-28)
+
+
+### Bug Fixes
+
+* database encryption form ([#577](https://github.com/hhanh00/zkool2/issues/577)) ([a4e7a8f](https://github.com/hhanh00/zkool2/commit/a4e7a8f3dfd6d5a2843ea2f44e904f3768dfc52e))
+
+## [6.3.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.2.2...zkool-v6.3.0) (2025-09-28)
+
+
+### Features
+
+* transparent scan for addresses page ([#575](https://github.com/hhanh00/zkool2/issues/575)) ([3c3182e](https://github.com/hhanh00/zkool2/commit/3c3182ee07ea17e528301fefbe43141facc2e8be))
+
+## [6.2.2](https://github.com/hhanh00/zkool2/compare/zkool-v6.2.1...zkool-v6.2.2) (2025-09-28)
+
+
+### Bug Fixes
+
+* db creation with no password ([#573](https://github.com/hhanh00/zkool2/issues/573)) ([aff19e8](https://github.com/hhanh00/zkool2/commit/aff19e8fc31a6dd41af96c1cbd116017d8c03930))
+
+## [6.2.1](https://github.com/hhanh00/zkool2/compare/zkool-v6.2.0...zkool-v6.2.1) (2025-09-26)
+
+
+### Bug Fixes
+
+* add repeated password and validation to forms ([#572](https://github.com/hhanh00/zkool2/issues/572)) ([a61e1bf](https://github.com/hhanh00/zkool2/commit/a61e1bf8c5ed1e86d51db30e7246abfe1dd444f8))
+* export category to tx csv as name ([#569](https://github.com/hhanh00/zkool2/issues/569)) ([48901fa](https://github.com/hhanh00/zkool2/commit/48901fa14705cfd5b91fe46473222bb40fca31e0))
+* I/O of is_income in category table ([#571](https://github.com/hhanh00/zkool2/issues/571)) ([e4bf10b](https://github.com/hhanh00/zkool2/commit/e4bf10b7e4a8eff3c514190cabc389f62aa17923))
+
+## [6.2.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.1.0...zkool-v6.2.0) (2025-09-25)
+
+
+### Features
+
+* export of tx/memos/notes to csv ([#562](https://github.com/hhanh00/zkool2/issues/562)) ([9f281e7](https://github.com/hhanh00/zkool2/commit/9f281e7ce150480e75edea7504ed049917d3d9aa))
+* unlock all notes & lock based on maturity ([#564](https://github.com/hhanh00/zkool2/issues/564)) ([552cc78](https://github.com/hhanh00/zkool2/commit/552cc786ef84670d12414d75d187b26a580d323f))
+
+
+### Bug Fixes
+
+* account for locked notes in max amount calculation ([#565](https://github.com/hhanh00/zkool2/issues/565)) ([2209073](https://github.com/hhanh00/zkool2/commit/22090737dd9f2162c56a7b3260dce7d7e921be74))
+* chart sizes and margins ([#568](https://github.com/hhanh00/zkool2/issues/568)) ([b784c51](https://github.com/hhanh00/zkool2/commit/b784c5194c146538b266c8be21e2f008facdeb0f))
+* do not show saved confirmation if canceled ([#566](https://github.com/hhanh00/zkool2/issues/566)) ([df848d8](https://github.com/hhanh00/zkool2/commit/df848d8a6f453e4a17a79f6c8657ba3d50496d0e))
+* try to decode as string before bytes ([#567](https://github.com/hhanh00/zkool2/issues/567)) ([b1ee770](https://github.com/hhanh00/zkool2/commit/b1ee7703cef32521d4a0d68006fcbb46d45d0253))
+
+## [6.1.0](https://github.com/hhanh00/zkool2/compare/zkool-v6.0.0...zkool-v6.1.0) (2025-09-25)
+
+
+### Features
+
+* navigation buttons on tx details ([#556](https://github.com/hhanh00/zkool2/issues/556)) ([530f67a](https://github.com/hhanh00/zkool2/commit/530f67a30d23a6d1d05a66ed13977d59ce5e2744))
+
+
+### Bug Fixes
+
+* edit category ([#560](https://github.com/hhanh00/zkool2/issues/560)) ([4e68483](https://github.com/hhanh00/zkool2/commit/4e684831db200847a296f192f7067b2b3c5c3c81))
+* reset account should remove all tx data ([#559](https://github.com/hhanh00/zkool2/issues/559)) ([4d8c550](https://github.com/hhanh00/zkool2/commit/4d8c5500694775d64df6a238f910dc91587d986b))
+* separate list of categories by income/expense ([#561](https://github.com/hhanh00/zkool2/issues/561)) ([3e670bc](https://github.com/hhanh00/zkool2/commit/3e670bc44a6138a8fc86c977ee61481c7cebf8e2))
+
+## [6.0.0](https://github.com/hhanh00/zkool2/compare/zkool-v5.2.6...zkool-v6.0.0) (2025-09-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* db schema for categories and transaction value in fiat ([#524](https://github.com/hhanh00/zkool2/issues/524))
+
+### Features
+
+* add category to send form ([#537](https://github.com/hhanh00/zkool2/issues/537)) ([cd15e32](https://github.com/hhanh00/zkool2/commit/cd15e321f3099a55f389ae36f5951edc964b66f8))
+* add default categories ([#535](https://github.com/hhanh00/zkool2/issues/535)) ([14d9f14](https://github.com/hhanh00/zkool2/commit/14d9f147b9088f3a2473f4984aed9781247e4c0a))
+* allow manual input of fx rate ([#526](https://github.com/hhanh00/zkool2/issues/526)) ([48f8a61](https://github.com/hhanh00/zkool2/commit/48f8a617f060c61456b446835c493198aea96704))
+* category chart ([#540](https://github.com/hhanh00/zkool2/issues/540)) ([0076cce](https://github.com/hhanh00/zkool2/commit/0076cce652b1d51b1b1fa32370c870e1d8c01456))
+* category chart ([#544](https://github.com/hhanh00/zkool2/issues/544)) ([3e0d41a](https://github.com/hhanh00/zkool2/commit/3e0d41afe638163505aeb45b7455231ad17a02e3))
+* category editor ([#532](https://github.com/hhanh00/zkool2/issues/532)) ([ed37f94](https://github.com/hhanh00/zkool2/commit/ed37f94c4f7287f1d7613e67a7a8bfea014d446d))
+* cumulative spending/income by category chart ([#546](https://github.com/hhanh00/zkool2/issues/546)) ([2112c0a](https://github.com/hhanh00/zkool2/commit/2112c0ab71820ca1c7cd0bce5d2b037dfe143987))
+* db schema for categories and transaction value in fiat ([#524](https://github.com/hhanh00/zkool2/issues/524)) ([1478f5d](https://github.com/hhanh00/zkool2/commit/1478f5d6fa3c9d6f991f8f977df72d149ef0fb35))
+* display fx rate in tx details ([#533](https://github.com/hhanh00/zkool2/issues/533)) ([d8f0d61](https://github.com/hhanh00/zkool2/commit/d8f0d6193d934cea4973e603324e3cc60ffcc0a2))
+* edit category in tx details ([#534](https://github.com/hhanh00/zkool2/issues/534)) ([1ffd3f6](https://github.com/hhanh00/zkool2/commit/1ffd3f60c1ba1d121b0e0627e8c6fd82936e14de))
+* edit tx price on details page ([#551](https://github.com/hhanh00/zkool2/issues/551)) ([f8ee170](https://github.com/hhanh00/zkool2/commit/f8ee170351f6a6d9709039e6277ce9583dc4c79c))
+* fill missing tx prices by querying Coin Gecko ([#530](https://github.com/hhanh00/zkool2/issues/530)) ([e82acd0](https://github.com/hhanh00/zkool2/commit/e82acd030d09010a8d33b0ceb0eb333e9b491731))
+* get historical prices from CoinGecko ([#529](https://github.com/hhanh00/zkool2/issues/529)) ([574ea17](https://github.com/hhanh00/zkool2/commit/574ea17909bd53af5acd96a06efe6393c8804ab7))
+* reconcile pending tx price/category with real tx ([#538](https://github.com/hhanh00/zkool2/issues/538)) ([73cba46](https://github.com/hhanh00/zkool2/commit/73cba466be2936463555e057e091632d6d8ff6bc))
+* retrieve and display tx category ([#531](https://github.com/hhanh00/zkool2/issues/531)) ([e9b792a](https://github.com/hhanh00/zkool2/commit/e9b792a598590b599c05483947571a9d42d58e67))
+* save pending tx category & fx rate ([#527](https://github.com/hhanh00/zkool2/issues/527)) ([d8496f9](https://github.com/hhanh00/zkool2/commit/d8496f983d1a8065c277f53045a913cb7502d943))
+* save/load categories & tx price to file ([#539](https://github.com/hhanh00/zkool2/issues/539)) ([379b1fb](https://github.com/hhanh00/zkool2/commit/379b1fba6cea24cfe92328abe2a668a3d9cfc7ba))
+* spending/income chart ([#541](https://github.com/hhanh00/zkool2/issues/541)) ([32e8ca7](https://github.com/hhanh00/zkool2/commit/32e8ca700c048f56813dfaed59e933f29dd3b1d6))
+* tx amount by date scatter chart ([#545](https://github.com/hhanh00/zkool2/issues/545)) ([0759869](https://github.com/hhanh00/zkool2/commit/0759869e5e8d78ea9c5833f73fa54296d358bfc6))
+
+
+### Bug Fixes
+
+* birth height before sapling activation ([#553](https://github.com/hhanh00/zkool2/issues/553)) ([06479fd](https://github.com/hhanh00/zkool2/commit/06479fdc8138428697aa0c22b88527230e56f3ad))
+* chart refresh ([#547](https://github.com/hhanh00/zkool2/issues/547)) ([10b9270](https://github.com/hhanh00/zkool2/commit/10b9270d0bf0a7bc2d13f562992e86a8e9a38672))
+* db version check ([#543](https://github.com/hhanh00/zkool2/issues/543)) ([16664f2](https://github.com/hhanh00/zkool2/commit/16664f2079eb44cd25d78132d06b09cd80f4d97c))
+* height off by 1 after reset ([#521](https://github.com/hhanh00/zkool2/issues/521)) ([02802fb](https://github.com/hhanh00/zkool2/commit/02802fba3a93df3c5e8ac16f8a20c18633bf4d19))
+* reorganize menu items for charts ([#554](https://github.com/hhanh00/zkool2/issues/554)) ([91fe8c8](https://github.com/hhanh00/zkool2/commit/91fe8c85bad50c76ad670c05bd7c88a78a8f8795))
+* store block header time ([#523](https://github.com/hhanh00/zkool2/issues/523)) ([fe09e1f](https://github.com/hhanh00/zkool2/commit/fe09e1fbe9d6c33e39d5353e010616ac1ccebb7e))
+* typo in db version key name ([#525](https://github.com/hhanh00/zkool2/issues/525)) ([9083a6e](https://github.com/hhanh00/zkool2/commit/9083a6e0a534c55a427c86b88d0b830bd4b28094))
+* ui adjustments to chart ([#542](https://github.com/hhanh00/zkool2/issues/542)) ([5fc005e](https://github.com/hhanh00/zkool2/commit/5fc005ee21a8a1ff1f7a612f8ec4ce9f07d7aee6))
+
+## [5.2.6](https://github.com/hhanh00/zkool2/compare/zkool-v5.2.5...zkool-v5.2.6) (2025-09-18)
+
+
+### Bug Fixes
+
+* block time at birth height for new account ([#518](https://github.com/hhanh00/zkool2/issues/518)) ([68c33cb](https://github.com/hhanh00/zkool2/commit/68c33cbe32e1df04caada98c753077a6fbcdb230))
+* dkg - handle error from server ([#515](https://github.com/hhanh00/zkool2/issues/515)) ([f79d340](https://github.com/hhanh00/zkool2/commit/f79d3404c89e329dea2b61ae369650fb80b79d2a))
+* duplicate GlobalKey ([#520](https://github.com/hhanh00/zkool2/issues/520)) ([0bb17f2](https://github.com/hhanh00/zkool2/commit/0bb17f243c8b1f979ebc3d7ceeef9ee46f4dcdda))
+* get block times of synced points ([#517](https://github.com/hhanh00/zkool2/issues/517)) ([8aa5a51](https://github.com/hhanh00/zkool2/commit/8aa5a5123dccec3c4ac2bab614a94505e8fbc934))
+* import account ([f79d340](https://github.com/hhanh00/zkool2/commit/f79d3404c89e329dea2b61ae369650fb80b79d2a))
+
+## [5.2.5](https://github.com/hhanh00/zkool2/compare/zkool-v5.2.4...zkool-v5.2.5) (2025-09-17)
+
+
+### Bug Fixes
+
+* testnet ([8f06fcf](https://github.com/hhanh00/zkool2/commit/8f06fcff4696a8c1ada83b07296086b34fedd3cc))
+* wrong height chosen for witness data, ([#512](https://github.com/hhanh00/zkool2/issues/512)) ([8f06fcf](https://github.com/hhanh00/zkool2/commit/8f06fcff4696a8c1ada83b07296086b34fedd3cc))
+
+## [5.2.4](https://github.com/hhanh00/zkool2/compare/zkool-v5.2.3...zkool-v5.2.4) (2025-09-17)
+
+
+### Bug Fixes
+
+* linear progress indicator ([#511](https://github.com/hhanh00/zkool2/issues/511)) ([a7bd615](https://github.com/hhanh00/zkool2/commit/a7bd61562ebf13cac6d8b831cfe89d3b9e2bc179))
+
+## [5.2.3](https://github.com/hhanh00/zkool2/compare/zkool-v5.2.2...zkool-v5.2.3) (2025-09-16)
+
+
+### Bug Fixes
+
+* resize icon ([#505](https://github.com/hhanh00/zkool2/issues/505)) ([e3fb3de](https://github.com/hhanh00/zkool2/commit/e3fb3def77e925f80a5b911e454b1890ffa58394))
+
+## [5.2.2](https://github.com/hhanh00/zkool2/compare/zkool-v5.2.1...zkool-v5.2.2) (2025-09-16)
+
+
+### Bug Fixes
+
+* add white background to icon ([#503](https://github.com/hhanh00/zkool2/issues/503)) ([1395fb8](https://github.com/hhanh00/zkool2/commit/1395fb8e03dd45d4e35355d17a8abb6a5383bcfa))
+
+## [5.2.1](https://github.com/hhanh00/zkool2/compare/zkool-v5.2.0...zkool-v5.2.1) (2025-09-15)
+
+
+### Bug Fixes
+
+* send from transparent private key only account ([#501](https://github.com/hhanh00/zkool2/issues/501)) ([cf42f4a](https://github.com/hhanh00/zkool2/commit/cf42f4a60722758e52ad28066fb60b6e62041b3c))
+
+## [5.2.0](https://github.com/hhanh00/zkool2/compare/zkool-v5.1.1...zkool-v5.2.0) (2025-09-15)
+
+
+### Features
+
+* show block timestamp of account synced height ([#498](https://github.com/hhanh00/zkool2/issues/498)) ([f768251](https://github.com/hhanh00/zkool2/commit/f7682517adf055dc34f6265662b417e33c12a9f4))
+
+## [5.1.1](https://github.com/hhanh00/zkool2/compare/zkool-v5.1.0...zkool-v5.1.1) (2025-09-15)
+
+
+### Bug Fixes
+
+* windows build ([#496](https://github.com/hhanh00/zkool2/issues/496)) ([59c3f26](https://github.com/hhanh00/zkool2/commit/59c3f26331162af326ae1273d7693661f427b95d))
+
+## [5.1.0](https://github.com/hhanh00/zkool2/compare/zkool-v5.0.5...zkool-v5.1.0) (2025-09-15)
+
+
+### Features
+
+* show accounts that were sync more than 30 mins ago in red ([#495](https://github.com/hhanh00/zkool2/issues/495)) ([4b1f927](https://github.com/hhanh00/zkool2/commit/4b1f9278eba143fe2c76d581f9bc6c98785a183b))
+
+
+### Bug Fixes
+
+* change password form has "repeat password" field ([#492](https://github.com/hhanh00/zkool2/issues/492)) ([38fad71](https://github.com/hhanh00/zkool2/commit/38fad71e986a61abf738c2181e0f5d9d8d0c14cc))
+
+## [5.0.5](https://github.com/hhanh00/zkool2/compare/zkool-v5.0.4...zkool-v5.0.5) (2025-09-13)
+
+
+### Bug Fixes
+
+* android 16k page alignment for rive & camera ([#488](https://github.com/hhanh00/zkool2/issues/488)) ([#490](https://github.com/hhanh00/zkool2/issues/490)) ([6b1e486](https://github.com/hhanh00/zkool2/commit/6b1e48662e2febf1d098990959e7bfb80ebd6df0))
+
+## [5.0.4](https://github.com/hhanh00/zkool2/compare/zkool-v5.0.3...zkool-v5.0.4) (2025-09-13)
+
+
+### Bug Fixes
+
+* remove unused file ([#486](https://github.com/hhanh00/zkool2/issues/486)) ([f8a8b39](https://github.com/hhanh00/zkool2/commit/f8a8b393d292f8bcda5c7bac4ecd0c90c02c3e13))
+
+## [5.0.3](https://github.com/hhanh00/zkool2/compare/zkool-v5.0.2...zkool-v5.0.3) (2025-09-13)
+
+
+### Bug Fixes
+
+* update splash icon ([#483](https://github.com/hhanh00/zkool2/issues/483)) ([5144f15](https://github.com/hhanh00/zkool2/commit/5144f152d743e4e2ddc1dcd93cfe30f5ec9a9a2e))
+
+## [5.0.2](https://github.com/hhanh00/zkool2/compare/zkool-v5.0.1...zkool-v5.0.2) (2025-09-12)
+
+
+### Bug Fixes
+
+* update launcher icon ([#481](https://github.com/hhanh00/zkool2/issues/481)) ([d7ca47d](https://github.com/hhanh00/zkool2/commit/d7ca47d872238c4cf1e029b7b2d544da6135c97f))
+
+## [5.0.1](https://github.com/hhanh00/zkool2/compare/zkool-v5.0.0...zkool-v5.0.1) (2025-09-10)
+
+
+### Bug Fixes
+
+* error message when tx was broadcast correctly ([#479](https://github.com/hhanh00/zkool2/issues/479)) ([c0d4c8e](https://github.com/hhanh00/zkool2/commit/c0d4c8e9fea82aa778d44d9a5722eb70ece11980))
+
+## [5.0.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.25.2...zkool-v5.0.0) (2025-09-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* folder and db versioning ([#468](https://github.com/hhanh00/zkool2/issues/468))
+
+### Features
+
+* account folders ([#474](https://github.com/hhanh00/zkool2/issues/474)) ([d203af3](https://github.com/hhanh00/zkool2/commit/d203af3f3eb1f735b348ba6a1808cf43895d7ec4))
+* create new folders ([#472](https://github.com/hhanh00/zkool2/issues/472)) ([521d4b9](https://github.com/hhanh00/zkool2/commit/521d4b9d02c141dedfb9c8f513b141d8881001fc))
+* folder and db versioning ([#468](https://github.com/hhanh00/zkool2/issues/468)) ([0031c17](https://github.com/hhanh00/zkool2/commit/0031c17194c80a8f3953b9983e20f854d5c062bb))
+* folder pop up menu ([#471](https://github.com/hhanh00/zkool2/issues/471)) ([e38e54c](https://github.com/hhanh00/zkool2/commit/e38e54c44fdcd7afec879f91d9b68912d27eee59))
+* rename/delete folders ([#473](https://github.com/hhanh00/zkool2/issues/473)) ([2e36975](https://github.com/hhanh00/zkool2/commit/2e36975a88002e9ae43ddb3c4369575ef8947c7d))
+
+
+### Bug Fixes
+
+* do not add column if it exists ([#470](https://github.com/hhanh00/zkool2/issues/470)) ([bb6794f](https://github.com/hhanh00/zkool2/commit/bb6794f9d7ac1b59aef46b4fb756df8c56c3b821))
+* refresh after folder deletion ([#475](https://github.com/hhanh00/zkool2/issues/475)) ([459e32d](https://github.com/hhanh00/zkool2/commit/459e32de0182efdf28b1247de16f1719e22e171c))
+
+## [4.25.2](https://github.com/hhanh00/zkool2/compare/zkool-v4.25.1...zkool-v4.25.2) (2025-09-03)
+
+
+### Bug Fixes
+
+* switch to rustls for arti-client on macos ([#457](https://github.com/hhanh00/zkool2/issues/457)) ([e9ccf6e](https://github.com/hhanh00/zkool2/commit/e9ccf6e827f10ca90de4f51db6bcfe18a98db944))
+
+## [4.25.1](https://github.com/hhanh00/zkool2/compare/zkool-v4.25.0...zkool-v4.25.1) (2025-09-03)
+
+
+### Bug Fixes
+
+* observe unconfirmed amount ([#464](https://github.com/hhanh00/zkool2/issues/464)) ([8358c8f](https://github.com/hhanh00/zkool2/commit/8358c8f4840568038666e47b2043fb9f4d7ad927))
+
+## [4.25.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.24.3...zkool-v4.25.0) (2025-09-03)
+
+
+### Features
+
+* link to block explorer ([#461](https://github.com/hhanh00/zkool2/issues/461)) ([caca27f](https://github.com/hhanh00/zkool2/commit/caca27fdc8da8bf48186edd9e232a1c0d1a6f261))
+
+
+### Bug Fixes
+
+* set net too early before db loaded ([#463](https://github.com/hhanh00/zkool2/issues/463)) ([de838e0](https://github.com/hhanh00/zkool2/commit/de838e0d5296884ae2503e54fdcf9f511f0c8f59))
+
+## [4.24.3](https://github.com/hhanh00/zkool2/compare/zkool-v4.24.2...zkool-v4.24.3) (2025-09-03)
+
+
+### Bug Fixes
+
+* lazily build Tor client ([#454](https://github.com/hhanh00/zkool2/issues/454)) ([aa017b8](https://github.com/hhanh00/zkool2/commit/aa017b8a22924407d448ef62411a44f289467c74))
+* respond to focus events on address field ([#460](https://github.com/hhanh00/zkool2/issues/460)) ([97fc0d9](https://github.com/hhanh00/zkool2/commit/97fc0d910eb69d6e2b4d8f6d2c95b0dec398bb83))
+* use locale for parsing amounts ([#458](https://github.com/hhanh00/zkool2/issues/458)) ([c366370](https://github.com/hhanh00/zkool2/commit/c3663705a5b2c203e9d008538c83310245314b01))
+
+## [4.24.2](https://github.com/hhanh00/zkool2/compare/zkool-v4.24.1...zkool-v4.24.2) (2025-08-31)
+
+
+### Bug Fixes
+
+* fix typos ([#451](https://github.com/hhanh00/zkool2/issues/451)) ([3e02a70](https://github.com/hhanh00/zkool2/commit/3e02a70c83192a94c8233ad6a170f5dc2b495407))
+* progress bar ([#452](https://github.com/hhanh00/zkool2/issues/452)) ([a3bbfa7](https://github.com/hhanh00/zkool2/commit/a3bbfa7a99318588daf817fdb79134798a15c9d8))
+* rewind account ([#448](https://github.com/hhanh00/zkool2/issues/448)) ([4f21f15](https://github.com/hhanh00/zkool2/commit/4f21f15cf1682d58d631d47e3d0ea941b3d88e1b))
+
+## [4.24.1](https://github.com/hhanh00/zkool2/compare/zkool-v4.24.0...zkool-v4.24.1) (2025-08-30)
+
+
+### Bug Fixes
+
+* typo ([#446](https://github.com/hhanh00/zkool2/issues/446)) ([5f3e501](https://github.com/hhanh00/zkool2/commit/5f3e501b46fa8e9049f5b00f0153bfdb376c2fbb))
+
+## [4.24.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.23.0...zkool-v4.24.0) (2025-08-30)
+
+
+### Features
+
+* add support for NU6.1 on testnet ([#444](https://github.com/hhanh00/zkool2/issues/444)) ([2390ab5](https://github.com/hhanh00/zkool2/commit/2390ab59f09e155b818f94ecb467cf365e793a4b))
+
+## [4.23.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.22.1...zkool-v4.23.0) (2025-08-27)
+
+
+### Features
+
+* add warning when some notes are disabled ([#442](https://github.com/hhanh00/zkool2/issues/442)) ([e8d42b3](https://github.com/hhanh00/zkool2/commit/e8d42b3b19a7de2e0c05a9277b5328529b8c3977))
+
+## [4.22.1](https://github.com/hhanh00/zkool2/compare/zkool-v4.22.0...zkool-v4.22.1) (2025-08-27)
+
+
+### Bug Fixes
+
+* amount input widget ([#440](https://github.com/hhanh00/zkool2/issues/440)) ([b553a58](https://github.com/hhanh00/zkool2/commit/b553a580e2975522602179ecd53804f6583d2558))
+
+## [4.22.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.21.1...zkool-v4.22.0) (2025-08-26)
+
+
+### Features
+
+* enter amount in USD ([#439](https://github.com/hhanh00/zkool2/issues/439)) ([f3d0136](https://github.com/hhanh00/zkool2/commit/f3d01365f686348d3e2e6a62425cddfdc3a6b7fe))
+
+
+### Bug Fixes
+
+* pinlock + account icon ([#437](https://github.com/hhanh00/zkool2/issues/437)) ([d7227e6](https://github.com/hhanh00/zkool2/commit/d7227e60a05a1b778a3952bf6e37e103c9dbf7b3))
+
+## [4.21.1](https://github.com/hhanh00/zkool2/compare/zkool-v4.21.0...zkool-v4.21.1) (2025-08-25)
+
+
+### Bug Fixes
+
+* ios build ([#435](https://github.com/hhanh00/zkool2/issues/435)) ([ae44aee](https://github.com/hhanh00/zkool2/commit/ae44aee6e62dbce42af99c36be423165b4e23a1a))
+
+## [4.21.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.20.11...zkool-v4.21.0) (2025-08-25)
+
+
+### Features
+
+* show confirm dialog when restoring without birth height ([#431](https://github.com/hhanh00/zkool2/issues/431)) ([bbeddbc](https://github.com/hhanh00/zkool2/commit/bbeddbc3b9b89ee7bb7e97cc8516058bf43e3555))
+
+
+### Bug Fixes
+
+* allow removal of account icon ([#434](https://github.com/hhanh00/zkool2/issues/434)) ([1046bf2](https://github.com/hhanh00/zkool2/commit/1046bf28e8f0982e4b6b78868592d6be3e75eda1))
+* dkg error handling ([#433](https://github.com/hhanh00/zkool2/issues/433)) ([2554163](https://github.com/hhanh00/zkool2/commit/25541634e8782975a0cf6a28f42c63de86281220))
+
+## [4.20.11](https://github.com/hhanh00/zkool2/compare/zkool-v4.20.10...zkool-v4.20.11) (2025-08-17)
+
+
+### Bug Fixes
+
+* database manager button ([#427](https://github.com/hhanh00/zkool2/issues/427)) ([fcdfb60](https://github.com/hhanh00/zkool2/commit/fcdfb60335e548f726983ad8527983a3ef80a0f9))
+
+## [4.20.10](https://github.com/hhanh00/zkool2/compare/zkool-v4.20.9...zkool-v4.20.10) (2025-08-16)
+
+
+### Bug Fixes
+
+* handle "partial" payment uri like zcash:&lt;addr&gt;? ([#425](https://github.com/hhanh00/zkool2/issues/425)) ([da4749d](https://github.com/hhanh00/zkool2/commit/da4749dea9a1261a78d017d86148cf24030dc6ad))
+
+## [4.20.9](https://github.com/hhanh00/zkool2/compare/zkool-v4.20.8...zkool-v4.20.9) (2025-08-15)
+
+
+### Bug Fixes
+
+* remove db creation with password ([#419](https://github.com/hhanh00/zkool2/issues/419)) ([7cb1583](https://github.com/hhanh00/zkool2/commit/7cb15835e37b544a4805dc887f1c9a7ad78f7df0))
+
+## [4.20.8](https://github.com/hhanh00/zkool2/compare/zkool-v4.20.7...zkool-v4.20.8) (2025-08-15)
+
+
+### Bug Fixes
+
+* add a confirmation prompt ([#417](https://github.com/hhanh00/zkool2/issues/417)) ([a10168e](https://github.com/hhanh00/zkool2/commit/a10168e9ed82043a3232a94961e1e309b2826948))
+
+## [4.20.7](https://github.com/hhanh00/zkool2/compare/zkool-v4.20.6...zkool-v4.20.7) (2025-08-15)
+
+
+### Bug Fixes
+
+* don't fetch chart on linux because the webview isn't supported ([#415](https://github.com/hhanh00/zkool2/issues/415)) ([a4d4982](https://github.com/hhanh00/zkool2/commit/a4d498244a81b4ded0e96414c132309d660a1079))
+
+## [4.20.6](https://github.com/hhanh00/zkool2/compare/zkool-v4.20.5...zkool-v4.20.6) (2025-08-15)
+
+
+### Bug Fixes
+
+* reformat payment uri ([#413](https://github.com/hhanh00/zkool2/issues/413)) ([60a04d3](https://github.com/hhanh00/zkool2/commit/60a04d3c7b90c1404a86194338eb8e3946a19901))
+
+## [4.20.5](https://github.com/hhanh00/zkool2/compare/zkool-v4.20.4...zkool-v4.20.5) (2025-08-15)
+
+
+### Bug Fixes
+
+* move payment uri to extra options page ([#409](https://github.com/hhanh00/zkool2/issues/409)) ([70230ce](https://github.com/hhanh00/zkool2/commit/70230ce8e30773abc2d669f58d36bc9b0383417b))
+
+## [4.20.4](https://github.com/hhanh00/zkool2/compare/zkool-v4.20.3...zkool-v4.20.4) (2025-08-14)
+
+
+### Bug Fixes
+
+* missing memo field ([#407](https://github.com/hhanh00/zkool2/issues/407)) ([1cfff16](https://github.com/hhanh00/zkool2/commit/1cfff1619b2fdbddd4e100273a6e54282106530c))
+
+## [4.20.3](https://github.com/hhanh00/zkool2/compare/zkool-v4.20.2...zkool-v4.20.3) (2025-08-13)
+
+
+### Bug Fixes
+
+* app locks even when pin is off ([#405](https://github.com/hhanh00/zkool2/issues/405)) ([3005d07](https://github.com/hhanh00/zkool2/commit/3005d077a5d30ed2ba9931ce8f09489af89e5271))
+
+## [4.20.2](https://github.com/hhanh00/zkool2/compare/zkool-v4.20.1...zkool-v4.20.2) (2025-08-13)
+
+
+### Bug Fixes
+
+* access database manager from open db dialog ([#403](https://github.com/hhanh00/zkool2/issues/403)) ([2de33e5](https://github.com/hhanh00/zkool2/commit/2de33e569b522ff7fde8cfcd498a7d3cf465e4c9))
+
+## [4.20.1](https://github.com/hhanh00/zkool2/compare/zkool-v4.20.0...zkool-v4.20.1) (2025-08-12)
+
+
+### Bug Fixes
+
+* move database manager to recovery mode ([#400](https://github.com/hhanh00/zkool2/issues/400)) ([83659ac](https://github.com/hhanh00/zkool2/commit/83659acf4baec38b550f0a96a98c51b0324732e8))
+* tooltip & router bug ([#402](https://github.com/hhanh00/zkool2/issues/402)) ([fd84d59](https://github.com/hhanh00/zkool2/commit/fd84d59b373dc588459eade631fbd034a9c680a9))
+
+## [4.20.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.19.0...zkool-v4.20.0) (2025-08-12)
+
+
+### Features
+
+* editable multipay tx ([#397](https://github.com/hhanh00/zkool2/issues/397)) ([54cb67a](https://github.com/hhanh00/zkool2/commit/54cb67a626349095dc6ad9db5264642766553a68))
+
+
+### Bug Fixes
+
+* manual pinlock ([#399](https://github.com/hhanh00/zkool2/issues/399)) ([bd7ec6c](https://github.com/hhanh00/zkool2/commit/bd7ec6cc0d8b1027a633a3907a515b8fa7dbdcfc))
+
+## [4.19.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.18.2...zkool-v4.19.0) (2025-08-11)
+
+
+### Features
+
+* database manager ([#395](https://github.com/hhanh00/zkool2/issues/395)) ([1ae9a14](https://github.com/hhanh00/zkool2/commit/1ae9a1476da14c86f1c56395c4bf0917d4c09f2d))
+
+## [4.18.2](https://github.com/hhanh00/zkool2/compare/zkool-v4.18.1...zkool-v4.18.2) (2025-08-11)
+
+
+### Bug Fixes
+
+* switching useTOR in settings page ([#393](https://github.com/hhanh00/zkool2/issues/393)) ([6301def](https://github.com/hhanh00/zkool2/commit/6301def364785a7c7176b261b18498228af26dd2))
+
+## [4.18.1](https://github.com/hhanh00/zkool2/compare/zkool-v4.18.0...zkool-v4.18.1) (2025-08-09)
+
+
+### Bug Fixes
+
+* add authentication to Settings page ([#392](https://github.com/hhanh00/zkool2/issues/392)) ([891bcbc](https://github.com/hhanh00/zkool2/commit/891bcbc1a614c207ff4be588eabfd046dd6f3790))
+* put zip file in windows build artifact ([#391](https://github.com/hhanh00/zkool2/issues/391)) ([024dbe7](https://github.com/hhanh00/zkool2/commit/024dbe7106edca257e0848f262608629fdc69041))
+* show authentication error message ([#389](https://github.com/hhanh00/zkool2/issues/389)) ([8b7ce52](https://github.com/hhanh00/zkool2/commit/8b7ce522bf257d9105be3993916305399f011a5f))
+
+## [4.18.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.17.0...zkool-v4.18.0) (2025-08-09)
+
+
+### Features
+
+* add generate seed button in restore account section ([#382](https://github.com/hhanh00/zkool2/issues/382)) ([853a642](https://github.com/hhanh00/zkool2/commit/853a6426a64d1067dda5077245817f47195c4728))
+* open/save database file ([#387](https://github.com/hhanh00/zkool2/issues/387)) ([cf5b421](https://github.com/hhanh00/zkool2/commit/cf5b421d5b941294457f7376665e750898d96671))
+* show memos as speech bubbles ([#384](https://github.com/hhanh00/zkool2/issues/384)) ([756c854](https://github.com/hhanh00/zkool2/commit/756c854c0dfff9dd6355dbccc2aec4766435baa2))
+
+
+### Bug Fixes
+
+* add confirmation messages after successful open/save database ([#388](https://github.com/hhanh00/zkool2/issues/388)) ([7bc4976](https://github.com/hhanh00/zkool2/commit/7bc497603ef0f803e22a03c17fdcf67cbe91deb1))
+* call disableLock before modal dialogs ([#386](https://github.com/hhanh00/zkool2/issues/386)) ([f31818d](https://github.com/hhanh00/zkool2/commit/f31818d3bbf50d654c397bbd454e2656b09b30b4))
+* import/save account when pinlock active ([#385](https://github.com/hhanh00/zkool2/issues/385)) ([975c465](https://github.com/hhanh00/zkool2/commit/975c465799c4b9b6363c5ea1e19ee9b42f82f054))
+
+## [4.17.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.16.1...zkool-v4.17.0) (2025-08-08)
+
+
+### Features
+
+* add support for TOR connection ([#379](https://github.com/hhanh00/zkool2/issues/379)) ([20c588b](https://github.com/hhanh00/zkool2/commit/20c588b19d75f961911b913d9b68ead2537b077f))
+
+
+### Bug Fixes
+
+* pass tor cache dirs ([#381](https://github.com/hhanh00/zkool2/issues/381)) ([13623c1](https://github.com/hhanh00/zkool2/commit/13623c1d6595535703ad5b239191fd60e49b8d42))
+
+## [4.16.1](https://github.com/hhanh00/zkool2/compare/zkool-v4.16.0...zkool-v4.16.1) (2025-08-08)
+
+
+### Bug Fixes
+
+* add zip package to windows release ([#377](https://github.com/hhanh00/zkool2/issues/377)) ([5557585](https://github.com/hhanh00/zkool2/commit/55575857e1bd9edcd87635e9775dfa4940228c30))
+
+## [4.16.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.15.1...zkool-v4.16.0) (2025-08-07)
+
+
+### Features
+
+* offline mode ([#375](https://github.com/hhanh00/zkool2/issues/375)) ([ecca14d](https://github.com/hhanh00/zkool2/commit/ecca14da2b22a8c009cbe564a328aed2df4df6a1))
+
+## [4.15.1](https://github.com/hhanh00/zkool2/compare/zkool-v4.15.0...zkool-v4.15.1) (2025-08-07)
+
+
+### Bug Fixes
+
+* restore support for testnet ([#372](https://github.com/hhanh00/zkool2/issues/372)) ([837e689](https://github.com/hhanh00/zkool2/commit/837e68982dd414c6fbc278d7af1d129c8b2a745b))
+
+## [4.15.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.14.7...zkool-v4.15.0) (2025-08-06)
+
+
+### Features
+
+* support for regtest ([#369](https://github.com/hhanh00/zkool2/issues/369)) ([74b8168](https://github.com/hhanh00/zkool2/commit/74b81682bbb9c91f31fd1054e1ef9fbaa6a6b06f))
+
+
+### Bug Fixes
+
+* regtest send/receive ([#371](https://github.com/hhanh00/zkool2/issues/371)) ([f8bc3f6](https://github.com/hhanh00/zkool2/commit/f8bc3f66b43a102f337427888905b9ab457db7ce))
+
+## [4.14.7](https://github.com/hhanh00/zkool2/compare/zkool-v4.14.6...zkool-v4.14.7) (2025-08-05)
+
+
+### Bug Fixes
+
+* issue with authenticated being requested multiple times ([#367](https://github.com/hhanh00/zkool2/issues/367)) ([24a05db](https://github.com/hhanh00/zkool2/commit/24a05dbc7fcc9ca6c2d5921ba82ce52e869ce150))
+
+## [4.14.6](https://github.com/hhanh00/zkool2/compare/zkool-v4.14.5...zkool-v4.14.6) (2025-08-05)
+
+
+### Bug Fixes
+
+* fee does not take min action cost into consideration ([#365](https://github.com/hhanh00/zkool2/issues/365)) ([9c26e2c](https://github.com/hhanh00/zkool2/commit/9c26e2cfa718686fbc0a49df1490b5e94fb426ca))
+
+## [4.14.5](https://github.com/hhanh00/zkool2/compare/zkool-v4.14.4...zkool-v4.14.5) (2025-08-03)
+
+
+### Bug Fixes
+
+* database encryption + pinlock ([#363](https://github.com/hhanh00/zkool2/issues/363)) ([1ebeb63](https://github.com/hhanh00/zkool2/commit/1ebeb6345f9c191c7aaf1592f1e14ea21bb87076))
+
+## [4.14.4](https://github.com/hhanh00/zkool2/compare/zkool-v4.14.3...zkool-v4.14.4) (2025-08-03)
+
+
+### Bug Fixes
+
+* workaround for bug in SelectableText on iOS ([#361](https://github.com/hhanh00/zkool2/issues/361)) ([b8043b5](https://github.com/hhanh00/zkool2/commit/b8043b53a866e9907cd69dd2102567824c63f7e0))
+
+## [4.14.3](https://github.com/hhanh00/zkool2/compare/zkool-v4.14.2...zkool-v4.14.3) (2025-08-02)
+
+
+### Bug Fixes
+
+* blank screen due to race condition ([#359](https://github.com/hhanh00/zkool2/issues/359)) ([9286eaf](https://github.com/hhanh00/zkool2/commit/9286eaf338c3d9cff10515c4040a0939110578e4))
+
+## [4.14.2](https://github.com/hhanh00/zkool2/compare/zkool-v4.14.1...zkool-v4.14.2) (2025-08-02)
+
+
+### Bug Fixes
+
+* account refresh UI (again) ([#357](https://github.com/hhanh00/zkool2/issues/357)) ([674948c](https://github.com/hhanh00/zkool2/commit/674948cc1261939df12e87993c9750984c06ee42))
+
+## [4.14.1](https://github.com/hhanh00/zkool2/compare/zkool-v4.14.0...zkool-v4.14.1) (2025-08-02)
+
+
+### Bug Fixes
+
+* account ui fresh ([#355](https://github.com/hhanh00/zkool2/issues/355)) ([c6127e6](https://github.com/hhanh00/zkool2/commit/c6127e6c50691a1a62d61f8c7e984721e485618b))
+
+## [4.14.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.13.0...zkool-v4.14.0) (2025-08-02)
+
+
+### Features
+
+* show progress bars when synchronizing ([#353](https://github.com/hhanh00/zkool2/issues/353)) ([96565a1](https://github.com/hhanh00/zkool2/commit/96565a1d67c302790a0944ee85793954be8cff7b))
+
+## [4.13.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.12.0...zkool-v4.13.0) (2025-08-01)
+
+
+### Features
+
+* lock the app with the device auth ([#350](https://github.com/hhanh00/zkool2/issues/350)) ([6c564f8](https://github.com/hhanh00/zkool2/commit/6c564f86c73a4263dcee274dfbdbb0beef38b3ae))
+
+## [4.12.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.11.2...zkool-v4.12.0) (2025-07-31)
+
+
+### Features
+
+* save current account and resume from it ([#347](https://github.com/hhanh00/zkool2/issues/347)) ([6aa0719](https://github.com/hhanh00/zkool2/commit/6aa0719eec0591e48e7bcfe2638ae44f08702728))
+
+
+### Bug Fixes
+
+* disclaimer and account preloading ([#349](https://github.com/hhanh00/zkool2/issues/349)) ([301b575](https://github.com/hhanh00/zkool2/commit/301b575be598fe1c244e05863aad4fe7d5930766))
+
+## [4.11.2](https://github.com/hhanh00/zkool2/compare/zkool-v4.11.1...zkool-v4.11.2) (2025-07-30)
+
+
+### Bug Fixes
+
+* macos notarization ([#344](https://github.com/hhanh00/zkool2/issues/344)) ([38d8dab](https://github.com/hhanh00/zkool2/commit/38d8dab5ee42718150c34a8c96ec5ca29f8c839e))
+
+## [4.11.1](https://github.com/hhanh00/zkool2/compare/zkool-v4.11.0...zkool-v4.11.1) (2025-07-30)
+
+
+### Bug Fixes
+
+* add count of txs ([#342](https://github.com/hhanh00/zkool2/issues/342)) ([618b445](https://github.com/hhanh00/zkool2/commit/618b44514c9c9ea71379a4e84fa7d0e4243b8d34))
+
+## [4.11.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.10.0...zkool-v4.11.0) (2025-07-26)
+
+
+### Features
+
+* select pools of receiving ua ([#338](https://github.com/hhanh00/zkool2/issues/338)) ([a09c540](https://github.com/hhanh00/zkool2/commit/a09c540a72200ff3f6b8fa70af126ca7b9ace316))
+
+
+### Bug Fixes
+
+* new diversified address without transparent receiver ([#336](https://github.com/hhanh00/zkool2/issues/336)) ([ab94c56](https://github.com/hhanh00/zkool2/commit/ab94c56fca1dbeb65fd5547dfed5a5fd10738797))
+* pool selection during restore ([#339](https://github.com/hhanh00/zkool2/issues/339)) ([2e82e14](https://github.com/hhanh00/zkool2/commit/2e82e14174811c978c61bf5d3fd2ad94723176f3))
+
+## [4.10.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.9.6...zkool-v4.10.0) (2025-07-25)
+
+
+### Features
+
+* select account pools when restoring from key ([#334](https://github.com/hhanh00/zkool2/issues/334)) ([cf5a4c9](https://github.com/hhanh00/zkool2/commit/cf5a4c9acd7292c5c91d5785324a42439b0c558c))
+
+## [4.9.6](https://github.com/hhanh00/zkool2/compare/zkool-v4.9.5...zkool-v4.9.6) (2025-07-24)
+
+
+### Bug Fixes
+
+* icon for shield/unshield buttons ([#332](https://github.com/hhanh00/zkool2/issues/332)) ([bf5a6ac](https://github.com/hhanh00/zkool2/commit/bf5a6acc3bf85c903d9a610389be51b9280d3222))
+
+## [4.9.5](https://github.com/hhanh00/zkool2/compare/zkool-v4.9.4...zkool-v4.9.5) (2025-07-24)
+
+
+### Bug Fixes
+
+* lazy loading of tx history to listview ([#330](https://github.com/hhanh00/zkool2/issues/330)) ([99c9b46](https://github.com/hhanh00/zkool2/commit/99c9b460fc9f23685f4c97903e58e9ee8add3261))
+
+## [4.9.4](https://github.com/hhanh00/zkool2/compare/zkool-v4.9.3...zkool-v4.9.4) (2025-07-24)
+
+
+### Bug Fixes
+
+* missing decimal point on keyboard input for amount ([#328](https://github.com/hhanh00/zkool2/issues/328)) ([bfddfe6](https://github.com/hhanh00/zkool2/commit/bfddfe63d412aa6ae079bd2a3a437c566581d012))
+
+## [4.9.3](https://github.com/hhanh00/zkool2/compare/zkool-v4.9.2...zkool-v4.9.3) (2025-07-23)
+
+
+### Bug Fixes
+
+* missing tx time for transparent only accounts ([#326](https://github.com/hhanh00/zkool2/issues/326)) ([f942eed](https://github.com/hhanh00/zkool2/commit/f942eed4fb469eab06a619b119f50096143e43df))
+
+## [4.9.2](https://github.com/hhanh00/zkool2/compare/zkool-v4.9.1...zkool-v4.9.2) (2025-07-21)
+
+
+### Bug Fixes
+
+* add last time used to transparent addresses ([#324](https://github.com/hhanh00/zkool2/issues/324)) ([2c251e8](https://github.com/hhanh00/zkool2/commit/2c251e80906f6753e9d1c222891d78fd927b4ce1))
+
+## [4.9.1](https://github.com/hhanh00/zkool2/compare/zkool-v4.9.0...zkool-v4.9.1) (2025-07-20)
+
+
+### Bug Fixes
+
+* fetch_transparent_address_tx_count ([#322](https://github.com/hhanh00/zkool2/issues/322)) ([43274b3](https://github.com/hhanh00/zkool2/commit/43274b39e048e7c9b09f17b7556a56d2ad9f5ce5))
+
+## [4.9.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.8.0...zkool-v4.9.0) (2025-07-20)
+
+
+### Features
+
+* show transparent address pool and usage ([#320](https://github.com/hhanh00/zkool2/issues/320)) ([13dff31](https://github.com/hhanh00/zkool2/commit/13dff3144321e43724dad0d2532544f4da287ce5))
+
+## [4.8.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.7.0...zkool-v4.8.0) (2025-07-18)
+
+
+### Features
+
+* shield one taddress at a time ([#319](https://github.com/hhanh00/zkool2/issues/319)) ([70d7005](https://github.com/hhanh00/zkool2/commit/70d700568f305b68c2d8cd49c1004999d39a5697))
+
+
+### Bug Fixes
+
+* move mempool button to appbar ([#318](https://github.com/hhanh00/zkool2/issues/318)) ([90487bf](https://github.com/hhanh00/zkool2/commit/90487bf91c00d2b7ea1010ac3c297275bd0b8b59))
+* show error message if app fails to load ([#314](https://github.com/hhanh00/zkool2/issues/314)) ([b05e979](https://github.com/hhanh00/zkool2/commit/b05e979df04752b9d56f92ae0ab8f4a423741192))
+
+## [4.7.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.6.5...zkool-v4.7.0) (2025-07-14)
+
+
+### Features
+
+* market price chart using tradingview widget ([#312](https://github.com/hhanh00/zkool2/issues/312)) ([5a1286a](https://github.com/hhanh00/zkool2/commit/5a1286a38ed0749e7f442c2bbc4b3be5d1b6d77c))
+
+## [4.6.5](https://github.com/hhanh00/zkool2/compare/zkool-v4.6.4...zkool-v4.6.5) (2025-06-30)
+
+
+### Bug Fixes
+
+* typos connection/pool ([#309](https://github.com/hhanh00/zkool2/issues/309)) ([d355827](https://github.com/hhanh00/zkool2/commit/d355827124bd57e272e551d75ad08652828f336b))
+* usage of SqlitePool -&gt; SqliteConnection ([#307](https://github.com/hhanh00/zkool2/issues/307)) ([976addc](https://github.com/hhanh00/zkool2/commit/976addc57c610cb735dda4ad4f6a4dab330376b7))
+
+## [4.6.4](https://github.com/hhanh00/zkool2/compare/zkool-v4.6.3...zkool-v4.6.4) (2025-06-29)
+
+
+### Bug Fixes
+
+* race condition at db creation ([#305](https://github.com/hhanh00/zkool2/issues/305)) ([8ec2515](https://github.com/hhanh00/zkool2/commit/8ec251545bcbada135f0d0a9cdadb8cd7bbba874))
+
+## [4.6.3](https://github.com/hhanh00/zkool2/compare/zkool-v4.6.2...zkool-v4.6.3) (2025-06-29)
+
+
+### Bug Fixes
+
+* taddress_txs for full node ([#303](https://github.com/hhanh00/zkool2/issues/303)) ([b68d687](https://github.com/hhanh00/zkool2/commit/b68d6875b67e411ed70dca01cb0f05b91e490a6b))
+
+## [4.6.2](https://github.com/hhanh00/zkool2/compare/zkool-v4.6.1...zkool-v4.6.2) (2025-06-29)
+
+
+### Bug Fixes
+
+* name of server field on settings page ([#301](https://github.com/hhanh00/zkool2/issues/301)) ([927bb5a](https://github.com/hhanh00/zkool2/commit/927bb5a3ea8f70bc0539cb86519e86991609429b))
+
+## [4.6.1](https://github.com/hhanh00/zkool2/compare/zkool-v4.6.0...zkool-v4.6.1) (2025-06-28)
+
+
+### Bug Fixes
+
+* ios build ([#299](https://github.com/hhanh00/zkool2/issues/299)) ([a42810e](https://github.com/hhanh00/zkool2/commit/a42810e232cbb41d18573906cc32a2275eba2544))
+
+## [4.6.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.5.2...zkool-v4.6.0) (2025-06-28)
+
+
+### Features
+
+* support for full node servers (zcashd, zebrad) ([#297](https://github.com/hhanh00/zkool2/issues/297)) ([4412d40](https://github.com/hhanh00/zkool2/commit/4412d404d1c20a57047236ee993dc6259a5dc93d))
+
+## [4.5.2](https://github.com/hhanh00/zkool2/compare/zkool-v4.5.1...zkool-v4.5.2) (2025-06-25)
+
+
+### Bug Fixes
+
+* fee adjustment when no change output ([#294](https://github.com/hhanh00/zkool2/issues/294)) ([010502b](https://github.com/hhanh00/zkool2/commit/010502ba7f58e5f8b61bd3f947eb93ab5eb3519b))
+
+## [4.5.1](https://github.com/hhanh00/zkool2/compare/zkool-v4.5.0...zkool-v4.5.1) (2025-06-18)
+
+
+### Bug Fixes
+
+* issue if the only sync point we have is reorged ([#291](https://github.com/hhanh00/zkool2/issues/291)) ([93d95e3](https://github.com/hhanh00/zkool2/commit/93d95e36a6dac549179b1d6502e44ec0611e961b))
+
+## [4.5.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.4.1...zkool-v4.5.0) (2025-06-17)
+
+
+### Features
+
+* add support for testnet ([#289](https://github.com/hhanh00/zkool2/issues/289)) ([5535601](https://github.com/hhanh00/zkool2/commit/5535601127ccc16fae36aef9e62a307234e944ab))
+
+## [4.4.1](https://github.com/hhanh00/zkool2/compare/zkool-v4.4.0...zkool-v4.4.1) (2025-06-13)
+
+
+### Bug Fixes
+
+* invalid dindex when importing from sapling key ([#286](https://github.com/hhanh00/zkool2/issues/286)) ([8852f82](https://github.com/hhanh00/zkool2/commit/8852f823813b93e20f4846a0f45a77bf04c979d2))
+
+## [4.4.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.3.0...zkool-v4.4.0) (2025-06-12)
+
+
+### Features
+
+* display distance from tip after account height ([#285](https://github.com/hhanh00/zkool2/issues/285)) ([1180c59](https://github.com/hhanh00/zkool2/commit/1180c59d9e55fd175c34adec40c8cacb424778ba))
+
+
+### Bug Fixes
+
+* change icon for spend/receive tx ([#283](https://github.com/hhanh00/zkool2/issues/283)) ([8844c31](https://github.com/hhanh00/zkool2/commit/8844c31e9b375fad2cb8d74accc5f23a8b117c1c))
+
+## [4.3.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.2.0...zkool-v4.3.0) (2025-06-12)
+
+
+### Features
+
+* shield and unshield buttons ([8b56806](https://github.com/hhanh00/zkool2/commit/8b56806ef88f6ccbc12a4429eb53648434bd57ea))
+
+
+### Bug Fixes
+
+* remove unused button ([#281](https://github.com/hhanh00/zkool2/issues/281)) ([8b56806](https://github.com/hhanh00/zkool2/commit/8b56806ef88f6ccbc12a4429eb53648434bd57ea))
+
+## [4.2.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.1.0...zkool-v4.2.0) (2025-06-11)
+
+
+### Features
+
+* display raw mempool tx ([#277](https://github.com/hhanh00/zkool2/issues/277)) ([45aa645](https://github.com/hhanh00/zkool2/commit/45aa645f2a51a77a1937c6ce41558e1109847d18))
+* introduce dust change policy: send or discard ([#279](https://github.com/hhanh00/zkool2/issues/279)) ([14082d6](https://github.com/hhanh00/zkool2/commit/14082d687b5e4c70b84a222afed6909b8a481561))
+
+
+### Bug Fixes
+
+* pool balance display ([#280](https://github.com/hhanh00/zkool2/issues/280)) ([76f9d50](https://github.com/hhanh00/zkool2/commit/76f9d504a53b07a96c1a52b5b6c5d83f5a20cfb5))
+
+## [4.1.0](https://github.com/hhanh00/zkool2/compare/zkool-v4.0.1...zkool-v4.1.0) (2025-06-10)
+
+
+### Features
+
+* show digits after millis in smaller size and colorize received funds ([#276](https://github.com/hhanh00/zkool2/issues/276)) ([2f45b2a](https://github.com/hhanh00/zkool2/commit/2f45b2a2586ec50528e86fc93d4fe8ca6d966b00))
+
+
+### Bug Fixes
+
+* remove fingerprint input ([#274](https://github.com/hhanh00/zkool2/issues/274)) ([c09e560](https://github.com/hhanh00/zkool2/commit/c09e56094050083736391f21c9b9e088bcc1731d))
+
+## [4.0.1](https://github.com/hhanh00/zkool2/compare/zkool-v4.0.0...zkool-v4.0.1) (2025-06-08)
+
+
+### Bug Fixes
+
+* import/export of fee column ([#272](https://github.com/hhanh00/zkool2/issues/272)) ([0cea993](https://github.com/hhanh00/zkool2/commit/0cea993619ed4896a1c59edf03b801bf61708326))
+
+## [4.0.0](https://github.com/hhanh00/zkool2/compare/zkool-v3.0.3...zkool-v4.0.0) (2025-06-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* add fee column to transactions table ([#270](https://github.com/hhanh00/zkool2/issues/270))
+
+### Features
+
+* add fee column to transactions table ([#270](https://github.com/hhanh00/zkool2/issues/270)) ([b2aae79](https://github.com/hhanh00/zkool2/commit/b2aae7988750ce1856a0b3c8ca3f8d6592383344))
+
+
+### Bug Fixes
+
+* incorrect labelling of tx in certain cases ([b2aae79](https://github.com/hhanh00/zkool2/commit/b2aae7988750ce1856a0b3c8ca3f8d6592383344))
+* make values of the tx details selectable ([b2aae79](https://github.com/hhanh00/zkool2/commit/b2aae7988750ce1856a0b3c8ca3f8d6592383344))
+
+## [3.0.3](https://github.com/hhanh00/zkool2/compare/zkool-v3.0.2...zkool-v3.0.3) (2025-06-04)
+
+
+### Bug Fixes
+
+* show date in YYYY-MM-DD too in tx and memo lists ([#268](https://github.com/hhanh00/zkool2/issues/268)) ([390995b](https://github.com/hhanh00/zkool2/commit/390995b4ecc6d53f30bbfde01de5e259375a8f38))
+
+## [3.0.2](https://github.com/hhanh00/zkool2/compare/zkool-v3.0.1...zkool-v3.0.2) (2025-06-04)
+
+
+### Bug Fixes
+
+* parallel/concurrent donwload & trial decryption ([#266](https://github.com/hhanh00/zkool2/issues/266)) ([2102e16](https://github.com/hhanh00/zkool2/commit/2102e16fa71693337f90c2fc3d748c9802393182))
+
+## [3.0.1](https://github.com/hhanh00/zkool2/compare/zkool-v3.0.0...zkool-v3.0.1) (2025-06-03)
+
+
+### Bug Fixes
+
+* sync error reporting ([#264](https://github.com/hhanh00/zkool2/issues/264)) ([6e00299](https://github.com/hhanh00/zkool2/commit/6e0029911f31e5d9caadf085bfe264a54fd265b3))
+
+## [3.0.0](https://github.com/hhanh00/zkool2/compare/zkool-v2.9.0...zkool-v3.0.0) (2025-06-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* decode and store outputs ([#262](https://github.com/hhanh00/zkool2/issues/262))
+
+### Features
+
+* decode and store outputs ([#262](https://github.com/hhanh00/zkool2/issues/262)) ([cf681e7](https://github.com/hhanh00/zkool2/commit/cf681e7ec2f69a161af2752ee184b0823c6985d5))
+* show transaction type ([cf681e7](https://github.com/hhanh00/zkool2/commit/cf681e7ec2f69a161af2752ee184b0823c6985d5))
+
+## [2.9.0](https://github.com/hhanh00/zkool2/compare/zkool-v2.8.6...zkool-v2.9.0) (2025-06-02)
+
+
+### Features
+
+* delete db and change db password ([#260](https://github.com/hhanh00/zkool2/issues/260)) ([b79ef41](https://github.com/hhanh00/zkool2/commit/b79ef4138981449e885f1f0b7879e8a3010b0198))
+
+## [2.8.6](https://github.com/hhanh00/zkool2/compare/zkool-v2.8.5...zkool-v2.8.6) (2025-06-01)
+
+
+### Bug Fixes
+
+* include encryption declaration ([#257](https://github.com/hhanh00/zkool2/issues/257)) ([37b7e09](https://github.com/hhanh00/zkool2/commit/37b7e0907e50e52c50d04105c75ccf4d65cd1686))
+
+## [2.8.5](https://github.com/hhanh00/zkool2/compare/zkool-v2.8.4...zkool-v2.8.5) (2025-06-01)
+
+
+### Bug Fixes
+
+* linux arm build ([#256](https://github.com/hhanh00/zkool2/issues/256)) ([e712da0](https://github.com/hhanh00/zkool2/commit/e712da0ed889d6dfc50a15b2098f5669d1c3e3a9))
+* show required amount needed ([#253](https://github.com/hhanh00/zkool2/issues/253)) ([8845a9f](https://github.com/hhanh00/zkool2/commit/8845a9fbb92ba297a549127975784a7f605e7e7d))
+
+## [2.8.4](https://github.com/hhanh00/zkool2/compare/zkool-v2.8.3...zkool-v2.8.4) (2025-06-01)
+
+
+### Bug Fixes
+
+* split per abi android build ([#251](https://github.com/hhanh00/zkool2/issues/251)) ([7c2c98b](https://github.com/hhanh00/zkool2/commit/7c2c98bd11a22fab22629a1be5c5fc464ddd83c7))
+
+## [2.8.3](https://github.com/hhanh00/zkool2/compare/zkool-v2.8.2...zkool-v2.8.3) (2025-06-01)
+
+
+### Bug Fixes
+
+* sending to tex address should disable pool selection ([#249](https://github.com/hhanh00/zkool2/issues/249)) ([b3b51da](https://github.com/hhanh00/zkool2/commit/b3b51da198c8516100a70aeb248996ea438f661f))
+
+## [2.8.2](https://github.com/hhanh00/zkool2/compare/zkool-v2.8.1...zkool-v2.8.2) (2025-05-31)
+
+
+### Bug Fixes
+
+* ios ipa build ([#244](https://github.com/hhanh00/zkool2/issues/244)) ([ff9dafe](https://github.com/hhanh00/zkool2/commit/ff9dafee5c0a75c106753c675c9c0b0670e9ee64))
+* race condition on new db creation ([#245](https://github.com/hhanh00/zkool2/issues/245)) ([4413dfe](https://github.com/hhanh00/zkool2/commit/4413dfe5ed6244fdfd80fc09c0f0974151fa8280))
+* tweak icons and move rewind to edit account page ([#241](https://github.com/hhanh00/zkool2/issues/241)) ([4276735](https://github.com/hhanh00/zkool2/commit/427673544b3a9ed0cb2556bc0546aefe118c8cc9))
+
+## [2.8.1](https://github.com/hhanh00/zkool2/compare/zkool-v2.8.0...zkool-v2.8.1) (2025-05-29)
+
+
+### Bug Fixes
+
+* trim trailing zeros in memo bytes for display ([#238](https://github.com/hhanh00/zkool2/issues/238)) ([4215d12](https://github.com/hhanh00/zkool2/commit/4215d12149de1d598ef60f005bc5a9a9fcf8086e))
+
+## [2.8.0](https://github.com/hhanh00/zkool2/compare/zkool-v2.7.1...zkool-v2.8.0) (2025-05-29)
+
+
+### Features
+
+* search memos ([#236](https://github.com/hhanh00/zkool2/issues/236)) ([c67285a](https://github.com/hhanh00/zkool2/commit/c67285a75d0bbb6b7917eb8d7077ea302716a20d))
+
+## [2.7.1](https://github.com/hhanh00/zkool2/compare/zkool-v2.7.0...zkool-v2.7.1) (2025-05-28)
+
+
+### Bug Fixes
+
+* mempool hang ([#232](https://github.com/hhanh00/zkool2/issues/232)) ([0dab800](https://github.com/hhanh00/zkool2/commit/0dab8004d5e84d0ff200a3646150d009bffeac59))
+* mempool listener hang on server error ([#234](https://github.com/hhanh00/zkool2/issues/234)) ([131c691](https://github.com/hhanh00/zkool2/commit/131c6911e62203db6843e781da454e6ec5ed1468))
+
+## [2.7.0](https://github.com/hhanh00/zkool2/compare/zkool-v2.6.2...zkool-v2.7.0) (2025-05-27)
+
+
+### Features
+
+* monitor app lifecycle and restart mempool monitor on resume ([#230](https://github.com/hhanh00/zkool2/issues/230)) ([e4b0d4c](https://github.com/hhanh00/zkool2/commit/e4b0d4c8f034c8747ef266da418f3675cde8dbca))
+
+## [2.6.2](https://github.com/hhanh00/zkool2/compare/zkool-v2.6.1...zkool-v2.6.2) (2025-05-25)
+
+
+### Bug Fixes
+
+* android build ([#227](https://github.com/hhanh00/zkool2/issues/227)) ([f2e740a](https://github.com/hhanh00/zkool2/commit/f2e740a974abe43d53c806966ac503db383bb80c))
+
+## [2.6.1](https://github.com/hhanh00/zkool2/compare/zkool-v2.6.0...zkool-v2.6.1) (2025-05-25)
+
+
+### Bug Fixes
+
+* show unconfirmed amount on account page ([#225](https://github.com/hhanh00/zkool2/issues/225)) ([ca4e82a](https://github.com/hhanh00/zkool2/commit/ca4e82aa595156bdedab57af7834717684d8a068))
+
+## [2.6.0](https://github.com/hhanh00/zkool2/compare/zkool-v2.5.0...zkool-v2.6.0) (2025-05-25)
+
+
+### Features
+
+* add showcase tooltips for dkg/frost ([#224](https://github.com/hhanh00/zkool2/issues/224)) ([f61c352](https://github.com/hhanh00/zkool2/commit/f61c3520b33da356115f562c66bfe9e1b2ac6770))
+* mempool tx amounts ([#220](https://github.com/hhanh00/zkool2/issues/220)) ([c9a9361](https://github.com/hhanh00/zkool2/commit/c9a93611f3de82f5c261e6a6f7dbe0fbdbd0e562))
+* run mempool scanner button ([#222](https://github.com/hhanh00/zkool2/issues/222)) ([fec3deb](https://github.com/hhanh00/zkool2/commit/fec3debd3b3a162ecf62272b55666ebbacd92c1c))
+
+
+### Bug Fixes
+
+* ui tweaks ([#223](https://github.com/hhanh00/zkool2/issues/223)) ([46dd47e](https://github.com/hhanh00/zkool2/commit/46dd47e242ffcf7148b631af5b8b1314cd9f4d74))
+
+## [2.5.0](https://github.com/hhanh00/zkool2/compare/zkool-v2.4.0...zkool-v2.5.0) (2025-05-24)
+
+
+### Features
+
+* add mempool page ([#218](https://github.com/hhanh00/zkool2/issues/218)) ([b6a6a16](https://github.com/hhanh00/zkool2/commit/b6a6a16babb2f8b762575d8a935c55562d470615))
+
+## [2.4.0](https://github.com/hhanh00/zkool2/compare/zkool-v2.3.1...zkool-v2.4.0) (2025-05-23)
+
+
+### Features
+
+* show txid toast ([#216](https://github.com/hhanh00/zkool2/issues/216)) ([b841195](https://github.com/hhanh00/zkool2/commit/b841195d289e9027e44d404394737c764eb9091f))
+
+## [2.3.1](https://github.com/hhanh00/zkool2/compare/zkool-v2.3.0...zkool-v2.3.1) (2025-05-23)
+
+
+### Bug Fixes
+
+* iOS build ([#214](https://github.com/hhanh00/zkool2/issues/214)) ([7ee7ed5](https://github.com/hhanh00/zkool2/commit/7ee7ed55499176104439abe2b1d2a09b28552d3c))
+
+## [2.3.0](https://github.com/hhanh00/zkool2/compare/zkool-v2.2.1...zkool-v2.3.0) (2025-05-22)
+
+
+### Features
+
+* frost to sapling address ([#212](https://github.com/hhanh00/zkool2/issues/212)) ([c21b0f7](https://github.com/hhanh00/zkool2/commit/c21b0f7cc6a7ccf5747dcd4b6060789c478c8176))
+
+## [2.2.1](https://github.com/hhanh00/zkool2/compare/zkool-v2.2.0...zkool-v2.2.1) (2025-05-22)
+
+
+### Bug Fixes
+
+* race condition in 3/3 signatures ([#210](https://github.com/hhanh00/zkool2/issues/210)) ([329ed5a](https://github.com/hhanh00/zkool2/commit/329ed5ac47d06037cf009fcb38a8da8165692616))
+
+## [2.2.0](https://github.com/hhanh00/zkool2/compare/zkool-v2.1.1...zkool-v2.2.0) (2025-05-22)
+
+
+### Features
+
+* add cancel button to frost sign ([#209](https://github.com/hhanh00/zkool2/issues/209)) ([e91b917](https://github.com/hhanh00/zkool2/commit/e91b917446bcc5700e0c9e8c726937abdd961c60))
+
+
+### Bug Fixes
+
+* macos camera permissions ([#207](https://github.com/hhanh00/zkool2/issues/207)) ([87f5395](https://github.com/hhanh00/zkool2/commit/87f53954104257e3ee8c168428a11cb80c1f16cc))
+
+## [2.1.1](https://github.com/hhanh00/zkool2/compare/zkool-v2.1.0...zkool-v2.1.1) (2025-05-21)
+
+
+### Bug Fixes
+
+* android build ([#205](https://github.com/hhanh00/zkool2/issues/205)) ([30d8885](https://github.com/hhanh00/zkool2/commit/30d8885f380501a8132d44ced3bbf77c6d67722c))
+
+## [2.1.0](https://github.com/hhanh00/zkool2/compare/zkool-v2.0.0...zkool-v2.1.0) (2025-05-21)
+
+
+### Features
+
+* end to end frost transaction ([#199](https://github.com/hhanh00/zkool2/issues/199)) ([e278307](https://github.com/hhanh00/zkool2/commit/e278307778b0242aa116a9898551b6cd928e7f96))
+* **frost:** calculate nonce & commitments, send to coordinator ([#189](https://github.com/hhanh00/zkool2/issues/189)) ([6344169](https://github.com/hhanh00/zkool2/commit/6344169b7267bf3cc58bf8a1ab4087f561f3453a))
+* **frost:** coordinator sends signingpackage ([#191](https://github.com/hhanh00/zkool2/issues/191)) ([cf598ee](https://github.com/hhanh00/zkool2/commit/cf598ee7ae2e8b59fd649d432e318c38a466a75e))
+* **frost:** create coordinator mailbox account ([#190](https://github.com/hhanh00/zkool2/issues/190)) ([47f02ef](https://github.com/hhanh00/zkool2/commit/47f02efb42b84aabb533cc4ad6bba7a3a4805b68))
+* **frost:** initial frost mpc signature - phase 1 ([#187](https://github.com/hhanh00/zkool2/issues/187)) ([aa0fd7b](https://github.com/hhanh00/zkool2/commit/aa0fd7bbb0ad3ac7864376f66c4ca1e8340112c5))
+* **frost:** rerandomized signature ([#196](https://github.com/hhanh00/zkool2/issues/196)) ([e4acb73](https://github.com/hhanh00/zkool2/commit/e4acb730a5f5ac101f12d2034446fbb6c89c6220))
+* **frost:** tx/rx signature shares & aggregate ([#192](https://github.com/hhanh00/zkool2/issues/192)) ([89a3087](https://github.com/hhanh00/zkool2/commit/89a3087e361bd0bdcd82bfa48ba42590afa8b194))
+
+
+### Bug Fixes
+
+* delete dkg & frost tables with account ([#204](https://github.com/hhanh00/zkool2/issues/204)) ([f4e1f00](https://github.com/hhanh00/zkool2/commit/f4e1f00502a6d45380efae6e96bc1969c4511700))
+* **dkg:** ui ([#201](https://github.com/hhanh00/zkool2/issues/201)) ([28a9aaa](https://github.com/hhanh00/zkool2/commit/28a9aaa1a448ee29520be4c0a54b1eb1f7f4853f))
+* **frost:** misc bugs ([#202](https://github.com/hhanh00/zkool2/issues/202)) ([a7d9852](https://github.com/hhanh00/zkool2/commit/a7d985230fe28d3c6c73d9069ef49be104307662))
+* **frost:** ui ([#200](https://github.com/hhanh00/zkool2/issues/200)) ([e0dfbf7](https://github.com/hhanh00/zkool2/commit/e0dfbf795efb4243c983dd8962c65a442770179e))
+* icons and close button ([#203](https://github.com/hhanh00/zkool2/issues/203)) ([4942093](https://github.com/hhanh00/zkool2/commit/4942093f14e4fa83a46ee7a5083e51a3d13a45e2))
+* use randomizer from pczt ([#198](https://github.com/hhanh00/zkool2/issues/198)) ([eb2cefb](https://github.com/hhanh00/zkool2/commit/eb2cefb5539e481024f3a97b549c0e94bac74cdb))
+
+## [2.0.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.17.0...zkool-v2.0.0) (2025-05-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* internal flag added to account table
+
+### Features
+
+* **dkg:** auto-run dkg state machine ([#183](https://github.com/hhanh00/zkool2/issues/183)) ([a41c7dc](https://github.com/hhanh00/zkool2/commit/a41c7dcfacec8234cd42127fc87929197769cbb7))
+* **dkg:** broadcast public package 1 ([#181](https://github.com/hhanh00/zkool2/issues/181)) ([27e5042](https://github.com/hhanh00/zkool2/commit/27e50429f0b4747c357fb1268a80f12ef23aea06))
+* **dkg:** import/export frost dkg data ([#185](https://github.com/hhanh00/zkool2/issues/185)) ([21b4893](https://github.com/hhanh00/zkool2/commit/21b48935f2c92bc4d47b684de99bf4d9c11395ac))
+* **dkg:** save packages to dkg_* tables ([#184](https://github.com/hhanh00/zkool2/issues/184)) ([d69ea14](https://github.com/hhanh00/zkool2/commit/d69ea14a41ca49247fee774b95f9f922824022d4))
+* **dkg:** shared address generation ([#182](https://github.com/hhanh00/zkool2/issues/182)) ([82796d9](https://github.com/hhanh00/zkool2/commit/82796d9bfef6fe8dab16e1b5abdff5a31bcaa668))
+* frost dkg - parameters - ui ([#178](https://github.com/hhanh00/zkool2/issues/178)) ([03915fd](https://github.com/hhanh00/zkool2/commit/03915fd86fba3823ccea4135b6190e31e8ccc08c))
+* internal flag added to account table ([7132c16](https://github.com/hhanh00/zkool2/commit/7132c16aae34e7b8fffc5bdc50a0101a9907a2bc))
+
+
+### Bug Fixes
+
+* sync now ([7132c16](https://github.com/hhanh00/zkool2/commit/7132c16aae34e7b8fffc5bdc50a0101a9907a2bc))
+
+## [1.17.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.16.3...zkool-v1.17.0) (2025-05-10)
+
+
+### Features
+
+* support for tex addresses ([#176](https://github.com/hhanh00/zkool2/issues/176)) ([e885bbb](https://github.com/hhanh00/zkool2/commit/e885bbbb3496db20234a46ea85373fa50f8c85b8))
+
+## [1.16.3](https://github.com/hhanh00/zkool2/compare/zkool-v1.16.2...zkool-v1.16.3) (2025-05-01)
+
+
+### Bug Fixes
+
+* edit account ([#173](https://github.com/hhanh00/zkool2/issues/173)) ([f6b3013](https://github.com/hhanh00/zkool2/commit/f6b3013ec921b131b90e6f4edafca900c602494c))
+
+## [1.16.2](https://github.com/hhanh00/zkool2/compare/zkool-v1.16.1...zkool-v1.16.2) (2025-04-28)
+
+
+### Bug Fixes
+
+* navigation stack after tx cancel/submit ([#171](https://github.com/hhanh00/zkool2/issues/171)) ([94963f4](https://github.com/hhanh00/zkool2/commit/94963f4061bbe64ed1589aa855c0e3c600efb79e))
+
+## [1.16.1](https://github.com/hhanh00/zkool2/compare/zkool-v1.16.0...zkool-v1.16.1) (2025-04-28)
+
+
+### Bug Fixes
+
+* disclaimer repeat showing ([#169](https://github.com/hhanh00/zkool2/issues/169)) ([7a843ef](https://github.com/hhanh00/zkool2/commit/7a843ef59c1da8199b55da4f76823ac97521943d))
+
+## [1.16.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.15.0...zkool-v1.16.0) (2025-04-28)
+
+
+### Features
+
+* display version and build number ([#168](https://github.com/hhanh00/zkool2/issues/168)) ([be91c0e](https://github.com/hhanh00/zkool2/commit/be91c0e66b023dfbd01b78d8d9429a1d31e6f783))
+* splash screen & disclaimer page ([#166](https://github.com/hhanh00/zkool2/issues/166)) ([d5c07fb](https://github.com/hhanh00/zkool2/commit/d5c07fba9ccfe678154d3b30a14a0a6ad3375627))
+
+## [1.15.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.14.0...zkool-v1.15.0) (2025-04-27)
+
+
+### Features
+
+* cancel synchronization button ([#164](https://github.com/hhanh00/zkool2/issues/164)) ([862d272](https://github.com/hhanh00/zkool2/commit/862d2724b73a164d85beb0bcf23abd03440f30c6))
+
+## [1.14.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.13.1...zkool-v1.14.0) (2025-04-27)
+
+
+### Features
+
+* separate signing and broadcasting for cold wallet ([#159](https://github.com/hhanh00/zkool2/issues/159)) ([a2befd0](https://github.com/hhanh00/zkool2/commit/a2befd079ec4683277a3d9dab92cabe240ee19f4))
+
+
+### Bug Fixes
+
+* show seed should also show passphrase and index ([#162](https://github.com/hhanh00/zkool2/issues/162)) ([738a60b](https://github.com/hhanh00/zkool2/commit/738a60b3c29a484bd810630211916452f86f18bb))
+* sync of selected accounts ([#163](https://github.com/hhanh00/zkool2/issues/163)) ([cf9d4c3](https://github.com/hhanh00/zkool2/commit/cf9d4c356438c2d46c36d036a60763cc282ac7ad))
+
+## [1.13.1](https://github.com/hhanh00/zkool2/compare/zkool-v1.13.0...zkool-v1.13.1) (2025-04-26)
+
+
+### Bug Fixes
+
+* authentication bypass by cancel ([a3c6a45](https://github.com/hhanh00/zkool2/commit/a3c6a45120bcd2f09f8579dab6c7abb0cff7e6ac))
+* incorrect tx amount in history when spent notes have the same amount ([#157](https://github.com/hhanh00/zkool2/issues/157)) ([a3c6a45](https://github.com/hhanh00/zkool2/commit/a3c6a45120bcd2f09f8579dab6c7abb0cff7e6ac))
+
+## [1.13.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.12.0...zkool-v1.13.0) (2025-04-26)
+
+
+### Features
+
+* add actions/sync option ([#155](https://github.com/hhanh00/zkool2/issues/155)) ([0d8983c](https://github.com/hhanh00/zkool2/commit/0d8983c40fdc4a0081b027a0965233c36d93054a))
+* add max amount button ([#150](https://github.com/hhanh00/zkool2/issues/150)) ([7530107](https://github.com/hhanh00/zkool2/commit/75301078188384dbd4de34b8572c063bd8f8368b))
+* expose seed fingerprint ([#143](https://github.com/hhanh00/zkool2/issues/143)) ([1e759b7](https://github.com/hhanh00/zkool2/commit/1e759b7318da74173581786ac94dcaf337a511fe))
+* payment uris ([#147](https://github.com/hhanh00/zkool2/issues/147)) ([a2542f6](https://github.com/hhanh00/zkool2/commit/a2542f644ddb60f4cf34aae3f5a7dcf7c87c4985))
+* prune old checkpoints ([#151](https://github.com/hhanh00/zkool2/issues/151)) ([bc5d11d](https://github.com/hhanh00/zkool2/commit/bc5d11d484446ae7fa7b21165f35c8c1e97646e0))
+* return number of new transparent addresses found during sweep ([#149](https://github.com/hhanh00/zkool2/issues/149)) ([55a688b](https://github.com/hhanh00/zkool2/commit/55a688b844ff910da80d582c5876759cd6f009ba))
+* separate tx building from signing, proving, etc. ([#145](https://github.com/hhanh00/zkool2/issues/145)) ([8edb8a7](https://github.com/hhanh00/zkool2/commit/8edb8a7a6eea9adb41e0035edef1d52694d5c93c))
+* show seed & biometrics authentication ([#153](https://github.com/hhanh00/zkool2/issues/153)) ([635f472](https://github.com/hhanh00/zkool2/commit/635f47276dfb7da5817d8780691f5f4bc19d311c))
+* show viewing keys ([#140](https://github.com/hhanh00/zkool2/issues/140)) ([9282f66](https://github.com/hhanh00/zkool2/commit/9282f66e18a4c7ae1f7dfa7db7ac25e0a4d1f16c))
+* skip shielded scan when only transparent key available ([#142](https://github.com/hhanh00/zkool2/issues/142)) ([8b4f2f3](https://github.com/hhanh00/zkool2/commit/8b4f2f3f6d33ec6a309b19faa0de1eef9b407918))
+
+
+### Bug Fixes
+
+* center account balance ([#154](https://github.com/hhanh00/zkool2/issues/154)) ([c654ff3](https://github.com/hhanh00/zkool2/commit/c654ff3ac265318ea44ab595d4b5f77f37597b36))
+* cold wallet spending ([#146](https://github.com/hhanh00/zkool2/issues/146)) ([75f7488](https://github.com/hhanh00/zkool2/commit/75f7488b5cedd9fd751aa45edef4396cde895bb7))
+* log span guards ([#144](https://github.com/hhanh00/zkool2/issues/144)) ([26bb2e9](https://github.com/hhanh00/zkool2/commit/26bb2e9f1aefb68b5e12bb616244da20b46a5edc))
+* multi payments ([#148](https://github.com/hhanh00/zkool2/issues/148)) ([fe10298](https://github.com/hhanh00/zkool2/commit/fe1029801f7143d68d83c247a8f71d81cd9fed3f))
+* reset_sync should not trim headers ([55a688b](https://github.com/hhanh00/zkool2/commit/55a688b844ff910da80d582c5876759cd6f009ba))
+* transparent sync when multiple accounts include the same ([#152](https://github.com/hhanh00/zkool2/issues/152)) ([86f1528](https://github.com/hhanh00/zkool2/commit/86f15288552e876ab1b531d8a26d176a9f140156))
+
+## [1.12.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.11.0...zkool-v1.12.0) (2025-04-23)
+
+
+### Features
+
+* build windows ([#138](https://github.com/hhanh00/zkool2/issues/138)) ([0c0852d](https://github.com/hhanh00/zkool2/commit/0c0852d56d23596ccc7e927fe15159dd8e95c4c9))
+
+
+### Bug Fixes
+
+* build windows ([#139](https://github.com/hhanh00/zkool2/issues/139)) ([7323995](https://github.com/hhanh00/zkool2/commit/7323995d2c05c9c1fd33b3c85082d80ba8f9b73f))
+* macos sign with entitlements ([#136](https://github.com/hhanh00/zkool2/issues/136)) ([47ec6ab](https://github.com/hhanh00/zkool2/commit/47ec6ab3655b0482fd0a0766adf9d66c850cf7dc))
+
+## [1.11.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.10.0...zkool-v1.11.0) (2025-04-23)
+
+
+### Features
+
+* build for linux ([#134](https://github.com/hhanh00/zkool2/issues/134)) ([8f98db1](https://github.com/hhanh00/zkool2/commit/8f98db1bb8bc8bdbf5d189ef3dbf5d633e9464d7))
+* dark mode ([#131](https://github.com/hhanh00/zkool2/issues/131)) ([10d5097](https://github.com/hhanh00/zkool2/commit/10d509700fa0e8f1e5f5a3d1558deb80926d37a7))
+
+## [1.10.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.9.0...zkool-v1.10.0) (2025-04-22)
+
+
+### Features
+
+* add confirmation dialog boxes ([#124](https://github.com/hhanh00/zkool2/issues/124)) ([bbed7cf](https://github.com/hhanh00/zkool2/commit/bbed7cfad98365fbdd63197c59b6bf74e1a6e67a))
+* add tutorial ([#122](https://github.com/hhanh00/zkool2/issues/122)) ([22da20c](https://github.com/hhanh00/zkool2/commit/22da20cc086fa65582e5811940e4db8dab11e6ca))
+* coin control ([#129](https://github.com/hhanh00/zkool2/issues/129)) ([b21e18e](https://github.com/hhanh00/zkool2/commit/b21e18e36216f446af9ffe18cf93393dbacb6d05))
+* gzip account files before export ([#126](https://github.com/hhanh00/zkool2/issues/126)) ([387df3b](https://github.com/hhanh00/zkool2/commit/387df3bf9dba2466294943c5792b8153fd88b5f0))
+* market price from coingecko ([#120](https://github.com/hhanh00/zkool2/issues/120)) ([a044e2e](https://github.com/hhanh00/zkool2/commit/a044e2e6c921b811fadc00411ee5172133e6e220))
+* passphrase to seed ([#115](https://github.com/hhanh00/zkool2/issues/115)) ([6013cd6](https://github.com/hhanh00/zkool2/commit/6013cd67d3ce2c3022715b4da383461cea396a34))
+* transaction details page ([#127](https://github.com/hhanh00/zkool2/issues/127)) ([e10ec58](https://github.com/hhanh00/zkool2/commit/e10ec5889d7e83657e11d44022c0ffae2f5a8ece))
+
+
+### Bug Fixes
+
+* account file encryption ([#130](https://github.com/hhanh00/zkool2/issues/130)) ([01118d0](https://github.com/hhanh00/zkool2/commit/01118d0e5484e876769ae5f6f46296a3734246d4))
+* do not include spent notes in note tab ([01118d0](https://github.com/hhanh00/zkool2/commit/01118d0e5484e876769ae5f6f46296a3734246d4))
+* do not reset sync height on edit birth ([#128](https://github.com/hhanh00/zkool2/issues/128)) ([9e3063f](https://github.com/hhanh00/zkool2/commit/9e3063fd89cfbbd68845aa2262f71d013d02277e))
+* improve autosync reliability ([#117](https://github.com/hhanh00/zkool2/issues/117)) ([252cf20](https://github.com/hhanh00/zkool2/commit/252cf2030a4f63f3db8cfaa9d0523eecbfcf141d))
+* missing refresh at end of sync ([#118](https://github.com/hhanh00/zkool2/issues/118)) ([37c1c2e](https://github.com/hhanh00/zkool2/commit/37c1c2ea63a1a2f7ef878d1fa2cbe46da41f4e31))
+* reload accounts at the end of a sync ([#119](https://github.com/hhanh00/zkool2/issues/119)) ([a2e6ed4](https://github.com/hhanh00/zkool2/commit/a2e6ed4d4d9085bc0aa27f2fc2459d739e1b5cda))
+* sync height update ([#116](https://github.com/hhanh00/zkool2/issues/116)) ([f3673f5](https://github.com/hhanh00/zkool2/commit/f3673f5fa602060b5e8025d3067e7af39fc1c97f))
+* tutorial ([#123](https://github.com/hhanh00/zkool2/issues/123)) ([f31df9a](https://github.com/hhanh00/zkool2/commit/f31df9abc4ac90dae1d58df1be18a7185aca5f76))
+* tutorial messages ([#125](https://github.com/hhanh00/zkool2/issues/125)) ([4c13886](https://github.com/hhanh00/zkool2/commit/4c138862b3c02ff3b54ffa523b40186fb4ba8e69))
+* use separate column for orchard address scope ([#113](https://github.com/hhanh00/zkool2/issues/113)) ([bbaf898](https://github.com/hhanh00/zkool2/commit/bbaf898053bd0b70ece794b99f902d5f3fa5f622))
+
+## [1.9.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.8.0...zkool-v1.9.0) (2025-04-19)
+
+
+### Features
+
+* internal change account option ([#110](https://github.com/hhanh00/zkool2/issues/110)) ([9142c09](https://github.com/hhanh00/zkool2/commit/9142c0915412d4ab72de6885fb4fbc93dac49410))
+
+
+### Bug Fixes
+
+* rewind checkpoint ([#112](https://github.com/hhanh00/zkool2/issues/112)) ([b4c239e](https://github.com/hhanh00/zkool2/commit/b4c239e410297504e26155be7e02033f5df54e37))
+
+## [1.8.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.7.0...zkool-v1.8.0) (2025-04-18)
+
+
+### Features
+
+* fallback to default db on cancel password ([#109](https://github.com/hhanh00/zkool2/issues/109)) ([45f2fa0](https://github.com/hhanh00/zkool2/commit/45f2fa07a554def6e8a4ff0c668ceaa46a12363d))
+* lwd url configuration setting ([#101](https://github.com/hhanh00/zkool2/issues/101)) ([7eadd90](https://github.com/hhanh00/zkool2/commit/7eadd906b4220298fbbc271755a690c498a94ea9))
+* multi account edit ([#100](https://github.com/hhanh00/zkool2/issues/100)) ([d62ce95](https://github.com/hhanh00/zkool2/commit/d62ce95469068e60a2667e846bd58a793185e73f))
+* show balance of all accounts ([#97](https://github.com/hhanh00/zkool2/issues/97)) ([a10d4a5](https://github.com/hhanh00/zkool2/commit/a10d4a57bb0139d881bc7bbad8374bf2e6883682))
+* toasts and snackbars for log messages ([#98](https://github.com/hhanh00/zkool2/issues/98)) ([d82301e](https://github.com/hhanh00/zkool2/commit/d82301e6ce7863280a0fd205387fa477049e40be))
+* transparent sweep ([#96](https://github.com/hhanh00/zkool2/issues/96)) ([3ace737](https://github.com/hhanh00/zkool2/commit/3ace737ad5f0467b28db8f410716b00c736df3e7))
+
+
+### Bug Fixes
+
+* account list style ([#99](https://github.com/hhanh00/zkool2/issues/99)) ([7d7cf3f](https://github.com/hhanh00/zkool2/commit/7d7cf3ff704620b1855146725f086e3478f0814c))
+* account reorder, src pool selection ([#105](https://github.com/hhanh00/zkool2/issues/105)) ([3eb1b41](https://github.com/hhanh00/zkool2/commit/3eb1b4167ef5aa1ab577e2c953290ce4d191e1f0))
+* change app icon ([#108](https://github.com/hhanh00/zkool2/issues/108)) ([1d6c95b](https://github.com/hhanh00/zkool2/commit/1d6c95be6f2feec0bb7ee378829121e206b79673))
+* new account by xprv/xpub/bip38 ([#103](https://github.com/hhanh00/zkool2/issues/103)) ([d75953d](https://github.com/hhanh00/zkool2/commit/d75953d1885e75ef2913934e8797fe60a72506c0))
+* new accounts don't show up ([#102](https://github.com/hhanh00/zkool2/issues/102)) ([6a07fb0](https://github.com/hhanh00/zkool2/commit/6a07fb0357c3110b39c5ad34dd2dc9f327f47c5e))
+* sync and init ([#94](https://github.com/hhanh00/zkool2/issues/94)) ([e8ea72e](https://github.com/hhanh00/zkool2/commit/e8ea72e2c1fbeaf39455e6145e0f7dc1dd689c11))
+* ufvk import ([#104](https://github.com/hhanh00/zkool2/issues/104)) ([6c93836](https://github.com/hhanh00/zkool2/commit/6c93836d95e969d538f182384a189a4832175b6a))
+* use bundled sqlcipher ([#106](https://github.com/hhanh00/zkool2/issues/106)) ([685e776](https://github.com/hhanh00/zkool2/commit/685e7764c4f50a3f5faa1801f5bd552d1307e3f1))
+
+## [1.7.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.6.0...zkool-v1.7.0) (2025-04-15)
+
+
+### Features
+
+* database encryption ([#93](https://github.com/hhanh00/zkool2/issues/93)) ([2ddafec](https://github.com/hhanh00/zkool2/commit/2ddafec470f430165f1c8f5fbdb9d9bdac0d656a))
+* synchronize checked accounts on account list ([#90](https://github.com/hhanh00/zkool2/issues/90)) ([8da267b](https://github.com/hhanh00/zkool2/commit/8da267b0fbbffc27f17d934403cd85ecd35509dc))
+
+
+### Bug Fixes
+
+* android build ([8da267b](https://github.com/hhanh00/zkool2/commit/8da267b0fbbffc27f17d934403cd85ecd35509dc))
+* sync account list heights with sync state ([#92](https://github.com/hhanh00/zkool2/issues/92)) ([ec4da8b](https://github.com/hhanh00/zkool2/commit/ec4da8b2ba8e00f3e91701434ed8a0eaa61609a1))
+
+## [1.6.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.5.0...zkool-v1.6.0) (2025-04-14)
+
+
+### Features
+
+* android version ([#71](https://github.com/hhanh00/zkool2/issues/71)) ([b9935b8](https://github.com/hhanh00/zkool2/commit/b9935b8b30f35774de39045aa995bdae0af84072))
+* export account data ([#75](https://github.com/hhanh00/zkool2/issues/75)) ([4927d47](https://github.com/hhanh00/zkool2/commit/4927d478952501fab7bfbe2a3e81fa14e133e9c5))
+* import account from binary data ([#76](https://github.com/hhanh00/zkool2/issues/76)) ([8e52095](https://github.com/hhanh00/zkool2/commit/8e520951f89533b43d4546ad45d45cbf138a5b82))
+* import accounts & encryption ([#77](https://github.com/hhanh00/zkool2/issues/77)) ([8eef09a](https://github.com/hhanh00/zkool2/commit/8eef09ab66b4804cfdd0e9dec2b19b76b6e9290e))
+* multisend ([#88](https://github.com/hhanh00/zkool2/issues/88)) ([b47766e](https://github.com/hhanh00/zkool2/commit/b47766ebdf2995988c4e73aae9b6d53536ee7b14))
+* QR code scanner and display ([#78](https://github.com/hhanh00/zkool2/issues/78)) ([2474b4e](https://github.com/hhanh00/zkool2/commit/2474b4e373346d21cc8e792ec53f5d8e911392b7))
+* reorg detection and rewind ([#79](https://github.com/hhanh00/zkool2/issues/79)) ([93def21](https://github.com/hhanh00/zkool2/commit/93def21c22afe9f6ea53c3bf999ff5fd24c68fa5))
+* reset account ([#81](https://github.com/hhanh00/zkool2/issues/81)) ([61feaaf](https://github.com/hhanh00/zkool2/commit/61feaaf0cb9047742cd090e3afe84056ce15ecbb))
+* settings page ([#86](https://github.com/hhanh00/zkool2/issues/86)) ([73e237c](https://github.com/hhanh00/zkool2/commit/73e237c84c5f4643ce77036ad142a1038b1f87d0))
+* synchronization retry with exponential backoff ([#80](https://github.com/hhanh00/zkool2/issues/80)) ([dd774e9](https://github.com/hhanh00/zkool2/commit/dd774e9caa935645b93621aa2b82cfea2859dddb))
+* synchronize checked accounts on account list ([#89](https://github.com/hhanh00/zkool2/issues/89)) ([25289a1](https://github.com/hhanh00/zkool2/commit/25289a18c6c74b5775a38a198e72d4bac522585f))
+
+
+### Bug Fixes
+
+* error handling try/catch around network calls ([#74](https://github.com/hhanh00/zkool2/issues/74)) ([187e5be](https://github.com/hhanh00/zkool2/commit/187e5bedcdc6d253febc04b03e34b0a9be62bdc1))
+* import accounts in first position ([#87](https://github.com/hhanh00/zkool2/issues/87)) ([d055d21](https://github.com/hhanh00/zkool2/commit/d055d210e47ab9b12165767e784fbc4e5155a401))
+* load of transaction history and memos ([#83](https://github.com/hhanh00/zkool2/issues/83)) ([16b32a8](https://github.com/hhanh00/zkool2/commit/16b32a898f03ee3eefa5049ad347fd53c9842f86))
+* retry sync ([#84](https://github.com/hhanh00/zkool2/issues/84)) ([80037af](https://github.com/hhanh00/zkool2/commit/80037af8cf2c47f13396a6597782dc94fea0bb22))
+* sync of outgoing notes ([#85](https://github.com/hhanh00/zkool2/issues/85)) ([a7ebcc0](https://github.com/hhanh00/zkool2/commit/a7ebcc0a7e1faf2fe543fde57d2388b56590c625))
+* tx memo parsing ([#73](https://github.com/hhanh00/zkool2/issues/73)) ([1af9c80](https://github.com/hhanh00/zkool2/commit/1af9c80c729d969b143205d8ec95dd7c1b09279c))
+* updates to sync height were not going through after navigating away from account page ([#82](https://github.com/hhanh00/zkool2/issues/82)) ([3e610f7](https://github.com/hhanh00/zkool2/commit/3e610f74dda37265509a926a451f98d7704c9172))
+
+## [1.5.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.4.0...zkool-v1.5.0) (2025-04-12)
+
+
+### Features
+
+* auto renew transparent change address ([#65](https://github.com/hhanh00/zkool2/issues/65)) ([1d42e75](https://github.com/hhanh00/zkool2/commit/1d42e7514ab54609d5ec83109c01a8532feaba79))
+* expose src pools and recipient pays fees to UI ([#64](https://github.com/hhanh00/zkool2/issues/64)) ([150e063](https://github.com/hhanh00/zkool2/commit/150e0634bff3ae608654bdc86b5e700c3212eeac))
+* generate additional transparent addresses ([#61](https://github.com/hhanh00/zkool2/issues/61)) ([93a85b2](https://github.com/hhanh00/zkool2/commit/93a85b2278e8c5f246cad802a3edfa4911ca5164))
+* logging framework ([#67](https://github.com/hhanh00/zkool2/issues/67)) ([aa83e32](https://github.com/hhanh00/zkool2/commit/aa83e3249d355778edaf3f4b3488514f3f937f1c))
+* scan last 5 receive and change transparent addresses ([#62](https://github.com/hhanh00/zkool2/issues/62)) ([22403b8](https://github.com/hhanh00/zkool2/commit/22403b804be93affb56249eeb3e0177f3c9c8279))
+* send memo ([#59](https://github.com/hhanh00/zkool2/issues/59)) ([3d75a82](https://github.com/hhanh00/zkool2/commit/3d75a8272ed236ea9b39d865b15f81b454ba9863))
+* show diversified addresses ([#63](https://github.com/hhanh00/zkool2/issues/63)) ([ed8383f](https://github.com/hhanh00/zkool2/commit/ed8383f12f08efbe81013c41b76d23784e19339b))
+* show/hide accounts ([#69](https://github.com/hhanh00/zkool2/issues/69)) ([647d521](https://github.com/hhanh00/zkool2/commit/647d52159096f67d847b9810108be01bfd61e45f))
+* split tab views for transactions and memos ([#66](https://github.com/hhanh00/zkool2/issues/66)) ([ecf7395](https://github.com/hhanh00/zkool2/commit/ecf7395ebecb30595b8ee4aef579eba6e0c01bfb))
+
+
+### Bug Fixes
+
+* add more logging messages ([#68](https://github.com/hhanh00/zkool2/issues/68)) ([c94eed5](https://github.com/hhanh00/zkool2/commit/c94eed5d0b33d932449bfa0007da4b2100e31727))
+* tx building when recipient pays fees ([150e063](https://github.com/hhanh00/zkool2/commit/150e0634bff3ae608654bdc86b5e700c3212eeac))
+
+## [1.4.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.3.0...zkool-v1.4.0) (2025-04-11)
+
+
+### Features
+
+* fetch memos ([#58](https://github.com/hhanh00/zkool2/issues/58)) ([8e56bae](https://github.com/hhanh00/zkool2/commit/8e56bae9091d2a1c009a2ca2796477dd875ae777))
+* independent account synchronization ([#54](https://github.com/hhanh00/zkool2/issues/54)) ([8e61b14](https://github.com/hhanh00/zkool2/commit/8e61b14d790874534c44e3cffa786edd38860465))
+* show transaction history ([#56](https://github.com/hhanh00/zkool2/issues/56)) ([6ac7957](https://github.com/hhanh00/zkool2/commit/6ac79576406c911a0939a58b07cc4abe76f1dbcc))
+
+## [1.3.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.2.0...zkool-v1.3.0) (2025-04-10)
+
+
+### Features
+
+* build and send transaction ([#53](https://github.com/hhanh00/zkool2/issues/53)) ([51b31ae](https://github.com/hhanh00/zkool2/commit/51b31ae7686a56a5493be874dc112a5dd8fdeb1a))
+* show tx plan ([#52](https://github.com/hhanh00/zkool2/issues/52)) ([f180159](https://github.com/hhanh00/zkool2/commit/f1801595fc5e7387f9ef8d45004285e2f7c2a7be))
+
+
+### Bug Fixes
+
+* github workflow ([#49](https://github.com/hhanh00/zkool2/issues/49)) ([057a021](https://github.com/hhanh00/zkool2/commit/057a021dbec6a455be8fded396cfff9a7eaba47c))
+* pczt tx building order ([#51](https://github.com/hhanh00/zkool2/issues/51)) ([989bc3a](https://github.com/hhanh00/zkool2/commit/989bc3a61531f9fbefe3f20a09e396ad09c8fe1b))
+* upload release permission ([057a021](https://github.com/hhanh00/zkool2/commit/057a021dbec6a455be8fded396cfff9a7eaba47c))
+
+## [1.2.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.1.0...zkool-v1.2.0) (2025-04-09)
+
+
+### Features
+
+* add fees manager ([#42](https://github.com/hhanh00/zkool2/issues/42)) ([f02ddf3](https://github.com/hhanh00/zkool2/commit/f02ddf3c4b5e2dcfbfe1f5d7938c3952a10a3fe1))
+* add seed fingerprint ([#40](https://github.com/hhanh00/zkool2/issues/40)) ([e2d2997](https://github.com/hhanh00/zkool2/commit/e2d29971b820f9dd07574fd27ce220a30d37304b))
+* determine what pool to use for the change ([#41](https://github.com/hhanh00/zkool2/issues/41)) ([af1a6c7](https://github.com/hhanh00/zkool2/commit/af1a6c755f2108c9a1a6e9d9faee133398d7cf62))
+* pczt builder ([#38](https://github.com/hhanh00/zkool2/issues/38)) ([7f18457](https://github.com/hhanh00/zkool2/commit/7f18457a5aa2e51b6f8cb3be2efa5fe7cea361ab))
+* pczt builder ([#48](https://github.com/hhanh00/zkool2/issues/48)) ([5bd03d2](https://github.com/hhanh00/zkool2/commit/5bd03d265b29d833df63e5c6d99ee355826795fa))
+* transaction planner ([#43](https://github.com/hhanh00/zkool2/issues/43)) ([4e6120d](https://github.com/hhanh00/zkool2/commit/4e6120d88f3ee90a746a47cc6621c72e7655728c))
+
+
+### Bug Fixes
+
+* (tx prepare) complete note assignment ([#45](https://github.com/hhanh00/zkool2/issues/45)) ([a1e7582](https://github.com/hhanh00/zkool2/commit/a1e7582056057083e4870e2ffb539a0fea7f48b0))
+* (tx prepare) read unspent notes from db ([#44](https://github.com/hhanh00/zkool2/issues/44)) ([c30af46](https://github.com/hhanh00/zkool2/commit/c30af46ca4ca88a77dd6eb93045ca082f380c9dc))
+* add id_taddress to transparent notes ([#46](https://github.com/hhanh00/zkool2/issues/46)) ([d4b7386](https://github.com/hhanh00/zkool2/commit/d4b7386ecf675e2066372c6dcf1a941738c80502))
+* add t/s/o inputs to tx builder ([#47](https://github.com/hhanh00/zkool2/issues/47)) ([cfac62e](https://github.com/hhanh00/zkool2/commit/cfac62eb7638a8c07eda331760d58bd57ca395d2))
+
+## [1.1.0](https://github.com/hhanh00/zkool2/compare/zkool-v1.0.0...zkool-v1.1.0) (2025-04-07)
+
+
+### Features
+
+* account view page ([#19](https://github.com/hhanh00/zkool2/issues/19)) ([98ae49c](https://github.com/hhanh00/zkool2/commit/98ae49c4f97657f2ccfee03f702a59d5ea0174f8))
+* calculate pool balances ([#23](https://github.com/hhanh00/zkool2/issues/23)) ([fbeab61](https://github.com/hhanh00/zkool2/commit/fbeab6108259ec98f01996fc0d1cfe3cad8b61d5))
+* report sync progress to UI ([#36](https://github.com/hhanh00/zkool2/issues/36)) ([806f0bf](https://github.com/hhanh00/zkool2/commit/806f0bf5db93c851d667ebb9661a485a2049f99d))
+* rewind to height (snap to earlier checkpoint) ([#33](https://github.com/hhanh00/zkool2/issues/33)) ([2957cc3](https://github.com/hhanh00/zkool2/commit/2957cc33dbc4d4695ab70b42415acce853687c0f))
+* save checkpoint block headers ([#34](https://github.com/hhanh00/zkool2/issues/34)) ([5e2bd28](https://github.com/hhanh00/zkool2/commit/5e2bd2825e712dd50ff085e370ae8f1d365fcb3d))
+* shielded sync ([#25](https://github.com/hhanh00/zkool2/issues/25)) ([a999305](https://github.com/hhanh00/zkool2/commit/a99930583145376f2ef7ed9516a53fbdae6d9b67))
+* store shielded sync state in database ([#26](https://github.com/hhanh00/zkool2/issues/26)) ([3c18f64](https://github.com/hhanh00/zkool2/commit/3c18f64b45efbfc006b6e37693f8005db9de0c87))
+* transparent sync ([#22](https://github.com/hhanh00/zkool2/issues/22)) ([8aabc4c](https://github.com/hhanh00/zkool2/commit/8aabc4c7dd443a006efe3e0e36ed74e7074a5fa8))
+
+
+### Bug Fixes
+
+* issues with synchronization ([#28](https://github.com/hhanh00/zkool2/issues/28)) ([cc75da2](https://github.com/hhanh00/zkool2/commit/cc75da296ebf8ad11c7478c6ea98d77d47683e20))
+* reactivate transparent sync & fix issue with dups ([#31](https://github.com/hhanh00/zkool2/issues/31)) ([9199b4d](https://github.com/hhanh00/zkool2/commit/9199b4d33de0d5ca7fb11dc9f710e514ddb7917a))
+* recover from partial sync ([#32](https://github.com/hhanh00/zkool2/issues/32)) ([5dbba88](https://github.com/hhanh00/zkool2/commit/5dbba88f026f2ab842ea2ba4a81e7386f5044f4b))
+* remove account id argument, use set_account ([#24](https://github.com/hhanh00/zkool2/issues/24)) ([02eaced](https://github.com/hhanh00/zkool2/commit/02eaced380d57903bfc2fa5db10c894d1152d774))
+* resolve transparent tx timestamp during the shielded scan ([#35](https://github.com/hhanh00/zkool2/issues/35)) ([498be85](https://github.com/hhanh00/zkool2/commit/498be85d057328bed0a1fe6ecadf978ea3067692))
+* spend detection ([#29](https://github.com/hhanh00/zkool2/issues/29)) ([2298b5d](https://github.com/hhanh00/zkool2/commit/2298b5d64a0bdc8346a8f946251c15ee21c94c50))
+* spend detection for notes with vout != 0 ([#30](https://github.com/hhanh00/zkool2/issues/30)) ([c44bdeb](https://github.com/hhanh00/zkool2/commit/c44bdebaeff9a4cc4861aaee6b5d6172c177b106))
+* transparent sync ([#27](https://github.com/hhanh00/zkool2/issues/27)) ([f9582d2](https://github.com/hhanh00/zkool2/commit/f9582d27f74346df9ec26adb1a0f9f9c35d023b7))
+
+## 1.0.0 (2025-04-04)
+
+
+### Features
+
+* account deletion ([#10](https://github.com/hhanh00/zkool2/issues/10)) ([8a964f0](https://github.com/hhanh00/zkool2/commit/8a964f0641022116b80acb821378a1f038c267f0))
+* account edit properties ([#8](https://github.com/hhanh00/zkool2/issues/8)) ([277f633](https://github.com/hhanh00/zkool2/commit/277f633afcdaccb0b82936137020c9d0c4275bd6))
+* account list data table ([#7](https://github.com/hhanh00/zkool2/issues/7)) ([57c3f03](https://github.com/hhanh00/zkool2/commit/57c3f03a67bc73c8865604801ebe845601466cb0))
+* account reordering by drag and drop ([#11](https://github.com/hhanh00/zkool2/issues/11)) ([f3bcaf2](https://github.com/hhanh00/zkool2/commit/f3bcaf26bec307af7bff5e94036280f5979785b8))
+* convert to UFVK, UA and individual receivers ([#4](https://github.com/hhanh00/zkool2/issues/4)) ([54c92a8](https://github.com/hhanh00/zkool2/commit/54c92a8d51ec35d9a64deb8dd2878d0e62a5377f))
+* create new account with random seed ([#18](https://github.com/hhanh00/zkool2/issues/18)) ([01e8361](https://github.com/hhanh00/zkool2/commit/01e83613e929712c629b5e6de7538e78b337f38e))
+* create sapling & orchard account data from seed ([#2](https://github.com/hhanh00/zkool2/issues/2)) ([2b47317](https://github.com/hhanh00/zkool2/commit/2b47317c1916d474342b39aad670ae094b4758d6))
+* import of sapling keys (sk/vk), uvk and transparent sk ([#3](https://github.com/hhanh00/zkool2/issues/3)) ([fd3d99e](https://github.com/hhanh00/zkool2/commit/fd3d99ecd98c55c6890579a358bac511bfd77bfb))
+* new account implementation ([#15](https://github.com/hhanh00/zkool2/issues/15)) ([00235ed](https://github.com/hhanh00/zkool2/commit/00235edf255f0f82a25a3c64e88650255272d90c))
+* new account page ([#13](https://github.com/hhanh00/zkool2/issues/13)) ([4ab4345](https://github.com/hhanh00/zkool2/commit/4ab4345c25fc63d43eced9426d6386f8470bb383))
+
+
+### Bug Fixes
+
+* artifact upload ([2b47317](https://github.com/hhanh00/zkool2/commit/2b47317c1916d474342b39aad670ae094b4758d6))
+* ci workflows ([#12](https://github.com/hhanh00/zkool2/issues/12)) ([57015e1](https://github.com/hhanh00/zkool2/commit/57015e15c4a4002ca307be966a06ee49e72607d1))
+* continue work on ([#7](https://github.com/hhanh00/zkool2/issues/7)) ([#9](https://github.com/hhanh00/zkool2/issues/9)) ([f10430f](https://github.com/hhanh00/zkool2/commit/f10430f8d9c377908d592df56f0b0e8888f707dc))
+* do not run ci on release-please ([f9aa589](https://github.com/hhanh00/zkool2/commit/f9aa589fd65920a0553e25888a42ce9cd4e9316b))
+* new account from key ([#17](https://github.com/hhanh00/zkool2/issues/17)) ([415e4e2](https://github.com/hhanh00/zkool2/commit/415e4e2a3f00d44c98949f3f1b0c96ccd2948b7e))
+* remove coin arg from api ([#14](https://github.com/hhanh00/zkool2/issues/14)) ([034adde](https://github.com/hhanh00/zkool2/commit/034addeea2722d38e8fe4d8f65c1ccd0e5ce526b))
+* transparent address table should contain sk ([#16](https://github.com/hhanh00/zkool2/issues/16)) ([584a679](https://github.com/hhanh00/zkool2/commit/584a67950423349993cbf5e8953d03fee9ecfc20))
