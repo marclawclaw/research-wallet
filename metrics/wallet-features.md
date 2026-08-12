@@ -263,38 +263,46 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 
 | Feature | Zodl | YWallet | Nighthawk |
 |---------|------|---------|---------|
-| **Platforms** | iOS, Android | iOS, Android, Desktop | iOS, Android |
-| **License** | MIT (both repos) | [NF] | [NF] |
-| **Architecture** | Light client (lightwalletd gRPC; Zcash Android SDK / Swift SDK) | Light client | Light client |
-| **Language** | Kotlin (Android); Swift (iOS) | [NF] | [NF] |
-| **Latest version** | Android: v3.9.2 (2026-08-10); iOS: v3.9.2 (2026-08-11) | [NF] | [NF] |
-| **Shielded by default** | Y — Orchard pool via Unified Address; senders with Orchard capability routed to Orchard automatically | Y | Y (Sapling) |
-| **Unified Addresses (ZIP 316)** | Y — default receive format | Y | Y |
+| **Platforms** | iOS, Android | iOS, Android, Windows, macOS, Linux (AppImage, Flatpak, .msix, .dmg) | iOS, Android |
+| **License** | MIT (both repos) | MIT (`zwallet` repo confirmed) | [NF] |
+| **Architecture** | Light client (lightwalletd gRPC; Zcash Android SDK / Swift SDK) | Light client (lightwalletd gRPC; custom Warp Sync engine) | Light client |
+| **Language** | Kotlin (Android); Swift (iOS) | Dart (Flutter) + Rust FFI (`zcash-sync` library) | [NF] |
+| **Latest version** | Android: v3.9.2 (2026-08-10); iOS: v3.9.2 (2026-08-11) | v1.15.3 (4 June 2026) — **deprecated: security/protocol fixes only**; successor ZKool2 zkool-v6.26.1 (2 August 2026) | [NF] |
+| **Status** | Active | **Deprecated** — swaps and voting removed v1.14.1 (Nov 2025); deprecation notice added v1.14.3 (May 2026); PCZT/hardware wallet deferred to ZKool2 | [NF] |
+| **Shielded by default** | Y — Orchard pool via Unified Address; senders with Orchard capability routed to Orchard automatically | Y — shielded primary; transparent balance cannot be directly spent without explicit shielding action | Y (Sapling) |
+| **Unified Addresses (ZIP 316)** | Y — default receive format | Y — "Snap (diversified) addresses" confirmed in README | Y |
 | **Orchard pool** | Y — default pool; Ironwood migration support (v3.9.0, Aug 2026) | Y | Y (v2) |
 | **Sapling pool** | Y — legacy receive support retained | Y | Y |
-| **Ironwood pool (NU6.3)** | Y — Ironwood support v3.8.0 (2026-07-27); guided migration in v3.9.0 (2026-08-08) | [NF] | [NF] |
+| **Ironwood pool (NU6.3)** | Y — Ironwood support v3.8.0 (2026-07-27); guided migration in v3.9.0 (2026-08-08) | [NF] — NU6.2 supported (v1.15.0); Ironwood open issue #271 unresolved as of 2026-08-12 | [NF] |
 | **Transparent (t-address)** | Y — send and receive; ZIP 320 TEX support with auto-deshield | Y | Y |
-| **Auto-shielding** | Y — user-prompted shielding panel in Balances screen; Keystone can shield transparent funds; not fully automatic on receipt | [NF] | [NF] |
-| **Memo field** | Y — 512-byte encrypted memo; exposed in send/receive UI; pre-filled from ZIP 321 scan | Y | Y |
-| **ZIP 321 payment URIs** | Y — full send/receive; QR code scan opens wallet and pre-fills amount + memo | Y | [NF] |
-| **Key management** | ZIP 32 HD; 24-word BIP39 seed → Unified Spending Key (USK); birthday height for fast restore | [NF] | [NF] |
-| **Seed format** | BIP39 24-word English | [NF] | [NF] |
-| **Passphrase (BIP39 extension)** | N — not found in source or documentation | [NF] | [NF] |
-| **Hardware wallet** | Y — Keystone (QR-based air-gapped; firmware ≥3.0.1 required for Ironwood migration signing); no Ledger, Trezor, or other HW | N | N |
-| **Watch-only** | [NF] — Keystone account is an air-gapped signer; pure watch-only import not confirmed | [NF] | [NF] |
-| **Multisig** | N | [NF] | N |
-| **Built-in swap** | Y — ZEC↔BTC/stablecoins/other; slippage protection enforced; Zodl Crosspay (shielded ZEC → recipient's preferred asset) | [NF] | [NF] |
+| **Auto-shielding** | Y — user-prompted shielding panel in Balances screen; Keystone can shield transparent funds; not fully automatic on receipt | Y — "Automatic shielding above configurable threshold"; "One touch transparent account shielding" (README) | [NF] |
+| **Memo field** | Y — 512-byte encrypted memo; exposed in send/receive UI; pre-filled from ZIP 321 scan | Y — confirmed in README feature list | Y |
+| **ZIP 321 payment URIs** | Y — full send/receive; QR code scan opens wallet and pre-fills amount + memo | Y — README: "Payment URI" feature listed | [NF] |
+| **Key management** | ZIP 32 HD; 24-word BIP39 seed → Unified Spending Key (USK); birthday height for fast restore | ZIP 32 compliant; also imports raw zcashd secret key; account index selectable (v1.13.3 fix) | [NF] |
+| **Seed format** | BIP39 24-word English | ZIP 32 seed phrase (exact word count [NF]); zcashd secret key import | [NF] |
+| **Passphrase (BIP39 extension)** | N — not found in source or documentation | [NF] — not mentioned in README or CHANGELOG | [NF] |
+| **PCZT (offline signing)** | N — uses Keystone QR-based signing (format [NF]) | N — uses proprietary unsigned transaction file (air-gap via file transfer); PCZT deferred to ZKool2 successor | [NF] |
+| **Hardware wallet** | Y — Keystone (QR-based air-gapped; firmware ≥3.0.1 required for Ironwood migration signing); no Ledger, Trezor, or other HW | N — Ledger code removed in v1.12.x (PR #204, March 2025); no HW wallet support in current version | N |
+| **Cold wallet / offline signing** | Y (Keystone QR) | Y — proprietary unsigned transaction file (USB OTG transfer to offline device); not PCZT | [NF] |
+| **Watch-only** | [NF] — Keystone account is an air-gapped signer; pure watch-only import not confirmed | Y — watch-only account via Full Viewing Key (FVK); confirmed in README | [NF] |
+| **Multisig** | N | N — YWallet; ZKool2 successor adds FROST threshold multisig | N |
+| **Coin control (note selection)** | [NF] | Y — "Display and select notes (Coin Control)"; exclude from spending; confirmed in README | [NF] |
+| **Built-in swap** | Y — ZEC↔BTC/stablecoins/other; slippage protection enforced; Zodl Crosspay (shielded ZEC → recipient's preferred asset) | N — removed v1.14.1 (Nov 2025, commit #248); ZKool2 also has no swap | [NF] |
 | **Flexa payments** | Y — NFC merchant payments via Flexa SDK integration (opt-in build; included in F-Droid FOSS build too) | N | N |
-| **Currency conversion** | Y — USD/ZEC + multi-fiat (v3.7.0+); via CMC; always routed via Tor when enabled | [NF] | [NF] |
-| **Tor support** | Y — opt-in embedded Tor client; exchange rate fetches always use Tor; enabled from Settings or home screen prompt | [NF] | [NF] |
-| **ZIP 320 (TEX addresses)** | Y — auto-deshield to ephemeral t-address → TEX recipient; two-step to prevent on-chain linkage | [NF] | [NF] |
-| **Coinholder Polling (governance)** | Y — private on-chain Zcash governance voting from within wallet; Keystone compatible | N | N |
-| **Crash reporting** | Firebase Crashlytics — fully opt-in since v2.0.0 (Apr 2025) | N | [NF] |
-| **Multiple accounts** | Y — base Zodl account + Keystone hardware wallet accounts | [NF] | [NF] |
-| **Address book** | Y — encrypted; Android auto-backup + cloud backup | [NF] | [NF] |
-| **Open-source** | Y (MIT) | Y | Y |
-| **F-Droid** | Y — own F-Droid repo at foss.zodl.com (not f-droid.org); same signed build as Google Play including Flexa + CMC + Crashlytics | [NF] | Y |
-| **Reproducible builds** | [NF] — no documented reproducible build process found | [NF] | [NF] |
+| **Currency conversion** | Y — USD/ZEC + multi-fiat (v3.7.0+); via CMC; always routed via Tor when enabled | Y — "Show equivalent in Fiat currencies (USD, EUR, JPY, RMB, etc.)" (README); ~70 reference currencies | [NF] |
+| **Tor support** | Y — opt-in embedded Tor client; exchange rate fetches always use Tor; enabled from Settings or home screen prompt | N — no Tor in YWallet; ZKool2 adds Tor + onion services | [NF] |
+| **ZIP 320 (TEX addresses)** | Y — auto-deshield to ephemeral t-address → TEX recipient; two-step to prevent on-chain linkage | Y — CHANGELOG v1.14.2: "parse tex address in extract_receivers" | [NF] |
+| **Coinholder Polling (governance)** | Y — private on-chain Zcash governance voting from within wallet; Keystone compatible | N — voting feature removed v1.14.1 (Nov 2025, PR #248, same commit as swaps removal) | N |
+| **Crash reporting** | Firebase Crashlytics — fully opt-in since v2.0.0 (Apr 2025) | N — README: "No data upload" | [NF] |
+| **Multiple accounts** | Y — base Zodl account + Keystone hardware wallet accounts | Y — multiple accounts with different seeds, secret keys, or viewing keys; confirmed in README | [NF] |
+| **Multi-recipient payment** | [NF] | Y — "MultiPay" / "Multiple recipient payments" (README) | [NF] |
+| **Address book (on-chain)** | Y — encrypted; Android auto-backup + cloud backup | Y — contacts stored in on-chain encrypted memos; "will never be lost" (README) | [NF] |
+| **Warp Sync** | N — uses standard Zcash Android/Swift SDK scanning | Y — ~10,000 blocks/second (Snapdragon 855+ tested); ZKool2 uses "Improved Warp" with per-account state | [NF] |
+| **Custom lightwalletd server** | [NF] | Y — user-configurable in Settings (README: "Customizable lightwalletd server URL") | [NF] |
+| **Open-source** | Y (MIT) | Y (MIT) | Y |
+| **F-Droid** | Y — own F-Droid repo at foss.zodl.com (not f-droid.org); same signed build as Google Play including Flexa + CMC + Crashlytics | Y — F-Droid APK released per version (app-fdroid.apk in release assets) | Y |
+| **Reproducible builds** | [NF] — no documented reproducible build process found | [NF] — no documented reproducible build process found | [NF] |
+| **Security audit** | [NF] | [NF] — no public security audit found | [NF] |
 | **Security model doc** | Y — formal invariant-centric threat model published at zodl-inc/zodl-project | N | N |
 
 **Sources for Zodl column (2026-08-12):**
@@ -307,3 +315,12 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 - [Apple App Store (ID 1672392439)](https://itunes.apple.com/lookup?id=1672392439) — accessed 2026-08-12 — [archived](../sources/2026-08-12-itunes-apple-com-zodl-ios-id.json) (description, version, rating)
 - [Google Play Store structured data](https://play.google.com/store/apps/details?id=co.electriccoin.zcash) — accessed 2026-08-12 — [archived](../sources/2026-08-12-play-google-com-zodl-android.html) (install count, rating, ZODL org name)
 - [wallets/zodl.md](../wallets/zodl.md) — primary note with full feature detail and citations
+
+**Sources for YWallet column (2026-08-12):**
+- [GitHub API: hhanh00/zwallet](https://api.github.com/repos/hhanh00/zwallet) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-hhanh00-zwallet.json) (stars: 62; forks: 43; licence: MIT; language: Dart; last pushed: 4 June 2026)
+- [GitHub API: hhanh00/zkool2](https://api.github.com/repos/hhanh00/zkool2) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-hhanh00-zkool2.json) (stars: 35; forks: 18; licence: MIT; language: Rust; last pushed: 2 August 2026)
+- [zwallet README](https://raw.githubusercontent.com/hhanh00/zwallet/main/README.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-com-hhanh00-zwallet-README.md) (features confirmed: multi-account, watch-only, coin control, auto-shielding, cold wallet, MultiPay, contacts, fiat conversion, custom lightwalletd, ZIP 32, Warp Sync speed claim)
+- [zwallet CHANGELOG](https://raw.githubusercontent.com/hhanh00/zwallet/main/CHANGELOG.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-com-hhanh00-zwallet-CHANGELOG.md) (v1.14.1: swaps + voting removed PR #248; v1.14.3: deprecation notice; v1.15.0: NU6.2 support; v1.14.2: TEX address parsing; v1.12.x: Ledger code removed PR #204)
+- [zkool2 README](https://raw.githubusercontent.com/hhanh00/zkool2/main/README.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-com-hhanh00-zkool2-README.md) (FROST multisig, PCZT, Tor proxy, no swap integration, no auto-shielding)
+- [zwallet releases API (top 10)](https://api.github.com/repos/hhanh00/zwallet/releases?per_page=10) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-hhanh00-zwallet-releases.json) (F-Droid APK in release assets confirmed per-version)
+- [wallets/ywallet.md](../wallets/ywallet.md) — primary note with full feature detail and citations
