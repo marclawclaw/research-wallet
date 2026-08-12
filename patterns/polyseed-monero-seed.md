@@ -35,6 +35,16 @@ Polyseed encodes the creation date within its 16 words, eliminating the need to 
 | Wallet group support | No (cannot join Cake Wallet groups) | No | Yes (required for multi-currency shared seed) |
 | Standard | Polyseed open spec | Monero Project standard | BIP39 open standard |
 
+## Non-usage in Monero GUI
+
+Monero GUI uses only the traditional **25-word Monero mnemonic** (Monero Project standard). Polyseed is not supported.
+
+- Users creating a new wallet in Monero GUI receive a 25-word mnemonic with no embedded date.
+- The restore height must be recorded separately by the user.
+- If the restore height is unknown, the wallet scans from block 0 — potentially many hours of sync time.
+- Polyseed wallets created in Cake Wallet cannot be imported into Monero GUI. Users must migrate by sweeping funds to a new 25-word wallet.
+- This is a meaningful usability disadvantage of Monero GUI relative to Cake Wallet for new users and for users who may need to recover their wallet.
+
 ## Usage in Cake Wallet
 
 - **Default:** Polyseed is the default seed format when creating a new Monero wallet in Cake Wallet.

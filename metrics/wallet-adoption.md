@@ -58,11 +58,14 @@ Cross-wallet adoption comparison for self-custody software wallets. All figures 
 | Wallet | GitHub stars | MAU | Date |
 |--------|-------------|-----|------|
 | Cake Wallet | 1,838 | [NOT FOUND] — structurally unavailable (Monero privacy); self-reported "1,750,000+ users" (unverified, all-time cumulative) | 2026-08-12 |
-| Monero GUI | 2,284 | [NOT FOUND] | 2026-08-10 |
+| Monero GUI | 2,285 | [NOT FOUND] — structurally unavailable (Monero privacy); Flathub (Linux only): 101,837 total installs, 2,135 last 30 days, 398 last 7 days | 2026-08-12 |
 | Feather Wallet | 572 | [NOT FOUND] | 2026-08-10 |
 | Monerujo | 688 | [NOT FOUND] | 2026-08-10 |
 
-**Sources:** GitHub API — see _index.md and archived `.json` files in sources/.
+**Sources:**
+- Cake Wallet: GitHub API — see _index.md and archived `.json` files in sources/ — accessed 2026-08-12
+- Monero GUI: [GitHub API](https://api.github.com/repos/monero-project/monero-gui) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-api-monero-project-monero-gui.json); [Flathub API](https://flathub.org/api/v2/stats/org.getmonero.Monero) — accessed 2026-08-12 — [archived](../sources/2026-08-12-flathub-api-monero-gui-stats.json)
+- Feather Wallet, Monerujo: GitHub API — see _index.md and archived `.json` files in sources/ — accessed 2026-08-10
 
 ## Zcash wallets
 
