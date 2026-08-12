@@ -136,10 +136,42 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 
 | Feature | Phantom | Solflare | Backpack |
 |---------|---------|---------|---------|
-| **Open-source** | N (Connect SDK only) | P | Y |
-| **Hardware wallet** | Y (Ledger) | Y (Ledger) | [NF] |
-| **Multi-chain** | Y (ETH, BTC, Base, Solana, Sui, Polygon, Hyperliquid, Monad) | P | Y |
-| **Staking** | Y | Y ($14B SOL staked) | Y |
+| **Platforms** | Chrome, Brave, Edge, Firefox (extension); iOS, Android | Browser ext + mobile | Browser ext + mobile |
+| **License** | Proprietary (closed-source) | [NF] | Apache-2.0 |
+| **Open-source** | N (public SDKs/blocklist only; wallet code proprietary) | P | Y |
+| **Latest version** | iOS: 26.24.2 (2026-08-12) | [NF] | [NF] |
+| **Key management** | BIP39 12-word; SLIP-10 ed25519 `m/44'/501'/0'/0'` (Solana); BIP44 `m/44'/60'/0'/0/n` (EVM); BIP84 (BTC) | [NF] | [NF] |
+| **Seed format** | BIP39 12-word | [NF] | [NF] |
+| **Passphrase (25th word)** | [NF] — not confirmed | [NF] | [NF] |
+| **Hardware wallet** | Y (Ledger — extension only; mobile HW: [NF]) | Y (Ledger) | [NF] |
+| **Multi-chain** | Y — 8 chains: Solana, Ethereum, Bitcoin (+ Ordinals/BRC-20), Base, Polygon, Sui, Hyperliquid, Monad | P | Y |
+| **Transaction simulation** | Y — pre-signing token balance change preview; scam detection | [NF] | [NF] |
+| **Phishing blocklist** | Y — open-source domain blocklist (github.com/phantom/blocklist) | [NF] | [NF] |
+| **Staking** | Y — native Solana delegated staking in-wallet | Y ($14B SOL staked) | Y |
+| **Built-in swap** | Y — aggregator; $20B annual swap volume (2025); perps via Hyperliquid | [NF] | [NF] |
+| **NFT display** | Y — Solana NFTs (Metaplex, cNFTs), ERC-721/1155, Ordinals | [NF] | [NF] |
+| **DApp browser (mobile)** | Y — built-in dApp browser on iOS and Android | [NF] | [NF] |
+| **Deep links** | Y — phantom:// deep link protocol; public demo repo | [NF] | [NF] |
+| **WalletConnect** | [NF] — uses injected provider (ext) / deep links (mobile) | [NF] | [NF] |
+| **Biometric unlock** | Y — Face ID / Touch ID (iOS), fingerprint/face (Android) | [NF] | [NF] |
+| **Watch-only** | [NF] — not confirmed | [NF] | [NF] |
+| **Multiple accounts** | Y — multiple accounts under one seed | [NF] | [NF] |
+| **Multisig** | [NF] — not confirmed | [NF] | [NF] |
+| **Tor support** | N — no SOCKS5/Tor proxy; no onion RPC | [NF] | [NF] |
+| **Reproducible builds** | N — closed-source; no build process | [NF] | [NF] |
+| **Security audits** | Y — Kudelski Security (2021), Least Authority (2024); reports at github.com/phantom/audit-reports | [NF] | [NF] |
+| **F-Droid** | N | [NF] | [NF] |
+
+**Sources for Phantom column (updated 2026-08-12):**
+- [phantom.com/download](https://phantom.com/download) — accessed 2026-08-12 — [archived](../sources/2026-08-12-phantom-com-download.html) (platforms confirmed: Chrome, Brave, Firefox, Edge, iOS, Android)
+- [phantom.com/security](https://phantom.com/security) — accessed 2026-08-12 — [archived](../sources/2026-08-12-phantom-com-security.html) (simulation, blocklist, audits)
+- [phantom.com/learn/blog/phantom-series-c](https://phantom.com/learn/blog/phantom-series-c) — accessed 2026-08-12 — [archived](../sources/2026-08-12-phantom-com-series-c.html) (8 chains, swap volume, MAU)
+- [phantom.com/learn/blog/phantom-2024-year-in-review](https://phantom.com/learn/blog/phantom-2024-year-in-review) — accessed 2026-08-12 — [archived](../sources/2026-08-12-phantom-com-2024-year-in-review.html)
+- [github.com/phantom org repos](https://api.github.com/orgs/phantom/repos?per_page=20) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-orgs-phantom-repos.json)
+- [github.com/phantom/audit-reports contents](https://api.github.com/repos/phantom/audit-reports/contents) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-phantom-audit-reports-contents.json)
+- [github.com/phantom/blocklist](https://api.github.com/repos/phantom/blocklist) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-phantom-blocklist.json)
+- [Apple App Store API](https://itunes.apple.com/lookup?bundleId=app.phantom) — accessed 2026-08-12 — [archived](../sources/2026-08-12-itunes-apple-com-phantom.json) (v26.24.2; 4.78★; 64,122 ratings; "Trusted by 20M+ users")
+- [coinlaw.io/phantom-wallet-statistics/](https://coinlaw.io/phantom-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-phantom-wallet-statistics.html)
 
 ## Monero wallets
 

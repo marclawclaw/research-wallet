@@ -44,12 +44,12 @@ Cross-wallet adoption comparison for self-custody software wallets. All figures 
 
 | Wallet | GitHub stars | MAU | Market share | Date |
 |--------|-------------|-----|--------------|------|
-| Phantom | [NOT FOUND] (closed source) | 15–17M (2025 peak) | 39.4% Solana wallets | 2026-08-10 |
+| Phantom | [NOT FOUND] (closed source; public SDKs only) | ~15M steady-state MAU; ~17M peak (2025); 10M MAU (end-2024); 24M+ mobile app downloads (all-time by end-2024); Chrome: 4,000,000 users; Google Play: 10M+ installs, 152K reviews, 4.5★; iOS: 4.78★ (64,122 ratings) | 39.4% Solana wallets | 2026-08-12 |
 | Solflare | [NOT FOUND] | 4M (Jan 2026) | [NOT FOUND] | 2026-08-10 |
 | Backpack | 1,650 | 100,000+ | [NOT FOUND] | 2026-08-10 |
 
 **Sources:**
-- Phantom: [coinlaw.io/phantom-wallet-statistics/](https://coinlaw.io/phantom-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-phantom-wallet-statistics.html)
+- Phantom: [coinlaw.io/phantom-wallet-statistics/](https://coinlaw.io/phantom-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-phantom-wallet-statistics.html) (last updated 25 June 2026; peak MAU from Brandon Millman Solana Accelerate keynote, cited by coinlaw.io); [phantom.com/learn/blog/phantom-series-c](https://phantom.com/learn/blog/phantom-series-c) — accessed 2026-08-12 — [archived](../sources/2026-08-12-phantom-com-series-c.html) (15M MAU at Series C, $3B valuation); [phantom.com/learn/blog/phantom-2024-year-in-review](https://phantom.com/learn/blog/phantom-2024-year-in-review) — accessed 2026-08-12 — [archived](../sources/2026-08-12-phantom-com-2024-year-in-review.html) (10M MAU end-2024; 24M mobile downloads; 850M transactions); [Chrome Web Store](https://chromewebstore.google.com/detail/phantom/bfnaelmomeimhlpmgjnjophhpkkoljpa) — accessed 2026-08-12 — [archived](../sources/2026-08-12-chrome-webstore-phantom.html) (4,000,000 users); [Google Play](https://play.google.com/store/apps/details?id=app.phantom) — accessed 2026-08-12 — [archived](../sources/2026-08-12-play-google-com-phantom.html) (10M+, 152K reviews, 4.5★); [Apple App Store API](https://itunes.apple.com/lookup?bundleId=app.phantom) — accessed 2026-08-12 — [archived](../sources/2026-08-12-itunes-apple-com-phantom.json) (v26.24.2; 4.78★; 64,122 ratings)
 - Solflare: [coinlaw.io/solflare-wallet-statistics/](https://coinlaw.io/solflare-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-solflare-wallet-statistics.html)
 - Backpack: [GitHub API](https://api.github.com/repos/coral-xyz/backpack) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-coral-xyz-backpack.json)
 
