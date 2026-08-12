@@ -249,8 +249,46 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 | Feature | Zodl | YWallet | Nighthawk |
 |---------|------|---------|---------|
 | **Platforms** | iOS, Android | iOS, Android, Desktop | iOS, Android |
-| **Shielded by default** | Y (Orchard) | Y | Y (Sapling) |
-| **Orchard pool** | Y | Y | Y (v2) |
-| **Hardware wallet** | N | N | N |
-| **Open-source** | Y | Y | Y |
-| **F-Droid** | [NF] | [NF] | Y |
+| **License** | MIT (both repos) | [NF] | [NF] |
+| **Architecture** | Light client (lightwalletd gRPC; Zcash Android SDK / Swift SDK) | Light client | Light client |
+| **Language** | Kotlin (Android); Swift (iOS) | [NF] | [NF] |
+| **Latest version** | Android: v3.9.2 (2026-08-10); iOS: v3.9.2 (2026-08-11) | [NF] | [NF] |
+| **Shielded by default** | Y — Orchard pool via Unified Address; senders with Orchard capability routed to Orchard automatically | Y | Y (Sapling) |
+| **Unified Addresses (ZIP 316)** | Y — default receive format | Y | Y |
+| **Orchard pool** | Y — default pool; Ironwood migration support (v3.9.0, Aug 2026) | Y | Y (v2) |
+| **Sapling pool** | Y — legacy receive support retained | Y | Y |
+| **Ironwood pool (NU6.3)** | Y — Ironwood support v3.8.0 (2026-07-27); guided migration in v3.9.0 (2026-08-08) | [NF] | [NF] |
+| **Transparent (t-address)** | Y — send and receive; ZIP 320 TEX support with auto-deshield | Y | Y |
+| **Auto-shielding** | Y — user-prompted shielding panel in Balances screen; Keystone can shield transparent funds; not fully automatic on receipt | [NF] | [NF] |
+| **Memo field** | Y — 512-byte encrypted memo; exposed in send/receive UI; pre-filled from ZIP 321 scan | Y | Y |
+| **ZIP 321 payment URIs** | Y — full send/receive; QR code scan opens wallet and pre-fills amount + memo | Y | [NF] |
+| **Key management** | ZIP 32 HD; 24-word BIP39 seed → Unified Spending Key (USK); birthday height for fast restore | [NF] | [NF] |
+| **Seed format** | BIP39 24-word English | [NF] | [NF] |
+| **Passphrase (BIP39 extension)** | N — not found in source or documentation | [NF] | [NF] |
+| **Hardware wallet** | Y — Keystone (QR-based air-gapped; firmware ≥3.0.1 required for Ironwood migration signing); no Ledger, Trezor, or other HW | N | N |
+| **Watch-only** | [NF] — Keystone account is an air-gapped signer; pure watch-only import not confirmed | [NF] | [NF] |
+| **Multisig** | N | [NF] | N |
+| **Built-in swap** | Y — ZEC↔BTC/stablecoins/other; slippage protection enforced; Zodl Crosspay (shielded ZEC → recipient's preferred asset) | [NF] | [NF] |
+| **Flexa payments** | Y — NFC merchant payments via Flexa SDK integration (opt-in build; included in F-Droid FOSS build too) | N | N |
+| **Currency conversion** | Y — USD/ZEC + multi-fiat (v3.7.0+); via CMC; always routed via Tor when enabled | [NF] | [NF] |
+| **Tor support** | Y — opt-in embedded Tor client; exchange rate fetches always use Tor; enabled from Settings or home screen prompt | [NF] | [NF] |
+| **ZIP 320 (TEX addresses)** | Y — auto-deshield to ephemeral t-address → TEX recipient; two-step to prevent on-chain linkage | [NF] | [NF] |
+| **Coinholder Polling (governance)** | Y — private on-chain Zcash governance voting from within wallet; Keystone compatible | N | N |
+| **Crash reporting** | Firebase Crashlytics — fully opt-in since v2.0.0 (Apr 2025) | N | [NF] |
+| **Multiple accounts** | Y — base Zodl account + Keystone hardware wallet accounts | [NF] | [NF] |
+| **Address book** | Y — encrypted; Android auto-backup + cloud backup | [NF] | [NF] |
+| **Open-source** | Y (MIT) | Y | Y |
+| **F-Droid** | Y — own F-Droid repo at foss.zodl.com (not f-droid.org); same signed build as Google Play including Flexa + CMC + Crashlytics | [NF] | Y |
+| **Reproducible builds** | [NF] — no documented reproducible build process found | [NF] | [NF] |
+| **Security model doc** | Y — formal invariant-centric threat model published at zodl-inc/zodl-project | N | N |
+
+**Sources for Zodl column (2026-08-12):**
+- [GitHub API: zodl-inc/zodl-android](https://api.github.com/repos/zodl-inc/zodl-android) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-zodl-inc-zodl-android.json)
+- [GitHub API: zodl-inc/zodl-ios](https://api.github.com/repos/zodl-inc/zodl-ios) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-zodl-inc-zodl-ios.json)
+- [zodl-android CHANGELOG (full)](https://raw.githubusercontent.com/zodl-inc/zodl-android/main/CHANGELOG.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-zodl-inc-zodl-android-CHANGELOG.md) — primary source for feature history
+- [zodl-android README](https://github.com/zodl-inc/zodl-android) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-zodl-inc-zodl-android-README.md) (F-Droid repo URL confirmed)
+- [zodl-project threat model](https://raw.githubusercontent.com/zodl-inc/zodl-project/master/wallet_threat_model.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-zodl-inc-zodl-project-threat-model.md)
+- [zodl-android releases (top 5)](https://api.github.com/repos/zodl-inc/zodl-android/releases?per_page=5) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-zodl-inc-zodl-android-releases.json)
+- [Apple App Store (ID 1672392439)](https://itunes.apple.com/lookup?id=1672392439) — accessed 2026-08-12 — [archived](../sources/2026-08-12-itunes-apple-com-zodl-ios-id.json) (description, version, rating)
+- [Google Play Store structured data](https://play.google.com/store/apps/details?id=co.electriccoin.zcash) — accessed 2026-08-12 — [archived](../sources/2026-08-12-play-google-com-zodl-android.html) (install count, rating, ZODL org name)
+- [wallets/zodl.md](../wallets/zodl.md) — primary note with full feature detail and citations

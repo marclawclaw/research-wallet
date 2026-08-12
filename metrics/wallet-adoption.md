@@ -72,8 +72,10 @@ Cross-wallet adoption comparison for self-custody software wallets. All figures 
 
 | Wallet | GitHub stars | MAU | Date |
 |--------|-------------|-----|------|
-| Zodl (formerly Zashi) | 94 (zodl-android) | [NOT FOUND] | 2026-08-10 |
+| Zodl (formerly Zashi) | 95 (zodl-android); 90 (zodl-ios) | [NOT FOUND] — no wallet-level MAU disclosed; Android: 50,000+ installs (exact: 51,907 from Play Store structured data); iOS: 4.97★ (118 ratings); Android: 4.43★ (191 ratings). On-chain proxy: Zodl's UA default routing drove shielded transactions to 59.3% of all Zcash txs (Feb 2026 ATH) and Orchard pool to 4.2M ZEC (25.4% of circulating supply) | 2026-08-12 |
 | YWallet | 62 (zwallet) | [NOT FOUND] | 2026-08-10 |
 | Nighthawk | [NOT FOUND] | [NOT FOUND] | 2026-08-10 |
 
-**Sources:** GitHub API — see _index.md and archived `.json` files in sources/.
+**Sources:**
+- Zodl: [GitHub API: zodl-inc/zodl-android](https://api.github.com/repos/zodl-inc/zodl-android) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-zodl-inc-zodl-android.json) (stars: 95; forks: 56; pushed: 2026-08-11); [GitHub API: zodl-inc/zodl-ios](https://api.github.com/repos/zodl-inc/zodl-ios) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-zodl-inc-zodl-ios.json) (stars: 90; forks: 48); [Google Play Store](https://play.google.com/store/apps/details?id=co.electriccoin.zcash) — accessed 2026-08-12 — [archived](../sources/2026-08-12-play-google-com-zodl-android.html) (50,000+/51,907 installs; 4.43★; 191 ratings); [Apple App Store (ID 1672392439)](https://itunes.apple.com/lookup?id=1672392439) — accessed 2026-08-12 — [archived](../sources/2026-08-12-itunes-apple-com-zodl-ios-id.json) (v3.9.2; 4.97★; 118 ratings; artistName: The Zerocoin Electric Coin Company); [CryptoNews shielded pool article](https://cryptonews.net/news/analytics/32936591/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-crypto-news-net-zcash-shielded-pool-30pct.html) (59.3% shielded tx ATH Feb 2026; 4.2M ZEC Orchard = 25.4% circulating supply)
+- YWallet, Nighthawk: GitHub API — see _index.md and archived `.json` files in sources/.
