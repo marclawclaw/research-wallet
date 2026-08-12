@@ -12,7 +12,7 @@ latest_version: v2.0.42 (11 Aug 2026)
 licence: GPL-3.0
 platforms: iOS, Android, Browser Extension (Chrome, Brave, Edge, Firefox, Arc)
 ecosystem: Ethereum/EVM
-supported_chains: 23+ EVM-compatible networks
+supported_chains: 24 EVM-compatible networks
 ---
 
 # Rainbow Wallet
@@ -63,7 +63,7 @@ Rainbow is a consumer-focused, mobile-first, self-custody Ethereum and EVM walle
 7. **Connecting to dApps:** Via WalletConnect v2 (scan QR or deep link) or Rainbow's in-app browser (mobile). Browser extension injects `window.ethereum` provider.
 8. **NFTs:** Portfolio tab shows ERC-721 and ERC-1155 tokens; users can organise a showcase, hide items, send NFTs, and view offers.
 9. **Hardware wallet (mobile):** Tap Add Wallet → Connect hardware wallet → connect Ledger Nano X, Stax, or Flex via Bluetooth. Signing occurs on the device.
-10. **Hardware wallet (extension):** Add from hardware wallet → select Ledger (USB: Nano S Plus, Nano X, Stax) or Trezor (web interface). Trezor not supported on Firefox.
+10. **Hardware wallet (extension):** Add from hardware wallet → select Ledger (USB: Nano S Plus, Nano X, Stax) or Trezor (web interface). Hardware wallet connection temporarily disabled on Firefox (Ledger and Trezor both affected).
 
 ### System perspective
 
@@ -95,7 +95,7 @@ Rainbow is a consumer-focused, mobile-first, self-custody Ethereum and EVM walle
 
 ## Supported networks
 
-As of 2026-08-12 (from official support page), Rainbow supports 23 EVM-compatible networks:
+As of 2026-08-12 (from official support page), Rainbow supports 24 EVM-compatible networks:
 
 Ethereum mainnet, Base, Optimism, Arbitrum, Zora, Blast, ApeChain, Polygon, Avalanche, Degen Chain, BNB Smart Chain, Ink, Berachain, Gravity, Unichain, Sonic, Linea, Abstract, WorldChain, Scroll, Gnosis, Katana, ZkSync, HyperEVM.
 
@@ -174,7 +174,7 @@ See [[metrics/wallet-features]] for the full feature comparison table.
 - **Smaller user base:** With ~2,100 wallets actively using swaps in a reported month, Rainbow's actual active user base is substantially smaller than MetaMask (30M MAU) or Trust Wallet (17M+ MAU). Fee revenue (~USD 2.16M annualised) is a small fraction of MetaMask or Phantom.
 - **Android distribution gaps:** coinlaw.io notes some listings showed only "1K" Android installs, attributing this to distribution gaps or analytics issues. Google Play shows 500K+ which is the verified figure.
 - **EVM-only scope:** No Bitcoin, Solana, or Monero support. Users who want multi-ecosystem coverage must use a separate wallet.
-- **Mobile-first limits extension:** Browser extension is a secondary product; as of August 2026, Trezor support on Firefox is disabled in the extension.
+- **Mobile-first limits extension:** Browser extension is a secondary product; as of August 2026, hardware wallet connection is temporarily disabled on Firefox in the extension (Ledger and Trezor both affected).
 - **Privacy policy outdated:** Published May 2020; does not reflect current telemetry or analytics practices. Third-party observers note diagnostic data collection in recent versions.
 - **No transaction simulation (confirmed):** Unlike Rabby's built-in transaction simulator or MetaMask's Blockaid PPOM, no equivalent feature confirmed in Rainbow's support documentation. [NOT FOUND]
 - **Perps pivot risk:** The 2025–2026 pivot toward prediction markets and perpetual futures trading represents a significant product direction change that may dilute the wallet's original self-custody focus.
