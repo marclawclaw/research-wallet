@@ -53,7 +53,7 @@ Lightning routing uses **trampoline routing** via ACINQ's node — Phoenix does 
 | Single-channel model | Y — one channel per user (since v2.0.0) |
 | Splice-in (on-chain → LN) | Y — trustless since v2.0.0 |
 | Splice-out (LN → on-chain) | Y — trustless, user sets feerate, can bump via CPFP |
-| Taproot channels | Y — all channels taproot since v2.7.0 (Oct 2025) |
+| Taproot channels | Y — new channels always taproot since v2.7.0 (Oct 2025); existing channels migrate to taproot on next on-chain operation |
 | BOLT11 invoices | Y |
 | BOLT12 offers | Y — static reusable invoices (v2.3.1, July 2024); multiple offers with custom descriptions (v2.6.0, May 2025) |
 | LNURL-pay | Y |
@@ -129,7 +129,7 @@ ACINQ removed Phoenix from the US App Store (iOS) in May 2024, citing regulatory
 ## Open-source and security
 
 - **Licence:** Apache-2.0
-- **GPG release signing:** Yes — key E04E48E72C205463 (since v2.4.4+: key 7A73FE77DE2C4027, prior). Signing key available at `https://acinq.co/pgp/drouinf2.asc`. SHA256SUMS.asc published per release.
+- **GPG release signing:** Yes — key E04E48E72C205463 (from v2.5.0; prior releases used key 7A73FE77DE2C4027). Signing key available at `https://acinq.co/pgp/drouinf2.asc`. SHA256SUMS.asc published per release.
 - **Reproducible builds:** [NOT FOUND] — no public reproducible build process documented in repository or release notes
 - **Security audit:** [NOT FOUND] — no public audit report found as of 2026-08-12
 - **Bug bounty / disclosure:** [NOT FOUND] — no public programme found; contact is phoenix@acinq.co
@@ -193,6 +193,7 @@ Note: The 100,000+ Google Play install bracket is the display label; the raw fig
 | Google Play Store listing | https://play.google.com/store/apps/details?id=fr.acinq.phoenix.mainnet | 2026-08-12 — [archived](../sources/2026-08-12-play-google-com-phoenix-mainnet.html) |
 | lightning-kmp GitHub API | https://api.github.com/repos/ACINQ/lightning-kmp | 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-acinq-lightning-kmp.json) |
 | Eclair GitHub API | https://api.github.com/repos/ACINQ/eclair | 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-acinq-eclair.json) |
+| ACINQ blog: Phoenix self-custody US iOS withdrawal | https://acinq.co/blog/phoenix-self-custody-us-ios | 2026-08-12 — [archived (JavaScript SPA shell — page not archiveable; no Wayback Machine snapshot available)](../sources/2026-08-12-acinq-co-blog-us-exit.html) |
 
 ## Related notes
 
