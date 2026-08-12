@@ -71,6 +71,25 @@ After `ln.bluewallet.io` shutdown, users who don't self-host can use:
 
 BlueWallet first introduced `lightning-ark-wallet` in v7.2.2 (24 November 2025), using the Ark protocol via Arkade SDKs (`@arkade-os/sdk`, `@arkade-os/boltz-swap`). v8.0.0 (June 2026) upgraded the existing Ark SDK integration. Ark is a second-layer protocol distinct from Lightning channels — it uses shared UTXOs (VTXOs) and a delegated signing model. The Arkade integration uses Boltz submarine swaps for on-chain ↔ off-chain conversion and a delegator service at `https://delegate.arkade.money`. This is trust-minimised (delegated signing rather than full custody) but not fully trustless.
 
+## Contrast: Phoenix's self-custodial approach (ACINQ)
+
+Phoenix wallet (iOS/Android, by ACINQ) represents the alternative paradigm: **fully self-custodial Lightning via single-channel splicing**. The contrast with LNDhub is instructive.
+
+| Dimension | LNDhub (BlueWallet) | Phoenix (ACINQ) |
+|-----------|---------------------|-----------------|
+| Custody | Hub operator holds BTC in channels | User holds channel keys |
+| Trust for funds | Full custodial trust | Trustless (user can force-close) |
+| Channel management | Shared channels on hub LND node | One channel per user; auto-spliced |
+| Routing | Hub routes via its channels | Trampoline via ACINQ node |
+| Self-hosting | Yes (self-host LNDhub + LND) | No (ACINQ node only) |
+| On-chain swaps | Submarine swap via Boltz or similar | Splice-in/splice-out (trustless) |
+| Privacy | Hub operator sees all | ACINQ sees payment metadata |
+| Scale | N users share M channels | 1 channel per user |
+
+Phoenix cannot connect to an arbitrary node or be used with a self-hosted backend — ACINQ's node is the only permitted peer. This is the trade-off for automatic channel management without any custodial risk.
+
+See [[patterns/self-custodial-lightning]] for a full description of Phoenix's architecture.
+
 ## Sources
 
 | Source | URL | Accessed |
@@ -81,3 +100,4 @@ BlueWallet first introduced `lightning-ark-wallet` in v7.2.2 (24 November 2025),
 | lightning-ark-wallet.ts | https://github.com/BlueWallet/BlueWallet/blob/master/class/wallets/lightning-ark-wallet.ts | 2026-08-12 |
 | BlueWallet official site | https://bluewallet.io | 2026-08-12 — [archived](../sources/2026-08-12-bluewallet-io-home.html) |
 | BlueWallet — Sunsetting LNDhub.io announcement | https://bluewallet.io/sunsetting-lndhub/ | 2026-08-12 — [archived](../sources/2026-08-12-bluewallet-io-sunsetting-lndhub.html) |
+| Phoenix FAQ | https://phoenix.acinq.co/faq | 2026-08-12 — [archived](../sources/2026-08-12-phoenix-acinq-co-faq-full.txt) |
