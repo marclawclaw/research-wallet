@@ -1,6 +1,6 @@
 ---
-tags: [pattern, ethereum, evm, dapp-connection, walletconnect]
-seen_in: [rainbow, metamask, trust-wallet, rabby]
+tags: [pattern, ethereum, evm, solana, dapp-connection, walletconnect]
+seen_in: [rainbow, metamask, trust-wallet, rabby, phantom]
 ---
 
 # WalletConnect Integration
@@ -18,6 +18,8 @@ Without WalletConnect, mobile wallets would have no standardised path to sign tr
 - **[[wallets/metamask]]:** MetaMask Mobile uses WalletConnect v2. MetaMask extension also exposes `window.ethereum` provider directly in the browser, making WalletConnect secondary for desktop users but primary for mobile-to-dApp flows.
 
 - **Trust Wallet / Rabby:** Also implement WalletConnect v2 as standard dApp connection mechanism; implementation details [NOT FOUND] in this research run.
+
+- **[[wallets/phantom]]:** Phantom takes a different approach from EVM-first wallets. For its browser extension, Phantom injects `window.phantom.solana` (Solana wallet standard) and `window.ethereum` (EVM) directly — no WalletConnect relay needed on desktop. For mobile-to-dApp connections, Phantom uses deep links (`phantom://`) rather than WalletConnect QR codes. WalletConnect v2 support on Phantom mobile is [NOT FOUND] in archived sources (closed-source; package.json not publicly available). The Solana-native equivalent of WalletConnect for mobile apps is the [Wallet Standard](https://github.com/wallet-standard/wallet-standard), which Phantom co-developed. This means Phantom mobile dApp connections use platform-native deep links, making the flow different from the QR-code scan model used by EVM mobile wallets.
 
 ## Trade-offs
 
