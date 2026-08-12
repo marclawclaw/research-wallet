@@ -297,7 +297,7 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 | **F-Droid** | Y — own F-Droid repo at foss.zodl.com (not f-droid.org); same signed build as Google Play including Flexa + CMC + Crashlytics | [NF] | Y — listed at f-droid.org/packages/com.nighthawkapps.wallet.android/ |
 | **Reproducible builds** | [NF] — no documented reproducible build process found | [NF] | [NF] — no reproducible build process documented |
 | **Security model doc** | Y — formal invariant-centric threat model published at zodl-inc/zodl-project | N | N — references ECC Zcash SDK threat model but no Nighthawk-specific model |
-| **Security audit** | [NF] | [NF] | [NF] — no public audit found; responsible disclosure email: nighthawkwallet@protonmail.com |
+| **Security audit** | [NF] | [NF] | Informal review by @defuse (iOS v2.2.10, Dec 2023; no public report); responsible disclosure email: nighthawkwallet@protonmail.com |
 | **Status (August 2026)** | Active | Active | Zcash wallet ENDED (Android Nov 2024; iOS Nov 2025); DarkFi testnet wallet in active development |
 
 **Sources for Zodl column (2026-08-12):**

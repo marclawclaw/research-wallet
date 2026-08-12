@@ -33,7 +33,7 @@ Nighthawk is a community-driven privacy wallet project maintained by Nighthawk A
 | `darkfi-lightwalletd` | Active — DarkFi light server (Rust) | 0 | 0 | 6 August 2026 | [NF] |
 
 Notes:
-- The v2.x Android wallet (`nighthawk-android-wallet`) was forked from ECC's `secant-android-wallet` and uses the official Zcash Android SDK (`cash.z.ecc.android.sdk`). The `main` branch has been repurposed for DarkFi v3.x; the Zcash v2.x code lives on the `v2.2.16` branch.
+- The v2.x Android wallet (`nighthawk-android-wallet`) was forked from ECC's `secant-android-wallet` and uses the official Zcash Android SDK (`cash.z.ecc.android.sdk`). The `nighthawk-dark` branch has been repurposed for DarkFi v3.x; the Zcash v2.x code lives on the `v2.2.16` branch.
 - All licences confirmed via GitHub API (accessed 12 August 2026).
 
 ## Licence and Open-Source Status
@@ -55,7 +55,7 @@ Notes:
 **iOS (Zcash era, final version v2.5.0):**
 - **App Store ID:** 1524708337
 - **Bundle ID:** `com.nighthawkapps.wallet.ios`
-- **Latest Zcash release:** v2.5.0 (released 30 November 2025)
+- **Latest Zcash release:** v2.5.0 (released 30 November 2025) (confirmed via iTunes API; no corresponding GitHub release tag found in archive)
 - **App Store rating:** 4.29★ (21 ratings) — accessed 12 August 2026
 - **App Store status:** Active listing but wallet shows deprecation notice: *"Nighthawk no longer supports outgoing ZEC transactions, after the recent network upgrade. To access your funds, you will need to import your wallet seed to other dedicated Zcash wallets, such as Zashi or Zingo."*
 - **Language:** Swift
@@ -68,7 +68,7 @@ The Zcash wallet versions (v1.x and v2.x) introduced these notable features (der
 |---------|------|--------------|
 | v1.0.0 | June 2020 | Initial release; Sapling-only; Nighthawk-operated lightwalletd server |
 | v1.0.3 | July 2020 | Custom lightwalletd server support (user-configurable in Settings) |
-| v1.0.6 | August 2020 | Biometric (Face/Touch ID) support; subaddress reply-to memo convention |
+| v1.0.6 | August 2020 | Biometric (Face/Touch ID) support; subaddress reply-to memo convention (v1.0.6 not found in archived CHANGELOG, which begins at v1.0.7; attribution unverifiable from archive) |
 | v1.0.8 | November 2020 | Deshielding (z→t transactions) enabled |
 | v1.0.9 | December 2020 | ZIP 313 (reduce default fee from 10,000 to 1,000 zats) |
 | v1.0.20 | July 2021 | Auto-shielding workflow; t-address tabs; balance details screen |
@@ -163,7 +163,7 @@ Nighthawk Apps now operates `darkfi-lightwalletd` — a dedicated light wallet s
 **Zcash v1.x era:**
 - **StealthEx.io swap:** Y — added in v1.0.31 (November 2021); KYC-free cross-chain swap within the app
 - **MoonPay ZEC purchase:** Y — added in v1.0.29 (October 2021); fiat-to-ZEC on-ramp
-- **SideShift.ai:** Y — v1.0.5 (August 2020) listed SideShift integration for affiliate swaps
+- **SideShift.ai:** Y — v1.0.5 (August 2020) listed SideShift integration for affiliate swaps (CHANGELOG archive begins at v1.0.7; v1.0.5 entry not found — version number unverified)
 
 **Zcash v2.x era:**
 - **Flexa branch:** A `flexa-integration` branch exists in `nighthawk-android-wallet` (not merged to the v2.2.16 tag as of 12 August 2026). Flexa NFC payments were planned but not confirmed shipped in a stable Zcash release.
@@ -174,7 +174,7 @@ Nighthawk Apps now operates `darkfi-lightwalletd` — a dedicated light wallet s
 
 ## Audits and Security
 
-- **Security audits:** [NOT FOUND] — no public security audit report found for either the v1.x or v2.x Zcash wallet series. Nighthawk references the Zcash Android SDK threat model (`https://zcash.readthedocs.io/en/latest/rtd_pages/wallet_threat_model.html`) but does not link to a Nighthawk-specific audit.
+- **Security audits:** No public audit report published. However, an informal code review was conducted by @defuse and acknowledged in iOS v2.2.10 release notes (December 2023): 'Fix issues identified in the audit, thanks to @defuse!' No separate audit report was made public. Nighthawk references the Zcash Android SDK threat model (`https://zcash.readthedocs.io/en/latest/rtd_pages/wallet_threat_model.html`) but does not link to a Nighthawk-specific audit.
 - **Bug bounty:** [NOT FOUND] — no formal bug bounty programme found. The README describes a responsible disclosure process (email nighthawkwallet@protonmail.com with PGP fingerprint `8c07e1261c5d9330287f4ec35aff0fd018b01972`).
 - **Notable security events:** No known high-severity security events in public record as of 12 August 2026.
 - **Dependency on ECC SDK:** The Nighthawk v2.x series inherits the security properties of the ECC Zcash Android SDK; any SDK-level vulnerabilities affect Nighthawk.
