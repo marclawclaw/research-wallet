@@ -264,38 +264,41 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 | Feature | Zodl | YWallet | Nighthawk |
 |---------|------|---------|---------|
 | **Platforms** | iOS, Android | iOS, Android, Desktop | iOS, Android |
-| **License** | MIT (both repos) | [NF] | [NF] |
-| **Architecture** | Light client (lightwalletd gRPC; Zcash Android SDK / Swift SDK) | Light client | Light client |
-| **Language** | Kotlin (Android); Swift (iOS) | [NF] | [NF] |
-| **Latest version** | Android: v3.9.2 (2026-08-10); iOS: v3.9.2 (2026-08-11) | [NF] | [NF] |
-| **Shielded by default** | Y — Orchard pool via Unified Address; senders with Orchard capability routed to Orchard automatically | Y | Y (Sapling) |
+| **License** | MIT (both repos) | [NF] | MIT (both active repos; confirmed GitHub API 2026-08-12) |
+| **Architecture** | Light client (lightwalletd gRPC; Zcash Android SDK / Swift SDK) | Light client | Light client (Zcash Android SDK v2.x fork of secant-android-wallet) |
+| **Language** | Kotlin (Android); Swift (iOS) | [NF] | Kotlin (Android v2.x); Swift (iOS v2.x) |
+| **Latest version** | Android: v3.9.2 (2026-08-10); iOS: v3.9.2 (2026-08-11) | [NF] | Android: v2.2.16 (27 Nov 2024) — FINAL Zcash release; iOS: v2.5.0 (30 Nov 2025) — FINAL Zcash release. Zcash support ended. |
+| **Shielded by default** | Y — Orchard pool via Unified Address; senders with Orchard capability routed to Orchard automatically | Y | Y (Sapling) — Sapling is the primary shielded pool; Orchard NOT fully supported despite SDK v2.x capability (README explicitly disclaims Orchard compatibility) |
 | **Unified Addresses (ZIP 316)** | Y — default receive format | Y | Y |
-| **Orchard pool** | Y — default pool; Ironwood migration support (v3.9.0, Aug 2026) | Y | Y (v2) |
-| **Sapling pool** | Y — legacy receive support retained | Y | Y |
-| **Ironwood pool (NU6.3)** | Y — Ironwood support v3.8.0 (2026-07-27); guided migration in v3.9.0 (2026-08-08) | [NF] | [NF] |
-| **Transparent (t-address)** | Y — send and receive; ZIP 320 TEX support with auto-deshield | Y | Y |
-| **Auto-shielding** | Y — user-prompted shielding panel in Balances screen; Keystone can shield transparent funds; not fully automatic on receipt | [NF] | [NF] |
-| **Memo field** | Y — 512-byte encrypted memo; exposed in send/receive UI; pre-filled from ZIP 321 scan | Y | Y |
-| **ZIP 321 payment URIs** | Y — full send/receive; QR code scan opens wallet and pre-fills amount + memo | Y | [NF] |
-| **Key management** | ZIP 32 HD; 24-word BIP39 seed → Unified Spending Key (USK); birthday height for fast restore | [NF] | [NF] |
-| **Seed format** | BIP39 24-word English | [NF] | [NF] |
-| **Passphrase (BIP39 extension)** | N — not found in source or documentation | [NF] | [NF] |
-| **Hardware wallet** | Y — Keystone (QR-based air-gapped; firmware ≥3.0.1 required for Ironwood migration signing); no Ledger, Trezor, or other HW | N | N |
-| **Watch-only** | [NF] — Keystone account is an air-gapped signer; pure watch-only import not confirmed | [NF] | [NF] |
+| **Orchard pool** | Y — default pool; Ironwood migration support (v3.9.0, Aug 2026) | Y | N — README v2.2.16 explicitly states "only supports sapling shielded pool, which makes it incompatible with wallets that support custom note management and orchard pool" |
+| **Sapling pool** | Y — legacy receive support retained | Y | Y — primary shielded pool throughout entire Zcash lifecycle |
+| **Ironwood pool (NU6.3)** | Y — Ironwood support v3.8.0 (2026-07-27); guided migration in v3.9.0 (2026-08-08) | [NF] | N — Zcash support ended before Ironwood activation |
+| **Transparent (t-address)** | Y — send and receive; ZIP 320 TEX support with auto-deshield | Y | Y — t-address send and receive; tabs added v1.0.20 (July 2021) |
+| **Auto-shielding** | Y — user-prompted shielding panel in Balances screen; Keystone can shield transparent funds; not fully automatic on receipt | [NF] | Y — auto-shielding workflow introduced v1.0.20 (July 2021); trigger reduced to 0.01 ZEC in v1.0.37 |
+| **Memo field** | Y — 512-byte encrypted memo; exposed in send/receive UI; pre-filled from ZIP 321 scan | Y | Y — encrypted memo supported |
+| **ZIP 321 payment URIs** | Y — full send/receive; QR code scan opens wallet and pre-fills amount + memo | Y | Y — deep link integration added v1.0.26 (August 2021) |
+| **Key management** | ZIP 32 HD; 24-word BIP39 seed → Unified Spending Key (USK); birthday height for fast restore | [NF] | ZIP 32 HD; BIP39 mnemonic (word count [NF] — 24 inferred from SDK default); birthday height supported; confirmed via Zcash Android SDK dependency in v2.2.16 |
+| **Seed format** | BIP39 24-word English | [NF] | BIP39 (24-word inferred from SDK standard; exact count [NF] — not confirmed in source) |
+| **Passphrase (BIP39 extension)** | N — not found in source or documentation | [NF] | [NF] — not found in source or CHANGELOG |
+| **Hardware wallet** | Y — Keystone (QR-based air-gapped; firmware ≥3.0.1 required for Ironwood migration signing); no Ledger, Trezor, or other HW | N | N — no hardware wallet support in any Zcash release; no HW library dependencies found in source |
+| **Watch-only** | [NF] — Keystone account is an air-gapped signer; pure watch-only import not confirmed | [NF] | [NF] — no explicit watch-only import found in source |
 | **Multisig** | N | [NF] | N |
-| **Built-in swap** | Y — ZEC↔BTC/stablecoins/other; slippage protection enforced; Zodl Crosspay (shielded ZEC → recipient's preferred asset) | [NF] | [NF] |
-| **Flexa payments** | Y — NFC merchant payments via Flexa SDK integration (opt-in build; included in F-Droid FOSS build too) | N | N |
+| **Built-in swap** | Y — ZEC↔BTC/stablecoins/other; slippage protection enforced; Zodl Crosspay (shielded ZEC → recipient's preferred asset) | [NF] | P — StealthEx.io swap v1.x (added v1.0.31, Nov 2021); MoonPay ZEC purchase v1.x (added v1.0.29, Oct 2021); SideShift.ai v1.x. Status in v2.x: [NF] — not confirmed in v2.2.16 CHANGELOG or releases |
+| **Flexa payments** | Y — NFC merchant payments via Flexa SDK integration (opt-in build; included in F-Droid FOSS build too) | N | N — flexa-integration branch exists but NOT merged to v2.2.16 stable tag as of 12 August 2026 |
 | **Currency conversion** | Y — USD/ZEC + multi-fiat (v3.7.0+); via CMC; always routed via Tor when enabled | [NF] | [NF] |
-| **Tor support** | Y — opt-in embedded Tor client; exchange rate fetches always use Tor; enabled from Settings or home screen prompt | [NF] | [NF] |
+| **Tor support** | Y — opt-in embedded Tor client; exchange rate fetches always use Tor; enabled from Settings or home screen prompt | [NF] | N — no Tor integration found in any Zcash release source or CHANGELOG |
+| **Custom lightwalletd server** | Y — Advanced Settings | [NF] | Y — ChangeServer screen confirmed in v1.x (v1.0.3, Jul 2020) and v2.2.16 (ChangeServerViewModel + LightWalletServer.kt); 5 predefined zec.rocks endpoints + CustomServer type |
 | **ZIP 320 (TEX addresses)** | Y — auto-deshield to ephemeral t-address → TEX recipient; two-step to prevent on-chain linkage | [NF] | [NF] |
 | **Coinholder Polling (governance)** | Y — private on-chain Zcash governance voting from within wallet; Keystone compatible | N | N |
 | **Crash reporting** | Firebase Crashlytics — fully opt-in since v2.0.0 (Apr 2025) | N | [NF] |
-| **Multiple accounts** | Y — base Zodl account + Keystone hardware wallet accounts | [NF] | [NF] |
+| **Multiple accounts** | Y — base Zodl account + Keystone hardware wallet accounts | [NF] | [NF] — not found in v2.x source |
 | **Address book** | Y — encrypted; Android auto-backup + cloud backup | [NF] | [NF] |
-| **Open-source** | Y (MIT) | Y | Y |
-| **F-Droid** | Y — own F-Droid repo at foss.zodl.com (not f-droid.org); same signed build as Google Play including Flexa + CMC + Crashlytics | [NF] | Y |
-| **Reproducible builds** | [NF] — no documented reproducible build process found | [NF] | [NF] |
-| **Security model doc** | Y — formal invariant-centric threat model published at zodl-inc/zodl-project | N | N |
+| **Open-source** | Y (MIT) | Y | Y (MIT — all active repos) |
+| **F-Droid** | Y — own F-Droid repo at foss.zodl.com (not f-droid.org); same signed build as Google Play including Flexa + CMC + Crashlytics | [NF] | Y — listed at f-droid.org/packages/com.nighthawkapps.wallet.android/ |
+| **Reproducible builds** | [NF] — no documented reproducible build process found | [NF] | [NF] — no reproducible build process documented |
+| **Security model doc** | Y — formal invariant-centric threat model published at zodl-inc/zodl-project | N | N — references ECC Zcash SDK threat model but no Nighthawk-specific model |
+| **Security audit** | [NF] | [NF] | [NF] — no public audit found; responsible disclosure email: nighthawkwallet@protonmail.com |
+| **Status (August 2026)** | Active | Active | Zcash wallet ENDED (Android Nov 2024; iOS Nov 2025); DarkFi testnet wallet in active development |
 
 **Sources for Zodl column (2026-08-12):**
 - [GitHub API: zodl-inc/zodl-android](https://api.github.com/repos/zodl-inc/zodl-android) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-zodl-inc-zodl-android.json)
@@ -307,3 +310,19 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 - [Apple App Store (ID 1672392439)](https://itunes.apple.com/lookup?id=1672392439) — accessed 2026-08-12 — [archived](../sources/2026-08-12-itunes-apple-com-zodl-ios-id.json) (description, version, rating)
 - [Google Play Store structured data](https://play.google.com/store/apps/details?id=co.electriccoin.zcash) — accessed 2026-08-12 — [archived](../sources/2026-08-12-play-google-com-zodl-android.html) (install count, rating, ZODL org name)
 - [wallets/zodl.md](../wallets/zodl.md) — primary note with full feature detail and citations
+
+**Sources for Nighthawk column (2026-08-12):**
+- [GitHub API: nighthawk-apps/nighthawk-android-wallet](https://api.github.com/repos/nighthawk-apps/nighthawk-android-wallet) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-nighthawk-apps-nighthawk-android-wallet.json) (stars: 17; forks: 2; pushed: 2026-08-11; lang: Kotlin; licence: MIT)
+- [GitHub API: nighthawk-apps/nighthawk-ios-wallet](https://api.github.com/repos/nighthawk-apps/nighthawk-ios-wallet) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-nighthawk-apps-nighthawk-ios-wallet.json) (stars: 5; forks: 1; licence: MIT)
+- [GitHub API: nighthawk-apps/nighthawk-wallet-android (archived)](https://api.github.com/repos/nighthawk-apps/nighthawk-wallet-android) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-nighthawk-apps-nighthawk-wallet-android.json) (stars: 32; forks: 15; archived: true; licence: Apache-2.0)
+- [nighthawk-android-wallet README (v2.2.16 branch)](https://raw.githubusercontent.com/nighthawk-apps/nighthawk-android-wallet/v2.2.16/README.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-nighthawk-apps-nighthawk-android-wallet-v2-README.md) (Sapling-only disclaimer; F-Droid + Play Store badges)
+- [nighthawk-wallet-android CHANGELOG (archived v1.x)](https://raw.githubusercontent.com/nighthawk-apps/nighthawk-wallet-android/master/CHANGELOG.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-nighthawk-apps-nighthawk-wallet-android-CHANGELOG.md) (feature history v1.0.0–v1.0.38)
+- [nighthawk-android-wallet LightWalletServer.kt (v2.2.16)](https://raw.githubusercontent.com/nighthawk-apps/nighthawk-android-wallet/v2.2.16/ui-lib/src/main/java/co/electriccoin/zcash/ui/screen/changeserver/model/LightWalletServer.kt) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-nighthawk-apps-LightWalletServer.kt) (5 zec.rocks endpoints + CustomServer type)
+- [nighthawk-android-wallet AndroidChangeServer.kt (v2.2.16)](https://raw.githubusercontent.com/nighthawk-apps/nighthawk-android-wallet/v2.2.16/ui-lib/src/main/java/co/electriccoin/zcash/ui/screen/changeserver/AndroidChangeServer.kt) — accessed 2026-08-12 (ChangeServer screen confirmed)
+- [nighthawk-android-wallet releases API](https://api.github.com/repos/nighthawk-apps/nighthawk-android-wallet/releases?per_page=20) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-nighthawk-apps-nighthawk-android-wallet-releases.json) (latest: v2.2.16, 27 Nov 2024)
+- [nighthawk-ios-wallet releases API](https://api.github.com/repos/nighthawk-apps/nighthawk-ios-wallet/releases?per_page=10) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-nighthawk-apps-nighthawk-ios-wallet-releases.json) (latest: v2.2.16, 26 Nov 2024)
+- [Apple App Store API (ID 1524708337)](https://itunes.apple.com/lookup?id=1524708337&country=us) — accessed 2026-08-12 — [archived](../sources/2026-08-12-itunes-apple-com-nighthawk-id1524708337.json) (v2.5.0; 4.29★; 21 ratings; Zcash deprecation notice)
+- [Google Play Store (404 — removed)](https://play.google.com/store/apps/details?id=com.nighthawkapps.wallet.android) — accessed 2026-08-12 — [archived](../sources/2026-08-12-play-google-com-nighthawk-android.html)
+- [F-Droid listing](https://f-droid.org/packages/com.nighthawkapps.wallet.android/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-fdroid-org-nighthawk-android.html)
+- [Nighthawk Apps blog: DarkFi testnet announcement](https://nighthawkapps.com/blog/nighthawk-darkfi-wallet-suite-testnet/) — accessed 2026-08-12 — [archived](../sources/2026-08-12-nighthawkapps-com-blog-darkfi-testnet.html)
+- [wallets/nighthawk.md](../wallets/nighthawk.md) — primary note with full feature detail and citations
