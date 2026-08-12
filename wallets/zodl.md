@@ -138,5 +138,6 @@ The wallet publishes a formal invariant-centric threat model (`zodl-inc/zodl-pro
 | Google Play Store listing | https://play.google.com/store/apps/details?id=co.electriccoin.zcash | 2026-08-12 | [archived](../sources/2026-08-12-play-google-com-zodl-android.html) |
 | Zcash Android SDK README | https://github.com/zcash/zcash-android-wallet-sdk | 2026-08-12 | [archived](../sources/2026-08-12-github-zcash-android-sdk-README.md) |
 | ZIP 321: Payment Request URIs | https://zips.z.cash/zip-0321 | 2026-08-12 | [archived](../sources/2026-08-12-zips-z-cash-zip-0321.html) |
+| ECC blog: Zashi is now Zodl | https://electriccoin.co/blog/zashi-is-now-zodl (URL returns 404 at time of fact-check 2026-08-12; rebrand date confirmed via CHANGELOG and app store archives) | 2026-08-12 | [archived](../sources/2026-08-12-electriccoin-co-blog-zashi-is-now-zodl.html) |
 | CryptoNews: Zcash shielded pool 30% | https://cryptonews.net/news/analytics/32936591/ | 2026-08-10 | [archived](../sources/2026-08-10-crypto-news-net-zcash-shielded-pool-30pct.html) |
 | Coin Bureau: Best Zcash Wallets | https://coinbureau.com/analysis/best-zcash-wallets | 2026-08-10 | [archived](../sources/2026-08-10-coinbureau-com-best-zcash-wallets.html) |
