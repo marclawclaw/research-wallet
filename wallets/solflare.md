@@ -26,11 +26,11 @@ Solflare is the second-largest Solana wallet by monthly active users, founded in
 | Metric | Value | Date | Source |
 |--------|-------|------|--------|
 | Monthly active users | 4M+ | Mid-2025 / confirmed 2026 | Solflare homepage (self-reported); coinlaw.io (citing DeFi Dev Corp LOI, Aug 2025) |
-| Assets under management | $14.1B | 2026-08-12 (live figure from solflare.com homepage) | solflare.com |
+| Assets under management | $14.1B (App store description and Chrome Web Store list "$15B+" — updated less frequently than the live homepage counter; live stat was $14.1B at time of access 2026-08-12) | 2026-08-12 (live figure from solflare.com homepage) | solflare.com |
 | AUM (earlier figure) | $8.5B | DOT Ads case study (date unspecified, ~2024) | coinlaw.io citing DOT campaign case study |
 | iOS rating | 4.84 ★ (9,688 ratings) | 2026-07-30 (latest version date) | iTunes API — accessed 2026-08-12 |
 | iOS version | 2.24.0 | 2026-07-30 | iTunes API |
-| Android rating | 4.61 ★ (44,480 ratings) | 2026-08-12 | Google Play — accessed 2026-08-12 |
+| Android rating | 4.61 ★ (54,107 total reviews; 44,480 five-star) | 2026-08-12 | Google Play — accessed 2026-08-12 |
 | Android installs | 1M+ | 2026-08-12 | Google Play — accessed 2026-08-12 |
 | Ranking among Solana wallets | #2 (behind Phantom) | 2024–2026 | coinlaw.io citing DOT case study |
 | App Store aggregate (homepage) | "51k Ratings" | 2026-08-12 | solflare.com (aggregate iOS + Android) |
@@ -84,7 +84,7 @@ Solflare's staking interface is its most differentiated feature among Solana wal
 - **Native SOL staking:** Yes — delegates directly to validators via Solana's stake account system; creates a stake account and assigns delegation
 - **Stake accounts:** Separate `stake authority` and `withdrawal authority` per stake account (following Solana protocol)
 - **Validator selection UI:** Yes — lists validators with commission rates, APY, and uptime metrics; users select validators manually or by Solflare recommendations
-- **Liquid staking:** Yes — integrates with Marinade Finance (mSOL) and Jito (jitoSOL); accessible without leaving the wallet
+- **Liquid staking:** Yes — integrates with Marinade Finance (mSOL) and Jito (jitoSOL); accessible without leaving the wallet [secondary source only — coinbureau.com; not confirmed in Solflare primary documentation at time of archiving]
 - **Instant unstake:** Yes — via liquidity providers (Marinade pool etc.); fee applies; faster than the standard deactivation epoch (~2-3 days)
 - **Staking APY (network level):** ~7% APY (commonly cited network-level figure; actual varies by validator commission and network conditions)
 - **Total SOL staked via Solflare:** [NOT FOUND in primary sources] — earlier marketing figures cited "$14B in SOL staked" but this appears to be total AUM, not specifically staked; coinlaw.io notes institutional staking on Solana grew 300% YoY (network-wide, not Solflare-specific)
@@ -138,7 +138,7 @@ Solflare's security system, called "Solflare Guards," provides:
 
 | Component | Auditor | Date | Report status | Findings |
 |-----------|---------|------|--------------|----------|
-| MetaMask Snap (EVM bridge) | ConsenSys Diligence | August 2023 | Public (referenced; direct URL not cached) | 2 major findings: suppressed signing prompt, prompt injection — both marked fixed. Medium findings: derivation-path validation, public-key confirmation, origin validation — origin partially addressed. |
+| MetaMask Snap (EVM bridge) | ConsenSys Diligence | August 2023 | Public (referenced; direct URL not cached) (direct report URL returned a gateway error at time of archiving; claim sourced from coinbureau.com secondary coverage) | 2 major findings: suppressed signing prompt, prompt injection — both marked fixed. Medium findings: derivation-path validation, public-key confirmation, origin validation — origin partially addressed. |
 | Main extension / mobile / web wallet | [NOT FOUND] | — | No public report located | Not established |
 | Solflare Shield hardware | [NOT FOUND] | — | No independent audit located | Not established |
 
@@ -226,5 +226,5 @@ Solflare is **partially open source**:
 - [GitHub: solflare-wallet org repos](https://api.github.com/orgs/solflare-wallet/repos?per_page=100) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-orgs-solflare-repos-full.json)
 - [GitHub: solflare-wallet/solflare-snap](https://api.github.com/repos/solflare-wallet/solflare-snap) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-solflare-wallet-snap.json) — stars: 30; forks: 15
 - [iTunes API: com.solflare.mobile](https://itunes.apple.com/lookup?bundleId=com.solflare.mobile) — accessed 2026-08-12 — [archived](../sources/2026-08-12-itunes-apple-com-solflare.json) — v2.24.0; rating 4.84; 9,688 ratings
-- [Google Play: com.solflare.mobile](https://play.google.com/store/apps/details?id=com.solflare.mobile) — accessed 2026-08-12 — [archived](../sources/2026-08-12-play-google-com-solflare.html) — 1M+ installs; 44,480 reviews; rating 4.61
-- ConsenSys Diligence MetaMask Snap audit (August 2023) — referenced in coinbureau.com security review and in coinlaw.io — direct report URL not accessible from primary source in this session
+- [Google Play: com.solflare.mobile](https://play.google.com/store/apps/details?id=com.solflare.mobile) — accessed 2026-08-12 — [archived](../sources/2026-08-12-play-google-com-solflare.html) — 1M+ installs; 54,107 total reviews (44,480 five-star); rating 4.61
+- ConsenSys Diligence MetaMask Snap audit (August 2023) — referenced in coinbureau.com security review and in coinlaw.io — direct report URL returned a gateway error at time of archiving; `sources/2026-08-12-consensys-diligence-solflare-snap-audit.html` contains an error response, not the report; claim sourced from coinbureau.com secondary coverage

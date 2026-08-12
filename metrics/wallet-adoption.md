@@ -45,12 +45,12 @@ Cross-wallet adoption comparison for self-custody software wallets. All figures 
 | Wallet | GitHub stars | MAU | Market share | Date |
 |--------|-------------|-----|--------------|------|
 | Phantom | [NOT FOUND] (closed source) | 15–17M (2025 peak) | 39.4% Solana wallets | 2026-08-10 |
-| Solflare | [NOT FOUND] — main app repos not public; solflare-snap: 30 stars | 4M+ (mid-2025, confirmed 2026); AUM: $14.1B (live, 2026-08-12); earlier AUM: $8.5B (DOT case study ~2024) | #2 Solana wallet; behind Phantom (15–17M MAU) | iOS: v2.24.0, 4.84★ (9,688 ratings); Android: 1M+ installs, 44,480 reviews, 4.61★ | 2026-08-12 |
+| Solflare | [NOT FOUND] — main app repos not public; solflare-snap: 30 stars | 4M+ (mid-2025, confirmed 2026); AUM: $14.1B (live, 2026-08-12); earlier AUM: $8.5B (DOT case study ~2024) | #2 Solana wallet; behind Phantom (15–17M MAU) | iOS: v2.24.0, 4.84★ (9,688 ratings); Android: 1M+ installs, 54,107 total reviews (44,480 five-star), 4.61★ | 2026-08-12 |
 | Backpack | 1,650 | 100,000+ | [NOT FOUND] | 2026-08-10 |
 
 **Sources:**
 - Phantom: [coinlaw.io/phantom-wallet-statistics/](https://coinlaw.io/phantom-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-phantom-wallet-statistics.html)
-- Solflare: [coinlaw.io/solflare-wallet-statistics/](https://coinlaw.io/solflare-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-solflare-wallet-statistics.html) — updated 2026-04-02; 4M+ MAU per DeFi Dev Corp LOI (Aug 2025); iTunes API — accessed 2026-08-12 — [archived](../sources/2026-08-12-itunes-apple-com-solflare.json) (v2.24.0, 4.84★, 9,688 ratings); Google Play — accessed 2026-08-12 — [archived](../sources/2026-08-12-play-google-com-solflare.html) (1M+ installs, 44,480 reviews, 4.61★); AUM $14.1B live from [solflare.com](https://solflare.com) — accessed 2026-08-12 — [archived](../sources/2026-08-12-solflare-com-home.html)
+- Solflare: [coinlaw.io/solflare-wallet-statistics/](https://coinlaw.io/solflare-wallet-statistics/) — accessed 2026-08-10 — [archived](../sources/2026-08-10-coinlaw-io-solflare-wallet-statistics.html) — updated 2026-04-02; 4M+ MAU per DeFi Dev Corp LOI (Aug 2025); iTunes API — accessed 2026-08-12 — [archived](../sources/2026-08-12-itunes-apple-com-solflare.json) (v2.24.0, 4.84★, 9,688 ratings); Google Play — accessed 2026-08-12 — [archived](../sources/2026-08-12-play-google-com-solflare.html) (1M+ installs, 54,107 total reviews (44,480 five-star), 4.61★); AUM $14.1B live from [solflare.com](https://solflare.com) — accessed 2026-08-12 — [archived](../sources/2026-08-12-solflare-com-home.html)
 - Backpack: [GitHub API](https://api.github.com/repos/coral-xyz/backpack) — accessed 2026-08-10 — [archived](../sources/2026-08-10-github-com-coral-xyz-backpack.json)
 
 ## Monero wallets
