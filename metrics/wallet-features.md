@@ -81,13 +81,47 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 
 | Feature | MetaMask | Trust Wallet | Rabby | Rainbow |
 |---------|---------|-------------|-------|---------|
-| **Platforms** | Browser ext, iOS, Android | iOS, Android | Browser ext, iOS, Android, Desktop | iOS, Android, Browser ext |
-| **License** | [NF] | Apache-2.0 (wallet-core) | [NF] | [NF] |
-| **Architecture** | Browser-injected provider | Mobile app | Browser-injected provider | Mobile app |
-| **Lightning** | — | — | — | — |
-| **Hardware wallet** | Y (via MetaMask accounts) | [NF] | Y (Ledger, Trezor, OneKey, GridPlus) | [NF] |
-| **Multi-chain** | Y (EVM chains) | Y (100+ chains) | Y (EVM chains) | Y (ETH + Base + Solana) |
-| **Open-source** | Y (metamask-extension) | Y (wallet-core SDK) | Y | Y |
+| **Platforms** | Browser ext, iOS, Android | iOS, Android, Browser Extension (Chromium) | Browser ext, iOS, Android, Desktop | iOS, Android, Browser ext |
+| **License** | [NF] | Apache-2.0 (wallet-core only; mobile app not published) | [NF] | [NF] |
+| **Architecture** | Browser-injected provider | Mobile app (C++ wallet-core signing library + platform-native app); trust-web3-provider for DApp browser injection | Browser-injected provider | Mobile app |
+| **Language (core)** | JavaScript/TypeScript | C++ (wallet-core); Swift (iOS app); Kotlin (Android app) | TypeScript | React Native |
+| **Latest wallet-core version** | — | 4.7.3 (7 August 2026) | — | — |
+| **Key management** | BIP32 HD; BIP39 12-word | BIP32 HD; BIP39 12-word; BIP44 per-chain derivation via wallet-core (167 chains in registry, Aug 2026); encrypted cloud backup (AES-256-GCM, user password, optional) | BIP32 HD; BIP39 | BIP32 HD; BIP39 |
+| **Seed format** | BIP39 | BIP39 (12-word English) | BIP39 | BIP39 |
+| **Passphrase (BIP39 extension)** | [NF] | [NF] — not documented in official sources | [NF] | [NF] |
+| **Watch-only wallet** | [NF] | [NF] — no documented watch-only mode for mobile app | [NF] | [NF] |
+| **Lightning** | — | — (no Lightning support) | — | — |
+| **Hardware wallet** | Y (via MetaMask accounts) | **N** — no confirmed hardware wallet integration (accessed 2026-08-12) | Y (Ledger, Trezor, OneKey, GridPlus) | [NF] |
+| **Multi-chain** | Y (EVM chains) | **Y — 167 chains** (wallet-core registry, Aug 2026); EVM + Bitcoin, Solana, XRP, Cosmos, TON, Sui, Tron, Cardano, NEAR, Aptos, and others; **No Monero** (XMR absent from registry) | Y (EVM chains) | Y (ETH + Base + Solana) |
+| **DApp browser** | N (extension is DApp-facing) | Y (in-app browser, mobile); browser extension (Chromium) with window.trustwallet.ethereum injection | N (extension only) | [NF] |
+| **WalletConnect** | Y | **Y** — WalletConnect v2 (CAIP-25) for mobile-to-DApp connections | Y | Y |
+| **NFT support** | Y | Y (view, manage) | Y | Y |
+| **Staking** | [NF] | Y (ETH, BNB, SOL, ATOM, and others) | [NF] | [NF] |
+| **In-app swap** | Y | Y (DEX aggregators) | Y | Y |
+| **Buy crypto (fiat on-ramp)** | Y | Y (Coinbase Pay, Binance Pay, others) | [NF] | [NF] |
+| **Account abstraction (ERC-4337)** | [NF] | Y — Barz smart wallet ("SWIFT" feature); ERC-4337 modular upgradeable smart wallet | [NF] | [NF] |
+| **Air-gapped / PSBT signing** | N | **N** — mobile-first; no PSBT or offline signing workflow | N | N |
+| **Multisig (EOA)** | N | **N** — EOA wallet is single-key; Barz supports ERC-4337 multi-signer | Y (Gnosis Safe integration) | N |
+| **Tor support** | N | **N** — no built-in Tor or proxy configuration | N | N |
+| **Encrypted cloud backup** | N | **Y** (optional; AES-256-GCM; stored in iCloud/Google Drive; user-controlled password; Trust Wallet does not hold key) | N | N |
+| **Reproducible builds** | [NF] | **[NF]** — no documented reproducible-build process or multi-signer attestation for mobile app | [NF] | [NF] |
+| **F-Droid** | N | **[NF]** — no official F-Droid listing found (2026-08-12) | N | N |
+| **Open-source (signing lib)** | Y (metamask-extension) | **Y** — wallet-core Apache-2.0 | Y | Y |
+| **Open-source (app)** | Y | **N** — mobile app code not published; iOS and Android repos are archived (old, inactive) | Y | Y |
+| **Security audit** | [NF] | Y — Kudelski Security, Sept 2023 (wallet-core Starknet cryptography only; 6 low-severity findings; no critical/high/medium); 2022 browser extension WASM entropy incident (~$170K drained) — mobile not affected | [NF] | [NF] |
+| **Binance ownership** | N | **Yes** — acquired 2018; entity: Dapps Platform Bahrain W.L.L; self-custody confirmed; no Binance account required; sovereignty/regulatory implications unresolved | N | N |
+
+**Sources for Trust Wallet column (updated 2026-08-12):**
+- [wallet-core README](https://raw.githubusercontent.com/trustwallet/wallet-core/master/README.md) — accessed 2026-08-12 — [archived](../sources/2026-08-12-github-com-trustwallet-wallet-core-README.md)
+- [wallet-core registry.json](https://raw.githubusercontent.com/trustwallet/wallet-core/master/registry.json) — accessed 2026-08-12 — [archived](../sources/2026-08-12-trustwallet-wallet-core-registry.json)
+- [GitHub API: trustwallet/wallet-core](https://api.github.com/repos/trustwallet/wallet-core) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-trustwallet-wallet-core.json)
+- [GitHub API: trustwallet/trust-wallet-ios](https://api.github.com/repos/trustwallet/trust-wallet-ios) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-trustwallet-trust-wallet-ios.json)
+- [GitHub API: trustwallet/trust-wallet-android-source](https://api.github.com/repos/trustwallet/trust-wallet-android-source) — accessed 2026-08-12 — [archived](../sources/2026-08-12-api-github-com-trustwallet-trust-wallet-android-source.json)
+- [Google Play listing](https://play.google.com/store/apps/details?id=com.wallet.crypto.trustapp) — accessed 2026-08-12 — [archived](../sources/2026-08-12-play-google-com-trust-wallet.html)
+- [trustwallet.com homepage](https://trustwallet.com) — accessed 2026-08-12 — [archived](../sources/2026-08-12-trustwallet-com-home.html)
+- [Trust Wallet Privacy Notice (Oct 2025)](https://trustwallet.com/privacy-policy) — accessed 2026-08-12 — [archived](../sources/2026-08-12-trustwallet-com-privacy-policy.html)
+- [Kudelski Security audit PDF (2023-09-15)](https://raw.githubusercontent.com/trustwallet/wallet-core/master/audit/2023-09-15_TrustWallet_SecureCodeReviewReport_Public_v2.00.pdf) — accessed 2026-08-12 — [archived](../sources/2026-08-12-trustwallet-wallet-core-audit-2023-09.pdf)
+- [Trust Wallet Developer Docs (full text)](https://developer.trustwallet.com/developer/llms-full.txt) — accessed 2026-08-12 — [archived](../sources/2026-08-12-developer-trustwallet-com-llms-full.txt)
 
 ## Solana wallets
 
