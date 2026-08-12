@@ -22,7 +22,7 @@ applies_to: [rabby]
 
 | Repo | Stars | Forks | Contributors | Latest version | Updated |
 |------|-------|-------|--------------|---------------|---------|
-| [RabbyHub/Rabby](https://github.com/RabbyHub/Rabby) (extension) | 1,878 | 593 | 65 | v0.94.2 (7 Aug 2026) | 11 Aug 2026 |
+| [RabbyHub/Rabby](https://github.com/RabbyHub/Rabby) (extension) | 1,878 | 593 | 72 | v0.94.2 (7 Aug 2026) | 12 Aug 2026 |
 | [RabbyHub/rabby-mobile](https://github.com/RabbyHub/rabby-mobile) (monorepo) | 77 | 37 | [NOT FOUND] | v0.6.84 (mobile app) | 10 Aug 2026 |
 | [RabbyHub/RabbyDesktop](https://github.com/RabbyHub/RabbyDesktop) | 67 | 30 | [NOT FOUND] | [NOT FOUND] | 18 Jul 2026 |
 
