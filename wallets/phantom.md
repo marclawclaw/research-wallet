@@ -14,7 +14,7 @@ Phantom is the dominant Solana-native self-custody wallet, expanded to a multi-c
 - **Company:** Phantom Technologies Inc., Delaware (US)
 - **Founded:** 2021
 - **CEO / co-founder:** Brandon Millman
-- **Funding:** $268M total — Series A: $9M; Series B: $109M (a16z led); Series C: $150M co-led by Sequoia Capital and Paradigm at a $3 billion valuation (2025); investors include a16z crypto
+- **Funding:** $268M total — Series A: $9M (a16z led); Series B: $109M (Paradigm led; a16z, Variant, Solana Ventures, Jump Crypto participated); Series C: $150M co-led by Sequoia Capital and Paradigm at a $3 billion valuation (2025)
 - **Source:** [phantom.com/learn/blog/phantom-series-c](https://phantom.com/learn/blog/phantom-series-c) — accessed 2026-08-12 — [archived](../sources/2026-08-12-phantom-com-series-c.html)
 
 ## Supported Platforms

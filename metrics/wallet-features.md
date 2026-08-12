@@ -143,7 +143,7 @@ Feature comparison for self-custody software wallets across Bitcoin, Ethereum/EV
 | **Key management** | BIP39 12-word; SLIP-10 ed25519 `m/44'/501'/0'/0'` (Solana); BIP44 `m/44'/60'/0'/0/n` (EVM); BIP84 (BTC) | [NF] | [NF] |
 | **Seed format** | BIP39 12-word | [NF] | [NF] |
 | **Passphrase (25th word)** | [NF] — not confirmed | [NF] | [NF] |
-| **Hardware wallet** | Y — Ledger (USB/WebHID) on extension; mobile HW wallet [NF] | Y (Ledger) | [NF] |
+| **Hardware wallet** | Y (Ledger — extension only; mobile HW: [NF]) | Y (Ledger) | [NF] |
 | **Multi-chain** | Y — 8 chains: Solana, Ethereum, Bitcoin (+ Ordinals/BRC-20), Base, Polygon, Sui, Hyperliquid, Monad | P | Y |
 | **Transaction simulation** | Y — pre-signing token balance change preview; scam detection | [NF] | [NF] |
 | **Phishing blocklist** | Y — open-source domain blocklist (github.com/phantom/blocklist) | [NF] | [NF] |
